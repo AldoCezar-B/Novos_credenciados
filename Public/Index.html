@@ -10,22 +10,21 @@
 
 </head>
 
-<Script>
-    function refreshPage() {
-        location.reload();
-    }
-</Script>
 
 <body>
-    <header>
-        <div class="header_1"><a href="https://www.cassi.com.br/" target="_blank"><img src="../img/logocassibr.png"
-                    alt="logo" class="logo_l" height="60" width="80"></a>
 
-            <img src="../img/InovaRede_Ampliou.png" alt="logo" class="logo_r" height="60" width="80">
+    <div class="header-container" id="headerContainer">
 
-        </div>
+        <header class="header-container" id="mainHeader">
+            <div class="header_1"><a href="https://www.cassi.com.br/" target="_blank"><img src="../img/logocassibr.png"
+                        alt="logo" class="logo_l" height="60" width="80"></a>
 
-    </header>
+                <img src="../img/InovaRede_Ampliou.png" alt="logo" class="logo_r" height="60" width="80">
+
+            </div>
+
+        </header>
+    </div>
     <div class="state-container">
         <nav class="state">
             <ul>
@@ -61,17 +60,7 @@
     </div>
     <div class="container">
 
-        <div class="informativos">
 
-
-            <div class="div-info">
-                aaaaa
-            </div>
-            <div class="div-info">
-                aaaaa
-            </div>
-
-        </div>
 
 
 
@@ -493,6 +482,14 @@
     </footer>
 
     <script>
+
+       
+        // Script Refresh
+
+        function refreshPage() {
+            location.reload();
+        }
+        
         // Dados iniciais vazios
         let credenciados = [];
         const estados = {

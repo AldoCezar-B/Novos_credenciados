@@ -48,11 +48,13 @@ body {
 header {
     background: linear-gradient(135deg, #1a6fc4 0%, #00478f 100%);
     color: rgb(233, 218, 12);
-    padding: 0;
+    margin: 0 10px ;
+    padding: 0 auto;
     text-align: center;
     border-radius: 0 0 15px 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
+
 
 .container {
     max-width: 90%; /* Alterado para 100% */
@@ -544,7 +546,7 @@ img {
     align-items: center;
     justify-content: space-between;
     /* distribui os itens nas extremidades */
-    height: 100px;
+    height: 100px;   
     padding: 0 10px;
     /* espaçamento interno opcional */
 }
@@ -913,10 +915,8 @@ img {
     border-radius: 10px;
     padding:  5px 10px;
     margin: 20px 10px; 
-    list-style: none;
-    height:fit-content ;
+        height:fit-content ;
     min-height: 0;
     min-width: 0;
     
 }
-

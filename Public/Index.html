@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../Style/style.css">
 
 
+
 </head>
 
 
@@ -16,10 +17,13 @@
     <div class="header-container" id="headerContainer">
 
         <header class="header-container" id="mainHeader">
-            <div class="header_1"><a href="https://www.cassi.com.br/" target="_blank"><img src="../img/logocassibr.png"
-                        alt="logo" class="logo_l" height="60" width="80"></a>
+            <div class="header_1">
+                <a href="https://www.cassi.com.br/" target="_blank"><img src="../img/logocassibr.png" alt="logo"
+                        class="logo_l" height="60" width="80"></a>
 
-                <img src="../img/InovaRede_Ampliou.png" alt="logo" class="logo_r" height="60" width="80">
+                <a href="https://ms3.tapcore.com.br/site/mobile-guia/v2/descredenciados/web/painel/get_descredenciados?id_operadora=19&id_estado=AC&id_plano=8"
+                    target="_blank"><img src="../img/InovaRede_Ampliou.png" alt="logo" class="logo_r" height="60"
+                        width="80"></a>
 
             </div>
 
@@ -482,14 +486,46 @@
     </footer>
 
     <script>
+        // Adicione este script ao seu HTML
+        document.addEventListener('DOMContentLoaded', function () {
+            const header = document.querySelector('header');
+            let collapseTimer;
 
-       
+            // Função para recolher o header
+            function collapseHeader() {
+                header.classList.add('collapsed');
+            }
+
+            // Inicia o timer para recolher após 5 segundos (5000ms)
+            function startCollapseTimer() {
+                collapseTimer = setTimeout(collapseHeader, 5000);
+            }
+
+            // Cancela o timer quando o mouse está sobre o header
+            function cancelCollapse() {
+                clearTimeout(collapseTimer);
+                header.classList.remove('collapsed');
+            }
+
+            // Reinicia o timer quando o mouse sai do header
+            function restartCollapseTimer() {
+                startCollapseTimer();
+            }
+
+            // Event listeners
+            header.addEventListener('mouseenter', cancelCollapse);
+            header.addEventListener('mouseleave', restartCollapseTimer);
+
+            // Inicia o timer inicial
+            startCollapseTimer();
+        });
+
         // Script Refresh
 
         function refreshPage() {
             location.reload();
         }
-        
+
         // Dados iniciais vazios
         let credenciados = [];
         const estados = {

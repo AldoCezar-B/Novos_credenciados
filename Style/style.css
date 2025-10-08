@@ -45,14 +45,67 @@ body {
 
 }
 
+/* Estilos para o header recolhível */
 header {
     background: linear-gradient(135deg, #1a6fc4 0%, #00478f 100%);
     color: rgb(233, 218, 12);
-    margin: 0 10px ;
+    margin: 0 10px;
     padding: 0 auto;
     text-align: center;
     border-radius: 0 0 15px 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    
+    /* Transição suave para a altura */
+    transition: all 0.5s ease;
+    overflow: hidden;
+    
+    /* Altura inicial (expandida) */
+    height: auto;
+    max-height: 200px; /* Ajuste conforme necessário */
+}
+
+/* Classe para quando o header estiver recolhido */
+header.collapsed {
+    max-height: 60px; /* Altura quando recolhido */
+}
+
+/* Efeito hover para expandir */
+header:hover {
+    max-height: 200px; /* Volta à altura original */
+}
+
+/* Ajustes para o conteúdo do header quando recolhido */
+header.collapsed .header_1 {
+    height: 60px; /* Reduz a altura do container interno */
+    padding: 5px 0; /* Reduz o padding */
+}
+
+header.collapsed .logo_l,
+header.collapsed .logo_r {
+    height: 40px; /* Logos menores quando recolhido */
+    margin: 0 20px; /* Margens reduzidas */
+}
+
+header.collapsed .cab-text {
+    font-size: 18px; /* Texto menor quando recolhido */
+    margin-right: 15px;
+}
+
+/* Esconde elementos secundários quando recolhido */
+header.collapsed .informativos {
+    opacity: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    transition: opacity 0.3s ease, height 0.3s ease;
+}
+
+/* Mostra novamente ao passar o mouse */
+header:hover .informativos {
+    opacity: 1;
+    height: auto;
+    margin: 5px 5rem;
+    padding: 2px;
 }
 
 

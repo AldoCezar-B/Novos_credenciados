@@ -228,7 +228,7 @@ header:hover .informativos {
 }
 
 #svg-map a.selected text {
-    fill: var(--Cassi-Silver) !important;
+    fill: var(--intra-white) !important;
     font-weight: bold !important;
 }
 
@@ -244,13 +244,13 @@ header:hover .informativos {
 /*-------------------------------------------------------------*/
 
 #svg-map a:hover path {
-    fill: var(--New_Yellow) !important;
+    fill: var(--intra-white) !important;
 }
 
 
 /* circulo no mapa areas menores */
 #svg-map .circle {
-    fill: var(--New_Yellow)
+    fill: var(--intra-white)
 }
 
 #svg-map a:hover .circle {

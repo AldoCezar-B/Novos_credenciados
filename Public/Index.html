@@ -648,7 +648,7 @@
                 errorElement.style.display = 'none';
                 errorElement.textContent = '';
 
-                const response = await fetch('../Data/base_credenciados.csv');
+                const response = await fetch('../Data/base_credenciados_2025.csv');
 
                 if (!response.ok) {
                     throw new Error(`Erro ${response.status}: ${response.statusText}`);

@@ -167,9 +167,16 @@ header:hover .informativos {
 
 .state-title {
     display: flex;
-    text-align: center;
+    text-align: center !important;
+    
     margin-bottom: 1.5rem;
     color: #ffffff;
+    font-size: 1.8rem;
+}
+.state-title_map{
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--intra-white);
     font-size: 1.8rem;
 }
 

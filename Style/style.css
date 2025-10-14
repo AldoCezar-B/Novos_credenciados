@@ -887,7 +887,7 @@ img {
         padding: 0.5rem;
         gap: 0.8rem;
         max-height: 400px; /* Um pouco mais alto */
-        margin: 0; /* Remove margens externas */
+        margin: 0 auto; /* Remove margens externas */
         border: 3px solid var(--Cassi-Silver); /* Borda mais fina */
     }
 
@@ -1112,7 +1112,11 @@ img {
     
     /* Ajustes adicionais para melhor aproveitamento do espaço */
     .state-container {
-        margin: 5px 0;
+        margin: 5px 10px;
+    }
+
+    .container{
+        max-width: 100%;
     }
 }
 

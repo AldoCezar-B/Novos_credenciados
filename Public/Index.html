@@ -78,7 +78,7 @@
 
         <div class="content-wrapper">
             <section class="credenciados-section">
-               <!-- <button class="refresh" onclick="refreshPage()"><img
+                <!-- <button class="refresh" onclick="refreshPage()"><img
                         src="https://img.icons8.com/?size=100&id=11253&format=png&color=ffffff" alt="horario"
                         width="20px" style="align-items: center;">
                 </button>-->
@@ -518,7 +518,6 @@
         });
 
         // Script Refresh
-
         function refreshPage() {
             location.reload();
         }
@@ -548,6 +547,15 @@
 
         let selectedState = null;
 
+        // Função para obter o nome a ser exibido
+        function getDisplayName(credenciado) {
+            // Se nome_1 estiver vazio, usar nome_2
+            if (!credenciado.nome_1 || credenciado.nome_1.trim() === '') {
+                return credenciado.nome_2 || "";
+            }
+            return credenciado.nome_1;
+        }
+
         // Função para processar o CSV
         function processCSV(csvData) {
             const lines = csvData.split('\n');
@@ -564,32 +572,20 @@
                     credenciados.push({
                         nome_1: columns[0]?.trim() || "",
                         nome_2: columns[1]?.trim() || "",
-
                         estado: columns[6]?.trim() || "",
                         regiao_saude: columns[7]?.trim() || "",
-
                         categoria: columns[8]?.trim() || "",
-
                         ddd_tel_1: columns[9]?.trim() || "",
                         telefone_1: columns[10]?.trim() || "",
-                        
                         ddd_tel_2: columns[11]?.trim() || "",
                         telefone_2: columns[12]?.trim() || "",
-
                         numero: columns[2]?.trim() || "",
                         logradouro: columns[3]?.trim() || "",
                         bairo: columns[4]?.trim() || "",
                         municipio: columns[5]?.trim() || "",
-
                         ddd_cel: columns[13]?.trim() || "",
                         celular: columns[14]?.trim() || "",
-
                         data_cred: columns[15]?.trim() || ""
-
-
-
-
-
                     });
                 }
             }
@@ -645,7 +641,6 @@
             displayCredenciados(firstFive);
         }
 
-
         // Função para carregar o CSV
         async function loadRemoteCSV() {
             try {
@@ -676,8 +671,7 @@
             }
         }
 
-        // Função para exibir os credenciados aqui oh
-
+        // Função para exibir os credenciados
         function displayCredenciados(credenciadosToDisplay) {
             cardsContainer.innerHTML = '';
             const searchTerm = searchInput.value.toLowerCase();
@@ -700,7 +694,6 @@
             };
 
             // Função para formatar categorias como lista
-            // Função para formatar categorias como lista
             const formatCategory = (category, term) => {
                 if (!category) return '<span class="no-category">Nenhuma especialidade informada</span>';
 
@@ -722,105 +715,86 @@
                 ).join('');
 
                 return `<div class="specialty-list">${specialtyItems}</div>`;
-
             };
 
-
-
-
-
-
-
-
-            // Criar cards para cada credenciado aquiiiii
-
-
+            // Criar cards para cada credenciado
             credenciadosToDisplay.forEach(credenciado => {
                 const card = document.createElement('div');
                 card.className = 'card';
 
-                card.innerHTML = `
-            <div class="card-header">
-                
-                <div class="state-badge">  ${credenciado.estado}</div>
-                <h3 class="fantasia">${highlightText(credenciado.nome_2, searchTerm)}</h3>
-                <img src="https://img.icons8.com/?size=100&id=37352&format=png&color=FFFFFF" 
-                     alt="Expandir" class="toggle-icon">
-            </div>
-            <div class="card-body">
-                <div class="card-info category-card">
-                    <div class="info-header">
-                        <div class="info-content">
-                            <img src="https://img.icons8.com/?size=100&id=8169&format=png&color=2F54CF" alt="Especialidades" class="ico">
-                            <p class="information">Especialidades</p>
-                        </div>
-                        <img src="https://img.icons8.com/?size=100&id=37352&format=png&color=2F54CF" 
-                             alt="Expandir" class="toggle-icon small category-toggle">
-                    </div>
-                    <div class="info-details">
-                        
-                        ${formatCategory(credenciado.categoria, searchTerm)}
-                    </div>
-                </div>
-                <div class="divisao"></div>
-                <!-- Restante do card permanece igual -->
-                <div class="card-info">
-                    <div class="info-header">
-                        <div class="info-content">
-                            <img src="https://img.icons8.com/?size=100&id=9659&format=png&color=2F54CF" alt="Telefone" class="ico">
-                            <p class="information">Contato</p>
-                        </div>
-                        <img src="https://img.icons8.com/?size=100&id=37352&format=png&color=2F54CF" 
-                             alt="Expandir" class="toggle-icon small">
-                    </div>
-                    <div class="info-details">
-                         <ul>
-                            <li class="dados">
-                                Celular: ${credenciado.ddd_cel}
-                                 ${credenciado.celular}
-                            </li>
-                            <li class="dados">
-                                Telefone 1:  ${credenciado.ddd_tel_1} ${credenciado.telefone_1}
-                            </li>
-                            <li class="dados">
-                                Telefone 2: ${credenciado.ddd_tel_2} ${credenciado.telefone_2}
-                            </li>
-                            
-                         </ul>
+                // Obter o nome a ser exibido
+                const displayName = getDisplayName(credenciado);
 
-                        
-                        
-                    </div>
+                card.innerHTML = `
+                <div class="card-header">
+                    <div class="state-badge">${credenciado.estado}</div>
+                    <h3 class="fantasia">${highlightText(displayName, searchTerm)}</h3>
+                    <img src="https://img.icons8.com/?size=100&id=37352&format=png&color=FFFFFF" 
+                         alt="Expandir" class="toggle-icon">
                 </div>
-                
-                <div class="card-info">
-                    <div class="info-header">
-                        <div class="info-content">
-                            <img src="https://img.icons8.com/?size=100&id=YyEbAVyRYrMX&format=png&color=2F54CF" alt="Localização" class="ico">
-                            <p class="information">Endereço</p>
+                <div class="card-body">
+                    <div class="card-info category-card">
+                        <div class="info-header">
+                            <div class="info-content">
+                                <img src="https://img.icons8.com/?size=100&id=8169&format=png&color=2F54CF" alt="Especialidades" class="ico">
+                                <p class="information">Especialidades</p>
+                            </div>
+                            <img src="https://img.icons8.com/?size=100&id=37352&format=png&color=2F54CF" 
+                                 alt="Expandir" class="toggle-icon small category-toggle">
                         </div>
-                        <img src="https://img.icons8.com/?size=100&id=37352&format=png&color=2F54CF" 
-                             alt="Expandir" class="toggle-icon small">
+                        <div class="info-details">
+                            ${formatCategory(credenciado.categoria, searchTerm)}
+                        </div>
                     </div>
-                    <div class="info-details">
-                        <li class="dados">  ${credenciado.logradouro}, ${credenciado.numero}, ${credenciado.bairo}, ${credenciado.municipio} - ${credenciado.estado}
-                        </li>                       
+                    <div class="divisao"></div>
+                    <div class="card-info">
+                        <div class="info-header">
+                            <div class="info-content">
+                                <img src="https://img.icons8.com/?size=100&id=9659&format=png&color=2F54CF" alt="Telefone" class="ico">
+                                <p class="information">Contato</p>
+                            </div>
+                            <img src="https://img.icons8.com/?size=100&id=37352&format=png&color=2F54CF" 
+                                 alt="Expandir" class="toggle-icon small">
+                        </div>
+                        <div class="info-details">
+                            <ul>
+                                <li class="dados">
+                                    Celular: ${credenciado.ddd_cel}
+                                    ${credenciado.celular}
+                                </li>
+                                <li class="dados">
+                                    Telefone 1:  ${credenciado.ddd_tel_1} ${credenciado.telefone_1}
+                                </li>
+                                <li class="dados">
+                                    Telefone 2: ${credenciado.ddd_tel_2} ${credenciado.telefone_2}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="card-info">
+                        <div class="info-header">
+                            <div class="info-content">
+                                <img src="https://img.icons8.com/?size=100&id=YyEbAVyRYrMX&format=png&color=2F54CF" alt="Localização" class="ico">
+                                <p class="information">Endereço</p>
+                            </div>
+                            <img src="https://img.icons8.com/?size=100&id=37352&format=png&color=2F54CF" 
+                                 alt="Expandir" class="toggle-icon small">
+                        </div>
+                        <div class="info-details">
+                            <li class="dados">${credenciado.logradouro}, ${credenciado.numero}, ${credenciado.bairo}, ${credenciado.municipio} - ${credenciado.estado}
+                            </li>                       
+                        </div>
                     </div>
                 </div>
-            </div>
-        `;
+            `;
 
                 cardsContainer.appendChild(card);
             });
 
             // Adicionar eventos de clique após criar os cards
             addCardEvents();
-
         }
-
-
-        // Função para exibir os credenciados acaba aqui aqui oh
-
 
         // Função para adicionar eventos de clique aos cards
         function addCardEvents() {
@@ -868,12 +842,16 @@
             // Filtrar por termo de busca se existir
             if (searchTerm) {
                 filtered = filtered.filter(credenciado => {
+                    // Usar a mesma lógica do getDisplayName para busca
+                    const displayName = getDisplayName(credenciado);
+
                     return (
-                        (credenciado.nome_2 && credenciado.nome_2.toLowerCase().includes(searchTerm)) ||
+                        (displayName && displayName.toLowerCase().includes(searchTerm)) ||
                         (credenciado.municipio && credenciado.municipio.toLowerCase().includes(searchTerm)) ||
                         (credenciado.categoria && credenciado.categoria.toLowerCase().includes(searchTerm)) ||
                         (credenciado.regiao_saude && credenciado.regiao_saude.toLowerCase().includes(searchTerm)) ||
-                        (credenciado.nome_1 && credenciado.nome_1.toLowerCase().includes(searchTerm))
+                        (credenciado.nome_1 && credenciado.nome_1.toLowerCase().includes(searchTerm)) ||
+                        (credenciado.nome_2 && credenciado.nome_2.toLowerCase().includes(searchTerm))
                     );
                 });
             }
@@ -888,7 +866,6 @@
             displayCredenciados(filtered);
         }
 
-
         // Event listeners
         document.addEventListener('DOMContentLoaded', function () {
             // Adicionar eventos para os estados no mapa
@@ -897,7 +874,6 @@
                     stateElements.forEach(s => s.classList.remove('selected'));
                     state.classList.add('selected');
                     selectedState = state.id;
-                    searchInput.addEventListener('input', filterCredenciados);
 
                     // Atualizar menu de estados
                     stateMenuItems.forEach(item => {
@@ -956,10 +932,6 @@
             // Iniciar carregamento
             loadRemoteCSV();
         });
-
-
-
-
     </script>
 </body>
 

@@ -480,7 +480,7 @@
         </div>
     </div>
 
-    
+
 
     <script>
         // Adicione este script ao seu HTML
@@ -569,13 +569,24 @@
                         regiao_saude: columns[7]?.trim() || "",
 
                         categoria: columns[8]?.trim() || "",
-                        telefone: columns[9]?.trim() || "",
-                        telefone2: columns[10]?.trim() || "",
+
+                        ddd_tel_1: columns[9]?.trim() || "",
+                        telefone_1: columns[10]?.trim() || "",
+                        
+                        ddd_tel_2: columns[11]?.trim() || "",
+                        telefone_2: columns[12]?.trim() || "",
 
                         numero: columns[2]?.trim() || "",
                         logradouro: columns[3]?.trim() || "",
                         bairo: columns[4]?.trim() || "",
                         municipio: columns[5]?.trim() || "",
+
+                        ddd_cel: columns[13]?.trim() || "",
+                        celular: columns[14]?.trim() || "",
+
+                        data_cred: columns[15]?.trim() || ""
+
+
 
 
 
@@ -642,7 +653,7 @@
                 errorElement.style.display = 'none';
                 errorElement.textContent = '';
 
-                const response = await fetch('../Data/base_setembro.csv');
+                const response = await fetch('../Data/base_credenciados.csv');
 
                 if (!response.ok) {
                     throw new Error(`Erro ${response.status}: ${response.statusText}`);
@@ -765,10 +776,14 @@
                     <div class="info-details">
                          <ul>
                             <li class="dados">
-                                 ${credenciado.telefone}
+                                Celular: ${credenciado.ddd_cel}
+                                 ${credenciado.celular}
                             </li>
                             <li class="dados">
-                                 ${credenciado.telefone2}
+                                Telefone 1:  ${credenciado.ddd_tel_1} ${credenciado.telefone_1}
+                            </li>
+                            <li class="dados">
+                                Telefone 2: ${credenciado.ddd_tel_2} ${credenciado.telefone_2}
                             </li>
                             
                          </ul>

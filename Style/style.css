@@ -647,8 +647,10 @@ img {
     right: -5px;
     background-color: var(--intra-yellow);
     color: var(--intra-dark-blue);
-    border-radius: 50%;
-    width: 22px;
+    border-radius: 5px;
+    width: fit-content;
+    padding: 2px;
+    min-width: 22px;
     height: 22px;
     display: flex;
     justify-content: center;

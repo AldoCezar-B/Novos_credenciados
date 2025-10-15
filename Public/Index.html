@@ -18,9 +18,10 @@
 
         <header class="header-container" id="mainHeader">
             <div class="header_1">
+                <!--
                 <a href="https://www.cassi.com.br/" target="_blank"><img src="../img/logocassibr.png" alt="logo"
                         class="logo_l" height="60" width="80"></a>
-
+-->
                 <a href="https://ms3.tapcore.com.br/site/mobile-guia/v2/descredenciados/web/painel/get_descredenciados?id_operadora=19&id_estado=AC&id_plano=8"
                     target="_blank"><img src="../img/InovaRede_Ampliou.png" alt="logo" class="logo_r" height="60"
                         width="80"></a>
@@ -28,6 +29,13 @@
             </div>
 
         </header>
+        <nav>
+            <div style="height: 80px; color: #000000;">
+                <h2 class="header_2">Acompanhe as melhorias recentes na rede CASSI</h2>
+                <p class="header_2">Clique no seu estado e conheça os novos Credenciados</p>
+
+            </div>
+        </nav>
     </div>
 
 
@@ -84,6 +92,8 @@
                         width="20px" style="align-items: center;">
                 </button>-->
                 <h2 class="state-title" id="state-title">Credenciados em Destaque</h2>
+                <p style="color: #000000; padding-left: 10px; "> Busque por UF, nome do prestador ou tipo de serviço
+                </p>
 
 
                 <div class="search-box">
@@ -100,7 +110,7 @@
             </section>
 
             <section class="map-section">
-                <h2 class="state-title_map">Selecione um estado no mapa</h2>
+                <h2 class="state-title_map">Selecione um estado</h2>
                 <svg version="1.1" id="svg-map" xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="450px" height="460px"
                     viewBox="0 0 450 460" enable-background="new 0 0 450 460" xml:space="preserve">
@@ -638,7 +648,7 @@
         // Função para exibir os primeiros  credenciados verificar a quantidade para exibicao
         function displayFirstFiveCredenciados() {
             const firstFive = credenciados.slice(0, 6);
-            stateTitle.textContent = "Novos Credenciados em Destaque";
+            stateTitle.textContent = "Novos Credenciados";
             displayCredenciados(firstFive);
         }
 
@@ -730,17 +740,17 @@
                 <div class="card-header">
                     <div class="state-badge">${credenciado.estado}</div>
                     <h3 class="fantasia">${highlightText(displayName, searchTerm)}</h3>
-                    <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=ffffff" 
+                    <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=002D4B" 
                          alt="Expandir" class="toggle-icon">
                 </div>
                 <div class="card-body">
                     <div class="card-info category-card">
                         <div class="info-header">
                             <div class="info-content">
-                                <img src="https://img.icons8.com/?size=100&id=8169&format=png&color=2F54CF" alt="Especialidades" class="ico">
+                                <img src="https://img.icons8.com/?size=100&id=8169&format=png&color=002D4B" alt="Especialidades" class="ico">
                                 <p class="information">Especialidades</p>
                             </div>
-                            <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=2F54CF" 
+                            <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=002D4B" 
                                  alt="Expandir" class="toggle-icon small category-toggle">
                         </div>
                         <div class="info-details">
@@ -751,7 +761,7 @@
                     <div class="card-info">
                         <div class="info-header">
                             <div class="info-content">
-                                <img src="https://img.icons8.com/?size=100&id=9659&format=png&color=2F54CF" alt="Telefone" class="ico">
+                                <img src="https://img.icons8.com/?size=100&id=9659&format=png&color=002D4B" alt="Telefone" class="ico">
                                 <p class="information">Contato</p>
                             </div>
                             <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=2F54CF" 
@@ -777,7 +787,7 @@
                     <div class="card-info">
                         <div class="info-header">
                             <div class="info-content">
-                                <img src="https://img.icons8.com/?size=100&id=YyEbAVyRYrMX&format=png&color=2F54CF" alt="Localização" class="ico">
+                                <img src="https://img.icons8.com/?size=100&id=YyEbAVyRYrMX&format=png&color=002D4B" alt="Localização" class="ico">
                                 <p class="information">Endereço</p>
                             </div>
                             <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=2F54CF" 

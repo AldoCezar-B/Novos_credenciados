@@ -581,22 +581,29 @@
                 const columns = lines[i].split(';');
                 if (columns.length >= 6) {
                     credenciados.push({
-                        nome_1: columns[0]?.trim() || "",
-                        nome_2: columns[1]?.trim() || "",
-                        estado: columns[6]?.trim() || "",
-                        regiao_saude: columns[7]?.trim() || "",
-                        categoria: columns[8]?.trim() || "",
-                        ddd_tel_1: columns[9]?.trim() || "",
-                        telefone_1: columns[10]?.trim() || "",
-                        ddd_tel_2: columns[11]?.trim() || "",
-                        telefone_2: columns[12]?.trim() || "",
-                        numero: columns[2]?.trim() || "",
-                        logradouro: columns[3]?.trim() || "",
-                        bairo: columns[4]?.trim() || "",
-                        municipio: columns[5]?.trim() || "",
-                        ddd_cel: columns[13]?.trim() || "",
-                        celular: columns[14]?.trim() || "",
-                        data_cred: columns[15]?.trim() || ""
+                        nome_1: columns[0]?.trim() || "", // NO_PRESTADOR
+                        nome_2: columns[1]?.trim() || "", // FANTASIA
+                        preferencia: columns[2]?.trim() || "", // NO_LIVRO
+
+                        cep: columns[3]?.trim() || "", // CEP
+                        numero: columns[4]?.trim() || "", // NUMERO
+
+                        logradouro: columns[5]?.trim() || "", // LOGRADOURO
+                        bairo: columns[6]?.trim() || "", // BAIRRO
+                        municipio: columns[7]?.trim() || "", // MUNICIPIO
+                        estado: columns[8]?.trim() || "", // UF
+                        regiao_saude: columns[9]?.trim() || "", // REGIAO_SAUDE
+
+                        categoria: columns[10]?.trim() || "", // ESPECIALIDADES
+
+                        ddd_tel_1: columns[11]?.trim() || "", // DDD_TELEFONE1
+                        telefone_1: columns[12]?.trim() || "", // TELEFONE1
+                        ddd_tel_2: columns[13]?.trim() || "", // DDD_TELEFONE2
+                        telefone_2: columns[14]?.trim() || "", // TELEFONE2
+
+                        ddd_cel: columns[15]?.trim() || "", // DDD_CELULAR
+                        celular: columns[16]?.trim() || "", // CELULAR
+                        data_cred: columns[17]?.trim() || "" // DT_CREDENCIAMENTO
                     });
                 }
             }
@@ -794,7 +801,7 @@
                                  alt="Expandir" class="toggle-icon small">
                         </div>
                         <div class="info-details">
-                            <li class="dados">${credenciado.logradouro}, ${credenciado.numero}, ${credenciado.bairo}, ${credenciado.municipio} - ${credenciado.estado}
+                            <li class="dados">${credenciado.logradouro}, ${credenciado.numero}, ${credenciado.bairo} <br> ${credenciado.municipio}, ${credenciado.estado}, ${credenciado.cep}
                             </li>                       
                         </div>
                     </div>

@@ -74,7 +74,7 @@ header {
     margin-top: 100px !important;
     padding: 0 auto;
     text-align: center;
-    box-shadow: var(--shadow-border);
+
 
     /* Transição suave para a altura */
     transition: all 0.5s ease;
@@ -85,7 +85,8 @@ header {
     max-height: 200px;
     /* Ajuste conforme necessário */
 }
-.header_2{
+
+.header_2 {
     color: var(--button-dark-blue);
     text-align: center;
 }
@@ -134,7 +135,7 @@ header {
 .map-section {
     background-color: var(--ux-white);
     border: var(--border);
-    box-shadow: var(--shadow-border);
+
     padding: 1.5rem;
 
     width: 600px;
@@ -144,7 +145,7 @@ header {
     flex: 1;
     background-color: var(--button-white);
     border: var(--border);
-    box-shadow: var(--shadow-border);
+
     padding: 1.5rem;
     height: 600px;
     max-height: 600px !important;
@@ -270,7 +271,7 @@ header {
     border: 2px solid #5a5555;
     border-radius: 10px;
     font-size: 1rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
     transition: all 0.3s ease;
 }
 
@@ -294,7 +295,7 @@ header {
 .search-input:focus {
     outline: none;
     border-color: #6a11cb;
-    box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.2);
+
 }
 
 .search-icon-img {
@@ -310,7 +311,7 @@ header {
 .search-box input:focus {
     outline: none;
     border-color: #3498db;
-    box-shadow: 0 2px 12px rgba(52, 152, 219, 0.25);
+
 }
 
 /*container geral dos cards*/
@@ -327,12 +328,12 @@ header {
     background-color: var(--ux-silver);
 
     border: var(--border);
-    box-shadow: 1px 1px 8px var(--silver-border);
+
 }
 
 .card {
     background: white;
-    box-shadow: 3px 8px 20px rgba(0, 0, 0, 0.3);
+    border: var(--border);
     border-radius: 12px;
     overflow: hidden;
     margin: 10px auto;
@@ -344,7 +345,7 @@ header {
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+
 }
 
 .card-header {
@@ -575,7 +576,7 @@ img {
     margin: 5px 80px;
     background-color: var(--ux-silver);
     border: var(--border);
-    box-shadow: var(--shadow-border);
+
     padding: 15px;
 }
 
@@ -822,7 +823,7 @@ img {
     font-size: 0.9rem;
     position: relative;
     padding-left: 15px;
-    background-color: var(--intra-ocean-blue);
+    background-color:var(--button-dark-blue);
     border-radius: 10px;
     margin: 5px;
 }
@@ -845,7 +846,7 @@ img {
 }
 
 .dados {
-    background-color: var(--intra-another-blue);
+    background-color: var(--button-dark-blue);
     color: var(--intra-white);
     border-radius: 10px;
     padding: 5px 10px;

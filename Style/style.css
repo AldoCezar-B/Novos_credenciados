@@ -95,12 +95,13 @@ header {
 
 
 .container {
-    max-width: 90%;
+    max-width: 100%;
     /* Alterado para 100% */
 
     align-items: center;
     color: var(--Cassi-Silver);
     font-weight: 600;
+  
 }
 
 .informativos {
@@ -137,7 +138,7 @@ header {
     border: var(--border);
 
     padding: 1.5rem;
-
+    max-width: fit-content !important;
     width: 600px;
 }
 
@@ -150,7 +151,7 @@ header {
     height: 600px;
     max-height: 600px !important;
     min-height: 600px !important;
-    max-width: 750px;
+    max-width: fit-content;
     /* Removido fit-content */
 }
 
@@ -569,9 +570,10 @@ img {
     background-color: #142654;
 }
 
-/* aqui o menu de estados*/
+/* aqui o menu de estados ajustar tamannho*/
 .state-container {
-    max-width: auto;
+    max-width: 1230px;
+    width: fit-content;
     height: fit-content;
     margin: 5px 80px;
     background-color: var(--ux-silver);
@@ -823,7 +825,7 @@ img {
     font-size: 0.9rem;
     position: relative;
     padding-left: 15px;
-    background-color:var(--button-dark-blue);
+    background-color: var(--button-dark-blue);
     border-radius: 10px;
     margin: 5px;
 }

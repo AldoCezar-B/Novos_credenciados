@@ -5,6 +5,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/*root com as cores padrao da cassi necessita de ajustes finais para retirar cores nao utilizadas */
 :root {
     --Cassi-Dark-Blue: #142654;
     --Cassi-Most-Dark-Blue: 0b1533;
@@ -19,7 +20,7 @@
     --New_Yellow: #FFDF1B;
     --New_White: #ffffff;
     --New_Dark: #666666;
-    --silver-border:#727272;
+    --silver-border: #727272;
     --deg-1: linear-gradient(180deg, #2F54CF 0%, #000000 100%);
     --deg-2: linear-gradient(180deg, #1567b9 0%, #0b1533 100%);
     --deg-3: linear-gradient(180deg, #d7dadd 0%, #000000 100%);
@@ -46,6 +47,9 @@ body {
 
 }
 
+/* retrabalhar o header */
+
+
 /* Estilos para o header recolhível */
 header {
     background: linear-gradient(135deg, #1a6fc4 0%, #00478f 100%);
@@ -55,40 +59,48 @@ header {
     text-align: center;
     border-radius: 0 0 15px 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    
+
     /* Transição suave para a altura */
     transition: all 0.5s ease;
     overflow: hidden;
-    
+
     /* Altura inicial (expandida) */
     height: auto;
-    max-height: 200px; /* Ajuste conforme necessário */
+    max-height: 200px;
+    /* Ajuste conforme necessário */
 }
 
 /* Classe para quando o header estiver recolhido */
 header.collapsed {
-    max-height: 60px; /* Altura quando recolhido */
+    max-height: 60px;
+    /* Altura quando recolhido */
 }
 
 /* Efeito hover para expandir */
 header:hover {
-    max-height: 200px; /* Volta à altura original */
+    max-height: 200px;
+    /* Volta à altura original */
 }
 
 /* Ajustes para o conteúdo do header quando recolhido */
 header.collapsed .header_1 {
-    height: 60px; /* Reduz a altura do container interno */
-    padding: 5px 0; /* Reduz o padding */
+    height: 60px;
+    /* Reduz a altura do container interno */
+    padding: 5px 0;
+    /* Reduz o padding */
 }
 
 header.collapsed .logo_l,
 header.collapsed .logo_r {
-    height: 40px; /* Logos menores quando recolhido */
-    margin: 0 20px; /* Margens reduzidas */
+    height: 40px;
+    /* Logos menores quando recolhido */
+    margin: 0 20px;
+    /* Margens reduzidas */
 }
 
 header.collapsed .cab-text {
-    font-size: 18px; /* Texto menor quando recolhido */
+    font-size: 18px;
+    /* Texto menor quando recolhido */
     margin-right: 15px;
 }
 
@@ -109,35 +121,40 @@ header:hover .informativos {
     padding: 2px;
 }
 
+/*-----------------------*/
+
 
 .container {
-    max-width: 90%; /* Alterado para 100% */
+    max-width: 90%;
+    /* Alterado para 100% */
 
     align-items: center;
     color: var(--Cassi-Silver);
     font-weight: 600;
 }
 
-.informativos{
+.informativos {
     display: flex;
-    margin: 5px 5rem ;
+    margin: 5px 5rem;
     gap: 10px;
     color: #000000;
 }
-.div-info{
-    background-image:var(--intra-deg) ;
+
+.div-info {
+    background-image: var(--intra-deg);
     border-radius: 5px;
     border: 2px solid #666666;
     margin: 10px;
     padding: 2px;
 }
+
 .div-mkt {
     color: var(--intra-silver);
     text-shadow: 0 0 5px var(--Cassi-Light-Blue);
 }
 
 .content-wrapper {
-    
+
     display: flex;
     gap: 3.5rem;
     margin-bottom: 0;
@@ -147,10 +164,10 @@ header:hover .informativos {
 /*retirado o flex: 1;*/
 .map-section {
     background-color: var(--intra-silver);
-    border: 1px solid var(--silver-border) ;
+    border: 1px solid var(--silver-border);
     box-shadow: 1px 1px 8px var(--silver-border);
     padding: 1.5rem;
-    
+
     width: 600px;
 }
 
@@ -160,23 +177,25 @@ header:hover .informativos {
     border: 1px solid var(--silver-border);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     padding: 1.5rem;
-    
+
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     height: 600px;
     max-height: 600px !important;
     min-height: 600px !important;
-    max-width: 750px; /* Removido fit-content */
+    max-width: 750px;
+    /* Removido fit-content */
 }
 
 .state-title {
     display: flex;
     text-align: center !important;
-    
+
     margin-bottom: 1.5rem;
     color: var(--intra-ocean-blue);
     font-size: 1.8rem;
 }
-.state-title_map{
+
+.state-title_map {
     text-align: center;
     margin-bottom: 1.5rem;
     color: var(--intra-another-blue);
@@ -234,7 +253,7 @@ header:hover .informativos {
     fill: var(--Cassi-Light-Blue) !important;
     stroke: var(--Cassi-Dark-Blue) !important;
     stroke-width: 1.0404 !important;
-    
+
 }
 
 #svg-map a.selected text {
@@ -245,12 +264,13 @@ header:hover .informativos {
 /* Manter o hover mesmo quando selecionado */
 #svg-map a.selected:hover path {
     fill: var(--Cassi-Light-Blue) !important;
-    
+
 }
 
 #svg-map a.selected:hover text {
     fill: var(--Cassi-Dark-Blue) !important;
 }
+
 /*-------------------------------------------------------------*/
 
 #svg-map a:hover path {
@@ -271,12 +291,15 @@ header:hover .informativos {
 .search-box {
     margin: 1.5rem 5px;
     position: relative;
-    width: 100%; /* Adicione isso */
+    width: 100%;
+    /* Adicione isso */
 }
 
 .search-box input {
-    width: 100%; /* Mude de 50% para 100% */
-    padding: 12px 3rem 12px 3rem; /* Certifique-se do padding */
+    width: 100%;
+    /* Mude de 50% para 100% */
+    padding: 12px 3rem 12px 3rem;
+    /* Certifique-se do padding */
     border: 2px solid #5a5555;
     border-radius: 10px;
     font-size: 1rem;
@@ -330,11 +353,12 @@ header:hover .informativos {
     gap: 1.5rem;
     height: 400px;
     max-height: 600px;
-    max-width: fit-content; /* Removido fit-content */
+    max-width: fit-content;
+    /* Removido fit-content */
     overflow-y: auto;
     padding: 0.7rem;
     background-color: var(--intra-silver);
-    
+
     border: 1px solid var(--silver-border);
     box-shadow: 1px 1px 8px var(--silver-border);
 }
@@ -357,7 +381,7 @@ header:hover .informativos {
 }
 
 .card-header {
-   background-image: var(--intra-deg);
+    background-image: var(--intra-deg);
     color: var(--New_White);
     padding: 10px 1rem;
     text-align: left;
@@ -377,12 +401,14 @@ header:hover .informativos {
 
 .card-header .state-badge {
     margin: 0;
-    flex-shrink: 0; /* Impede que o badge encolha */
+    flex-shrink: 0;
+    /* Impede que o badge encolha */
 }
 
 .card-header .toggle-icon {
     margin: 0;
-    flex-shrink: 0; /* Impede que o ícone encolha */
+    flex-shrink: 0;
+    /* Impede que o ícone encolha */
 }
 
 
@@ -429,10 +455,10 @@ header:hover .informativos {
 }
 
 .fantasia {
-    
+
     width: fit-content;
     font-size: 1rem;
-    
+
 }
 
 .state-badge {
@@ -444,7 +470,7 @@ header:hover .informativos {
     font-size: 0.8rem;
     margin-top: 0.5rem;
     font-weight: 650;
-    
+
 }
 
 
@@ -473,7 +499,7 @@ footer {
 }
 
 img {
-    
+
     grid: 2;
 }
 
@@ -482,7 +508,7 @@ img {
     align-items: center;
     justify-content: space-between;
     /* distribui os itens nas extremidades */
-    height: 100px;   
+    height: 100px;
     padding: 0 10px;
     /* espaçamento interno opcional */
 }
@@ -535,7 +561,10 @@ img {
     background-color: #e3f2fd;
     color: #1976d2;
 }
+
 /* mensagem de erro trabalhar melhor dps*/
+
+
 .error {
     background-color: #ffebee;
     color: #d32f2f;
@@ -547,12 +576,12 @@ img {
 }
 
 .refresh {
-    
+
     height: 40px;
     width: fit-content;
     padding: 10px;
     margin-bottom: 10px;
-   
+
     top: 10px;
     right: 10px;
     border-radius: 10px;
@@ -564,7 +593,7 @@ img {
 .refresh:hover {
     color: var(--Cassi-Light-Blue);
     background-color: var(--New_White);
-    
+
 }
 
 .refresh:active-view-transition {
@@ -578,7 +607,7 @@ img {
     height: fit-content;
     margin: 5px 80px;
     background-color: var(--intra-silver);
-    border:1px solid var(--silver-border);
+    border: 1px solid var(--silver-border);
     box-shadow: 0 3px 10px var(--Cassi-Light-Blue);
     padding: 15px;
 }
@@ -586,11 +615,14 @@ img {
 .state {
     overflow-x: auto;
     /* Cria a barra de rolagem horizontal quando necessário */
+
     white-space: nowrap;
     /* Impede que os itens quebrem para a linha seguinte */
+
     padding: 0 0 20px 0;
     scrollbar-width: thin;
     /* Para Firefox */
+
 }
 
 /* Personalizando a barra de rolagem para Chrome, Edge e Safari */
@@ -625,7 +657,7 @@ img {
     padding: 10px 15px;
     margin: 0 5px;
     border-style: solid none none none;
-    
+
     font-weight: bold;
     color: var(--intra-another-blue);
     min-width: 50px;
@@ -634,22 +666,22 @@ img {
     transition: all 0.3s ease;
 }
 
-/* retirado o corte diagonal inferiro esquerdo:
+/* retirado o corte diagonal inferiro esquerdo, nao me deixaram usar:
  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 15px 100%, 0% calc(100% - 15px));
  */
 .state li:hover {
     color: var(--Cassi-Neon_Green);
     border-style: solid solid none none;
-    background-color: var( --intra-white);
+    background-color: var(--intra-white);
     box-shadow: 1px 1px 8px var(--silver-border);
-    
+
 }
 
 .state li.active {
     background-color: var(--Cassi-Light-Blue);
     color: var(--intra-yellow);
     border-color: var(--New_Yellow);
-    
+
 }
 
 /* Bolinha de contador */
@@ -722,9 +754,9 @@ img {
     width: 30px;
     height: 30px;
     padding: 3px !important;
-    
-    
-    
+
+
+
 }
 
 .info-header {
@@ -756,7 +788,7 @@ img {
     color: var(--intra-dark-blue);
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 5px;
-    
+
 }
 
 .info-details.expanded {
@@ -770,7 +802,6 @@ img {
 .card-info {
     margin-bottom: 0.8rem;
     display: block;
-    /* Alterado de flex para block */
     background-color: var(--New_White);
     border-radius: 10px;
     margin: 5px;
@@ -795,8 +826,6 @@ img {
 
 /*aqui novo*/
 
-/* Estilos para especialidades */
-
 /* Estilos para o sistema de especialidades expandível */
 .collapsed-specialties {
     display: block;
@@ -819,20 +848,20 @@ img {
 }
 
 .specialty-item {
-    
+
     padding: 4px 0;
     border-bottom: 1px solid #f0f0f0;
     color: var(--New_White);
     font-size: 0.9rem;
     position: relative;
     padding-left: 15px;
-    background-color:var(--intra-ocean-blue);
+    background-color: var(--intra-ocean-blue);
     border-radius: 10px;
     margin: 5px;
 }
 
 .specialty-item:before {
-    
+
     position: absolute;
     left: 0;
     color: var(--Cassi-Normal-Blue);
@@ -848,67 +877,67 @@ img {
     font-style: italic;
 }
 
-.dados{
+.dados {
     background-color: var(--intra-another-blue);
-    color: var(--intra-white) ;
+    color: var(--intra-white);
     border-radius: 10px;
-    padding:  5px 10px;
-    margin: 20px 10px; 
-        height:fit-content ;
+    padding: 5px 10px;
+    margin: 20px 10px;
+    height: fit-content;
     min-height: 0;
     min-width: 0;
-    
+
 }
 
 /* ===== MEDIA QUERIES CORRIGIDAS (NÃO QUEBRAM O DESKTOP) ===== */
-/* ===== CORREÇÕES ESPECÍFICAS PARA MOBILE ===== */
 
 @media (max-width: 768px) {
+
     /* Ajustes para o card-header em mobile */
     .card-header {
         padding: 0.8rem;
-        flex-direction: row; /* Mantém em linha mas com quebra */
-        flex-wrap: wrap; /* Permite quebra de linha */
+        flex-direction: row;
+        flex-wrap: wrap;
         align-items: center;
         gap: 8px;
         min-height: auto;
     }
 
     .card-header .fantasia {
-        flex: 1 1 200px; /* Flexível mas com tamanho mínimo */
-        min-width: 0; /* Permite que o texto quebre */
+        flex: 1 1 200px;
+        min-width: 0;
         overflow: hidden;
-        font-size: 0.95rem; /* Levemente menor */
-        padding: 0 5px; /* Reduz padding */
+        font-size: 0.95rem;
+        padding: 0 5px;
     }
 
     .card-header .state-badge {
         flex-shrink: 0;
-        font-size: 0.7rem; /* Texto menor */
-        padding: 3px 8px; /* Padding reduzido */
-        margin-top: 0; /* Remove margem superior */
+        font-size: 0.7rem;
+        padding: 3px 8px;
+        margin-top: 0;
     }
 
     .card-header .toggle-icon {
         flex-shrink: 0;
-        width: 28px; /* Levemente menor */
+        width: 28px;
         height: 28px;
-        margin-left: auto; /* Empurra para a direita */
+        margin-left: auto;
     }
 
     /* Ajustes para o cards-container em mobile */
     .cards-container {
         padding: 0.5rem;
         gap: 0.8rem;
-        max-height: 400px; /* Um pouco mais alto */
-        margin: 0 auto; /* Remove margens externas */
-        border: 3px solid var(--Cassi-Silver); /* Borda mais fina */
+        max-height: 400px;
+        margin: 0 auto;
+        border: 3px solid var(--Cassi-Silver);
     }
 
     /* Ajustes para a seção de credenciados */
     .credenciados-section {
         padding: 1rem;
-        margin: 0; /* Remove margens */
+        margin: 0;
         border-radius: 10px;
         height: auto;
         min-height: 450px;
@@ -917,9 +946,9 @@ img {
 
     /* Melhorias para o conteúdo interno dos cards */
     .card {
-        margin: 5px 0; /* Margem reduzida */
+        margin: 5px 0;
         width: 100%;
-        border-radius: 10px; /* Bordas levemente menores */
+        border-radius: 10px;
     }
 
     .card-body {
@@ -954,6 +983,7 @@ img {
 }
 
 @media (max-width: 480px) {
+
     /* Correções para telas muito pequenas */
     .card-header {
         padding: 0.6rem;
@@ -961,8 +991,8 @@ img {
     }
 
     .card-header .fantasia {
-        flex: 1 1 150px; /* Tamanho mínimo menor */
-        font-size: 0.9rem; /* Texto ainda menor */
+        flex: 1 1 150px;
+        font-size: 0.9rem;
         padding: 0 3px;
     }
 
@@ -1013,6 +1043,7 @@ img {
 }
 
 @media (max-width: 360px) {
+
     /* Otimização extrema para telas muito pequenas */
     .card-header .fantasia {
         flex: 1 1 120px;
@@ -1041,12 +1072,12 @@ img {
 
 
 
-/* Se ainda houver problemas com o botão sendo empurrado, use esta versão: */
+/* -------- */
 @media (max-width: 768px) {
     .card-header-alternative {
         display: grid;
         grid-template-columns: 1fr auto auto;
-        grid-template-areas: 
+        grid-template-areas:
             "fantasia badge toggle";
         align-items: center;
         gap: 8px;
@@ -1076,6 +1107,7 @@ img {
 /* ===== MELHORIAS ADICIONAIS PARA RESPONSIVIDADE ===== */
 
 @media (max-width: 768px) {
+
     /* Garantir que o texto não quebre o layout */
     .fantasia {
         word-break: break-word;
@@ -1086,11 +1118,13 @@ img {
     /* Melhorar scroll em mobile */
     .cards-container {
         -webkit-overflow-scrolling: touch;
-        scrollbar-width: none; /* Esconde scrollbar em alguns browsers */
+        scrollbar-width: none;
+        /* Esconde scrollbar em alguns browsers */
     }
 
     .cards-container::-webkit-scrollbar {
-        display: none; /* Esconde scrollbar no WebKit */
+        display: none;
+        /* Esconde scrollbar no WebKit */
     }
 
     /* Ajuste fino no state-title */
@@ -1105,31 +1139,33 @@ img {
 /* ===== CORREÇÃO PARA ESCONDER O MAPA NO MOBILE ===== */
 
 @media (max-width: 768px) {
+
     /* Esconde completamente a seção do mapa */
     .map-section {
         display: none !important;
     }
-    
+
     /* Ajusta o content-wrapper para ocupar 100% sem o mapa */
     .content-wrapper {
-        display: block; /* Muda de flex para block */
+        display: block;
+        /* Muda de flex para block */
         margin: 0 10px;
         gap: 0;
     }
-    
+
     /* A seção de credenciados ocupa toda a largura */
     .credenciados-section {
         width: 100%;
         max-width: 100%;
         margin: 0 auto;
     }
-    
+
     /* Ajustes adicionais para melhor aproveitamento do espaço */
     .state-container {
         margin: 5px 10px;
     }
 
-    .container{
+    .container {
         max-width: 100%;
     }
 }
@@ -1138,7 +1174,7 @@ img {
     .content-wrapper {
         margin: 0 5px;
     }
-    
+
     .credenciados-section {
         padding: 0.8rem;
     }
@@ -1148,7 +1184,7 @@ img {
     .content-wrapper {
         margin: 0;
     }
-    
+
     .credenciados-section {
         border-radius: 8px;
         padding: 0.6rem;

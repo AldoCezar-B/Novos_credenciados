@@ -14,8 +14,6 @@
 
 <body>
 
-
-
     <div class="header-container" id="headerContainer">
 
         <header class="header-container" id="mainHeader">
@@ -31,6 +29,9 @@
 
         </header>
     </div>
+
+
+    <!-- criar um header com mais informaçoes do que cada coisa serve-->
     <div class="state-container">
         <nav class="state">
             <ul>
@@ -483,7 +484,7 @@
 
 
     <script>
-        // Adicione este script ao seu HTML
+
         document.addEventListener('DOMContentLoaded', function () {
             const header = document.querySelector('header');
             let collapseTimer;
@@ -634,9 +635,9 @@
             });
         }
 
-        // Função para exibir os primeiros 5 credenciados
+        // Função para exibir os primeiros  credenciados verificar a quantidade para exibicao
         function displayFirstFiveCredenciados() {
-            const firstFive = credenciados.slice(0, 5);
+            const firstFive = credenciados.slice(0, 6);
             stateTitle.textContent = "Novos Credenciados em Destaque";
             displayCredenciados(firstFive);
         }
@@ -756,6 +757,7 @@
                             <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=2F54CF" 
                                  alt="Expandir" class="toggle-icon small">
                         </div>
+                        
                         <div class="info-details">
                             <ul>
                                 <li class="dados">
@@ -856,7 +858,7 @@
                 });
             }
 
-            // Se não há filtros ativos, mostrar os primeiros 5
+            // Se não há filtros ativos, mostrar os primeiros definir limite
             if (!selectedState && !searchTerm) {
                 displayFirstFiveCredenciados();
                 return;

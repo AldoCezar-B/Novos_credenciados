@@ -19,6 +19,7 @@
     --New_Yellow: #FFDF1B;
     --New_White: #ffffff;
     --New_Dark: #666666;
+    --silver-border:#727272;
     --deg-1: linear-gradient(180deg, #2F54CF 0%, #000000 100%);
     --deg-2: linear-gradient(180deg, #1567b9 0%, #0b1533 100%);
     --deg-3: linear-gradient(180deg, #d7dadd 0%, #000000 100%);
@@ -138,24 +139,26 @@ header:hover .informativos {
 .content-wrapper {
     
     display: flex;
-    gap: 2rem;
+    gap: 3.5rem;
     margin-bottom: 0;
     margin: 5px 5rem;
 }
 
 /*retirado o flex: 1;*/
 .map-section {
-    background-image: var(--intra-deg);
-    border-radius: 12px;
+    background-color: var(--intra-silver);
+    border: 1px solid var(--silver-border) ;
+    box-shadow: 1px 1px 8px var(--silver-border);
     padding: 1.5rem;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    
     width: 600px;
 }
 
 .credenciados-section {
     flex: 1;
-    background-image: var(--intra-deg);
-    border-radius: 12px;
+    background-color: var(--intra-silver);
+    border: 1px solid var(--silver-border);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     padding: 1.5rem;
     
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
@@ -170,13 +173,13 @@ header:hover .informativos {
     text-align: center !important;
     
     margin-bottom: 1.5rem;
-    color: #ffffff;
+    color: var(--intra-ocean-blue);
     font-size: 1.8rem;
 }
 .state-title_map{
     text-align: center;
     margin-bottom: 1.5rem;
-    color: var(--intra-white);
+    color: var(--intra-another-blue);
     font-size: 1.8rem;
 }
 
@@ -325,14 +328,15 @@ header:hover .informativos {
     display: block;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 1.5rem;
-    max-height: 350px;
+    height: 400px;
+    max-height: 600px;
     max-width: fit-content; /* Removido fit-content */
     overflow-y: auto;
     padding: 0.7rem;
     background-color: var(--intra-silver);
-    border-radius: 15px;
-    border: 5px solid var(--Cassi-Silver);
-    box-shadow: 1px 1px 8px var(--Cassi-Normal-Blue);
+    
+    border: 1px solid var(--silver-border);
+    box-shadow: 1px 1px 8px var(--silver-border);
 }
 
 .card {
@@ -433,14 +437,14 @@ header:hover .informativos {
 
 .state-badge {
     display: inline-flex;
-    background-color: var(--New_Yellow);
-    color: var(--New_Blue);
+    background-color: var(--Cassi-Neon_Green);
+    color: var(--intra-white);
     padding: 5px 10px;
     border-radius: 50px;
     font-size: 0.8rem;
     margin-top: 0.5rem;
     font-weight: 650;
-    box-shadow: 4px 4px 1px #2e2e2ef2;
+    
 }
 
 
@@ -572,9 +576,9 @@ img {
 .state-container {
     max-width: auto;
     height: fit-content;
-    margin: 5px 10px;
-    background-image: var(--intra-deg);
-    border-radius: 8px;
+    margin: 5px 80px;
+    background-color: var(--intra-silver);
+    border:1px solid var(--silver-border);
     box-shadow: 0 3px 10px var(--Cassi-Light-Blue);
     padding: 15px;
 }
@@ -621,9 +625,9 @@ img {
     padding: 10px 15px;
     margin: 0 5px;
     border-style: solid none none none;
-    border-radius: 10px;
+    
     font-weight: bold;
-    color: #e6e8eb;
+    color: var(--intra-another-blue);
     min-width: 50px;
     text-align: center;
     cursor: pointer;
@@ -634,17 +638,18 @@ img {
  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 15px 100%, 0% calc(100% - 15px));
  */
 .state li:hover {
-    color: aquamarine;
+    color: var(--Cassi-Neon_Green);
     border-style: solid solid none none;
-    background-color: rgb(35, 47, 70, 0.3);
-    border-radius: 10px;
+    background-color: var( --intra-white);
+    box-shadow: 1px 1px 8px var(--silver-border);
+    
 }
 
 .state li.active {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: var(--Cassi-Light-Blue);
     color: var(--intra-yellow);
     border-color: var(--New_Yellow);
-    border-radius: 10px;
+    
 }
 
 /* Bolinha de contador */
@@ -703,13 +708,13 @@ img {
     align-items: center;
     transition: transform 0.3s ease;
     cursor: pointer;
-    transform: rotate(180deg);
+    transform: rotate(270deg);
     background-color: var(--intra-deg);
 
 }
 
 .toggle-icon.rotate {
-    transform: rotate(0deg);
+    transform: rotate(90deg);
     border-color: #00D78C;
 }
 

@@ -50,6 +50,7 @@
 
     /*border*/
     --border: 1px solid #727272;
+    --radius: 4px;
     --shadow-border: 1px 1px 8px #727272;
 }
 
@@ -97,7 +98,8 @@ header {
 .container {
     max-width: 100%;
     /* Alterado para 100% */
-
+    margin: 20px;
+    padding: 20px;
     align-items: center;
     color: var(--Cassi-Silver);
     font-weight: 600;
@@ -127,16 +129,15 @@ header {
 .content-wrapper {
 
     display: flex;
-    gap: 3.5rem;
-    margin-bottom: 0;
-    margin: 5px 5rem;
+    gap: 10px;
+    margin: auto 40px;
 }
 
 /*retirado o flex: 1;*/
 .map-section {
     background-color: var(--ux-white);
     border: var(--border);
-
+    border-radius: var(--radius);
     padding: 1.5rem;
     max-width: fit-content !important;
     width: 600px;
@@ -146,13 +147,13 @@ header {
     flex: 1;
     background-color: var(--button-white);
     border: var(--border);
-
+    border-radius: var(--radius);
     padding: 1.5rem;
     height: 600px;
     max-height: 600px !important;
     min-height: 600px !important;
-    max-width: fit-content;
-    /* Removido fit-content */
+   
+    
 }
 
 .state-title {
@@ -327,13 +328,14 @@ header {
     gap: 1.5rem;
     height: 350px;
     max-height: 400px;
-    max-width: fit-content;
+    
     /* Removido fit-content */
     overflow-y: auto;
     padding: 0.7rem;
     background-color: var(--ux-silver);
 
     border: var(--border);
+    border-radius: var(--radius);
 
 }
 
@@ -346,7 +348,7 @@ header {
 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     height: auto;
-    width: 600px;
+    
 }
 
 .card:hover {
@@ -571,13 +573,13 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    max-width: 1230px;
-    width: 100%;
+    
+   
     height: fit-content;
-    margin: 5px 80px;
+    margin: 10px 40px !important;
     background-color: var(--ux-white);
     border: var(--border);
+    border-radius: var(--radius);
     padding: 15px;
     overflow: hidden;
 }
@@ -609,8 +611,9 @@ img {
 .state {
     overflow: hidden;
     white-space: nowrap;
-    width: fit-content%;
-    padding: 25px;
+    width: 100%;
+    padding-left: 25px;
+    padding-right: 25px;
     margin: 0 15px;
 }
 

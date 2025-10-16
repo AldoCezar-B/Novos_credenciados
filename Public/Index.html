@@ -17,11 +17,11 @@
     <div class="header-container" id="headerContainer">
 
         <header class="header-container" id="mainHeader">
-            <div class="header_1">
+            <div>
                 <!--
                 <a href="https://www.cassi.com.br/" target="_blank"><img src="../img/logocassibr.png" alt="logo"
                         class="logo_l" height="60" width="80"></a>
--->
+                -->
                 <a href="https://ms3.tapcore.com.br/site/mobile-guia/v2/descredenciados/web/painel/get_descredenciados?id_operadora=19&id_estado=AC&id_plano=8"
                     target="_blank"><img src="../img/InovaRede_Ampliou.png" alt="logo" class="logo" height="60"
                         width="80"></a>
@@ -29,16 +29,11 @@
             </div>
 
         </header>
-        <nav>
-            <div style="height: 80px; color: #000000;">
-                <h1 class="header_2">Novos prestadores da Rede Credenciada</h1>
-                <p class="header_2">A lista é atualizada todo mês com os novos credenciados. Use os filtros abaixo para
-                    encontrar por estado, nome do prestador ou especialidade.</p>
-
-
-
-            </div>
-        </nav>
+        <div style="height: 80px; color: #000000;">
+            <h1 class="header_2">Novos prestadores da rede credenciada</h1>
+            <p class="header_2">A lista é atualizada todo mês com os novos credenciados. Use os filtros abaixo para
+                encontrar por estado, nome do prestador ou especialidade.</p>
+        </div>
     </div>
 
 
@@ -53,7 +48,7 @@
                     width="20">
             </button>
 
-            <nav class="state">
+            <nav class="state" style="background-color: aqua;">
                 <ul id="state-list">
                     <li data-state="AC">AC <span class="count-badge">0</span></li>
                     <li data-state="AL">AL <span class="count-badge">0</span></li>
@@ -107,7 +102,7 @@
                         width="20px" style="align-items: center;">
                 </button>-->
                 <h2 class="state-title" id="state-title">Credenciados em Destaque</h2>
-                <p style="color: #000000; padding-left: 10px; "> Busque por UF, nome do prestador ou tipo de serviço
+                <p style="color: #000000; padding-left: 10px; "> Busque por: nome do prestador ou especialidade
                 </p>
 
 
@@ -598,7 +593,7 @@
             // Forçar atualização após um pequeno delay para garantir que o DOM esteja totalmente renderizado
             setTimeout(updatePosition, 100);
         });
-        
+
         document.addEventListener('DOMContentLoaded', function () {
             const header = document.querySelector('header');
             let collapseTimer;
@@ -761,8 +756,8 @@
 
         // Função para exibir os primeiros  credenciados verificar a quantidade para exibicao
         function displayFirstFiveCredenciados() {
-            const firstFive = credenciados.slice(0, 1000);
-            stateTitle.textContent = "Novos Credenciados";
+            const firstFive = credenciados.slice(0, 100);
+            stateTitle.textContent = "Novos credenciados";
             displayCredenciados(firstFive);
         }
 

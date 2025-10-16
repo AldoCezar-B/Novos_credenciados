@@ -1,0 +1,439 @@
+<style>
+    :root {
+        --Dark-Blue: #142654;
+        --Normal-Blue: #2E54CF;
+        --Light-Blue: #6D96FB;
+        --Purple: #8C5AFF;
+        --Yellow: #FFDE00;
+        --Neon_Green: #00D78C;
+        --Neon-Pink: #FF6D91;
+        --Silver: #E3DED6;
+        --Creme: #f8f2cf;
+        --border-box: 15px;
+        --font: 2rem;
+        --font-tittle: 3rem;
+    }
+
+    #popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        justify-content: center;
+        align-items: center;
+        z-index: 2147483647;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .popup-content {
+        background-color: var(--Silver);
+        padding: 20px;
+        border-radius: 10px;
+        position: relative;
+        max-width: 600px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        z-index: 2147483647;
+    }
+
+    .close-btn {
+        cursor: pointer;
+        font-size: 20px;
+        border: none;
+        background: transparent;
+        padding: 5px;
+        border-radius: var(--border-box);
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
+    }
+
+    .close-btn:focus {
+        outline: 3px solid var(--Neon_Green);
+        outline-offset: 2px;
+    }
+
+    .close-btn img {
+        width: 20px;
+        height: 20px;
+        padding: 3px;
+        border: 2px solid var(--Normal-Blue);
+        border-radius: var(--border-box);
+        background-color: var(--Yellow);
+        display: block;
+    }
+
+    .title-bar {
+        margin: 0;
+        text-align: right;
+    }
+
+    .main-title {
+        margin: 10px;
+        padding: 0;
+        font-size: 50px;
+        color: var(--Normal-Blue);
+    }
+
+    .info-text_h {
+        margin: 0px 20px;
+        padding: 10px 0;
+        color: var(--Normal-Blue);
+        font-size: 1rem;
+    }
+
+    .info-text_f {
+        margin: 0px 20px;
+        padding: 10px 0;
+        color: var(--Normal-Blue);
+        font-size: 1rem;
+    }
+
+    .highlight-box {
+        background-color: var(--Normal-Blue);
+        color: #FDFDFD;
+        margin: 20px;
+        padding: 10px 20px;
+        border-radius: var(--border-box);
+        font-size: large;
+    }
+
+    .benefit-item {
+        justify-content: left;
+        align-items: center;
+        display: flex;
+        color: #FDFDFD;
+        font-size: 20px;
+        background-color: var(--Normal-Blue);
+        border-radius: var(--border-box);
+        padding: 0px 15px;
+        margin: 10px 20px;
+        list-style-type: none;
+    }
+
+    .benefit-item p {
+        padding: 0 10px;
+    }
+
+    .checkbox-container {
+        display: flex;
+        align-items: center;
+        margin: 15px 20px 5px;
+        color: var(--Normal-Blue);
+        font-size: 0.9rem;
+    }
+
+    .checkbox-container input[type="checkbox"] {
+        margin-right: 8px;
+        width: 16px;
+        height: 16px;
+        accent-color: var(--Normal-Blue);
+    }
+
+    @media (prefers-contrast: high) {
+        .popup-content {
+            border: 2px solid #000;
+        }
+
+        .benefit-item,
+        .highlight-box {
+            background-color: var(--Normal-Blue);
+        }
+    }
+
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
+
+    /* CORREÇÕES ACESSIBILIDADE - VERSÃO SIMPLIFICADA */
+    body.popup-open {
+        overflow: hidden;
+    }
+
+    .close-btn:focus,
+    #dontShowAgain:focus {
+        outline: 3px solid var(--Neon_Green);
+        outline-offset: 2px;
+    }
+
+    /* APENAS GARANTIR QUE O POPUP TENHA ALTO Z-INDEX */
+    #popup {
+        z-index: 2147483647 !important;
+    }
+
+    .popup-content {
+        z-index: 2147483647 !important;
+    }
+
+    /* CAMADA DE PROTEÇÃO PARA IMPEDIR INTERAÇÃO COM O FUNDO */
+    .popup-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 2147483646;
+    }
+</style>
+<!-- Pop-up -->
+<div id="popup" role="dialog" aria-labelledby="popup-title" aria-modal="true">
+    <div class="popup-content">
+        <!-- Barra decorativa superior -->
+        <h1 class="title-bar" aria-hidden="true">
+            <!-- Botão de fechar CORRIGIDO -->
+            <button class="close-btn" onclick="fecharPopup()" aria-label="Fechar diálogo">
+                <!-- Ícone alternativo caso a imagem não carregue -->
+                <img src="https://img.icons8.com/ios-filled/50/000000/delete-sign.png" alt="Fechar"
+                    onerror="this.style.display='none'; this.parentNode.innerHTML='×'; this.parentNode.style.fontSize='24px';">
+                <span class="sr-only">Fechar</span>
+            </button>
+        </h1>
+
+        <h1 id="popup-title" class="main-title">
+            <b>Bem-vindo à CASSI!</b>
+        </h1>
+
+        <p class="info-text_h"><b>Antes de continuar, confira um recado importante:</b></p>
+
+        <br>
+
+        <div class="highlight-box">
+            <b>
+                <p>Mantenha seus dados atualizados. <br>
+                    Isso ajuda a CASSI cuidar melhor de você! <br>
+                    Com o seu telefone e e-mail atualizados, você recebe:</p>
+            </b>
+        </div>
+
+        <ul aria-label="Lista de benefícios" style="padding: 0; margin: 0;">
+            <li class="benefit-item">
+                <p><b>Alertas para exames preventivos</b></p>
+            </li>
+            <li class="benefit-item">
+                <p><b>Novidades sobre os benefícios da CASSI</b></p>
+            </li>
+            <li class="benefit-item">
+                <p><b>Informações relevantes para a sua saúde</b></p>
+            </li>
+        </ul>
+
+        <br>
+
+        <p class="info-text_f"><b>Faça login na sua conta e atualize seus dados agora mesmo.</b></p>
+
+        <!-- Checkbox para não mostrar novamente por 1 semana -->
+        <div class="checkbox-container">
+            <input type="checkbox" id="dontShowAgain">
+            <label for="dontShowAgain">Não mostrar esta mensagem novamente por 1 semana</label>
+        </div>
+
+        <br>
+        <!-- Barra decorativa inferior -->
+        <h1 class="title-bar" aria-hidden="true"></h1>
+    </div>
+</div>
+
+<script>
+    // Elementos importantes
+    let popup = document.getElementById("popup");
+    let closeBtn = document.querySelector('.close-btn');
+    let dontShowAgainCheckbox = document.getElementById('dontShowAgain');
+    let lastFocusedElement;
+    let isPopupOpen = false;
+
+    // Função para obter todos os elementos focáveis dentro do popup
+    function getFocusableElements() {
+        const elements = popup.querySelectorAll(
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        return Array.from(elements).filter(el => {
+            return el.offsetWidth > 0 || el.offsetHeight > 0 || el === document.activeElement;
+        });
+    }
+
+    // FUNÇÃO FOCUS TRAP CORRIGIDA - VERSÃO SIMPLIFICADA E EFICIENTE
+    function trapFocus(event) {
+        if (!isPopupOpen) return;
+
+        const focusableElements = getFocusableElements();
+        if (focusableElements.length === 0) return;
+
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        // Se o foco não está no popup, trazer de volta
+        if (!popup.contains(document.activeElement)) {
+            event.preventDefault();
+            firstElement.focus();
+            return;
+        }
+
+        if (event.key === 'Tab') {
+            // Shift + Tab no primeiro elemento
+            if (event.shiftKey && document.activeElement === firstElement) {
+                event.preventDefault();
+                lastElement.focus();
+            }
+            // Tab no último elemento
+            else if (!event.shiftKey && document.activeElement === lastElement) {
+                event.preventDefault();
+                firstElement.focus();
+            }
+        }
+    }
+
+    // Nova função: Desabilitar interação com elementos de fundo
+    function disableBackgroundInteractions() {
+        // Adicionar atributo para desabilitar hovers
+        document.body.setAttribute('data-popup-active', 'true');
+
+        // Desabilitar eventos de mouse temporariamente nos elementos interativos
+        const interactiveElements = document.querySelectorAll('header, nav, .menu, .hover-element, [onhover]');
+        interactiveElements.forEach(el => {
+            el.style.pointerEvents = 'none';
+        });
+    }
+
+    // Nova função: Reabilitar interação com elementos de fundo
+    function enableBackgroundInteractions() {
+        // Remover atributo
+        document.body.removeAttribute('data-popup-active');
+
+        // Reabilitar eventos de mouse
+        const interactiveElements = document.querySelectorAll('header, nav, .menu, .hover-element, [onhover]');
+        interactiveElements.forEach(el => {
+            el.style.pointerEvents = '';
+        });
+    }
+
+    // Função para verificar se o popup deve ser exibido
+    function shouldShowPopup() {
+        const expirationDate = localStorage.getItem('popupExpiration');
+        if (!expirationDate) return true;
+
+        const now = new Date().getTime();
+        return now > parseInt(expirationDate);
+    }
+
+    // Função para definir a data de expiração do popup
+    function setPopupExpiration() {
+        if (dontShowAgainCheckbox && dontShowAgainCheckbox.checked) {
+            const expirationDate = new Date().getTime() + (7 * 24 * 60 * 60 * 1000);
+            localStorage.setItem('popupExpiration', expirationDate.toString());
+        } else {
+            localStorage.removeItem('popupExpiration');
+        }
+    }
+
+    // CORREÇÃO: Garantir que o ícone do X funcione
+    function setupCloseButton() {
+        const closeImg = closeBtn.querySelector('img');
+        if (closeImg && (closeImg.complete && closeImg.naturalHeight === 0)) {
+            closeBtn.innerHTML = '×';
+            closeBtn.style.fontSize = '24px';
+            closeBtn.style.fontWeight = 'bold';
+            closeBtn.style.color = 'var(--Normal-Blue)';
+        }
+    }
+
+    // Função para abrir o popup - CORRIGIDA
+    function abrirPopup() {
+        if (!shouldShowPopup()) {
+            return;
+        }
+
+        // Salvar o elemento que tinha foco antes de abrir o popup
+        lastFocusedElement = document.activeElement;
+
+        // Mostrar o popup
+        popup.style.display = "flex";
+        isPopupOpen = true;
+
+        // Adicionar classe para indicar que o popup está aberto
+        document.body.classList.add('popup-open');
+
+        // Desabilitar scroll da página
+        document.body.style.overflow = 'hidden';
+
+        // DESABILITAR INTERAÇÕES DE FUNDO - CORREÇÃO DO PROBLEMA
+        disableBackgroundInteractions();
+
+        // Configurar botão de fechar
+        setupCloseButton();
+
+        // Focar no botão de fechar para navegação por teclado
+        setTimeout(() => {
+            closeBtn.focus();
+        }, 100);
+
+        // Adicionar event listeners
+        document.addEventListener('keydown', handleKeyDown);
+        document.addEventListener('keydown', trapFocus);
+    }
+
+    // Função para fechar o popup - CORRIGIDA
+    function fecharPopup() {
+        setPopupExpiration();
+        popup.style.display = "none";
+        isPopupOpen = false;
+
+        // Remover classe do body
+        document.body.classList.remove('popup-open');
+
+        // Reabilitar scroll da página
+        document.body.style.overflow = '';
+
+        // REABILITAR INTERAÇÕES DE FUNDO - CORREÇÃO DO PROBLEMA
+        enableBackgroundInteractions();
+
+        // Remover event listeners
+        document.removeEventListener('keydown', handleKeyDown);
+        document.removeEventListener('keydown', trapFocus);
+
+        // Retornar o foco para o elemento anterior
+        if (lastFocusedElement) {
+            lastFocusedElement.focus();
+        }
+    }
+
+    // Função para lidar com teclas específicas
+    function handleKeyDown(event) {
+        if (!isPopupOpen) return;
+
+        // Fechar com ESC
+        if (event.key === 'Escape') {
+            fecharPopup();
+        }
+    }
+
+    // Abrir popup quando a página carregar
+    window.addEventListener('load', function () {
+        setTimeout(abrirPopup, 500);
+    });
+
+    // Fechar popup ao clicar fora do conteúdo
+    popup.addEventListener('click', function (event) {
+        if (event.target === popup) {
+            fecharPopup();
+        }
+    });
+
+    // CORREÇÃO: Fallback para o botão de fechar
+    document.addEventListener('DOMContentLoaded', function () {
+        setupCloseButton();
+    });
+</script>

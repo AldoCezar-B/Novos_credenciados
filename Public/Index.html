@@ -23,7 +23,7 @@
                         class="logo_l" height="60" width="80"></a>
 -->
                 <a href="https://ms3.tapcore.com.br/site/mobile-guia/v2/descredenciados/web/painel/get_descredenciados?id_operadora=19&id_estado=AC&id_plano=8"
-                    target="_blank"><img src="../img/InovaRede_Ampliou.png" alt="logo" class="logo_r" height="60"
+                    target="_blank"><img src="../img/InovaRede_Ampliou.png" alt="logo" class="logo" height="60"
                         width="80"></a>
 
             </div>
@@ -31,8 +31,11 @@
         </header>
         <nav>
             <div style="height: 80px; color: #000000;">
-                <h2 class="header_2">Acompanhe as melhorias recentes na rede CASSI</h2>
-                <p class="header_2">Clique no seu estado e conheça os novos Credenciados</p>
+                <h1 class="header_2">Novos prestadores da Rede Credenciada</h1>
+                <p class="header_2">A lista é atualizada todo mês com os novos credenciados. Use os filtros abaixo para
+                    encontrar por estado, nome do prestador ou especialidade.</p>
+
+
 
             </div>
         </nav>
@@ -45,8 +48,13 @@
         <!-- container geral-->
 
         <div class="state-container">
+            <button class="nav-btn" id="prev-btn">
+                <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=002D4B" alt="esquerda" height="20"
+                    width="20">
+            </button>
+
             <nav class="state">
-                <ul>
+                <ul id="state-list">
                     <li data-state="AC">AC <span class="count-badge">0</span></li>
                     <li data-state="AL">AL <span class="count-badge">0</span></li>
                     <li data-state="AP">AP <span class="count-badge">0</span></li>
@@ -76,6 +84,11 @@
                     <li data-state="TO">TO <span class="count-badge">0</span></li>
                 </ul>
             </nav>
+
+            <button class="nav-btn" id="next-btn">
+                <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=002D4B" width="20" height="20"
+                    style="transform: rotate(180deg);" alt="direita">
+            </button>
         </div>
 
 
@@ -496,6 +509,96 @@
 
 
     <script>
+        // navegaçao por botoes
+
+        // navegaçao por botoes - VERSÃO CORRIGIDA
+        document.addEventListener('DOMContentLoaded', function () {
+            const stateList = document.getElementById('state-list');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const stateItems = document.querySelectorAll('.state li');
+            const stateContainer = document.querySelector('.state');
+
+            // Configuração inicial
+            let currentPosition = 0;
+            const itemWidth = 80; // Largura aproximada de cada item (70px + margens)
+
+            // Função para calcular itens visíveis CORRETAMENTE
+            function calculateVisibleItems() {
+                const containerWidth = stateContainer.offsetWidth;
+                const totalItemsWidth = stateItems.length * itemWidth;
+
+                // Se todos os itens cabem no container, não precisa de navegação
+                if (totalItemsWidth <= containerWidth) {
+                    return stateItems.length;
+                }
+
+                // Calcula quantos itens cabem visíveis
+                return Math.floor(containerWidth / itemWidth);
+            }
+
+            // Função para calcular posição máxima CORRETAMENTE
+            function calculateMaxPosition() {
+                const visibleItems = calculateVisibleItems();
+                const maxPosition = Math.max(0, stateItems.length - visibleItems);
+                return maxPosition;
+            }
+
+            // Função para atualizar a posição da lista
+            function updatePosition() {
+                const maxPosition = calculateMaxPosition();
+
+                // Limitar a posição atual
+                currentPosition = Math.max(0, Math.min(currentPosition, maxPosition));
+
+                // Aplicar transformação
+                stateList.style.transform = `translateX(-${currentPosition * itemWidth}px)`;
+
+                // Atualizar estado dos botões
+                const isAtStart = currentPosition === 0;
+                const isAtEnd = currentPosition >= maxPosition;
+
+                prevBtn.disabled = isAtStart;
+                nextBtn.disabled = isAtEnd;
+
+                // Aplicar estilos aos botões desabilitados
+                prevBtn.style.opacity = isAtStart ? '0.5' : '1';
+                prevBtn.style.cursor = isAtStart ? 'not-allowed' : 'pointer';
+                nextBtn.style.opacity = isAtEnd ? '0.5' : '1';
+                nextBtn.style.cursor = isAtEnd ? 'not-allowed' : 'pointer';
+
+                console.log(`Posição: ${currentPosition}, Máx: ${maxPosition}, Itens Visíveis: ${calculateVisibleItems()}`);
+            }
+
+            // Navegação para a esquerda
+            prevBtn.addEventListener('click', function () {
+                if (currentPosition > 0) {
+                    currentPosition--;
+                    updatePosition();
+                }
+            });
+
+            // Navegação para a direita
+            nextBtn.addEventListener('click', function () {
+                const maxPosition = calculateMaxPosition();
+                if (currentPosition < maxPosition) {
+                    currentPosition++;
+                    updatePosition();
+                }
+            });
+
+            // Inicializar posição
+            updatePosition();
+
+            // Ajustar ao redimensionar a janela
+            window.addEventListener('resize', function () {
+                updatePosition();
+            });
+
+            // Forçar atualização após um pequeno delay para garantir que o DOM esteja totalmente renderizado
+            setTimeout(updatePosition, 100);
+        });
+        
         document.addEventListener('DOMContentLoaded', function () {
             const header = document.querySelector('header');
             let collapseTimer;
@@ -658,7 +761,7 @@
 
         // Função para exibir os primeiros  credenciados verificar a quantidade para exibicao
         function displayFirstFiveCredenciados() {
-            const firstFive = credenciados.slice(0, 6);
+            const firstFive = credenciados.slice(0, 1000);
             stateTitle.textContent = "Novos Credenciados";
             displayCredenciados(firstFive);
         }

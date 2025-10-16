@@ -572,6 +572,7 @@ img {
     align-items: center;
     justify-content: center;
     position: relative;
+    /* ^ style para o nav-button ^*/
     max-width: 1230px;
     width: 100%;
     height: fit-content;
@@ -579,6 +580,7 @@ img {
     background-color: var(--ux-white);
     border: var(--border);
     padding: 15px;
+
     overflow: hidden;
 }
 
@@ -607,11 +609,16 @@ img {
 }
 
 .state {
-    overflow: hidden;
+    overflow-x: hidden;
+    /* Cria a barra de rolagem horizontal quando necessário */
+
     white-space: nowrap;
-    width: fit-content%;
-    padding: 25px;
-    margin: 0 15px;
+    /* Impede que os itens quebrem para a linha seguinte */
+
+    padding: 0 0 20px 0;
+    scrollbar-width: thin;
+    /* Para Firefox */
+
 }
 
 /* Personalizando a barra de rolagem para Chrome, Edge e Safari */
@@ -635,26 +642,19 @@ img {
 
 .state ul {
     display: inline-flex;
+    /* Mantém os itens em linha */
     list-style-type: none;
     transition: transform 0.3s ease;
-    margin: 0;
-    padding: 0;
-    will-change: transform;
-    /* Otimização de performance */
-}
-
-/* Garantir que o primeiro item não fique cortado */
-.state ul {
-    padding-left: 0;
-    margin-left: 0;
 }
 
 .state li {
     position: relative;
+    /* Para posicionar a bolinha de contador */
     display: inline-block;
     padding: 10px 15px;
     margin: 0 5px;
     border-style: solid none none none;
+
     font-weight: bold;
     color: var(--intra-another-blue);
     min-width: 50px;
@@ -662,18 +662,6 @@ img {
     cursor: pointer;
     transition: all 0.3s ease;
     flex-shrink: 0;
-    /* IMPORTANTE: Impede que os itens encolham */
-    box-sizing: border-box;
-}
-
-/* Correção para quando todos os itens cabem na tela */
-.state-container.no-navigation .nav-btn {
-    display: none;
-}
-
-.state-container.no-navigation .state {
-    margin: 0;
-    justify-content: center;
 }
 
 /* retirado o corte diagonal inferiro esquerdo, nao me deixaram usar:

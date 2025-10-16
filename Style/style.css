@@ -7,27 +7,18 @@
 
 /*root com as cores padrao da cassi necessita de ajustes finais para retirar cores nao utilizadas */
 :root {
-    --Cassi-Dark-Blue: #142654;
-    --Cassi-Most-Dark-Blue: 0b1533;
-    --Cassi-Normal-Blue: #2E54CF;
-    --Cassi-Light-Blue: #6D96FB;
-    --Cassi-Purple: #8C5AFF;
-    --Cassi-Yellow: #FFDE00;
-    --Cassi-Neon_Green: #00D78C;
-    --Cassi-Neon-Pink: #FF6D91;
-    --Cassi-Silver: #E3DED6;
-    --New_Blue: #2F54CF;
-    --New_Yellow: #FFDF1B;
-    --New_White: #ffffff;
-    --New_Dark: #666666;
-    --silver-border: #727272;
+    
+    
+    
+    
+    
     --deg-1: linear-gradient(180deg, #2F54CF 0%, #000000 100%);
     --deg-2: linear-gradient(180deg, #1567b9 0%, #0b1533 100%);
     --deg-3: linear-gradient(180deg, #d7dadd 0%, #000000 100%);
 
     /*novo root da intranet*/
     --intra-yellow: #FCFC1B;
-    --intra-silver: #C6C9CC;
+    
     --intra-white: #FFFFFF;
     --intra-dark-blue: #002D4B;
     --intra-ocean-blue: #014886;
@@ -47,6 +38,9 @@
     --ux-blue: #005D9B;
     --ux-pastel-green: #5AAAA0;
     --ux-pastel-yellow: #FFF4CC;
+    --silver: #C6C9CC;
+    --white: #ffffff;
+    
 
     /*border*/
     --border: 1px solid #727272;
@@ -122,7 +116,7 @@ header {
 }
 
 .div-mkt {
-    color: var(--intra-silver);
+    color: var(--silver);
     text-shadow: 0 0 5px var(--Cassi-Light-Blue);
 }
 
@@ -152,8 +146,8 @@ header {
     height: 600px;
     max-height: 600px !important;
     min-height: 600px !important;
-   
-    
+
+
 }
 
 .state-title {
@@ -197,7 +191,7 @@ header {
 }
 
 #svg-map path {
-    fill: var(--intra-silver);
+    fill: var(--silver);
 }
 
 #svg-map text {
@@ -328,7 +322,7 @@ header {
     gap: 1.5rem;
     height: 350px;
     max-height: 400px;
-    
+
     /* Removido fit-content */
     overflow-y: auto;
     padding: 0.7rem;
@@ -348,7 +342,7 @@ header {
 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     height: auto;
-    
+
 }
 
 .card:hover {
@@ -391,7 +385,7 @@ header {
 /* corpo do card*/
 .card-body {
     padding: 1.5rem;
-    background-color: var(--intra-silver);
+    background-color: var(--silver);
 
 }
 
@@ -399,7 +393,7 @@ header {
     margin-bottom: 0.8rem;
     display: flex;
     align-items: center;
-    background-color: var(--New_White);
+    background-color: var(--white);
     border-radius: 10px;
     margin: 5px;
 }
@@ -454,7 +448,7 @@ header {
 footer {
     text-align: center;
     padding: 2rem;
-    color: var(--intra-silver);
+    color: var(--silver);
     font-size: 0.9rem;
     background-color: #002D4B;
 }
@@ -550,14 +544,14 @@ img {
     top: 10px;
     right: 10px;
     border-radius: 10px;
-    color: var(--New_White);
+    color: var(--white);
     font-weight: 600;
     background-color: var(--New_Blue);
 }
 
 .refresh:hover {
     color: var(--Cassi-Light-Blue);
-    background-color: var(--New_White);
+    background-color: var(--white);
 
 }
 
@@ -573,8 +567,8 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    
-   
+
+
     height: fit-content;
     margin: 10px 40px !important;
     background-color: var(--ux-white);
@@ -612,9 +606,7 @@ img {
     overflow: hidden;
     white-space: nowrap;
     width: 100%;
-    padding-left: 25px;
-    padding-right: 25px;
-    margin: 0 15px;
+    
 }
 
 /* Personalizando a barra de rolagem para Chrome, Edge e Safari */
@@ -675,7 +667,7 @@ img {
 }
 
 .state-container.no-navigation .state {
-    margin: 0;
+   
     justify-content: center;
 }
 
@@ -728,7 +720,7 @@ img {
 /* Estilos para a funcionalidade de dropdown */
 .card-body {
     padding: 0;
-    background-color: var(--intra-silver);
+    background-color: var(--silver);
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
@@ -747,20 +739,20 @@ img {
     width: 30px;
     height: 30px;
     float: right;
-    border: var(--border);
+    
     border-radius: 50%;
     padding: 4px;
     align-items: center;
     transition: transform 0.3s ease;
     cursor: pointer;
     transform: rotate(270deg);
-    background-color: var(--intra-deg);
+    
 
 }
 
 .toggle-icon.rotate {
     transform: rotate(90deg);
-    border-color: #00D78C;
+    
 }
 
 .toggle-icon.small {
@@ -815,7 +807,7 @@ img {
 .card-info {
     margin-bottom: 0.8rem;
     display: block;
-    background-color: var(--New_White);
+    background-color: var(--white);
     border-radius: 10px;
     margin: 5px;
     padding: 0;
@@ -864,7 +856,7 @@ img {
 
     padding: 4px 0;
     border-bottom: 1px solid #f0f0f0;
-    color: var(--New_White);
+    color: var(--white);
     font-size: 0.9rem;
     position: relative;
     padding-left: 15px;
@@ -908,7 +900,7 @@ img {
 
     /* Ajustes para o card-header em mobile */
     .card-header {
-        padding: 0.8rem;
+
         flex-direction: row;
         flex-wrap: wrap;
         align-items: center;
@@ -940,16 +932,16 @@ img {
 
     /* Ajustes para o cards-container em mobile */
     .cards-container {
-        padding: 0.5rem;
+
         gap: 0.8rem;
-        max-height: 400px;
-        margin: 0 auto;
-        border: 3px solid var(--Cassi-Silver);
+
+
+        border: var(--border);
     }
 
     /* Ajustes para a seção de credenciados */
     .credenciados-section {
-        padding: 1rem;
+
         margin: 0;
         border-radius: 10px;
         height: auto;
@@ -961,12 +953,10 @@ img {
     .card {
         margin: 5px 0;
         width: 100%;
-        border-radius: 10px;
+
     }
 
-    .card-body {
-        padding: 0.8rem;
-    }
+
 
     /* Ajustes para informações dentro do card */
     .card-info {
@@ -1090,11 +1080,10 @@ img {
     .card-header-alternative {
         display: grid;
         grid-template-columns: 1fr auto auto;
-        grid-template-areas:
-            "fantasia badge toggle";
+        grid-template-areas: "fantasia badge toggle";
         align-items: center;
-        gap: 8px;
-        padding: 0.8rem;
+        
+        
     }
 
     .card-header-alternative .fantasia {
@@ -1162,21 +1151,14 @@ img {
     .content-wrapper {
         display: block;
         /* Muda de flex para block */
-        margin: 0 10px;
+        
         gap: 0;
     }
 
-    /* A seção de credenciados ocupa toda a largura */
-    .credenciados-section {
-        width: 100%;
-        max-width: 100%;
-        margin: 0 auto;
-    }
+    
 
     /* Ajustes adicionais para melhor aproveitamento do espaço */
-    .state-container {
-        margin: 5px 10px;
-    }
+
 
     .container {
         max-width: 100%;
@@ -1184,9 +1166,7 @@ img {
 }
 
 @media (max-width: 600px) {
-    .content-wrapper {
-        margin: 0 5px;
-    }
+    
 
     .credenciados-section {
         padding: 0.8rem;

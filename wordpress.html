@@ -61,12 +61,16 @@
             --ux-pastel-yellow: #FFF4CC;
             --silver: #C6C9CC;
             --white: #ffffff;
+            --red-error: #F1505A;
+            --dark-red-error: #1C070E;
 
 
             /*border*/
             --border: 1px solid #727272;
             --radius: 4px;
             --shadow-border: 1px 1px 8px #727272;
+            --margin-1: 20px;
+            --padding-1: 20px;
         }
 
         body {
@@ -78,16 +82,13 @@
 
         }
 
-        /* retrabalhar o header */
 
-
-        /* Estilos para o header recolhível */
         header {
             background: var(--button-dark-blue);
             height: 40px;
             color: rgb(233, 218, 12);
             margin: 0px;
-            margin-top: 100px !important;
+            padding-top: 50px;
             padding: 0 auto;
             text-align: center;
 
@@ -110,14 +111,14 @@
         /*-----------------------*/
 
 
-        .container {
+        .container-cred {
             max-width: 100%;
             /* Alterado para 100% */
-            margin: 20px;
-            padding: 20px;
+            margin: var(--margin-1);
+            
             align-items: center;
             color: var(--Cassi-Silver);
-            font-weight: 600;
+
 
         }
 
@@ -480,14 +481,7 @@
             color: #3498db;
         }
 
-        .error {
-            text-align: center;
-            padding: 1rem;
-            color: #e74c3c;
-            background-color: #ffe6e6;
-            border-radius: 5px;
-            margin-bottom: 1rem;
-        }
+        
 
         img {
 
@@ -546,8 +540,12 @@
 
 
         .error {
-            background-color: #ffebee;
-            color: #d32f2f;
+            background-color: var(--dark-red-error);
+            color: var(--red-error);
+            border: 4px solid var(--red-error);
+            margin: var(--margin-1);
+            padding: var(--padding-1);
+            border-radius: 0;
         }
 
         /* preenchimento texto baloes estados*/
@@ -1181,7 +1179,7 @@
             /* Ajustes adicionais para melhor aproveitamento do espaço */
 
 
-            .container {
+            .container-cred {
                 max-width: 100%;
             }
         }
@@ -1230,8 +1228,8 @@
 
     <!-- criar um header com mais informaçoes do que cada coisa serve-->
 
-    <div class="container">
-        <!-- container geral-->
+    <div class="container-cred">
+        <!-- container-credgeral-->
 
         <div class="state-container">
             <button class="nav-btn" id="prev-btn">
@@ -1284,7 +1282,7 @@
         <div id="loading" class="status-message loading" style="display: none;">
             Carregando dados...
         </div>
-        <div id="error" class="status-message error" style="display: none;"></div>
+        <div id="error" class="status-message error" style="display: none;"> </div>
 
         <div class="content-wrapper">
             <section class="credenciados-section">
@@ -1949,7 +1947,20 @@
             });
 
             // Evento de busca
-            searchInput.addEventListener('input', filterCredenciados);
+            // Substituído: agora pesquisa somente ao pressionar Enter e limpa com Escape
+            if (searchInput) {
+                searchInput.addEventListener('keydown', function (e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        filterCredenciados();
+                    }
+                    // Atalho para limpar a busca com ESC
+                    if (e.key === 'Escape') {
+                        this.value = '';
+                        filterCredenciados();
+                    }
+                });
+            }
 
             // Evento para limpar seleção ao clicar no título
             stateTitle.addEventListener('click', () => {
@@ -2060,7 +2071,7 @@
 
         // Função para exibir os primeiros credenciados
         function displayFirstFiveCredenciados() {
-            const firstFive = credenciados.slice(0, 100);
+            const firstFive = credenciados.slice(0, 50);
             stateTitle.textContent = "Novos credenciados";
             displayCredenciados(firstFive);
         }
@@ -2086,7 +2097,7 @@
 
             } catch (error) {
                 console.error('Erro ao carregar CSV:', error);
-                errorElement.textContent = `Erro ao carregar dados: ${error.message}`;
+                errorElement.textContent = ` Erro ao carregar dados:  ${error.message}`;
                 errorElement.style.display = 'block';
                 loadingElement.style.display = 'none';
 

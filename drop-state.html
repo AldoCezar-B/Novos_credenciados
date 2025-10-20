@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /*root com as cores padrao da cassi necessita de ajustes finais para retirar cores nao utilizadas */
+        :root {
+
+
+
+
+
+            --deg-1: linear-gradient(180deg, #2F54CF 0%, #000000 100%);
+            --deg-2: linear-gradient(180deg, #1567b9 0%, #0b1533 100%);
+            --deg-3: linear-gradient(180deg, #d7dadd 0%, #000000 100%);
+
+            /*novo root da intranet*/
+            --intra-yellow: #FCFC1B;
+
+            --intra-white: #FFFFFF;
+            --intra-dark-blue: #002D4B;
+            --intra-ocean-blue: #014886;
+            --intra-sky-blue: #477AA7;
+            --intra-another-blue: #014886;
+
+            --intra-deg: linear-gradient(180deg, #477AA7 0%, #014886 100%);
+
+            /*new new root*/
+            --button-yellow: #FCFC1B;
+            --button-dark-blue: #002D4B;
+            --button-white: #FFFFFF;
+
+            /* ux root*/
+            --ux-silver: #F9F9F9;
+            --ux-white: #FFFFFF;
+            --ux-blue: #005D9B;
+            --ux-pastel-green: #5AAAA0;
+            --ux-pastel-yellow: #FFF4CC;
+            --silver: #C6C9CC;
+            --white: #ffffff;
+            --red-error: #F1505A;
+            --dark-red-error: #1C070E;
+
+
+            /*border*/
+            --border: 1px solid #727272;
+            --radius: 4px;
+            --shadow-border: 1px 1px 8px #727272;
+            --margin-1: 20px;
+            --padding-1: 20px;
+        }
+
+        body {
+            background-color: var(--ux-silver);
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            line-height: 1.6;
+
+        }
+
+
+        header {
+            background: var(--button-dark-blue);
+            height: 40px;
+            color: rgb(233, 218, 12);
+            margin: 0px;
+            padding-top: 50px;
+            padding: 0 auto;
+            text-align: center;
+
+
+            /* Transição suave para a altura */
+            transition: all 0.5s ease;
+            overflow: hidden;
+
+            /* Altura inicial (expandida) */
+            height: auto;
+            max-height: 200px;
+            /* Ajuste conforme necessário */
+        }
+
+        .header_2 {
+            color: var(--button-dark-blue);
+            text-align: center;
+        }
+
+        /*-----------------------*/
+
+
+        .container-cred {
+            max-width: 100%;
+            /* Alterado para 100% */
+            margin: var(--margin-1);
+
+            align-items: center;
+            color: var(--Cassi-Silver);
+
+
+        }
+
+        .informativos {
+            display: flex;
+            margin: 5px 5rem;
+            gap: 10px;
+            color: #000000;
+        }
+
+        .div-info {
+            background-image: var(--intra-deg);
+            border-radius: 5px;
+            border: 2px solid #666666;
+            margin: 10px;
+            padding: 2px;
+        }
+
+        .div-mkt {
+            color: var(--silver);
+            text-shadow: 0 0 5px var(--Cassi-Light-Blue);
+        }
+
+        .content-wrapper {
+
+            display: flex;
+            gap: 10px;
+            margin: auto 40px;
+        }
+
+        /*retirado o flex: 1;*/
+        .map-section {
+            background-color: var(--ux-white);
+            border: var(--border);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            max-width: fit-content !important;
+            width: 600px;
+        }
+
+        .credenciados-section {
+            flex: 1;
+            background-color: var(--button-white);
+            border: var(--border);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            height: 600px;
+            max-height: 600px !important;
+            min-height: 600px !important;
+
+
+        }
+
+        .state-title {
+            display: flex;
+            text-align: center !important;
+
+            margin-bottom: 1.5rem;
+            color: var(--button-dark-blue);
+            font-size: 1.8rem;
+        }
+
+        .state-title_map {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--intra-another-blue);
+            font-size: 1.8rem;
+        }
+
+        .brazil-map {
+            width: 100%;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .state {
+            fill: #bdc3c7;
+            stroke: #fff;
+            stroke-width: 1;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .state:hover {
+            fill: #3498db;
+        }
+
+        .state.selected {
+            fill: #2980b9;
+        }
+
+        #svg-map path {
+            fill: var(--silver);
+        }
+
+        #svg-map text {
+            fill: #fff;
+            font: 12px Arial-BoldMT, sans-serif;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        #svg-map a {
+            text-decoration: none
+        }
+
+        #svg-map a:hover {
+            cursor: pointer;
+            text-decoration: none;
+            color: #0d293b;
+            transform: translateY(-4px) translateX(4px);
+            border-style: groove #666666;
+        }
+
+
+        /* Estado selecionado permanente */
+        #svg-map a.selected path {
+            fill: var(--button-dark-blue) !important;
+            stroke: var(--Cassi-Dark-Blue) !important;
+            stroke-width: 1.0404 !important;
+
+        }
+
+        #svg-map a.selected text {
+            fill: var(--button-yellow) !important;
+            font-weight: bold !important;
+        }
+
+        /* Manter o hover mesmo quando selecionado */
+        #svg-map a.selected:hover path {
+            fill: var(--ux-white) !important;
+
+        }
+
+        #svg-map a.selected:hover text {
+            fill: var(--Cassi-Dark-Blue) !important;
+        }
+
+        /*-------------------------------------------------------------*/
+
+        #svg-map a:hover path {
+            fill: var(--intra-white) !important;
+        }
+
+
+        /* circulo no mapa areas menores */
+        #svg-map .circle {
+            fill: var(--intra-white);
+
+
+        }
+
+        #svg-map a:hover .circle {
+            fill: var(--ux-white) !important;
+            stroke: #002D4B;
+            cursor: pointer
+        }
+
+        .search-box {
+            margin: 1.5rem 5px;
+            position: relative;
+            width: 100%;
+            /* Adicione isso */
+        }
+
+        .search-box input {
+            width: 100%;
+            /* Mude de 50% para 100% */
+            padding: 12px 3rem 12px 3rem;
+            /* Certifique-se do padding */
+            border: 2px solid #5a5555;
+            border-radius: 10px;
+            font-size: 14px;
+
+            transition: all 0.3s ease;
+        }
+
+        .search-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px 20px 15px 50px;
+            border: 2px solid #ddd;
+            border-radius: 50px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background-color: white;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #6a11cb;
+
+        }
+
+        .search-icon-img {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            pointer-events: none;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #3498db;
+
+        }
+
+        /*container geral dos cards*/
+        .cards-container {
+            display: block;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            height: 350px;
+            max-height: 400px;
+
+            /* Removido fit-content */
+            overflow-y: auto;
+            padding: 0.7rem;
+            background-color: var(--ux-silver);
+
+            border: var(--border);
+            border-radius: var(--radius);
+
+        }
+
+        .card {
+            background: white;
+            border: var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 10px auto;
+
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: auto;
+
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+
+        }
+
+        .card-header {
+            background-image: var(--button-white);
+            color: var(--button-dark-blue);
+            padding: 10px 1rem;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+
+        }
+
+        .card-header .fantasia {
+            flex: 1;
+            margin: 0;
+            padding: 0 10px;
+            text-align: left;
+        }
+
+        .card-header .state-badge {
+            margin: 0;
+            flex-shrink: 0;
+            /* Impede que o badge encolha */
+        }
+
+        .card-header .toggle-icon {
+            margin: 0;
+            flex-shrink: 0;
+            /* Impede que o ícone encolha */
+        }
+
+
+        /* corpo do card*/
+        .card-body {
+            padding: 1.5rem;
+            background-color: var(--silver);
+
+        }
+
+        .card-info {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            background-color: var(--white);
+            border-radius: 10px;
+            margin: 5px;
+        }
+
+        .card-info .ico {
+            margin-right: 10px;
+            color: #3498db;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+        }
+
+        .card-info text {
+            color: var(--New_Blue);
+        }
+
+        .divisao {
+            margin: 20px auto;
+            border-bottom: 4px solid var(--button-dark-blue);
+            border-radius: 10px;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 2rem;
+            color: #7f8c8d;
+            font-style: italic;
+            grid-column: 1 / -1;
+        }
+
+        .fantasia {
+
+            width: fit-content;
+            font-size: 1rem;
+
+        }
+
+        .state-badge {
+            display: inline-flex;
+            background-color: var(--button-dark-blue);
+            color: var(--button-yellow);
+            padding: 5px 10px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+            font-weight: 650;
+
+        }
+
+
+        /*roda pe*/
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--silver);
+            font-size: 0.9rem;
+            background-color: #002D4B;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: #3498db;
+        }
+
+
+
+        img {
+
+            grid: 2;
+        }
+
+
+
+        .logo {
+            height: 60px;
+            width: auto;
+            margin: 10px auto;
+
+        }
+
+
+
+
+        .cab-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--New_Yellow);
+            text-align: center;
+            margin-right: 30px;
+        }
+
+        .ico {
+            width: 24px;
+            height: 24px;
+            margin: 10px;
+        }
+
+
+
+        .information {
+            padding: 5px 5px;
+            height: fit-content;
+            color: var(--button-dark-blue);
+            font-weight: 500;
+            justify-content: center;
+        }
+
+        .status-message {
+            text-align: center;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 5px;
+        }
+
+        .loading {
+            background-color: #e3f2fd;
+            color: #1976d2;
+        }
+
+        /* mensagem de erro trabalhar melhor dps*/
+
+
+        .error {
+            background-color: var(--dark-red-error);
+            color: var(--red-error);
+            border: 4px solid var(--red-error);
+            margin: var(--margin-1);
+            padding: var(--padding-1);
+            border-radius: 0;
+        }
+
+        /* preenchimento texto baloes estados*/
+        #uf-normal {
+            fill: var(--intra-dark-blue) !important;
+        }
+
+        .refresh {
+
+            height: 40px;
+            width: fit-content;
+            padding: 10px;
+            margin-bottom: 10px;
+
+            top: 10px;
+            right: 10px;
+            border-radius: 10px;
+            color: var(--white);
+            font-weight: 600;
+            background-color: var(--New_Blue);
+        }
+
+        .refresh:hover {
+            color: var(--Cassi-Light-Blue);
+            background-color: var(--white);
+
+        }
+
+        /*
+.refresh:active-view-transition {
+    color: #00D78C;
+    background-color: #142654;
+}
+*/
+
+        /* aqui o menu de estados ajustar tamannho*/
+        .state-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+
+            height: fit-content;
+            margin: 10px 40px !important;
+            background-color: var(--ux-white);
+            border: var(--border);
+            border-radius: var(--radius);
+            padding: 15px;
+            overflow: hidden;
+        }
+
+        .nav-btn {
+            background-color: #e6f0f7;
+            border: none;
+            border-radius: 8px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-btn:hover {
+            background-color: #d0e4f1;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-btn:active {
+            transform: translateY(0);
+        }
+
+        .state {
+            overflow: hidden;
+            white-space: nowrap;
+            width: 100%;
+
+        }
+
+        /* Personalizando a barra de rolagem para Chrome, Edge e Safari */
+        .state::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .state::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .state::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+
+        .state::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        .state ul {
+            display: inline-flex;
+            list-style-type: none;
+            transition: transform 0.3s ease;
+            margin: 0;
+            padding: 0;
+            will-change: transform;
+            /* Otimização de performance */
+        }
+
+        /* Garantir que o primeiro item não fique cortado */
+        .state ul {
+            padding-left: 0;
+            margin-left: 0;
+        }
+
+        .state li {
+            position: relative;
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 0 5px;
+            border-style: solid none none none;
+            font-weight: bold;
+            color: var(--intra-another-blue);
+            min-width: 50px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            /* IMPORTANTE: Impede que os itens encolham */
+            box-sizing: border-box;
+        }
+
+        /* Correção para quando todos os itens cabem na tela */
+        .state-container.no-navigation .nav-btn {
+            display: none;
+        }
+
+        .state-container.no-navigation .state {
+
+            justify-content: center;
+        }
+
+        /* retirado o corte diagonal inferiro esquerdo, nao me deixaram usar:
+ clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 15px 100%, 0% calc(100% - 15px));
+ */
+        .state li:hover {
+
+            border-style: solid solid none none;
+            background-color: var(--intra-white);
+            box-shadow: 1px 1px 8px var(--silver-border);
+
+        }
+
+        .state li.active {
+            background-color: var(--button-dark-blue);
+            color: var(--intra-yellow);
+            border-color: var(--New_Yellow);
+
+        }
+
+        /* Bolinha de contador */
+        .count-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: var(--intra-yellow);
+            color: var(--intra-dark-blue);
+            border-radius: 5px;
+            width: fit-content;
+            padding: 2px;
+            min-width: 22px;
+            height: 22px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.75rem;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .instructions {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+            font-style: italic;
+        }
+
+
+        /* Estilos para a funcionalidade de dropdown */
+        .card-body {
+            padding: 0;
+            background-color: var(--silver);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .card-body.expanded {
+            max-height: 500px;
+            padding: 1.5rem;
+            overflow-y: auto;
+            /* Adiciona barra de rolagem vertical quando expandido */
+        }
+
+
+
+        .toggle-icon {
+            width: 30px;
+            height: 30px;
+            float: right;
+
+            border-radius: 50%;
+            padding: 4px;
+            align-items: center;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            transform: rotate(270deg);
+
+
+        }
+
+        .toggle-icon.rotate {
+            transform: rotate(90deg);
+
+        }
+
+        .toggle-icon.small {
+            width: 30px;
+            height: 30px;
+            padding: 3px !important;
+
+
+
+        }
+
+        .info-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.2s;
+        }
+
+        .info-header:hover {
+            background-color: rgba(47, 84, 207, 0.1);
+        }
+
+        .info-content {
+            display: flex;
+            align-items: center;
+        }
+
+        .info-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding-left: 34px;
+            /* Alinhar com o ícone */
+            font-size: 0.9rem;
+            color: var(--intra-dark-blue);
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 5px;
+
+        }
+
+        .info-details.expanded {
+            max-height: fit-content;
+            padding: 8px 15px;
+
+            background-color: var;
+        }
+
+        /* Ajustes para manter o layout original */
+        .card-info {
+            margin-bottom: 0.8rem;
+            display: block;
+            background-color: var(--white);
+            border-radius: 10px;
+            margin: 5px;
+            padding: 0;
+        }
+
+        .card-info .ico {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+
+
+        .highlight {
+            background-color: var(--intra-yellow);
+            color: var(--intra-dark-blue);
+            padding: 2px 1px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+
+        /*aqui novo*/
+
+        /* Estilos para o sistema de especialidades expandível */
+        .collapsed-specialties {
+            display: block;
+            color: var(--New_Dark);
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .expanded-specialties {
+            display: none;
+            margin-top: 8px;
+        }
+
+        .category-card.expanded .collapsed-specialties {
+            display: none;
+        }
+
+        .category-card.expanded .expanded-specialties {
+            display: block;
+        }
+
+        .specialty-item {
+
+            padding: 4px 0;
+            border-bottom: 1px solid #f0f0f0;
+            color: var(--white);
+            font-size: 0.9rem;
+            position: relative;
+            padding-left: 15px;
+            background-color: var(--button-dark-blue);
+            border-radius: 10px;
+            margin: 5px;
+        }
+
+        .specialty-item:before {
+
+            position: absolute;
+            left: 0;
+            color: var(--Cassi-Normal-Blue);
+            font-weight: bold;
+        }
+
+        .specialty-item:last-child {
+            border-bottom: none;
+        }
+
+        .no-category {
+            color: #999;
+            font-style: italic;
+        }
+
+        .dados {
+            background-color: var(--button-dark-blue);
+            color: var(--intra-white);
+            border-radius: 10px;
+            padding: 5px 10px;
+            margin: 20px 10px;
+            height: fit-content;
+            min-height: 0;
+            min-width: 0;
+
+        }
+
+        /* ===== MEDIA QUERIES CORRIGIDAS (NÃO QUEBRAM O DESKTOP) ===== */
+
+        @media (max-width: 768px) {
+
+            /* Ajustes para o card-header em mobile */
+            .card-header {
+
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 8px;
+                min-height: auto;
+            }
+
+            .card-header .fantasia {
+                flex: 1 1 200px;
+                min-width: 0;
+                overflow: hidden;
+                font-size: 0.95rem;
+                padding: 0 5px;
+            }
+
+            .card-header .state-badge {
+                flex-shrink: 0;
+                font-size: 0.7rem;
+                padding: 3px 8px;
+                margin-top: 0;
+            }
+
+            .card-header .toggle-icon {
+                flex-shrink: 0;
+                width: 28px;
+                height: 28px;
+                margin-left: auto;
+            }
+
+            /* Ajustes para o cards-container em mobile */
+            .cards-container {
+
+                gap: 0.8rem;
+
+
+                border: var(--border);
+            }
+
+            /* Ajustes para a seção de credenciados */
+            .credenciados-section {
+
+                margin: 0;
+                border-radius: 10px;
+                height: auto;
+                min-height: 450px;
+                max-height: 500px;
+            }
+
+            /* Melhorias para o conteúdo interno dos cards */
+            .card {
+                margin: 5px 0;
+                width: 100%;
+
+            }
+
+
+
+            /* Ajustes para informações dentro do card */
+            .card-info {
+                margin: 3px;
+                padding: 8px;
+                border-radius: 8px;
+            }
+
+            .card-info .ico {
+                width: 18px;
+                height: 18px;
+                margin-right: 8px;
+            }
+
+            /* Especialidades - ajustes específicos */
+            .specialty-item {
+                padding: 3px 0;
+                margin: 3px;
+                font-size: 0.85rem;
+                padding-left: 12px;
+            }
+
+            .dados {
+                margin: 10px 5px;
+                padding: 4px 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            /* Correções para telas muito pequenas */
+            .card-header {
+                padding: 0.6rem;
+                gap: 5px;
+            }
+
+            .card-header .fantasia {
+                flex: 1 1 150px;
+                font-size: 0.9rem;
+                padding: 0 3px;
+            }
+
+            .card-header .state-badge {
+                font-size: 0.65rem;
+                padding: 2px 6px;
+            }
+
+            .card-header .toggle-icon {
+                width: 25px;
+                height: 25px;
+                padding: 2px;
+            }
+
+            /* Ajustes finos no cards-container */
+            .cards-container {
+                padding: 0.4rem;
+                gap: 0.6rem;
+                max-height: 350px;
+                border: 2px solid var(--Cassi-Silver);
+            }
+
+            .credenciados-section {
+                padding: 0.8rem;
+                min-height: 400px;
+                max-height: 450px;
+            }
+
+            /* Texto das especialidades mais compacto */
+            .specialty-item {
+                font-size: 0.8rem;
+                padding-left: 10px;
+            }
+
+            .collapsed-specialties {
+                font-size: 0.85rem;
+                line-height: 1.3;
+            }
+
+            /* Ajuste para informações com ícones */
+            .info-header {
+                padding: 4px 8px;
+            }
+
+            .info-content {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+
+            /* Otimização extrema para telas muito pequenas */
+            .card-header .fantasia {
+                flex: 1 1 120px;
+                font-size: 0.85rem;
+            }
+
+            .card-header .state-badge {
+                font-size: 0.6rem;
+                padding: 2px 4px;
+            }
+
+            .card-header .toggle-icon {
+                width: 22px;
+                height: 22px;
+            }
+
+            .cards-container {
+                padding: 0.3rem;
+                gap: 0.5rem;
+            }
+
+            .specialty-item {
+                font-size: 0.75rem;
+            }
+        }
+
+
+
+        /* -------- */
+        @media (max-width: 768px) {
+            .card-header-alternative {
+                display: grid;
+                grid-template-columns: 1fr auto auto;
+                grid-template-areas: "fantasia badge toggle";
+                align-items: center;
+
+
+            }
+
+            .card-header-alternative .fantasia {
+                grid-area: fantasia;
+                min-width: 0;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                font-size: 0.95rem;
+            }
+
+            .card-header-alternative .state-badge {
+                grid-area: badge;
+                justify-self: end;
+            }
+
+            .card-header-alternative .toggle-icon {
+                grid-area: toggle;
+                justify-self: end;
+            }
+        }
+
+        /* ===== MELHORIAS ADICIONAIS PARA RESPONSIVIDADE ===== */
+
+        @media (max-width: 768px) {
+
+            /* Garantir que o texto não quebre o layout */
+            .fantasia {
+                word-break: break-word;
+                overflow-wrap: break-word;
+                hyphens: auto;
+            }
+
+            /* Melhorar scroll em mobile */
+            .cards-container {
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                /* Esconde scrollbar em alguns browsers */
+            }
+
+            .cards-container::-webkit-scrollbar {
+                display: none;
+                /* Esconde scrollbar no WebKit */
+            }
+
+            /* Ajuste fino no state-title */
+            .state-title {
+                font-size: 1.4rem;
+                margin-bottom: 1rem;
+                padding: 0 10px;
+            }
+        }
+
+
+        /* ===== CORREÇÃO PARA ESCONDER O MAPA NO MOBILE ===== */
+
+        @media (max-width: 768px) {
+
+            /* Esconde completamente a seção do mapa */
+            .map-section {
+                display: none !important;
+            }
+
+            /* Ajusta o content-wrapper para ocupar 100% sem o mapa */
+            .content-wrapper {
+                display: block;
+                /* Muda de flex para block */
+
+                gap: 0;
+            }
+
+
+
+            /* Ajustes adicionais para melhor aproveitamento do espaço */
+
+
+            .container-cred {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+
+            .credenciados-section {
+                padding: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .content-wrapper {
+                margin: 0;
+            }
+
+            .credenciados-section {
+                border-radius: 8px;
+                padding: 0.6rem;
+            }
+        }
+
+
+
+        /* conteudo dropdown*/
+
+        .dropdown-state {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 130px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            padding: 12px 16px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+
+
+        /* drop -content*/
+
+
+        .dropdown-state {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 130px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            padding: 12px 16px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+    <div>
+
+        <div class="dropdown-state">
+            <div class="dropdown-content">
+                <nav class="state">
+                    <ul id="state-list">
+                        <li data-state="AC">AC <span class="count-badge">0</span></li>
+                        <li data-state="AL">AL <span class="count-badge">0</span></li>
+                        <li data-state="AP">AP <span class="count-badge">0</span></li>
+                        <li data-state="AM">AM <span class="count-badge">0</span></li>
+                        <li data-state="BA">BA <span class="count-badge">0</span></li>
+                        <li data-state="CE">CE <span class="count-badge">0</span></li>
+                        <li data-state="DF">DF <span class="count-badge">0</span></li>
+                        <li data-state="ES">ES <span class="count-badge">0</span></li>
+                        <li data-state="GO">GO <span class="count-badge">0</span></li>
+                        <li data-state="MA">MA <span class="count-badge">0</span></li>
+                        <li data-state="MT">MT <span class="count-badge">0</span></li>
+                        <li data-state="MS">MS <span class="count-badge">0</span></li>
+                        <li data-state="MG">MG <span class="count-badge">0</span></li>
+                        <li data-state="PA">PA <span class="count-badge">0</span></li>
+                        <li data-state="PB">PB <span class="count-badge">0</span></li>
+                        <li data-state="PR">PR <span class="count-badge">0</span></li>
+                        <li data-state="PE">PE <span class="count-badge">0</span></li>
+                        <li data-state="PI">PI <span class="count-badge">0</span></li>
+                        <li data-state="RJ">RJ <span class="count-badge">0</span></li>
+                        <li data-state="RN">RN <span class="count-badge">0</span></li>
+                        <li data-state="RS">RS <span class="count-badge">0</span></li>
+                        <li data-state="RO">RO <span class="count-badge">0</span></li>
+                        <li data-state="RR">RR <span class="count-badge">0</span></li>
+                        <li data-state="SC">SC <span class="count-badge">0</span></li>
+                        <li data-state="SP">SP <span class="count-badge">0</span></li>
+                        <li data-state="SE">SE <span class="count-badge">0</span></li>
+                        <li data-state="TO">TO <span class="count-badge">0</span></li>
+                    </ul>
+                </nav>
+            </div>
+
+
+        </div>
+
+    </div>
+</body>
+
+</html>

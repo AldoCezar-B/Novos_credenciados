@@ -45,6 +45,7 @@
             --intra-ocean-blue: #014886;
             --intra-sky-blue: #477AA7;
             --intra-another-blue: #014886;
+            --btn-deg: linear-gradient(180deg, #ffffff 10%, #C6C9CC 50%);
 
             --intra-deg: linear-gradient(180deg, #477AA7 0%, #014886 100%);
 
@@ -69,6 +70,7 @@
             --border: 1px solid #727272;
             --radius: 4px;
             --shadow-border: 1px 1px 8px #727272;
+            --shadow-2: 2px 5px 3px rgba(0, 0, 0, 0.5);
             --margin-1: 20px;
             --padding-1: 20px;
         }
@@ -194,6 +196,7 @@
             display: block;
         }
 
+        /* estilos do uf selector */
         .state {
             fill: #bdc3c7;
             stroke: #fff;
@@ -202,6 +205,11 @@
             cursor: pointer;
             overflow: hidden;
             width: 100%;
+            background-color: var(--white);
+            border: 1px;
+            border-style: solid none none solid;
+            border-color: var(--silver);
+
         }
 
         .state:hover {
@@ -251,7 +259,10 @@
 
         /* Manter o hover mesmo quando selecionado */
         #svg-map a.selected:hover path {
-            fill: var(--ux-white) !important;
+            fill: var(--ux-silver) !important;
+            stroke: var(--button-dark-blue) !important;
+
+
 
         }
 
@@ -279,8 +290,16 @@
             cursor: pointer
         }
 
+        .filtros {
+            display: flex;
+
+            padding: 10px;
+
+        }
+
         .search-box {
-            margin: 1.5rem 5px;
+
+            margin-right: 5px;
             position: relative;
             width: 100%;
             /* Adicione isso */
@@ -324,7 +343,7 @@
         .search-icon-img {
             position: absolute;
             left: 18px;
-            top: 50%;
+            top: 85%;
             transform: translateY(-50%);
             width: 20px;
             height: 20px;
@@ -584,53 +603,116 @@
         /* aqui o menu de estados ajustar tamannho*/
         .state-container {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
+
+            justify-content: space-between;
+            /* Alinha ao topo */
+
+            width: 80px;
+            height: 120px;
+            /* altura fixa juntar com item da lista  state ul */
 
 
-            height: fit-content;
-            margin: 10px 40px !important;
-            background-color: var(--ux-white);
-            border: var(--border);
+
+            margin-top: 20px;
+            background-color: var(--ux-silver);
+            border: 2px;
+            border-style: none none solid none;
+            border-color: rgb(82, 79, 79);
             border-radius: var(--radius);
-            padding: 15px;
+
+            box-shadow: 2px 5px 3px rgba(0, 0, 0, 0.5);
+            padding: 0 3px;
+            overflow-y: auto;
             overflow: hidden;
+            max-height: 400px;
         }
 
         .nav-btn {
-            background-color: #e6f0f7;
-            border: none;
-            border-radius: 8px;
-            width: 40px;
-            height: 40px;
+            background-image: var(--btn-deg);
+
+            width: 60px;
+            height: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             transition: all 0.2s ease;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 5px 3px rgba(0, 0, 0, 0.7);
+            margin: 0;
         }
 
-        .nav-btn:hover {
-            background-color: #d0e4f1;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+
+        #prev-btn {
+            order: 1;
+            border-radius: 4px 4px 0 0;
+            margin: 5px;
+            border-style: none none solid none;
+
+
         }
 
-        .nav-btn:active {
-            transform: translateY(0);
+        #prev-btn.nav-btn:active {
+
+            border-radius: 4px 4px 0 0;
+            margin: 5px;
+            border-style: none;
+
+
         }
 
         .state {
-            overflow: hidden;
-            white-space: nowrap;
+            order: 2;
+
+        }
+
+        #next-btn {
+            order: 3;
+            border-radius: 0 0 4px 4px;
+            margin: 5px;
+            border-style: none none solid none;
+        }
+
+        #next-btn.nav-btn:active {
+
+            border-radius: 4px 4px 0 0;
+            margin: 5px;
+            border-style: none;
+
+
+        }
+
+        #btns-left {
+            transform: rotate(90deg);
+            width: 10px;
+            height: 30px;
+        }
+
+        #btns-right {
+            transform: rotate(-90deg);
+            width: 10px;
+            height: 30px;
+        }
+
+
+
+
+
+        .state {
+            overflow-y: hidden;
+            overflow-x: hidden;
+            white-space: normal;
             width: 100%;
+            height: auto;
+            flex: 1;
 
         }
 
         /* Personalizando a barra de rolagem para Chrome, Edge e Safari */
         .state::-webkit-scrollbar {
-            height: 8px;
+            width: 8px;
         }
 
         .state::-webkit-scrollbar-track {
@@ -647,37 +729,57 @@
             background: #555;
         }
 
+        /* arrumar a navegação dos botoes  aqui*/
+        /* apagado display: flex; */
         .state ul {
-            display: inline-flex;
+
+            flex-direction: column;
             list-style-type: none;
-            transition: transform 0.3s ease;
+
             margin: 0;
             padding: 0;
-            will-change: transform;
+            width: 100%;
+            height: 10px;
+            transition: transform 0.3s ease;
+
+
             /* Otimização de performance */
         }
 
-        /* Garantir que o primeiro item não fique cortado */
+        /* Garantir que o primeiro item não fique cortado  - verificar se apaga dps*/
         .state ul {
             padding-left: 0;
             margin-left: 0;
         }
 
         .state li {
+
             position: relative;
-            display: inline-block;
-            padding: 10px 15px;
-            margin: 0 5px;
-            border-style: solid none none none;
+            display: block;
+            padding: auto 10px;
+            margin: 10px 2px;
+            border: 1px solid #666666;
             font-weight: bold;
             color: var(--intra-another-blue);
-            min-width: 50px;
-            text-align: center;
+            min-width: auto;
+
+            text-align: left;
+            /* Alinha o texto à esquerda */
             cursor: pointer;
             transition: all 0.3s ease;
             flex-shrink: 0;
             /* IMPORTANTE: Impede que os itens encolham */
             box-sizing: border-box;
+            height: 40px;
+            /* Altura fixa para cada item */
+
+        }
+
+        li {
+            display: flex;
+            padding-top: 5px;
+            padding-left: 5px;
+            margin: auto;
         }
 
         /* Correção para quando todos os itens cabem na tela */
@@ -695,15 +797,19 @@
  */
         .state li:hover {
 
-            border-style: solid solid none none;
-            background-color: var(--intra-white);
-            box-shadow: 1px 1px 8px var(--silver-border);
+
+            background-color: var(--ux-silver);
+            box-shadow: 0 1px 5px #666666;
+
+
+
 
         }
 
         .state li.active {
-            background-color: var(--button-dark-blue);
-            color: var(--intra-yellow);
+            
+            background-color: var(--intra-yellow);
+            color: var(--button-dark-blue);
             border-color: var(--New_Yellow);
 
         }
@@ -711,8 +817,8 @@
         /* Bolinha de contador */
         .count-badge {
             position: absolute;
-            top: -5px;
-            right: -5px;
+            top: 5px;
+            right: 5px;
             background-color: var(--intra-yellow);
             color: var(--intra-dark-blue);
             border-radius: 5px;
@@ -1231,51 +1337,6 @@
     <div class="container-cred">
         <!-- container-credgeral-->
 
-        <div class="state-container">
-            <button class="nav-btn" id="prev-btn">
-                <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=002D4B" alt="esquerda" height="20"
-                    width="20">
-            </button>
-            <!-- novo droplist-->
-
-
-            <nav class="state">
-                <ul id="state-list">
-                    <li data-state="AC">AC <span class="count-badge">0</span></li>
-                    <li data-state="AL">AL <span class="count-badge">0</span></li>
-                    <li data-state="AP">AP <span class="count-badge">0</span></li>
-                    <li data-state="AM">AM <span class="count-badge">0</span></li>
-                    <li data-state="BA">BA <span class="count-badge">0</span></li>
-                    <li data-state="CE">CE <span class="count-badge">0</span></li>
-                    <li data-state="DF">DF <span class="count-badge">0</span></li>
-                    <li data-state="ES">ES <span class="count-badge">0</span></li>
-                    <li data-state="GO">GO <span class="count-badge">0</span></li>
-                    <li data-state="MA">MA <span class="count-badge">0</span></li>
-                    <li data-state="MT">MT <span class="count-badge">0</span></li>
-                    <li data-state="MS">MS <span class="count-badge">0</span></li>
-                    <li data-state="MG">MG <span class="count-badge">0</span></li>
-                    <li data-state="PA">PA <span class="count-badge">0</span></li>
-                    <li data-state="PB">PB <span class="count-badge">0</span></li>
-                    <li data-state="PR">PR <span class="count-badge">0</span></li>
-                    <li data-state="PE">PE <span class="count-badge">0</span></li>
-                    <li data-state="PI">PI <span class="count-badge">0</span></li>
-                    <li data-state="RJ">RJ <span class="count-badge">0</span></li>
-                    <li data-state="RN">RN <span class="count-badge">0</span></li>
-                    <li data-state="RS">RS <span class="count-badge">0</span></li>
-                    <li data-state="RO">RO <span class="count-badge">0</span></li>
-                    <li data-state="RR">RR <span class="count-badge">0</span></li>
-                    <li data-state="SC">SC <span class="count-badge">0</span></li>
-                    <li data-state="SP">SP <span class="count-badge">0</span></li>
-                    <li data-state="SE">SE <span class="count-badge">0</span></li>
-                    <li data-state="TO">TO <span class="count-badge">0</span></li>
-                </ul>
-            </nav>
-
-            <button class="nav-btn" id="next-btn">
-                <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=002D4B" width="20" height="20"
-                    style="transform: rotate(180deg);" alt="direita">
-            </button>
-        </div>
 
 
 
@@ -1292,19 +1353,65 @@
                         src="https://img.icons8.com/?size=100&id=11253&format=png&color=727272" alt="horario"
                         width="20px" style="align-items: center;">
                 </button>-->
-                <h2 class="state-title" id="state-title">Credenciados em Destaque</h2>
-                <p style="color: #000000; padding-left: 10px; "> Busque por: nome do prestador ou especialidade
-                </p>
 
 
-                <div class="search-box">
-                    <input type="text" id="search-input" placeholder="Buscar credenciados...">
-                    <img src="https://img.icons8.com/?size=100&id=132&format=png&color=000000" alt="Ícone de busca"
-                        class="search-icon-img">
+                <div class="filtros">
+                    <div class="search-box">
+                        <h2 class="state-title" id="state-title">Credenciados em Destaque</h2>
+                        <p> Busque por: nome do prestador ou especialidade </p>
+                        <input type="text" id="search-input" placeholder="Buscar credenciados...">
+                        <img src="https://img.icons8.com/?size=100&id=132&format=png&color=000000" alt="Ícone de busca"
+                            class="search-icon-img">
 
+                    </div>
+
+                    <div class="state-container">
+                        <button class="nav-btn" id="prev-btn">
+                            <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=002D4B" alt="esquerda"
+                                id="btns-left">
+                        </button>
+                        <!-- novo droplist-->
+
+
+                        <nav class="state">
+                            <ul id="state-list">
+                                <li data-state="AC">AC <span class="count-badge">0</span></li>
+                                <li data-state="AL">AL <span class="count-badge">0</span></li>
+                                <li data-state="AP">AP <span class="count-badge">0</span></li>
+                                <li data-state="AM">AM <span class="count-badge">0</span></li>
+                                <li data-state="BA">BA <span class="count-badge">0</span></li>
+                                <li data-state="CE">CE <span class="count-badge">0</span></li>
+                                <li data-state="DF">DF <span class="count-badge">0</span></li>
+                                <li data-state="ES">ES <span class="count-badge">0</span></li>
+                                <li data-state="GO">GO <span class="count-badge">0</span></li>
+                                <li data-state="MA">MA <span class="count-badge">0</span></li>
+                                <li data-state="MT">MT <span class="count-badge">0</span></li>
+                                <li data-state="MS">MS <span class="count-badge">0</span></li>
+                                <li data-state="MG">MG <span class="count-badge">0</span></li>
+                                <li data-state="PA">PA <span class="count-badge">0</span></li>
+                                <li data-state="PB">PB <span class="count-badge">0</span></li>
+                                <li data-state="PR">PR <span class="count-badge">0</span></li>
+                                <li data-state="PE">PE <span class="count-badge">0</span></li>
+                                <li data-state="PI">PI <span class="count-badge">0</span></li>
+                                <li data-state="RJ">RJ <span class="count-badge">0</span></li>
+                                <li data-state="RN">RN <span class="count-badge">0</span></li>
+                                <li data-state="RS">RS <span class="count-badge">0</span></li>
+                                <li data-state="RO">RO <span class="count-badge">0</span></li>
+                                <li data-state="RR">RR <span class="count-badge">0</span></li>
+                                <li data-state="SC">SC <span class="count-badge">0</span></li>
+                                <li data-state="SP">SP <span class="count-badge">0</span></li>
+                                <li data-state="SE">SE <span class="count-badge">0</span></li>
+                                <li data-state="TO">TO <span class="count-badge">0</span></li>
+                            </ul>
+                        </nav>
+
+                        <button class="nav-btn" id="next-btn">
+                            <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=002D4B" alt="direita"
+                                id="btns-right">
+                        </button>
+                    </div>
 
                 </div>
-
                 <div class="cards-container" id="cards-container">
                     <div class="no-results">Carregando credenciados...</div>
                 </div>
@@ -1691,7 +1798,7 @@
             </section>
         </div>
     </div>
-    
+
 
 
     <!-- script geral -->
@@ -1766,8 +1873,10 @@
     </script>
 
     <!-- navegação por botoes-->
+    <!-- navegação por botoes scrool infinito-->
+
+
     <script>
-        // Navegação por botões - VERSÃO CORRIGIDA
         document.addEventListener('DOMContentLoaded', function () {
             const stateList = document.getElementById('state-list');
             const prevBtn = document.getElementById('prev-btn');
@@ -1777,68 +1886,85 @@
 
             // Configuração inicial
             let currentPosition = 0;
-            const itemWidth = 80; // Largura aproximada de cada item (70px + margens)
+            const itemHeight = 50;
+            let isAnimating = false;
 
-            // Função para calcular itens visíveis CORRETAMENTE
+            // Adicionar transição suave
+            stateList.style.transition = 'transform 0.3s ease';
+
+            // Função para calcular itens visíveis
             function calculateVisibleItems() {
-                const containerWidth = stateContainer.offsetWidth;
-                const totalItemsWidth = stateItems.length * itemWidth;
-
-                // Se todos os itens cabem no container, não precisa de navegação
-                if (totalItemsWidth <= containerWidth) {
-                    return stateItems.length;
-                }
-
-                // Calcula quantos itens cabem visíveis
-                return Math.floor(containerWidth / itemWidth);
+                const containerHeight = stateContainer.offsetHeight;
+                return Math.floor(containerHeight / itemHeight);
             }
 
-            // Função para calcular posição máxima CORRETAMENTE
+            // Função para calcular a posição máxima
             function calculateMaxPosition() {
                 const visibleItems = calculateVisibleItems();
-                const maxPosition = Math.max(0, stateItems.length - visibleItems);
-                return maxPosition;
+                return Math.max(0, stateItems.length - visibleItems);
             }
 
             // Função para atualizar a posição da lista
-            function updatePosition() {
+            function updatePosition(instant = false) {
+                if (instant) {
+                    stateList.style.transition = 'none';
+                } else {
+                    stateList.style.transition = 'transform 0.3s ease';
+                }
+
                 const maxPosition = calculateMaxPosition();
+                stateList.style.transform = `translateY(-${currentPosition * itemHeight}px)`;
 
-                // Limitar a posição atual
-                currentPosition = Math.max(0, Math.min(currentPosition, maxPosition));
-
-                // Aplicar transformação
-                stateList.style.transform = `translateX(-${currentPosition * itemWidth}px)`;
-
-                // Atualizar estado dos botões
-                const isAtStart = currentPosition === 0;
-                const isAtEnd = currentPosition >= maxPosition;
-
-                prevBtn.disabled = isAtStart;
-                nextBtn.disabled = isAtEnd;
-
-                // Aplicar estilos aos botões desabilitados
-                prevBtn.style.opacity = isAtStart ? '0.5' : '1';
-                prevBtn.style.cursor = isAtStart ? 'not-allowed' : 'pointer';
-                nextBtn.style.opacity = isAtEnd ? '0.5' : '1';
-                nextBtn.style.cursor = isAtEnd ? 'not-allowed' : 'pointer';
+                // Restaurar transição após mudança instantânea
+                if (instant) {
+                    setTimeout(() => {
+                        stateList.style.transition = 'transform 0.3s ease';
+                    }, 50);
+                }
             }
 
-            // Navegação para a esquerda
+            // Navegação para cima (anterior)
             prevBtn.addEventListener('click', function () {
+                if (isAnimating) return;
+                isAnimating = true;
+
+                const maxPosition = calculateMaxPosition();
+
                 if (currentPosition > 0) {
                     currentPosition--;
-                    updatePosition();
+                } else {
+                    // Se está no início, vai para o final instantaneamente
+                    currentPosition = maxPosition;
+                    updatePosition(true);
                 }
+
+                updatePosition();
+
+                setTimeout(() => {
+                    isAnimating = false;
+                }, 300);
             });
 
-            // Navegação para a direita
+            // Navegação para baixo (próximo)
             nextBtn.addEventListener('click', function () {
+                if (isAnimating) return;
+                isAnimating = true;
+
                 const maxPosition = calculateMaxPosition();
+
                 if (currentPosition < maxPosition) {
                     currentPosition++;
-                    updatePosition();
+                } else {
+                    // Se está no final, volta para o início instantaneamente
+                    currentPosition = 0;
+                    updatePosition(true);
                 }
+
+                updatePosition();
+
+                setTimeout(() => {
+                    isAnimating = false;
+                }, 300);
             });
 
             // Inicializar posição
@@ -1846,13 +1972,14 @@
 
             // Ajustar ao redimensionar a janela
             window.addEventListener('resize', function () {
-                updatePosition();
+                updatePosition(true);
             });
 
-            // Forçar atualização após um pequeno delay para garantir que o DOM esteja totalmente renderizado
-            setTimeout(updatePosition, 100);
+            // Forçar atualização após um pequeno delay
+            setTimeout(() => updatePosition(true), 0);
         });
     </script>
+
 
 
     <!-- script principal -->
@@ -2165,69 +2292,69 @@
                 const displayName = getDisplayName(credenciado);
 
                 card.innerHTML = `
-            <div class="card-header">
-                <div class="state-badge">${credenciado.estado}</div>
-                <h3 class="fantasia">${highlightText(displayName, searchTerm)}</h3>
-                <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=002D4B" 
-                     alt="Expandir" class="toggle-icon">
+    <div class="card-header">
+        <div class="state-badge">${credenciado.estado}</div>
+        <h3 class="fantasia">${highlightText(displayName, searchTerm)}</h3>
+        <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=002D4B"
+            alt="Expandir" class="toggle-icon">
+    </div>
+    <div class="card-body">
+        <div class="card-info category-card">
+            <div class="info-header">
+                <div class="info-content">
+                    <img src="https://img.icons8.com/?size=100&id=8169&format=png&color=002D4B" alt="Especialidades" class="ico">
+                        <p class="information">Especialidades</p>
+                </div>
+                <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=002D4B"
+                    alt="Expandir" class="toggle-icon small category-toggle">
             </div>
-            <div class="card-body">
-                <div class="card-info category-card">
-                    <div class="info-header">
-                        <div class="info-content">
-                            <img src="https://img.icons8.com/?size=100&id=8169&format=png&color=002D4B" alt="Especialidades" class="ico">
-                            <p class="information">Especialidades</p>
-                        </div>
-                        <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=002D4B" 
-                             alt="Expandir" class="toggle-icon small category-toggle">
-                    </div>
-                    <div class="info-details">
-                        ${formatCategory(credenciado.categoria, searchTerm)}
-                    </div>
-                </div>
-                <div class="divisao"></div>
-                <div class="card-info">
-                    <div class="info-header">
-                        <div class="info-content">
-                            <img src="https://img.icons8.com/?size=100&id=9659&format=png&color=002D4B" alt="Telefone" class="ico">
-                            <p class="information">Contato</p>
-                        </div>
-                        <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=2F54CF" 
-                             alt="Expandir" class="toggle-icon small">
-                    </div>
-                    
-                    <div class="info-details">
-                        <ul>
-                            <li class="dados">
-                                Celular: ${credenciado.ddd_cel}
-                                ${credenciado.celular}
-                            </li>
-                            <li class="dados">
-                                Telefone 1:  ${credenciado.ddd_tel_1} ${credenciado.telefone_1}
-                            </li>
-                            <li class="dados">
-                                Telefone 2: ${credenciado.ddd_tel_2} ${credenciado.telefone_2}
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="card-info">
-                    <div class="info-header">
-                        <div class="info-content">
-                            <img src="https://img.icons8.com/?size=100&id=YyEbAVyRYrMX&format=png&color=002D4B" alt="Localização" class="ico">
-                            <p class="information">Endereço</p>
-                        </div>
-                        <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=2F54CF" 
-                             alt="Expandir" class="toggle-icon small">
-                    </div>
-                    <div class="info-details">
-                        <li class="dados">${credenciado.logradouro}, ${credenciado.numero}, ${credenciado.bairo} <br> ${credenciado.municipio}, ${credenciado.estado}, ${credenciado.cep}
-                        </li>                       
-                    </div>
-                </div>
+            <div class="info-details">
+                ${formatCategory(credenciado.categoria, searchTerm)}
             </div>
-        `;
+        </div>
+        <div class="divisao"></div>
+        <div class="card-info">
+            <div class="info-header">
+                <div class="info-content">
+                    <img src="https://img.icons8.com/?size=100&id=9659&format=png&color=002D4B" alt="Telefone" class="ico">
+                        <p class="information">Contato</p>
+                </div>
+                <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=2F54CF"
+                    alt="Expandir" class="toggle-icon small">
+            </div>
+
+            <div class="info-details">
+                <ul>
+                    <li class="dados">
+                        Celular: ${credenciado.ddd_cel}
+                        ${credenciado.celular}
+                    </li>
+                    <li class="dados">
+                        Telefone 1:  ${credenciado.ddd_tel_1} ${credenciado.telefone_1}
+                    </li>
+                    <li class="dados">
+                        Telefone 2: ${credenciado.ddd_tel_2} ${credenciado.telefone_2}
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card-info">
+            <div class="info-header">
+                <div class="info-content">
+                    <img src="https://img.icons8.com/?size=100&id=YyEbAVyRYrMX&format=png&color=002D4B" alt="Localização" class="ico">
+                        <p class="information">Endereço</p>
+                </div>
+                <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=2F54CF"
+                    alt="Expandir" class="toggle-icon small">
+            </div>
+            <div class="info-details">
+                <li class="dados">${credenciado.logradouro}, ${credenciado.numero}, ${credenciado.bairo} <br> ${credenciado.municipio}, ${credenciado.estado}, ${credenciado.cep}
+                </li>
+            </div>
+        </div>
+    </div>
+    `;
 
                 cardsContainer.appendChild(card);
             });

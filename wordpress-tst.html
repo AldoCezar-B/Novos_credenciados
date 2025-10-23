@@ -807,7 +807,7 @@
         }
 
         .state li.active {
-            
+
             background-color: var(--intra-yellow);
             color: var(--button-dark-blue);
             border-color: var(--New_Yellow);
@@ -1375,6 +1375,7 @@
 
                         <nav class="state">
                             <ul id="state-list">
+                                <li data-state="ALL">Todos<span class="count-badge"></span></li>
                                 <li data-state="AC">AC <span class="count-badge">0</span></li>
                                 <li data-state="AL">AL <span class="count-badge">0</span></li>
                                 <li data-state="AP">AP <span class="count-badge">0</span></li>
@@ -1804,6 +1805,7 @@
     <!-- script geral -->
     <script>
 
+
         // Inicialização quando o DOM estiver carregado
         document.addEventListener('DOMContentLoaded', function () {
             // Header collapse functionality
@@ -1841,6 +1843,152 @@
         }
 
     </script>
+    <!-- função de alinhamento de UF selecionada -->
+
+    <script>
+        // Função para sincronizar a seleção entre mapa e menu lateral
+        function syncStateSelection(stateCode) {
+            // Remover seleção anterior em ambos
+            stateElements.forEach(s => s.classList.remove('selected'));
+            stateMenuItems.forEach(i => i.classList.remove('active'));
+
+            // Adicionar seleção atual no mapa
+            const stateElement = document.getElementById(stateCode);
+            if (stateElement) {
+                stateElement.classList.add('selected');
+            }
+
+            // Adicionar seleção atual no menu lateral
+            stateMenuItems.forEach(item => {
+                if (item.getAttribute('data-state') === stateCode) {
+                    item.classList.add('active');
+
+                    // Garantir que o item selecionado fique visível no menu
+                    scrollToStateItem(item);
+                }
+            });
+        }
+
+        // Função para rolar até o item do estado no menu lateral
+        function scrollToStateItem(selectedItem) {
+            const stateList = document.getElementById('state-list');
+            const stateContainer = document.querySelector('.state');
+            const itemHeight = 50;
+
+            // Encontrar a posição do item na lista
+            const itemIndex = Array.from(stateMenuItems).indexOf(selectedItem);
+            const visibleItems = calculateVisibleItems();
+            const maxPosition = calculateMaxPosition();
+
+            // Calcular a posição ideal para mostrar o item selecionado
+            let targetPosition = itemIndex;
+
+            // Ajustar para que o item fique visível no meio da área visível, se possível
+            if (itemIndex > Math.floor(visibleItems / 2)) {
+                targetPosition = itemIndex - Math.floor(visibleItems / 2);
+            }
+
+            // Limitar a posição aos limites válidos
+            targetPosition = Math.max(0, Math.min(targetPosition, maxPosition));
+
+            // Aplicar a rolagem
+            stateList.style.transform = `translateY(-${targetPosition * itemHeight}px)`;
+            currentPosition = targetPosition;
+        }
+
+        // Função para calcular itens visíveis (já existente, mas vou incluir para completude)
+        function calculateVisibleItems() {
+            const stateContainer = document.querySelector('.state');
+            const containerHeight = stateContainer.offsetHeight;
+            const itemHeight = 50;
+            return Math.floor(containerHeight / itemHeight);
+        }
+
+        // Função para calcular a posição máxima (já existente, mas vou incluir para completude)
+        function calculateMaxPosition() {
+            const visibleItems = calculateVisibleItems();
+            return Math.max(0, stateItems.length - visibleItems);
+        }
+
+        // Modificar a função setupEventListeners para usar a sincronização
+        function setupEventListeners() {
+            // Eventos para os estados no mapa
+            stateElements.forEach(state => {
+                state.addEventListener('click', () => {
+                    const stateCode = state.id;
+                    selectedState = stateCode;
+
+                    // Sincronizar seleção entre mapa e menu
+                    syncStateSelection(stateCode);
+                    filterCredenciados();
+                });
+
+                // Tooltips (mantido igual)
+                state.addEventListener('mouseover', (e) => {
+                    const stateCode = e.target.id;
+                    const stateName = estados[stateCode];
+                    e.target.setAttribute('title', stateName);
+                });
+            });
+
+            // Eventos para os itens do menu de estados (modificado para sincronizar)
+            stateMenuItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const stateCode = item.getAttribute('data-state');
+                    selectedState = stateCode;
+
+                    // Sincronizar seleção entre menu e mapa
+                    syncStateSelection(stateCode);
+                    filterCredenciados();
+                });
+            });
+
+            // Resto do código permanece igual...
+            // Evento de busca
+            if (searchInput) {
+                searchInput.addEventListener('keydown', function (e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        filterCredenciados();
+                    }
+                    if (e.key === 'Escape') {
+                        this.value = '';
+                        filterCredenciados();
+                    }
+                });
+            }
+
+            // Evento para limpar seleção ao clicar no título
+            stateTitle.addEventListener('click', () => {
+                stateElements.forEach(s => s.classList.remove('selected'));
+                stateMenuItems.forEach(i => i.classList.remove('active'));
+                selectedState = null;
+                searchInput.value = '';
+                displayFirstFiveCredenciados();
+            });
+        }
+
+        // Adicionar estas variáveis no início do script principal, após a declaração de stateMenuItems
+        let stateItems; // Já existe, mas vou declarar explicitamente
+        let currentPosition = 0; // Já existe na navegação por botões
+
+        // Inicializar stateItems no DOMContentLoaded ou no initializeApp
+        function initializeApp() {
+            // ... código existente ...
+
+            // Inicializar elementos adicionais
+            stateItems = document.querySelectorAll('.state li'); // Esta linha já existe, mas para referência
+
+            // Configurar event listeners
+            setupEventListeners();
+
+            // Iniciar carregamento dos dados
+            loadRemoteCSV();
+        }
+    </script>
+
+
+
     <!--Função dos cards -->
     <script>
         // Função para adicionar eventos de clique aos cards
@@ -1872,9 +2020,8 @@
         }
     </script>
 
-    <!-- navegação por botoes-->
-    <!-- navegação por botoes scrool infinito-->
 
+    <!-- navegação por botoes scrool infinito-->
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -1923,6 +2070,47 @@
                 }
             }
 
+            // Função para selecionar automaticamente o primeiro item visível
+            function selectFirstVisibleItem() {
+                const visibleItems = calculateVisibleItems();
+                const firstVisibleIndex = currentPosition;
+
+                // Remover seleção de todos os itens
+                stateItems.forEach(item => item.classList.remove('active'));
+
+                // Selecionar o primeiro item visível
+                if (stateItems[firstVisibleIndex]) {
+                    const stateCode = stateItems[firstVisibleIndex].getAttribute('data-state');
+                    selectState(stateCode);
+                }
+            }
+
+            // Função para selecionar um estado (sincroniza mapa e menu)
+            function selectState(stateCode) {
+                // Remover seleção anterior
+                document.querySelectorAll('#svg-map a').forEach(s => s.classList.remove('selected'));
+                stateItems.forEach(i => i.classList.remove('active'));
+
+                // Selecionar no menu
+                stateItems.forEach(item => {
+                    if (item.getAttribute('data-state') === stateCode) {
+                        item.classList.add('active');
+                    }
+                });
+
+                // Selecionar no mapa (apenas se não for "ALL")
+                if (stateCode !== 'ALL') {
+                    const stateElement = document.getElementById(stateCode);
+                    if (stateElement) {
+                        stateElement.classList.add('selected');
+                    }
+                }
+
+                // Atualizar estado selecionado e filtrar
+                selectedState = stateCode === 'ALL' ? null : stateCode;
+                filterCredenciados();
+            }
+
             // Navegação para cima (anterior)
             prevBtn.addEventListener('click', function () {
                 if (isAnimating) return;
@@ -1940,7 +2128,9 @@
 
                 updatePosition();
 
+                // Selecionar automaticamente o primeiro item visível após a animação
                 setTimeout(() => {
+                    selectFirstVisibleItem();
                     isAnimating = false;
                 }, 300);
             });
@@ -1962,7 +2152,9 @@
 
                 updatePosition();
 
+                // Selecionar automaticamente o primeiro item visível após a animação
                 setTimeout(() => {
+                    selectFirstVisibleItem();
                     isAnimating = false;
                 }, 300);
             });
@@ -2065,19 +2257,20 @@
                     // Adicionar seleção atual
                     item.classList.add('active');
 
-                    // Encontrar e selecionar o estado correspondente no mapa
-                    const stateElement = document.getElementById(stateCode);
-                    if (stateElement) {
-                        stateElement.classList.add('selected');
+                    // Encontrar e selecionar o estado correspondente no mapa (apenas se não for "ALL")
+                    if (stateCode !== 'ALL') {
+                        const stateElement = document.getElementById(stateCode);
+                        if (stateElement) {
+                            stateElement.classList.add('selected');
+                        }
                     }
 
-                    selectedState = stateCode;
+                    selectedState = stateCode === 'ALL' ? null : stateCode;
                     filterCredenciados();
                 });
             });
 
             // Evento de busca
-            // Substituído: agora pesquisa somente ao pressionar Enter e limpa com Escape
             if (searchInput) {
                 searchInput.addEventListener('keydown', function (e) {
                     if (e.key === 'Enter') {
@@ -2375,7 +2568,7 @@
                 filtered = filtered.filter(credenciado => credenciado.estado === selectedState);
                 stateTitle.textContent = `Novos Credenciados em ${estados[selectedState]}`;
             } else {
-                stateTitle.textContent = "Novos Credenciados em Destaque";
+                stateTitle.textContent = "Todos os Credenciados"; // Texto atualizado
             }
 
             // Filtrar por termo de busca se existir
@@ -2396,15 +2589,16 @@
                 });
             }
 
-            // Se não há filtros ativos, mostrar os primeiros definir limite
+            // Se não há filtros ativos, mostrar TODOS os credenciados (não apenas os primeiros 50)
             if (!selectedState && !searchTerm) {
-                displayFirstFiveCredenciados();
+                displayCredenciados(filtered); // Mostra todos em vez de apenas os primeiros 50
                 return;
             }
 
             console.log('Resultados filtrados:', filtered.length);
             displayCredenciados(filtered);
         }
+
     </script>
 
 

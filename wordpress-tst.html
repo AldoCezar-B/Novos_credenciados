@@ -105,10 +105,14 @@
             /* Ajuste conforme necessário */
         }
 
-        .header_2 {
+        .conheca {
+            background-color: var(--red-error);
+            height: fit-content;
             color: var(--button-dark-blue);
             text-align: center;
         }
+
+
 
         /*-----------------------*/
 
@@ -292,8 +296,9 @@
 
         .filtros {
             display: flex;
+            align-items: flex-end;
 
-            padding: 10px;
+            padding: 10px 0;
 
         }
 
@@ -615,7 +620,7 @@
 
 
 
-            margin-top: 20px;
+            margin-top: 50px;
             background-color: var(--ux-silver);
             border: 2px;
             border-style: none none solid none;
@@ -808,9 +813,9 @@
 
         .state li.active {
 
-            background-color: var(--intra-yellow);
-            color: var(--button-dark-blue);
-            border-color: var(--New_Yellow);
+            background-color: var(--button-dark-blue);
+            color: var(--button-yellow);
+
 
         }
 
@@ -1324,10 +1329,9 @@
             </div>
 
         </header>
-        <div style="height: 80px; color: #000000;">
-            <h1 class="header_2">Novos prestadores da rede credenciada</h1>
-            <p class="header_2">A lista é atualizada todo mês com os novos credenciados. Use os filtros abaixo para
-                encontrar por estado, nome do prestador ou especialidade.</p>
+        <div class="conheca" >
+            <h1 >Conheça novos credenciados CASSI</h1>
+            <p >Números de credenciamentos acumulado 2025.</p>
         </div>
     </div>
 
@@ -1358,7 +1362,8 @@
                 <div class="filtros">
                     <div class="search-box">
                         <h2 class="state-title" id="state-title">Credenciados em Destaque</h2>
-                        <p> Busque por: nome do prestador ou especialidade </p>
+                        <p> Selecione a UF pra ver lista dos novos credenciados e digite nome ou especialidade se
+                            desejar busca específica</p>
                         <input type="text" id="search-input" placeholder="Buscar credenciados...">
                         <img src="https://img.icons8.com/?size=100&id=132&format=png&color=000000" alt="Ícone de busca"
                             class="search-icon-img">
@@ -2222,15 +2227,23 @@
             // Eventos para os estados no mapa
             stateElements.forEach(state => {
                 state.addEventListener('click', () => {
+                    // Remover seleção anterior em ambos
                     stateElements.forEach(s => s.classList.remove('selected'));
+                    stateMenuItems.forEach(i => i.classList.remove('active'));
+
+                    // Adicionar seleção atual no mapa
                     state.classList.add('selected');
                     selectedState = state.id;
 
-                    // Atualizar menu de estados
+                    // Adicionar seleção correspondente no menu lateral
                     stateMenuItems.forEach(item => {
-                        item.classList.remove('active');
                         if (item.getAttribute('data-state') === selectedState) {
                             item.classList.add('active');
+
+                            // Garantir que o item fique visível no menu (apenas em desktop)
+                            if (window.innerWidth > 768) {
+                                scrollToStateItem(item);
+                            }
                         }
                     });
 
@@ -2250,11 +2263,11 @@
                 item.addEventListener('click', () => {
                     const stateCode = item.getAttribute('data-state');
 
-                    // Remover seleção anterior
+                    // Remover seleção anterior em ambos
                     stateElements.forEach(s => s.classList.remove('selected'));
                     stateMenuItems.forEach(i => i.classList.remove('active'));
 
-                    // Adicionar seleção atual
+                    // Adicionar seleção atual no menu
                     item.classList.add('active');
 
                     // Encontrar e selecionar o estado correspondente no mapa (apenas se não for "ALL")
@@ -2294,6 +2307,56 @@
                 displayFirstFiveCredenciados();
             });
         }
+
+        // Função para rolar até o item do estado no menu lateral (apenas desktop)
+        function scrollToStateItem(selectedItem) {
+            if (window.innerWidth <= 768) return; // Não executa em mobile
+
+            const stateList = document.getElementById('state-list');
+            const stateItems = document.querySelectorAll('.state li');
+            const itemHeight = 50;
+
+            // Encontrar a posição do item na lista
+            const itemIndex = Array.from(stateItems).indexOf(selectedItem);
+            const visibleItems = calculateVisibleItems();
+            const maxPosition = calculateMaxPosition();
+
+            // Calcular a posição ideal para mostrar o item selecionado
+            let targetPosition = itemIndex;
+
+            // Ajustar para que o item fique visível no meio da área visível, se possível
+            if (itemIndex > Math.floor(visibleItems / 2)) {
+                targetPosition = itemIndex - Math.floor(visibleItems / 2);
+            }
+
+            // Limitar a posição aos limites válidos
+            targetPosition = Math.max(0, Math.min(targetPosition, maxPosition));
+
+            // Aplicar a rolagem
+            stateList.style.transform = `translateY(-${targetPosition * itemHeight}px)`;
+            currentPosition = targetPosition;
+        }
+
+        // Função para calcular itens visíveis (para desktop)
+        function calculateVisibleItems() {
+            if (window.innerWidth <= 768) return 0; // Não aplica em mobile
+
+            const stateContainer = document.querySelector('.state');
+            const containerHeight = stateContainer.offsetHeight;
+            const itemHeight = 50;
+            return Math.floor(containerHeight / itemHeight);
+        }
+
+        // Função para calcular a posição máxima (para desktop)
+        function calculateMaxPosition() {
+            if (window.innerWidth <= 768) return 0; // Não aplica em mobile
+
+            const visibleItems = calculateVisibleItems();
+            const stateItems = document.querySelectorAll('.state li');
+            return Math.max(0, stateItems.length - visibleItems);
+        }
+
+
 
         // Função para obter o nome a ser exibido baseado no NO_LIVRO
         function getDisplayName(credenciado) {
@@ -2566,7 +2629,7 @@
             // Filtrar por estado se selecionado
             if (selectedState) {
                 filtered = filtered.filter(credenciado => credenciado.estado === selectedState);
-                stateTitle.textContent = `Novos Credenciados em ${estados[selectedState]}`;
+                stateTitle.textContent = `Novos Credenciados no ${estados[selectedState]}`;
             } else {
                 stateTitle.textContent = "Todos os Credenciados"; // Texto atualizado
             }

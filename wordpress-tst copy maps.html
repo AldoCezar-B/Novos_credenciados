@@ -1011,7 +1011,7 @@
         .specialty-item {
 
             padding: 4px 0;
-            
+
             color: var(--button-dark-blue);
             font-size: 0.9rem;
             position: relative;
@@ -1024,7 +1024,7 @@
 
         .specialty-single {
             padding: 4px 0;
-            
+
             color: var(--button-dark-blue);
             font-size: 0.9rem;
             position: relative;
@@ -1058,6 +1058,19 @@
             border-radius: 10px;
             padding: 5px 10px;
             margin: 20px 10px;
+            height: fit-content;
+            min-height: 0;
+            min-width: 0;
+            border: 1px solid #666666;
+
+        }
+
+        .dados-adress {
+            background-color: var(--ux-pastel-green);
+            color: var(--button-dark-blue);
+            border-radius: 10px 10px 10px 0;
+            padding: 5px 10px;
+
             height: fit-content;
             min-height: 0;
             min-width: 0;
@@ -1354,7 +1367,48 @@
                 padding: 0.6rem;
             }
         }
+
+        /*  style botao maps */
+
+        /* Adicione isso no seu CSS existente */
+        .maps-button {
+
+            background-image: var(--btn-deg);
+            color: var(--button-dark-blue);
+
+            border-radius: 0 0 20px 20px;
+            padding: 8px 16px;
+            margin: 0;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: right;
+            box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.7);
+            transition: all 0.3s ease;
+
+            border-style: none none solid none;
+        }
+
+        .maps-button:hover {
+
+            transform: translateY(0);
+
+        }
+
+        .maps-button:active {
+            transform: translateY(1px);
+        }
+
+        .maps-icon {
+            width: 18px;
+            height: 18px;
+        }
     </style>
+
+
+
     <div class="header-container" id="headerContainer">
 
         <header class="header-container" id="mainHeader">
@@ -1847,6 +1901,30 @@
         </div>
     </div>
 
+    <!--script pesquisa no maps -->
+    <Script>
+        // Função para pesquisar no Google Maps
+        function pesquisarNoGoogleMaps(endereco) {
+            // Verifica se há endereço para pesquisar
+            if (!endereco || endereco.trim() === '') {
+                alert('Endereço não disponível para pesquisa!');
+                return;
+            }
+
+            // Codifica o endereço para URL (trata espaços e caracteres especiais)
+            const enderecoCodificado = encodeURIComponent(endereco.trim());
+
+            // Cria a URL do Google Maps
+            const urlMaps = `https://www.google.com/maps/search/?api=1&query=${enderecoCodificado}`;
+
+            // Abre o Google Maps em uma nova aba
+            window.open(urlMaps, '_blank');
+
+            // Opcional: Log para debug
+            console.log('Pesquisando no Google Maps:', endereco);
+            console.log('URL gerada:', urlMaps);
+        }
+    </Script>
 
 
     <!-- script geral -->
@@ -2535,7 +2613,10 @@
             }
         }
 
-        // Função para exibir os credenciados
+
+
+
+        // Função para exibir os credenciados (MODIFICADA - contatos)
         function displayCredenciados(credenciadosToDisplay) {
             cardsContainer.innerHTML = '';
             const searchTerm = searchInput.value.toLowerCase();
@@ -2581,6 +2662,38 @@
                 return `<div class="specialty-list">${specialtyItems}</div>`;
             };
 
+            // Função para verificar se um telefone está preenchido
+            const isPhoneFilled = (ddd, phone) => {
+                return ddd && phone && ddd.trim() !== '' && phone.trim() !== '';
+            };
+
+            // Função para gerar HTML dos contatos
+            const generateContactHTML = (credenciado) => {
+                const contacts = [];
+
+                // Verificar e adicionar celular se estiver preenchido
+                if (isPhoneFilled(credenciado.ddd_cel, credenciado.celular)) {
+                    contacts.push(`<li class="dados" id="celular">Celular: ${credenciado.ddd_cel} ${credenciado.celular}</li>`);
+                }
+
+                // Verificar e adicionar telefone 1 se estiver preenchido
+                if (isPhoneFilled(credenciado.ddd_tel_1, credenciado.telefone_1)) {
+                    contacts.push(`<li class="dados" id="telefone1">Telefone 1: ${credenciado.ddd_tel_1} ${credenciado.telefone_1}</li>`);
+                }
+
+                // Verificar e adicionar telefone 2 se estiver preenchido
+                if (isPhoneFilled(credenciado.ddd_tel_2, credenciado.telefone_2)) {
+                    contacts.push(`<li class="dados" id="telefone2">Telefone 2: ${credenciado.ddd_tel_2} ${credenciado.telefone_2}</li>`);
+                }
+
+                // Se não houver nenhum contato, mostrar mensagem
+                if (contacts.length === 0) {
+                    return '<li class="dados">Nenhum contato informado</li>';
+                }
+
+                return contacts.join('');
+            };
+
             // Criar cards para cada credenciado
             credenciadosToDisplay.forEach(credenciado => {
                 const card = document.createElement('div');
@@ -2589,70 +2702,69 @@
                 // Obter o nome a ser exibido baseado no NO_LIVRO
                 const displayName = getDisplayName(credenciado);
 
+                // Construir o endereço completo para o Google Maps
+                const enderecoCompleto = `${credenciado.logradouro}, ${credenciado.numero}, ${credenciado.bairo}, ${credenciado.municipio}, ${credenciado.estado}, ${credenciado.cep}`;
+
                 card.innerHTML = `
-    <div class="card-header">
-        <div class="state-badge">${credenciado.estado}</div>
-        <h3 class="fantasia">${highlightText(displayName, searchTerm)}</h3>
-        <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=002D4B"
-            alt="Expandir" class="toggle-icon">
-    </div>
-    <div class="card-body">
-        <div class="card-info category-card">
-            <div class="info-header">
-                <div class="info-content">
-                    <img src="https://img.icons8.com/?size=100&id=8169&format=png&color=002D4B" alt="Especialidades" class="ico">
-                        <p class="information">Especialidades</p>
-                </div>
-                <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=002D4B"
-                    alt="Expandir" class="toggle-icon small category-toggle">
+<div class="card-header">
+    <div class="state-badge">${credenciado.estado}</div>
+    <h3 class="fantasia">${highlightText(displayName, searchTerm)}</h3>
+    <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=002D4B"
+        alt="Expandir" class="toggle-icon">
+</div>
+<div class="card-body">
+    <div class="card-info category-card">
+        <div class="info-header">
+            <div class="info-content">
+                <img src="https://img.icons8.com/?size=100&id=8169&format=png&color=002D4B" alt="Especialidades" class="ico">
+                    <p class="information">Especialidades</p>
             </div>
-            <div class="info-details">
-                ${formatCategory(credenciado.categoria, searchTerm)}
-            </div>
+            <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=002D4B"
+                alt="Expandir" class="toggle-icon small category-toggle">
         </div>
-        <div class="divisao"></div>
-        <div class="card-info">
-            <div class="info-header">
-                <div class="info-content">
-                    <img src="https://img.icons8.com/?size=100&id=9659&format=png&color=002D4B" alt="Telefone" class="ico">
-                        <p class="information">Contato</p>
-                </div>
-                <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=2F54CF"
-                    alt="Expandir" class="toggle-icon small">
-            </div>
-
-            <div class="info-details">
-                <ul>
-                    <li class="dados">
-                        Celular: ${credenciado.ddd_cel}
-                        ${credenciado.celular}
-                    </li>
-                    <li class="dados">
-                        Telefone 1:  ${credenciado.ddd_tel_1} ${credenciado.telefone_1}
-                    </li>
-                    <li class="dados">
-                        Telefone 2: ${credenciado.ddd_tel_2} ${credenciado.telefone_2}
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="card-info">
-            <div class="info-header">
-                <div class="info-content">
-                    <img src="https://img.icons8.com/?size=100&id=YyEbAVyRYrMX&format=png&color=002D4B" alt="Localização" class="ico">
-                        <p class="information">Endereço</p>
-                </div>
-                <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=2F54CF"
-                    alt="Expandir" class="toggle-icon small">
-            </div>
-            <div class="info-details" id="adress">
-                <li class="dados">${credenciado.logradouro}, ${credenciado.numero}, ${credenciado.bairo} <br> ${credenciado.municipio}, ${credenciado.estado}, ${credenciado.cep}
-                </li>
-            </div>
+        <div class="info-details">
+            ${formatCategory(credenciado.categoria, searchTerm)}
         </div>
     </div>
-    `;
+    <div class="divisao"></div>
+    <div class="card-info">
+        <div class="info-header">
+            <div class="info-content">
+                <img src="https://img.icons8.com/?size=100&id=9659&format=png&color=002D4B" alt="Telefone" class="ico">
+                    <p class="information">Contato</p>
+            </div>
+            <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=2F54CF"
+                alt="Expandir" class="toggle-icon small">
+        </div>
+
+        <div class="info-details">
+            <ul>
+                ${generateContactHTML(credenciado)}
+            </ul>
+        </div>
+    </div>
+
+    <div class="card-info">
+        <div class="info-header">
+            <div class="info-content">
+                <img src="https://img.icons8.com/?size=100&id=YyEbAVyRYrMX&format=png&color=002D4B" alt="Localização" class="ico">
+                    <p class="information">Endereço</p>
+            </div>
+            <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=2F54CF"
+                alt="Expandir" class="toggle-icon small">
+        </div>
+        <div class="info-details" id="adress-${credenciadosToDisplay.indexOf(credenciado)}">
+            <li class="dados-adress">${credenciado.logradouro}, ${credenciado.numero}, ${credenciado.bairo} <br> ${credenciado.municipio}, ${credenciado.estado}, ${credenciado.cep}</li>
+            
+            <!-- BOTÃO DO GOOGLE MAPS -->
+            <button class="maps-button" onclick="pesquisarNoGoogleMaps('${enderecoCompleto.replace(/'/g, "\\'")}')">
+                <img src="https://img.icons8.com/?size=100&id=xt0xIC1nYCRm&format=png&color=000000" alt="Google Maps" class="maps-icon">
+                Ver no Google Maps
+            </button>
+        </div>
+    </div>
+</div>
+`;
 
                 cardsContainer.appendChild(card);
             });

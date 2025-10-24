@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial Interativo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 30px;
+            transition: all 0.4s ease;
+        }
+
+        .main-content h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+        }
+
+        .main-content p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .tutorial-button {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px 0 0 5px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .tutorial-button:hover {
+            background: #2980b9;
+            padding-right: 25px;
+        }
+
+        .tutorial-panel {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100%;
+            background: white;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            overflow-y: auto;
+            transition: right 0.4s ease;
+            z-index: 99;
+        }
+
+        .tutorial-panel.active {
+            right: 0;
+        }
+
+        .tutorial-panel h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+        }
+
+        .tutorial-item {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .tutorial-item h3 {
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-button:hover {
+            background: #c0392b;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 98;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        @media (max-width: 768px) {
+            .tutorial-panel {
+                width: 100%;
+                right: -100%;
+            }
+
+            .tutorial-panel.active {
+                right: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="main-content">
+            <h1>Bem-vindo ao Nosso Site</h1>
+
+            <div class="card">
+                <h2>Sobre Nós</h2>
+                <p>Somos uma empresa dedicada a fornecer soluções inovadoras para nossos clientes. Nossa missão é
+                    transformar ideias em realidade através da tecnologia.</p>
+            </div>
+
+            <div class="card">
+                <h2>Nossos Serviços</h2>
+                <p>Oferecemos uma ampla gama de serviços, incluindo desenvolvimento web, consultoria em TI, design de
+                    UX/UI e muito mais.</p>
+            </div>
+
+            <div class="card">
+                <h2>Contato</h2>
+                <p>Entre em contato conosco para saber mais sobre como podemos ajudar sua empresa a crescer e se
+                    destacar no mercado digital.</p>
+            </div>
+        </div>
+
+        <button class="tutorial-button" id="tutorialBtn">Tutorial</button>
+
+        <div class="tutorial-panel" id="tutorialPanel">
+            <button class="close-button" id="closeBtn">×</button>
+            <h2>Funcionalidades do Site</h2>
+
+            <div class="tutorial-item">
+                <h3>Navegação Principal</h3>
+                <p>Use o menu superior para acessar as diferentes seções do site. Cada item leva você a uma área
+                    específica com informações relevantes.</p>
+            </div>
+
+            <div class="tutorial-item">
+                <h3>Busca Avançada</h3>
+                <p>Utilize a barra de pesquisa no topo da página para encontrar rapidamente o conteúdo que você precisa.
+                    A busca é indexada por palavras-chave.</p>
+            </div>
+
+            <div class="tutorial-item">
+                <h3>Perfil do Usuário</h3>
+                <p>Clique no ícone de perfil no canto superior direito para acessar suas configurações, histórico de
+                    atividades e personalizar sua experiência.</p>
+            </div>
+
+            <div class="tutorial-item">
+                <h3>Configurações</h3>
+                <p>Acesse as configurações do site para personalizar o tema, notificações e preferências de privacidade
+                    de acordo com suas necessidades.</p>
+            </div>
+
+            <div class="tutorial-item">
+                <h3>Suporte</h3>
+                <p>Em caso de dúvidas ou problemas, entre em contato com nossa equipe de suporte através do formulário
+                    disponível na seção "Ajuda".</p>
+            </div>
+        </div>
+
+        <div class="overlay" id="overlay"></div>
+    </div>
+
+    <script>
+        const tutorialBtn = document.getElementById('tutorialBtn');
+        const tutorialPanel = document.getElementById('tutorialPanel');
+        const closeBtn = document.getElementById('closeBtn');
+        const overlay = document.getElementById('overlay');
+        const mainContent = document.querySelector('.main-content');
+
+        tutorialBtn.addEventListener('click', () => {
+            tutorialPanel.classList.add('active');
+            overlay.classList.add('active');
+            mainContent.style.marginRight = '400px';
+        });
+
+        closeBtn.addEventListener('click', () => {
+            tutorialPanel.classList.remove('active');
+            overlay.classList.remove('active');
+            mainContent.style.marginRight = '0';
+        });
+
+        overlay.addEventListener('click', () => {
+            tutorialPanel.classList.remove('active');
+            overlay.classList.remove('active');
+            mainContent.style.marginRight = '0';
+        });
+    </script>
+</body>
+
+</html>

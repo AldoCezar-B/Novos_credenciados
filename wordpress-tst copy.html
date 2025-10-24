@@ -45,6 +45,7 @@
             --intra-ocean-blue: #014886;
             --intra-sky-blue: #477AA7;
             --intra-another-blue: #014886;
+            --btn-deg: linear-gradient(180deg, #ffffff 10%, #C6C9CC 50%);
 
             --intra-deg: linear-gradient(180deg, #477AA7 0%, #014886 100%);
 
@@ -54,10 +55,10 @@
             --button-white: #FFFFFF;
 
             /* ux root*/
-            --ux-silver: #F9F9F9;
+            --ux-silver: #ebe8e8;
             --ux-white: #FFFFFF;
             --ux-blue: #005D9B;
-            --ux-pastel-green: #5AAAA0;
+            --ux-pastel-green: #5aaaa16e;
             --ux-pastel-yellow: #FFF4CC;
             --silver: #C6C9CC;
             --white: #ffffff;
@@ -69,6 +70,9 @@
             --border: 1px solid #727272;
             --radius: 4px;
             --shadow-border: 1px 1px 8px #727272;
+            --border-2: none none solid none;
+            ;
+            --shadow-2: 0 5px 3px rgba(0, 0, 0, 0.7);
             --margin-1: 20px;
             --padding-1: 20px;
         }
@@ -103,10 +107,14 @@
             /* Ajuste conforme necessário */
         }
 
-        .header_2 {
+        .conheca {
+
+            height: fit-content;
             color: var(--button-dark-blue);
             text-align: center;
         }
+
+
 
         /*-----------------------*/
 
@@ -152,7 +160,10 @@
         /*retirado o flex: 1;*/
         .map-section {
             background-color: var(--ux-white);
-            border: var(--border);
+            border: 2px;
+            box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.7);
+            border-style: none inset inset none;
+            border-color: #b1b1b1;
             border-radius: var(--radius);
             padding: 1.5rem;
             max-width: fit-content !important;
@@ -162,7 +173,10 @@
         .credenciados-section {
             flex: 1;
             background-color: var(--button-white);
-            border: var(--border);
+            border: 2px;
+            box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.7);
+            border-style: none inset inset none;
+            border-color: #b1b1b1;
             border-radius: var(--radius);
             padding: 1.5rem;
             height: 600px;
@@ -194,6 +208,7 @@
             display: block;
         }
 
+        /* estilos do uf selector */
         .state {
             fill: #bdc3c7;
             stroke: #fff;
@@ -202,6 +217,11 @@
             cursor: pointer;
             overflow: hidden;
             width: 100%;
+            background-color: var(--white);
+            border: 1px;
+            border-style: inset none none inset;
+            border-color: var(--silver);
+
         }
 
         .state:hover {
@@ -251,7 +271,10 @@
 
         /* Manter o hover mesmo quando selecionado */
         #svg-map a.selected:hover path {
-            fill: var(--ux-white) !important;
+            fill: var(--ux-silver) !important;
+            stroke: var(--button-dark-blue) !important;
+
+
 
         }
 
@@ -279,11 +302,21 @@
             cursor: pointer
         }
 
+        .filtros {
+            display: flex;
+            align-items: flex-end;
+
+            padding: 10px 0;
+
+        }
+
         .search-box {
-            margin: 1.5rem 5px;
+
+            margin-right: 5px;
             position: relative;
             width: 100%;
             /* Adicione isso */
+
         }
 
         .search-box input {
@@ -291,7 +324,7 @@
             /* Mude de 50% para 100% */
             padding: 12px 3rem 12px 3rem;
             /* Certifique-se do padding */
-            border: 2px solid #5a5555;
+            border: px solid #5a5555;
             border-radius: 10px;
             font-size: 14px;
 
@@ -313,6 +346,7 @@
             font-size: 16px;
             transition: all 0.3s ease;
             background-color: white;
+
         }
 
         .search-input:focus {
@@ -324,7 +358,7 @@
         .search-icon-img {
             position: absolute;
             left: 18px;
-            top: 50%;
+            top: 85%;
             transform: translateY(-50%);
             width: 20px;
             height: 20px;
@@ -349,15 +383,18 @@
             overflow-y: auto;
             padding: 0.7rem;
             background-color: var(--ux-silver);
-
-            border: var(--border);
-            border-radius: var(--radius);
+            border: 2px;
+            border-style: inset none none inset;
+            border-color: #b1b1b1;
 
         }
 
         .card {
             background: white;
-            border: var(--border);
+            box-shadow: 0 5px 3px rgba(0, 0, 0, 0.7);
+            border-style: none none solid none;
+            border-color: #b1b1b1;
+
             border-radius: 12px;
             overflow: hidden;
             margin: 10px auto;
@@ -367,13 +404,14 @@
 
         }
 
-        .card:hover {
-            transform: translateY(-5px);
+
+        .card:active {
+            transform: translateY(0);
 
         }
 
         .card-header {
-            background-image: var(--button-white);
+            background-color: var(--button-white);
             color: var(--button-dark-blue);
             padding: 10px 1rem;
             text-align: left;
@@ -381,6 +419,7 @@
             justify-content: space-between;
             align-items: center;
             gap: 15px;
+
 
         }
 
@@ -418,6 +457,10 @@
             background-color: var(--white);
             border-radius: 10px;
             margin: 5px;
+            border: 2px;
+            box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.7);
+            border-style: none solid solid none;
+            border-color: #b1b1b1;
         }
 
         .card-info .ico {
@@ -457,11 +500,13 @@
             display: inline-flex;
             background-color: var(--button-dark-blue);
             color: var(--button-yellow);
-            padding: 5px 10px;
+            padding: 5px;
             border-radius: 50px;
             font-size: 0.8rem;
             margin-top: 0.5rem;
             font-weight: 650;
+            width: 40px;
+            justify-content: center;
 
         }
 
@@ -584,53 +629,116 @@
         /* aqui o menu de estados ajustar tamannho*/
         .state-container {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
+
+            justify-content: space-between;
+            /* Alinha ao topo */
+
+            width: 80px;
+            height: 120px;
+            /* altura fixa juntar com item da lista  state ul */
 
 
-            height: fit-content;
-            margin: 10px 40px !important;
-            background-color: var(--ux-white);
-            border: var(--border);
+
+            margin-top: 50px;
+            background-color: var(--ux-silver);
+            border: 2px;
+            border-style: none none solid none;
+            border-color: rgb(82, 79, 79);
             border-radius: var(--radius);
-            padding: 15px;
+
+            box-shadow: 2px 5px 3px rgba(0, 0, 0, 0.5);
+            padding: 0 3px;
+            overflow-y: auto;
             overflow: hidden;
+            max-height: 400px;
         }
 
         .nav-btn {
-            background-color: #e6f0f7;
-            border: none;
-            border-radius: 8px;
-            width: 40px;
-            height: 40px;
+
+            background-color: var(--ux-silver);
+            width: 60px;
+            height: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             transition: all 0.2s ease;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 5px 3px rgba(0, 0, 0, 0.7);
+            margin: 0;
         }
 
-        .nav-btn:hover {
-            background-color: #d0e4f1;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+
+        #prev-btn {
+            order: 1;
+            border-radius: 4px 4px 0 0;
+            margin: 5px;
+            border-style: none none solid none;
+
+
         }
 
-        .nav-btn:active {
-            transform: translateY(0);
+        #prev-btn.nav-btn:active {
+
+            border-radius: 4px 4px 0 0;
+            margin: 5px;
+            border-style: none;
+
+
         }
 
         .state {
-            overflow: hidden;
-            white-space: nowrap;
+            order: 2;
+
+        }
+
+        #next-btn {
+            order: 3;
+            border-radius: 0 0 4px 4px;
+            margin: 5px;
+            border-style: none none solid none;
+        }
+
+        #next-btn.nav-btn:active {
+
+            border-radius: 4px 4px 0 0;
+            margin: 5px;
+            border-style: none;
+
+
+        }
+
+        #btns-left {
+            transform: rotate(90deg);
+            width: 10px;
+            height: 30px;
+        }
+
+        #btns-right {
+            transform: rotate(-90deg);
+            width: 10px;
+            height: 30px;
+        }
+
+
+
+
+
+        .state {
+            overflow-y: hidden;
+            overflow-x: hidden;
+            white-space: normal;
             width: 100%;
+            height: auto;
+            flex: 1;
 
         }
 
         /* Personalizando a barra de rolagem para Chrome, Edge e Safari */
         .state::-webkit-scrollbar {
-            height: 8px;
+            width: 8px;
         }
 
         .state::-webkit-scrollbar-track {
@@ -647,37 +755,57 @@
             background: #555;
         }
 
+        /* arrumar a navegação dos botoes  aqui*/
+        /* apagado display: flex; */
         .state ul {
-            display: inline-flex;
+
+            flex-direction: column;
             list-style-type: none;
-            transition: transform 0.3s ease;
+
             margin: 0;
             padding: 0;
-            will-change: transform;
+            width: 100%;
+            height: 10px;
+            transition: transform 0.3s ease;
+
+
             /* Otimização de performance */
         }
 
-        /* Garantir que o primeiro item não fique cortado */
+        /* Garantir que o primeiro item não fique cortado  - verificar se apaga dps*/
         .state ul {
             padding-left: 0;
             margin-left: 0;
         }
 
         .state li {
+
             position: relative;
-            display: inline-block;
-            padding: 10px 15px;
-            margin: 0 5px;
-            border-style: solid none none none;
+            display: block;
+            padding: auto 10px;
+            margin: 10px 2px;
+            border: 1px solid #666666;
             font-weight: bold;
             color: var(--intra-another-blue);
-            min-width: 50px;
-            text-align: center;
+            min-width: auto;
+
+            text-align: left;
+            /* Alinha o texto à esquerda */
             cursor: pointer;
             transition: all 0.3s ease;
             flex-shrink: 0;
             /* IMPORTANTE: Impede que os itens encolham */
             box-sizing: border-box;
+            height: 40px;
+            /* Altura fixa para cada item */
+
+        }
+
+        li {
+            display: flex;
+            padding-top: 5px;
+            padding-left: 5px;
+            margin: auto;
         }
 
         /* Correção para quando todos os itens cabem na tela */
@@ -695,24 +823,28 @@
  */
         .state li:hover {
 
-            border-style: solid solid none none;
-            background-color: var(--intra-white);
-            box-shadow: 1px 1px 8px var(--silver-border);
+
+            background-color: var(--ux-silver);
+            box-shadow: 0 1px 5px #666666;
+
+
+
 
         }
 
         .state li.active {
+
             background-color: var(--button-dark-blue);
-            color: var(--intra-yellow);
-            border-color: var(--New_Yellow);
+            color: var(--button-yellow);
+
 
         }
 
         /* Bolinha de contador */
         .count-badge {
             position: absolute;
-            top: -5px;
-            right: -5px;
+            top: 5px;
+            right: 5px;
             background-color: var(--intra-yellow);
             color: var(--intra-dark-blue);
             border-radius: 5px;
@@ -749,6 +881,9 @@
             max-height: 500px;
             padding: 1.5rem;
             overflow-y: auto;
+            box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.3);
+            border-style: solid none none solid;
+            border-color: #e4e4e4;
             /* Adiciona barra de rolagem vertical quando expandido */
         }
 
@@ -875,11 +1010,12 @@
 
             padding: 4px 0;
             border-bottom: 1px solid #f0f0f0;
-            color: var(--white);
+            color: var(--button-dark-blue);
             font-size: 0.9rem;
             position: relative;
             padding-left: 15px;
-            background-color: var(--button-dark-blue);
+            background-color: var(--ux-pastel-green);
+            border: 1px inset #666666;
             border-radius: 10px;
             margin: 5px;
         }
@@ -902,14 +1038,15 @@
         }
 
         .dados {
-            background-color: var(--button-dark-blue);
-            color: var(--intra-white);
+            background-color: var(--ux-pastel-green);
+            color: var(--button-dark-blue);
             border-radius: 10px;
             padding: 5px 10px;
             margin: 20px 10px;
             height: fit-content;
             min-height: 0;
             min-width: 0;
+            border: 1px solid #666666;
 
         }
 
@@ -1202,8 +1339,6 @@
                 padding: 0.6rem;
             }
         }
-
-
     </style>
     <div class="header-container" id="headerContainer">
 
@@ -1220,10 +1355,9 @@
             </div>
 
         </header>
-        <div style="height: 80px; color: #000000;">
-            <h1 class="header_2">Novos prestadores da rede credenciada</h1>
-            <p class="header_2">A lista é atualizada todo mês com os novos credenciados. Use os filtros abaixo para
-                encontrar por estado, nome do prestador ou especialidade.</p>
+        <div class="conheca">
+            <h1>Conheça novos credenciados CASSI</h1>
+            <p>Números de credenciamentos acumulado 2025.</p>
         </div>
     </div>
 
@@ -1233,51 +1367,6 @@
     <div class="container-cred">
         <!-- container-credgeral-->
 
-        <div class="state-container">
-            <button class="nav-btn" id="prev-btn">
-                <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=002D4B" alt="esquerda" height="20"
-                    width="20">
-            </button>
-            <!-- novo droplist-->
-
-
-            <nav class="state">
-                <ul id="state-list">
-                    <li data-state="AC">AC <span class="count-badge">0</span></li>
-                    <li data-state="AL">AL <span class="count-badge">0</span></li>
-                    <li data-state="AP">AP <span class="count-badge">0</span></li>
-                    <li data-state="AM">AM <span class="count-badge">0</span></li>
-                    <li data-state="BA">BA <span class="count-badge">0</span></li>
-                    <li data-state="CE">CE <span class="count-badge">0</span></li>
-                    <li data-state="DF">DF <span class="count-badge">0</span></li>
-                    <li data-state="ES">ES <span class="count-badge">0</span></li>
-                    <li data-state="GO">GO <span class="count-badge">0</span></li>
-                    <li data-state="MA">MA <span class="count-badge">0</span></li>
-                    <li data-state="MT">MT <span class="count-badge">0</span></li>
-                    <li data-state="MS">MS <span class="count-badge">0</span></li>
-                    <li data-state="MG">MG <span class="count-badge">0</span></li>
-                    <li data-state="PA">PA <span class="count-badge">0</span></li>
-                    <li data-state="PB">PB <span class="count-badge">0</span></li>
-                    <li data-state="PR">PR <span class="count-badge">0</span></li>
-                    <li data-state="PE">PE <span class="count-badge">0</span></li>
-                    <li data-state="PI">PI <span class="count-badge">0</span></li>
-                    <li data-state="RJ">RJ <span class="count-badge">0</span></li>
-                    <li data-state="RN">RN <span class="count-badge">0</span></li>
-                    <li data-state="RS">RS <span class="count-badge">0</span></li>
-                    <li data-state="RO">RO <span class="count-badge">0</span></li>
-                    <li data-state="RR">RR <span class="count-badge">0</span></li>
-                    <li data-state="SC">SC <span class="count-badge">0</span></li>
-                    <li data-state="SP">SP <span class="count-badge">0</span></li>
-                    <li data-state="SE">SE <span class="count-badge">0</span></li>
-                    <li data-state="TO">TO <span class="count-badge">0</span></li>
-                </ul>
-            </nav>
-
-            <button class="nav-btn" id="next-btn">
-                <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=002D4B" width="20" height="20"
-                    style="transform: rotate(180deg);" alt="direita">
-            </button>
-        </div>
 
 
 
@@ -1294,19 +1383,68 @@
                         src="https://img.icons8.com/?size=100&id=11253&format=png&color=727272" alt="horario"
                         width="20px" style="align-items: center;">
                 </button>-->
-                <h2 class="state-title" id="state-title">Credenciados em Destaque</h2>
-                <p style="color: #000000; padding-left: 10px; "> Busque por: nome do prestador ou especialidade
-                </p>
 
 
-                <div class="search-box">
-                    <input type="text" id="search-input" placeholder="Buscar credenciados...">
-                    <img src="https://img.icons8.com/?size=100&id=132&format=png&color=000000" alt="Ícone de busca"
-                        class="search-icon-img">
+                <div class="filtros">
+                    <div class="search-box">
+                        <h2 class="state-title" id="state-title">Credenciados em Destaque</h2>
+                        <p style="margin: 4px 0; "> Selecione a UF pra ver lista dos novos credenciados e digite nome ou
+                            especialidade se
+                            desejar busca específica</p>
+                        <input type="text" id="search-input" placeholder="Buscar credenciados...">
+                        <img src="https://img.icons8.com/?size=100&id=132&format=png&color=000000" alt="Ícone de busca"
+                            class="search-icon-img">
 
+                    </div>
+
+                    <div class="state-container">
+                        <button class="nav-btn" id="prev-btn">
+                            <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=002D4B" alt="esquerda"
+                                id="btns-left">
+                        </button>
+                        <!-- novo droplist-->
+
+
+                        <nav class="state">
+                            <ul id="state-list">
+                                <li data-state="ALL">Todos<span class="count-badge"></span></li>
+                                <li data-state="AC">AC <span class="count-badge">0</span></li>
+                                <li data-state="AL">AL <span class="count-badge">0</span></li>
+                                <li data-state="AP">AP <span class="count-badge">0</span></li>
+                                <li data-state="AM">AM <span class="count-badge">0</span></li>
+                                <li data-state="BA">BA <span class="count-badge">0</span></li>
+                                <li data-state="CE">CE <span class="count-badge">0</span></li>
+                                <li data-state="DF">DF <span class="count-badge">0</span></li>
+                                <li data-state="ES">ES <span class="count-badge">0</span></li>
+                                <li data-state="GO">GO <span class="count-badge">0</span></li>
+                                <li data-state="MA">MA <span class="count-badge">0</span></li>
+                                <li data-state="MT">MT <span class="count-badge">0</span></li>
+                                <li data-state="MS">MS <span class="count-badge">0</span></li>
+                                <li data-state="MG">MG <span class="count-badge">0</span></li>
+                                <li data-state="PA">PA <span class="count-badge">0</span></li>
+                                <li data-state="PB">PB <span class="count-badge">0</span></li>
+                                <li data-state="PR">PR <span class="count-badge">0</span></li>
+                                <li data-state="PE">PE <span class="count-badge">0</span></li>
+                                <li data-state="PI">PI <span class="count-badge">0</span></li>
+                                <li data-state="RJ">RJ <span class="count-badge">0</span></li>
+                                <li data-state="RN">RN <span class="count-badge">0</span></li>
+                                <li data-state="RS">RS <span class="count-badge">0</span></li>
+                                <li data-state="RO">RO <span class="count-badge">0</span></li>
+                                <li data-state="RR">RR <span class="count-badge">0</span></li>
+                                <li data-state="SC">SC <span class="count-badge">0</span></li>
+                                <li data-state="SP">SP <span class="count-badge">0</span></li>
+                                <li data-state="SE">SE <span class="count-badge">0</span></li>
+                                <li data-state="TO">TO <span class="count-badge">0</span></li>
+                            </ul>
+                        </nav>
+
+                        <button class="nav-btn" id="next-btn">
+                            <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=002D4B" alt="direita"
+                                id="btns-right">
+                        </button>
+                    </div>
 
                 </div>
-
                 <div class="cards-container" id="cards-container">
                     <div class="no-results">Carregando credenciados...</div>
                 </div>
@@ -1693,52 +1831,12 @@
             </section>
         </div>
     </div>
-    <!-- drop down list-->
-    <div class="dropdown-">
-        <button class="dropbtn"> Selecione um estado
 
-        </button>
-        <div class="dropdown-content">
-            <nav class="state">
-                <ul id="state-list">
-                    <li data-state="AC">AC <span class="count-badge">0</span></li>
-                    <li data-state="AL">AL <span class="count-badge">0</span></li>
-                    <li data-state="AP">AP <span class="count-badge">0</span></li>
-                    <li data-state="AM">AM <span class="count-badge">0</span></li>
-                    <li data-state="BA">BA <span class="count-badge">0</span></li>
-                    <li data-state="CE">CE <span class="count-badge">0</span></li>
-                    <li data-state="DF">DF <span class="count-badge">0</span></li>
-                    <li data-state="ES">ES <span class="count-badge">0</span></li>
-                    <li data-state="GO">GO <span class="count-badge">0</span></li>
-                    <li data-state="MA">MA <span class="count-badge">0</span></li>
-                    <li data-state="MT">MT <span class="count-badge">0</span></li>
-                    <li data-state="MS">MS <span class="count-badge">0</span></li>
-                    <li data-state="MG">MG <span class="count-badge">0</span></li>
-                    <li data-state="PA">PA <span class="count-badge">0</span></li>
-                    <li data-state="PB">PB <span class="count-badge">0</span></li>
-                    <li data-state="PR">PR <span class="count-badge">0</span></li>
-                    <li data-state="PE">PE <span class="count-badge">0</span></li>
-                    <li data-state="PI">PI <span class="count-badge">0</span></li>
-                    <li data-state="RJ">RJ <span class="count-badge">0</span></li>
-                    <li data-state="RN">RN <span class="count-badge">0</span></li>
-                    <li data-state="RS">RS <span class="count-badge">0</span></li>
-                    <li data-state="RO">RO <span class="count-badge">0</span></li>
-                    <li data-state="RR">RR <span class="count-badge">0</span></li>
-                    <li data-state="SC">SC <span class="count-badge">0</span></li>
-                    <li data-state="SP">SP <span class="count-badge">0</span></li>
-                    <li data-state="SE">SE <span class="count-badge">0</span></li>
-                    <li data-state="TO">TO <span class="count-badge">0</span></li>
-                </ul>
-
-            </nav>
-
-        </div>
-
-    </div>
 
 
     <!-- script geral -->
     <script>
+
 
         // Inicialização quando o DOM estiver carregado
         document.addEventListener('DOMContentLoaded', function () {
@@ -1777,6 +1875,152 @@
         }
 
     </script>
+    <!-- função de alinhamento de UF selecionada -->
+
+    <script>
+        // Função para sincronizar a seleção entre mapa e menu lateral
+        function syncStateSelection(stateCode) {
+            // Remover seleção anterior em ambos
+            stateElements.forEach(s => s.classList.remove('selected'));
+            stateMenuItems.forEach(i => i.classList.remove('active'));
+
+            // Adicionar seleção atual no mapa
+            const stateElement = document.getElementById(stateCode);
+            if (stateElement) {
+                stateElement.classList.add('selected');
+            }
+
+            // Adicionar seleção atual no menu lateral
+            stateMenuItems.forEach(item => {
+                if (item.getAttribute('data-state') === stateCode) {
+                    item.classList.add('active');
+
+                    // Garantir que o item selecionado fique visível no menu
+                    scrollToStateItem(item);
+                }
+            });
+        }
+
+        // Função para rolar até o item do estado no menu lateral
+        function scrollToStateItem(selectedItem) {
+            const stateList = document.getElementById('state-list');
+            const stateContainer = document.querySelector('.state');
+            const itemHeight = 50;
+
+            // Encontrar a posição do item na lista
+            const itemIndex = Array.from(stateMenuItems).indexOf(selectedItem);
+            const visibleItems = calculateVisibleItems();
+            const maxPosition = calculateMaxPosition();
+
+            // Calcular a posição ideal para mostrar o item selecionado
+            let targetPosition = itemIndex;
+
+            // Ajustar para que o item fique visível no meio da área visível, se possível
+            if (itemIndex > Math.floor(visibleItems / 2)) {
+                targetPosition = itemIndex - Math.floor(visibleItems / 2);
+            }
+
+            // Limitar a posição aos limites válidos
+            targetPosition = Math.max(0, Math.min(targetPosition, maxPosition));
+
+            // Aplicar a rolagem
+            stateList.style.transform = `translateY(-${targetPosition * itemHeight}px)`;
+            currentPosition = targetPosition;
+        }
+
+        // Função para calcular itens visíveis (já existente, mas vou incluir para completude)
+        function calculateVisibleItems() {
+            const stateContainer = document.querySelector('.state');
+            const containerHeight = stateContainer.offsetHeight;
+            const itemHeight = 50;
+            return Math.floor(containerHeight / itemHeight);
+        }
+
+        // Função para calcular a posição máxima (já existente, mas vou incluir para completude)
+        function calculateMaxPosition() {
+            const visibleItems = calculateVisibleItems();
+            return Math.max(0, stateItems.length - visibleItems);
+        }
+
+        // Modificar a função setupEventListeners para usar a sincronização
+        function setupEventListeners() {
+            // Eventos para os estados no mapa
+            stateElements.forEach(state => {
+                state.addEventListener('click', () => {
+                    const stateCode = state.id;
+                    selectedState = stateCode;
+
+                    // Sincronizar seleção entre mapa e menu
+                    syncStateSelection(stateCode);
+                    filterCredenciados();
+                });
+
+                // Tooltips (mantido igual)
+                state.addEventListener('mouseover', (e) => {
+                    const stateCode = e.target.id;
+                    const stateName = estados[stateCode];
+                    e.target.setAttribute('title', stateName);
+                });
+            });
+
+            // Eventos para os itens do menu de estados (modificado para sincronizar)
+            stateMenuItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const stateCode = item.getAttribute('data-state');
+                    selectedState = stateCode;
+
+                    // Sincronizar seleção entre menu e mapa
+                    syncStateSelection(stateCode);
+                    filterCredenciados();
+                });
+            });
+
+            // Resto do código permanece igual...
+            // Evento de busca
+            if (searchInput) {
+                searchInput.addEventListener('keydown', function (e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        filterCredenciados();
+                    }
+                    if (e.key === 'Escape') {
+                        this.value = '';
+                        filterCredenciados();
+                    }
+                });
+            }
+
+            // Evento para limpar seleção ao clicar no título
+            stateTitle.addEventListener('click', () => {
+                stateElements.forEach(s => s.classList.remove('selected'));
+                stateMenuItems.forEach(i => i.classList.remove('active'));
+                selectedState = null;
+                searchInput.value = '';
+                displayFirstFiveCredenciados();
+            });
+        }
+
+        // Adicionar estas variáveis no início do script principal, após a declaração de stateMenuItems
+        let stateItems; // Já existe, mas vou declarar explicitamente
+        let currentPosition = 0; // Já existe na navegação por botões
+
+        // Inicializar stateItems no DOMContentLoaded ou no initializeApp
+        function initializeApp() {
+            // ... código existente ...
+
+            // Inicializar elementos adicionais
+            stateItems = document.querySelectorAll('.state li'); // Esta linha já existe, mas para referência
+
+            // Configurar event listeners
+            setupEventListeners();
+
+            // Iniciar carregamento dos dados
+            loadRemoteCSV();
+        }
+    </script>
+
+
+
     <!--Função dos cards -->
     <script>
         // Função para adicionar eventos de clique aos cards
@@ -1808,9 +2052,10 @@
         }
     </script>
 
-    <!-- navegação por botoes-->
+
+    <!-- navegação por botoes scrool infinito-->
+
     <script>
-        // Navegação por botões - VERSÃO CORRIGIDA
         document.addEventListener('DOMContentLoaded', function () {
             const stateList = document.getElementById('state-list');
             const prevBtn = document.getElementById('prev-btn');
@@ -1820,68 +2065,130 @@
 
             // Configuração inicial
             let currentPosition = 0;
-            const itemWidth = 80; // Largura aproximada de cada item (70px + margens)
+            const itemHeight = 50;
+            let isAnimating = false;
 
-            // Função para calcular itens visíveis CORRETAMENTE
+            // Adicionar transição suave
+            stateList.style.transition = 'transform 0.3s ease';
+
+            // Função para calcular itens visíveis
             function calculateVisibleItems() {
-                const containerWidth = stateContainer.offsetWidth;
-                const totalItemsWidth = stateItems.length * itemWidth;
-
-                // Se todos os itens cabem no container, não precisa de navegação
-                if (totalItemsWidth <= containerWidth) {
-                    return stateItems.length;
-                }
-
-                // Calcula quantos itens cabem visíveis
-                return Math.floor(containerWidth / itemWidth);
+                const containerHeight = stateContainer.offsetHeight;
+                return Math.floor(containerHeight / itemHeight);
             }
 
-            // Função para calcular posição máxima CORRETAMENTE
+            // Função para calcular a posição máxima
             function calculateMaxPosition() {
                 const visibleItems = calculateVisibleItems();
-                const maxPosition = Math.max(0, stateItems.length - visibleItems);
-                return maxPosition;
+                return Math.max(0, stateItems.length - visibleItems);
             }
 
             // Função para atualizar a posição da lista
-            function updatePosition() {
+            function updatePosition(instant = false) {
+                if (instant) {
+                    stateList.style.transition = 'none';
+                } else {
+                    stateList.style.transition = 'transform 0.3s ease';
+                }
+
                 const maxPosition = calculateMaxPosition();
+                stateList.style.transform = `translateY(-${currentPosition * itemHeight}px)`;
 
-                // Limitar a posição atual
-                currentPosition = Math.max(0, Math.min(currentPosition, maxPosition));
-
-                // Aplicar transformação
-                stateList.style.transform = `translateX(-${currentPosition * itemWidth}px)`;
-
-                // Atualizar estado dos botões
-                const isAtStart = currentPosition === 0;
-                const isAtEnd = currentPosition >= maxPosition;
-
-                prevBtn.disabled = isAtStart;
-                nextBtn.disabled = isAtEnd;
-
-                // Aplicar estilos aos botões desabilitados
-                prevBtn.style.opacity = isAtStart ? '0.5' : '1';
-                prevBtn.style.cursor = isAtStart ? 'not-allowed' : 'pointer';
-                nextBtn.style.opacity = isAtEnd ? '0.5' : '1';
-                nextBtn.style.cursor = isAtEnd ? 'not-allowed' : 'pointer';
+                // Restaurar transição após mudança instantânea
+                if (instant) {
+                    setTimeout(() => {
+                        stateList.style.transition = 'transform 0.3s ease';
+                    }, 50);
+                }
             }
 
-            // Navegação para a esquerda
+            // Função para selecionar automaticamente o primeiro item visível
+            function selectFirstVisibleItem() {
+                const visibleItems = calculateVisibleItems();
+                const firstVisibleIndex = currentPosition;
+
+                // Remover seleção de todos os itens
+                stateItems.forEach(item => item.classList.remove('active'));
+
+                // Selecionar o primeiro item visível
+                if (stateItems[firstVisibleIndex]) {
+                    const stateCode = stateItems[firstVisibleIndex].getAttribute('data-state');
+                    selectState(stateCode);
+                }
+            }
+
+            // Função para selecionar um estado (sincroniza mapa e menu)
+            function selectState(stateCode) {
+                // Remover seleção anterior
+                document.querySelectorAll('#svg-map a').forEach(s => s.classList.remove('selected'));
+                stateItems.forEach(i => i.classList.remove('active'));
+
+                // Selecionar no menu
+                stateItems.forEach(item => {
+                    if (item.getAttribute('data-state') === stateCode) {
+                        item.classList.add('active');
+                    }
+                });
+
+                // Selecionar no mapa (apenas se não for "ALL")
+                if (stateCode !== 'ALL') {
+                    const stateElement = document.getElementById(stateCode);
+                    if (stateElement) {
+                        stateElement.classList.add('selected');
+                    }
+                }
+
+                // Atualizar estado selecionado e filtrar
+                selectedState = stateCode === 'ALL' ? null : stateCode;
+                filterCredenciados();
+            }
+
+            // Navegação para cima (anterior)
             prevBtn.addEventListener('click', function () {
+                if (isAnimating) return;
+                isAnimating = true;
+
+                const maxPosition = calculateMaxPosition();
+
                 if (currentPosition > 0) {
                     currentPosition--;
-                    updatePosition();
+                } else {
+                    // Se está no início, vai para o final instantaneamente
+                    currentPosition = maxPosition;
+                    updatePosition(true);
                 }
+
+                updatePosition();
+
+                // Selecionar automaticamente o primeiro item visível após a animação
+                setTimeout(() => {
+                    selectFirstVisibleItem();
+                    isAnimating = false;
+                }, 300);
             });
 
-            // Navegação para a direita
+            // Navegação para baixo (próximo)
             nextBtn.addEventListener('click', function () {
+                if (isAnimating) return;
+                isAnimating = true;
+
                 const maxPosition = calculateMaxPosition();
+
                 if (currentPosition < maxPosition) {
                     currentPosition++;
-                    updatePosition();
+                } else {
+                    // Se está no final, volta para o início instantaneamente
+                    currentPosition = 0;
+                    updatePosition(true);
                 }
+
+                updatePosition();
+
+                // Selecionar automaticamente o primeiro item visível após a animação
+                setTimeout(() => {
+                    selectFirstVisibleItem();
+                    isAnimating = false;
+                }, 300);
             });
 
             // Inicializar posição
@@ -1889,13 +2196,14 @@
 
             // Ajustar ao redimensionar a janela
             window.addEventListener('resize', function () {
-                updatePosition();
+                updatePosition(true);
             });
 
-            // Forçar atualização após um pequeno delay para garantir que o DOM esteja totalmente renderizado
-            setTimeout(updatePosition, 100);
+            // Forçar atualização após um pequeno delay
+            setTimeout(() => updatePosition(true), 0);
         });
     </script>
+
 
 
     <!-- script principal -->
@@ -1946,15 +2254,23 @@
             // Eventos para os estados no mapa
             stateElements.forEach(state => {
                 state.addEventListener('click', () => {
+                    // Remover seleção anterior em ambos
                     stateElements.forEach(s => s.classList.remove('selected'));
+                    stateMenuItems.forEach(i => i.classList.remove('active'));
+
+                    // Adicionar seleção atual no mapa
                     state.classList.add('selected');
                     selectedState = state.id;
 
-                    // Atualizar menu de estados
+                    // Adicionar seleção correspondente no menu lateral
                     stateMenuItems.forEach(item => {
-                        item.classList.remove('active');
                         if (item.getAttribute('data-state') === selectedState) {
                             item.classList.add('active');
+
+                            // Garantir que o item fique visível no menu (apenas em desktop)
+                            if (window.innerWidth > 768) {
+                                scrollToStateItem(item);
+                            }
                         }
                     });
 
@@ -1974,26 +2290,27 @@
                 item.addEventListener('click', () => {
                     const stateCode = item.getAttribute('data-state');
 
-                    // Remover seleção anterior
+                    // Remover seleção anterior em ambos
                     stateElements.forEach(s => s.classList.remove('selected'));
                     stateMenuItems.forEach(i => i.classList.remove('active'));
 
-                    // Adicionar seleção atual
+                    // Adicionar seleção atual no menu
                     item.classList.add('active');
 
-                    // Encontrar e selecionar o estado correspondente no mapa
-                    const stateElement = document.getElementById(stateCode);
-                    if (stateElement) {
-                        stateElement.classList.add('selected');
+                    // Encontrar e selecionar o estado correspondente no mapa (apenas se não for "ALL")
+                    if (stateCode !== 'ALL') {
+                        const stateElement = document.getElementById(stateCode);
+                        if (stateElement) {
+                            stateElement.classList.add('selected');
+                        }
                     }
 
-                    selectedState = stateCode;
+                    selectedState = stateCode === 'ALL' ? null : stateCode;
                     filterCredenciados();
                 });
             });
 
             // Evento de busca
-            // Substituído: agora pesquisa somente ao pressionar Enter e limpa com Escape
             if (searchInput) {
                 searchInput.addEventListener('keydown', function (e) {
                     if (e.key === 'Enter') {
@@ -2017,6 +2334,56 @@
                 displayFirstFiveCredenciados();
             });
         }
+
+        // Função para rolar até o item do estado no menu lateral (apenas desktop)
+        function scrollToStateItem(selectedItem) {
+            if (window.innerWidth <= 768) return; // Não executa em mobile
+
+            const stateList = document.getElementById('state-list');
+            const stateItems = document.querySelectorAll('.state li');
+            const itemHeight = 50;
+
+            // Encontrar a posição do item na lista
+            const itemIndex = Array.from(stateItems).indexOf(selectedItem);
+            const visibleItems = calculateVisibleItems();
+            const maxPosition = calculateMaxPosition();
+
+            // Calcular a posição ideal para mostrar o item selecionado
+            let targetPosition = itemIndex;
+
+            // Ajustar para que o item fique visível no meio da área visível, se possível
+            if (itemIndex > Math.floor(visibleItems / 2)) {
+                targetPosition = itemIndex - Math.floor(visibleItems / 2);
+            }
+
+            // Limitar a posição aos limites válidos
+            targetPosition = Math.max(0, Math.min(targetPosition, maxPosition));
+
+            // Aplicar a rolagem
+            stateList.style.transform = `translateY(-${targetPosition * itemHeight}px)`;
+            currentPosition = targetPosition;
+        }
+
+        // Função para calcular itens visíveis (para desktop)
+        function calculateVisibleItems() {
+            if (window.innerWidth <= 768) return 0; // Não aplica em mobile
+
+            const stateContainer = document.querySelector('.state');
+            const containerHeight = stateContainer.offsetHeight;
+            const itemHeight = 50;
+            return Math.floor(containerHeight / itemHeight);
+        }
+
+        // Função para calcular a posição máxima (para desktop)
+        function calculateMaxPosition() {
+            if (window.innerWidth <= 768) return 0; // Não aplica em mobile
+
+            const visibleItems = calculateVisibleItems();
+            const stateItems = document.querySelectorAll('.state li');
+            return Math.max(0, stateItems.length - visibleItems);
+        }
+
+
 
         // Função para obter o nome a ser exibido baseado no NO_LIVRO
         function getDisplayName(credenciado) {
@@ -2208,69 +2575,69 @@
                 const displayName = getDisplayName(credenciado);
 
                 card.innerHTML = `
-            <div class="card-header">
-                <div class="state-badge">${credenciado.estado}</div>
-                <h3 class="fantasia">${highlightText(displayName, searchTerm)}</h3>
-                <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=002D4B" 
-                     alt="Expandir" class="toggle-icon">
+    <div class="card-header">
+        <div class="state-badge">${credenciado.estado}</div>
+        <h3 class="fantasia">${highlightText(displayName, searchTerm)}</h3>
+        <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=002D4B"
+            alt="Expandir" class="toggle-icon">
+    </div>
+    <div class="card-body">
+        <div class="card-info category-card">
+            <div class="info-header">
+                <div class="info-content">
+                    <img src="https://img.icons8.com/?size=100&id=8169&format=png&color=002D4B" alt="Especialidades" class="ico">
+                        <p class="information">Especialidades</p>
+                </div>
+                <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=002D4B"
+                    alt="Expandir" class="toggle-icon small category-toggle">
             </div>
-            <div class="card-body">
-                <div class="card-info category-card">
-                    <div class="info-header">
-                        <div class="info-content">
-                            <img src="https://img.icons8.com/?size=100&id=8169&format=png&color=002D4B" alt="Especialidades" class="ico">
-                            <p class="information">Especialidades</p>
-                        </div>
-                        <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=002D4B" 
-                             alt="Expandir" class="toggle-icon small category-toggle">
-                    </div>
-                    <div class="info-details">
-                        ${formatCategory(credenciado.categoria, searchTerm)}
-                    </div>
-                </div>
-                <div class="divisao"></div>
-                <div class="card-info">
-                    <div class="info-header">
-                        <div class="info-content">
-                            <img src="https://img.icons8.com/?size=100&id=9659&format=png&color=002D4B" alt="Telefone" class="ico">
-                            <p class="information">Contato</p>
-                        </div>
-                        <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=2F54CF" 
-                             alt="Expandir" class="toggle-icon small">
-                    </div>
-                    
-                    <div class="info-details">
-                        <ul>
-                            <li class="dados">
-                                Celular: ${credenciado.ddd_cel}
-                                ${credenciado.celular}
-                            </li>
-                            <li class="dados">
-                                Telefone 1:  ${credenciado.ddd_tel_1} ${credenciado.telefone_1}
-                            </li>
-                            <li class="dados">
-                                Telefone 2: ${credenciado.ddd_tel_2} ${credenciado.telefone_2}
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="card-info">
-                    <div class="info-header">
-                        <div class="info-content">
-                            <img src="https://img.icons8.com/?size=100&id=YyEbAVyRYrMX&format=png&color=002D4B" alt="Localização" class="ico">
-                            <p class="information">Endereço</p>
-                        </div>
-                        <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=2F54CF" 
-                             alt="Expandir" class="toggle-icon small">
-                    </div>
-                    <div class="info-details">
-                        <li class="dados">${credenciado.logradouro}, ${credenciado.numero}, ${credenciado.bairo} <br> ${credenciado.municipio}, ${credenciado.estado}, ${credenciado.cep}
-                        </li>                       
-                    </div>
-                </div>
+            <div class="info-details">
+                ${formatCategory(credenciado.categoria, searchTerm)}
             </div>
-        `;
+        </div>
+        <div class="divisao"></div>
+        <div class="card-info">
+            <div class="info-header">
+                <div class="info-content">
+                    <img src="https://img.icons8.com/?size=100&id=9659&format=png&color=002D4B" alt="Telefone" class="ico">
+                        <p class="information">Contato</p>
+                </div>
+                <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=2F54CF"
+                    alt="Expandir" class="toggle-icon small">
+            </div>
+
+            <div class="info-details">
+                <ul>
+                    <li class="dados">
+                        Celular: ${credenciado.ddd_cel}
+                        ${credenciado.celular}
+                    </li>
+                    <li class="dados">
+                        Telefone 1:  ${credenciado.ddd_tel_1} ${credenciado.telefone_1}
+                    </li>
+                    <li class="dados">
+                        Telefone 2: ${credenciado.ddd_tel_2} ${credenciado.telefone_2}
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card-info">
+            <div class="info-header">
+                <div class="info-content">
+                    <img src="https://img.icons8.com/?size=100&id=YyEbAVyRYrMX&format=png&color=002D4B" alt="Localização" class="ico">
+                        <p class="information">Endereço</p>
+                </div>
+                <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=2F54CF"
+                    alt="Expandir" class="toggle-icon small">
+            </div>
+            <div class="info-details">
+                <li class="dados">${credenciado.logradouro}, ${credenciado.numero}, ${credenciado.bairo} <br> ${credenciado.municipio}, ${credenciado.estado}, ${credenciado.cep}
+                </li>
+            </div>
+        </div>
+    </div>
+    `;
 
                 cardsContainer.appendChild(card);
             });
@@ -2289,9 +2656,9 @@
             // Filtrar por estado se selecionado
             if (selectedState) {
                 filtered = filtered.filter(credenciado => credenciado.estado === selectedState);
-                stateTitle.textContent = `Novos Credenciados em ${estados[selectedState]}`;
+                stateTitle.textContent = `Novos Credenciados no ${estados[selectedState]}`;
             } else {
-                stateTitle.textContent = "Novos Credenciados em Destaque";
+                stateTitle.textContent = "Todos os Credenciados"; // Texto atualizado
             }
 
             // Filtrar por termo de busca se existir
@@ -2312,15 +2679,16 @@
                 });
             }
 
-            // Se não há filtros ativos, mostrar os primeiros definir limite
+            // Se não há filtros ativos, mostrar TODOS os credenciados (não apenas os primeiros 50)
             if (!selectedState && !searchTerm) {
-                displayFirstFiveCredenciados();
+                displayCredenciados(filtered); // Mostra todos em vez de apenas os primeiros 50
                 return;
             }
 
             console.log('Resultados filtrados:', filtered.length);
             displayCredenciados(filtered);
         }
+
     </script>
 
 

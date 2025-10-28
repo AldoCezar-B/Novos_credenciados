@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tutorial exemple</title>
+</head>
+
+<body>
+    <style>
+        :root {
+
+
+
+
+
+            --deg-1: linear-gradient(180deg, #2F54CF 0%, #000000 100%);
+            --deg-2: linear-gradient(180deg, #1567b9 0%, #0b1533 100%);
+            --deg-3: linear-gradient(180deg, #d7dadd 0%, #000000 100%);
+
+            /*novo root da intranet*/
+            --intra-yellow: #FCFC1B;
+
+            --intra-white: #FFFFFF;
+            --intra-dark-blue: #002D4B;
+            --intra-ocean-blue: #014886;
+            --intra-sky-blue: #477AA7;
+            --intra-another-blue: #014886;
+            --btn-deg: linear-gradient(180deg, #ffffff 10%, #C6C9CC 50%);
+
+            --intra-deg: linear-gradient(180deg, #477AA7 0%, #014886 100%);
+
+            /*new new root*/
+            --button-yellow: #FCFC1B;
+            --button-dark-blue: #002D4B;
+            --button-white: #FFFFFF;
+
+            /* ux root*/
+            --ux-silver: #ebe8e8;
+            --ux-white: #FFFFFF;
+            --ux-blue: #005D9B;
+            --ux-pastel-green: #5aaaa16e;
+            --ux-pastel-yellow: #FFF4CC;
+            --silver: #C6C9CC;
+            --white: #ffffff;
+            --red-error: #F1505A;
+            --dark-red-error: #1C070E;
+
+
+            /*border*/
+            --border: 1px solid #727272;
+            --radius: 4px;
+            --shadow-border: 1px 1px 8px #727272;
+            --border-2: none none solid none;
+
+            --shadow-2: 0 5px 3px rgba(0, 0, 0, 0.7);
+            --margin-1: 20px;
+            --padding-1: 20px;
+        }
+
+
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .help-button {
+            position: fixed;
+            bottom: 20px;
+            right: -90px;
+            width: fit-content;
+
+            background-color: var(--button-dark-blue);
+            color: var(--button-yellow);
+            font-size: 16px;
+            border: none;
+            padding: 10px 15px;
+            padding-right: 50px;
+            border-radius: 15px 0 0 15px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .help-button:hover {
+            right: 10px;
+            transition: right 0.3s ease;
+        }
+
+        .help-sidebar {
+            position: fixed;
+            right: -500px;
+            top: 0;
+            width: 400px;
+            height: 95%;
+            padding: 10px;
+
+            margin: 10px 0;
+            background-color: var(--ux-silver);
+            color: var(--button-dark-blue);
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            overflow-y: auto;
+            transition: right 0.3s ease;
+            z-index: 999;
+        }
+
+        .help-sidebar.open {
+            right: 0;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            float: right;
+            cursor: pointer;
+        }
+
+        .info-header {
+            background-color: var(--white);
+            margin: 10px;
+            padding: 10px;
+            border-radius: 5px;
+
+        }
+
+        .img-info {
+
+            height: auto;
+            width: 90%;
+            box-shadow: var(--shadow-2);
+            border: 2px solid var(--silver);
+            border-style: none inset inset none;
+            border-radius: 5px;
+        }
+
+        .info-text {
+            text-align: center;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--ux-blue);
+        }
+
+        .info-img {
+            margin: 5px;
+
+        }
+
+        .info-sub {
+            display: flex;
+            align-items: baseline;
+            
+        }
+
+        .info-mini {
+            position: flex;
+
+
+
+        }
+
+        .info-mini-text {
+            display: flex;
+        }
+    </style>
+
+    <!-- Botão de ajuda fixo -->
+    <button id="helpBtn" class="help-button"><img
+            src="https://img.icons8.com/?size=100&id=80684&format=png&color=FCFC1B" alt="duvida" width="20">
+        Ajuda</button>
+
+    <!-- Menu lateral de ajuda -->
+    <div id="helpSidebar" class="help-sidebar">
+        <button class="close-btn" onclick="closeHelp()"><img
+                src="https://img.icons8.com/?size=100&id=82771&format=png&color=FCFC1B" alt="" width="20"
+                style="background-color: var(--button-dark-blue); border-radius: 10px; padding: 5px;">
+        </button>
+        <h2 style="margin: 10px;">Como usar o sistema</h2>
+
+        <section class="info-header">
+            <div class="info-img">
+                <h3 class="info-text">Cabeçalho de UFs</h3>
+                <img src="img/gifs/info-gif-01.gif" alt="informação-cabeçalho" width="auto" height="100"
+                    class="img-info">
+            </div>
+
+            <div class="info-sub">
+                <img src="img/info-01.png" alt="informativo" width="auto" height="40" class="info-mini">
+                <p class="info-mini-text">Selecione uma UF para filtrar
+                    os credenciados. </p>
+            </div>
+            <div class="info-sub">
+                <img src="img/info-02.png" alt="informativo" width="auto" height="40" class="info-mini">
+                <p class="info-mini-text"> Os balões mostram a quantidade
+                    de novos credenciados por estado.</p>
+
+
+            </div>
+
+        </section>
+
+        <section class="info-header">
+            <div class="info-img">
+                <h3 class="info-text">Cards de Novos Credenciados</h3>
+                <img src="img/info-03-1.gif" alt="informativo" class="img-info">
+            </div>
+
+            <p>Lista filtrada pela UF ou Estado selecionado.
+            </p>
+            <img src="img/info-04.png" alt="informativo" class="img-info">
+            <p> Use os campos de busca para
+                nome ou especialidade.</p>
+
+        </section>
+
+        <section class="info-header">
+            <div class="info-img">
+                <h3 class="info-text">Mapa Interativo</h3>
+                <img src="img/info-05.gif" alt="informativo" class="img-info">
+
+            </div>
+
+            <p>Clique em um estado para filtrar os credenciados. O estado será destacado no cabeçalho.</p>
+
+        </section>
+
+    </div>
+    <script>
+        document.getElementById('helpBtn').addEventListener('click', function () {
+            document.getElementById('helpSidebar').classList.add('open');
+        });
+
+        function closeHelp() {
+            document.getElementById('helpSidebar').classList.remove('open');
+        }
+    </script>
+</body>
+
+</html>

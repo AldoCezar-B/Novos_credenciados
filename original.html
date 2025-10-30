@@ -2339,17 +2339,17 @@
 
                 // Verificar e adicionar celular se estiver preenchido
                 if (isPhoneFilled(credenciado.ddd_cel, credenciado.celular)) {
-                    contacts.push(`<li class="dados" id="celular">Celular: ${credenciado.ddd_cel} ${credenciado.celular}</li>`);
+                    contacts.push(`<li class="dados" id="celular">Celular: (${credenciado.ddd_cel}) ${credenciado.celular}</li>`);
                 }
 
                 // Verificar e adicionar telefone 1 se estiver preenchido
                 if (isPhoneFilled(credenciado.ddd_tel_1, credenciado.telefone_1)) {
-                    contacts.push(`<li class="dados" id="telefone1">Telefone 1: ${credenciado.ddd_tel_1} ${credenciado.telefone_1}</li>`);
+                    contacts.push(`<li class="dados" id="telefone1">Telefone 1: (${credenciado.ddd_tel_1}) ${credenciado.telefone_1}</li>`);
                 }
 
                 // Verificar e adicionar telefone 2 se estiver preenchido
                 if (isPhoneFilled(credenciado.ddd_tel_2, credenciado.telefone_2)) {
-                    contacts.push(`<li class="dados" id="telefone2">Telefone 2: ${credenciado.ddd_tel_2} ${credenciado.telefone_2}</li>`);
+                    contacts.push(`<li class="dados" id="telefone2">Telefone 2: (${credenciado.ddd_tel_2}) ${credenciado.telefone_2}</li>`);
                 }
 
                 // Se não houver nenhum contato, mostrar mensagem

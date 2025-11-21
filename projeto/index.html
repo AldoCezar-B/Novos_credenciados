@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gerenciamento CSV</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2980b9;
+            --success-color: #2ecc71;
+            --danger-color: #e74c3c;
+            --warning-color: #f39c12;
+            --light-color: #ecf0f1;
+            --dark-color: #34495e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            height: 120vh;
+            overflow: scroll;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            flex-shrink: 0;
+        }
+
+        header h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .header-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        #tableheader {
+            width: auto;
+        }
+
+        .search-container {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .btn-success {
+            background-color: var(--success-color);
+            color: white;
+        }
+
+        .btn-success:hover {
+            background-color: #27ae60;
+        }
+
+        .btn-danger {
+            background-color: var(--danger-color);
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background-color: #c0392b;
+        }
+
+        .btn-warning {
+            background-color: var(--warning-color);
+            color: white;
+        }
+
+        .btn-warning:hover {
+            background-color: #d35400;
+        }
+
+        .btn-info {
+            background-color: #17a2b8;
+            color: white;
+        }
+
+        .btn-info:hover {
+            background-color: #138496;
+        }
+
+        .search-box {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 250px;
+        }
+
+        .search-btn {
+            padding: 10px 15px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .search-btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        main {
+            margin-top: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .content-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: auto;
+        }
+
+        .table-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: auto;
+
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        table {
+            width: 100%;
+            
+        }
+
+        th,
+        td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+            position: relative;
+        }
+
+        th {
+            background-color: var(--light-color);
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .column-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .remove-column {
+            background: none;
+            border: none;
+            color: var(--danger-color);
+            cursor: pointer;
+            font-size: 16px;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        .remove-column:hover {
+            background-color: var(--danger-color);
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        .actions {
+            display: flex;
+            gap: 5px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .close {
+            font-size: 24px;
+            cursor: pointer;
+            color: #777;
+        }
+
+        .close:hover {
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+
+        .alert {
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .alert-danger {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .file-label {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .file-label:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .no-data {
+            text-align: center;
+            padding: 40px;
+            color: #777;
+        }
+
+        .columns-management {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .columns-controls {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .new-column-input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 200px;
+        }
+
+        .column-list {
+            margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .column-tag {
+            background-color: var(--light-color);
+            padding: 5px 10px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .column-tag-remove {
+            background: none;
+            border: none;
+            color: var(--danger-color);
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .export-controls {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            flex-shrink: 0;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            color: #777;
+            border-top: 1px solid #eee;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+            .header-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-container {
+                width: 100%;
+            }
+
+            .search-box {
+                width: 100%;
+            }
+
+            .table-container {
+                overflow-x: auto;
+            }
+
+            .columns-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .new-column-input {
+                width: 100%;
+            }
+
+            .export-controls {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>Sistema de Gerenciamento de Dados</h1>
+            <div class="header-controls">
+                <div>
+                    <input type="file" id="fileInput" class="file-input" accept=".csv">
+                    <label for="fileInput" class="file-label">Carregar CSV</label>
+                </div>
+                <div class="search-container">
+                    <input type="text" id="searchInput" class="search-box" placeholder="Buscar...">
+                    <button id="searchBtn" class="search-btn">🔍</button>
+                </div>
+                <button id="addBtn" class="btn btn-primary">Adicionar Registro</button>
+                <button id="manageColumnsBtn" class="btn btn-info">Gerenciar Colunas</button>
+                <button id="downloadBtn" class="btn btn-success">Download CSV</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <main>
+            <div id="alertContainer"></div>
+
+            <div class="content-area">
+                <div class="table-container">
+                    <table id="dataTable">
+                        <thead id="tableHeader">
+                            <tr>
+                                <!-- Cabeçalhos serão gerados dinamicamente -->
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <!-- Dados serão inseridos aqui dinamicamente -->
+                        </tbody>
+                    </table>
+                    <div id="noDataMessage" class="no-data">
+                        <p>Nenhum dado carregado. Faça upload de um arquivo CSV ou adicione registros manualmente.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="export-controls">
+                <button id="saveLocalBtn" class="btn btn-primary">Salvar no Navegador</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>Sistema de Gerenciamento CSV &copy; 2023</p>
+        </footer>
+    </div>
+
+    <!-- Modal para adicionar/editar registros -->
+    <div id="recordModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Adicionar Registro</h2>
+                <span class="close">&times;</span>
+            </div>
+            <form id="recordForm">
+                <div id="formFields">
+                    <!-- Campos do formulário serão gerados dinamicamente -->
+                </div>
+                <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px;">
+                    <button type="button" id="cancelBtn" class="btn btn-danger">Cancelar</button>
+                    <button type="submit" id="saveBtn" class="btn btn-success">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal para gerenciar colunas -->
+    <div id="columnsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Gerenciar Colunas</h2>
+                <span class="close-columns-modal">&times;</span>
+            </div>
+            <div class="columns-management">
+                <div class="columns-controls">
+                    <input type="text" id="newColumnName" class="new-column-input" placeholder="Nome da nova coluna">
+                    <button id="addColumnBtn" class="btn btn-success">Adicionar Coluna</button>
+                </div>
+                <div class="column-list" id="columnList">
+                    <!-- Lista de colunas será gerada dinamicamente -->
+                </div>
+            </div>
+            <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px;">
+                <button type="button" id="closeColumnsBtn" class="btn btn-danger">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para salvar arquivo -->
+    <div id="saveFileModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Salvar Arquivo CSV</h2>
+                <span class="close-save-modal">&times;</span>
+            </div>
+            <div class="form-group">
+                <label for="fileName">Nome do arquivo:</label>
+                <input type="text" id="fileName" class="form-control" value="dados_exportados.csv"
+                    placeholder="Digite o nome do arquivo">
+            </div>
+            <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px;">
+                <button type="button" id="cancelSave" class="btn btn-danger">Cancelar</button>
+                <button type="button" id="confirmSave" class="btn btn-success">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Variáveis globais
+        let data = [];
+        let currentEditIndex = -1;
+        let columnMapping = {};
+        let customColumns = ['nome', 'endereco', 'contato', 'cnpj', 'horario', 'informacao', 'gerente'];
+
+        // Elementos DOM
+        const fileInput = document.getElementById('fileInput');
+        const searchInput = document.getElementById('searchInput');
+        const searchBtn = document.getElementById('searchBtn');
+        const addBtn = document.getElementById('addBtn');
+        const manageColumnsBtn = document.getElementById('manageColumnsBtn');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const saveLocalBtn = document.getElementById('saveLocalBtn');
+        const tableHeader = document.getElementById('tableHeader');
+        const tableBody = document.getElementById('tableBody');
+        const noDataMessage = document.getElementById('noDataMessage');
+        const alertContainer = document.getElementById('alertContainer');
+        const recordModal = document.getElementById('recordModal');
+        const columnsModal = document.getElementById('columnsModal');
+        const saveFileModal = document.getElementById('saveFileModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const recordForm = document.getElementById('recordForm');
+        const formFields = document.getElementById('formFields');
+        const closeModal = document.querySelector('.close');
+        const closeColumnsModal = document.querySelector('.close-columns-modal');
+        const closeSaveModal = document.querySelector('.close-save-modal');
+        const cancelBtn = document.getElementById('cancelBtn');
+        const closeColumnsBtn = document.getElementById('closeColumnsBtn');
+        const newColumnName = document.getElementById('newColumnName');
+        const addColumnBtn = document.getElementById('addColumnBtn');
+        const columnList = document.getElementById('columnList');
+        const fileName = document.getElementById('fileName');
+        const cancelSave = document.getElementById('cancelSave');
+        const confirmSave = document.getElementById('confirmSave');
+
+        // Event Listeners
+        document.addEventListener('DOMContentLoaded', init);
+        fileInput.addEventListener('change', handleFileUpload);
+        searchBtn.addEventListener('click', performSearch);
+        searchInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                performSearch();
+            }
+        });
+        addBtn.addEventListener('click', openAddModal);
+        manageColumnsBtn.addEventListener('click', openColumnsModal);
+        downloadBtn.addEventListener('click', openSaveModal);
+        saveLocalBtn.addEventListener('click', saveToLocalStorage);
+        closeModal.addEventListener('click', closeRecordModal);
+        closeColumnsModal.addEventListener('click', closeColumnsModalFunc);
+        closeSaveModal.addEventListener('click', closeSaveModalFunc);
+        cancelBtn.addEventListener('click', closeRecordModal);
+        closeColumnsBtn.addEventListener('click', closeColumnsModalFunc);
+        recordForm.addEventListener('submit', saveRecord);
+        addColumnBtn.addEventListener('click', addNewColumn);
+        cancelSave.addEventListener('click', closeSaveModalFunc);
+        confirmSave.addEventListener('click', downloadCSV);
+        newColumnName.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                addNewColumn();
+            }
+        });
+
+        // Inicialização
+        function init() {
+            // Tenta carregar dados do localStorage
+            const savedData = localStorage.getItem('csvData');
+            const savedColumns = localStorage.getItem('csvColumns');
+
+            if (savedData) {
+                data = JSON.parse(savedData);
+            }
+
+            if (savedColumns) {
+                customColumns = JSON.parse(savedColumns);
+            }
+
+            renderTableHeader();
+            renderTable();
+            updateColumnList();
+        }
+
+        // Renderiza o cabeçalho da tabela
+        function renderTableHeader() {
+            const headerRow = tableHeader.querySelector('tr') || document.createElement('tr');
+            headerRow.innerHTML = '';
+
+            customColumns.forEach(column => {
+                const th = document.createElement('th');
+                th.innerHTML = `
+                    <div class="column-header">
+                        <span>${formatColumnName(column)}</span>
+                        ${!isDefaultColumn(column) ? `<button class="remove-column" data-column="${column}">×</button>` : ''}
+                    </div>
+                `;
+                headerRow.appendChild(th);
+            });
+
+            // Adiciona coluna de ações
+            const actionsTh = document.createElement('th');
+            actionsTh.textContent = 'Ações';
+            headerRow.appendChild(actionsTh);
+
+            tableHeader.appendChild(headerRow);
+
+            // Adiciona event listeners para remover colunas
+            document.querySelectorAll('.remove-column').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const column = e.target.getAttribute('data-column');
+                    removeColumn(column);
+                });
+            });
+        }
+
+        // Verifica se é uma coluna padrão
+        function isDefaultColumn(column) {
+            const defaultColumns = ['nome', 'endereco', 'contato', 'cnpj', 'horario', 'informacao', 'gerente'];
+            return defaultColumns.includes(column);
+        }
+
+        // Formata o nome da coluna para exibição
+        function formatColumnName(column) {
+            return column.charAt(0).toUpperCase() + column.slice(1).replace(/_/g, ' ');
+        }
+
+        // Renderiza a tabela
+        function renderTable(filteredData = null) {
+            const displayData = filteredData || data;
+
+            if (displayData.length === 0) {
+                tableBody.innerHTML = '';
+                noDataMessage.style.display = 'block';
+                return;
+            }
+
+            noDataMessage.style.display = 'none';
+            tableBody.innerHTML = '';
+
+            displayData.forEach((item, index) => {
+                const row = document.createElement('tr');
+
+                // Adiciona células para cada coluna
+                customColumns.forEach(column => {
+                    const td = document.createElement('td');
+                    td.textContent = item[column] || '';
+                    row.appendChild(td);
+                });
+
+                // Adiciona células de ações
+                const actionsTd = document.createElement('td');
+                actionsTd.className = 'actions';
+                actionsTd.innerHTML = `
+                    <button class="btn btn-warning edit-btn" data-index="${index}">Editar</button>
+                    <button class="btn btn-danger delete-btn" data-index="${index}">Excluir</button>
+                `;
+                row.appendChild(actionsTd);
+
+                tableBody.appendChild(row);
+            });
+
+            // Adiciona event listeners para os botões de editar e excluir
+            document.querySelectorAll('.edit-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const index = parseInt(e.target.getAttribute('data-index'));
+                    openEditModal(index);
+                });
+            });
+
+            document.querySelectorAll('.delete-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const index = parseInt(e.target.getAttribute('data-index'));
+                    deleteRecord(index);
+                });
+            });
+        }
+
+        // Executa a pesquisa
+        function performSearch() {
+            const searchTerm = searchInput.value.trim().toLowerCase();
+            if (searchTerm === '') {
+                renderTable();
+                return;
+            }
+
+            const filteredData = data.filter(item =>
+                customColumns.some(column =>
+                    item[column] && item[column].toString().toLowerCase().includes(searchTerm)
+                )
+            );
+
+            renderTable(filteredData);
+
+            if (filteredData.length === 0) {
+                showAlert('Nenhum resultado encontrado para a pesquisa.', 'warning');
+            } else {
+                showAlert(`Encontrados ${filteredData.length} registro(s) para "${searchTerm}"`, 'success');
+            }
+        }
+
+        // Manipulação de arquivo CSV
+        function handleFileUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const content = e.target.result;
+                parseCSV(content);
+            };
+            reader.readAsText(file, 'UTF-8');
+        }
+
+        // Parse do CSV
+        function parseCSV(csvText) {
+            csvText = csvText.replace(/\r\n/g, '\n').replace(/\r/g, '\n').trim();
+            const lines = csvText.split('\n').filter(line => line.trim() !== '');
+
+            if (lines.length === 0) {
+                showAlert('O arquivo CSV está vazio.', 'danger');
+                return;
+            }
+
+            const firstLine = lines[0];
+            const hasSemicolon = firstLine.includes(';');
+            const hasComma = firstLine.includes(',');
+            const separator = hasSemicolon ? ';' : (hasComma ? ',' : ';');
+
+            const headers = firstLine.split(separator).map(header =>
+                header.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+            );
+
+            // Adiciona novas colunas que não existem na lista atual
+            headers.forEach(header => {
+                if (!customColumns.includes(header)) {
+                    customColumns.push(header);
+                }
+            });
+
+            data = [];
+            let successCount = 0;
+
+            for (let i = 1; i < lines.length; i++) {
+                try {
+                    const values = lines[i].split(separator).map(value => value.trim());
+                    const record = {};
+
+                    headers.forEach((header, index) => {
+                        record[header] = values[index] || '';
+                    });
+
+                    // Garante que todas as colunas customizadas existam no registro
+                    customColumns.forEach(column => {
+                        if (!(column in record)) {
+                            record[column] = '';
+                        }
+                    });
+
+                    data.push(record);
+                    successCount++;
+                } catch (error) {
+                    console.error('Erro ao processar linha:', i, error);
+                }
+            }
+
+            saveToLocalStorage();
+            renderTableHeader();
+            renderTable();
+            updateColumnList();
+
+            showAlert(`Dados carregados com sucesso! ${successCount} registros processados.`, 'success');
+        }
+
+        // Abre modal para salvar arquivo
+        function openSaveModal() {
+            if (data.length === 0) {
+                showAlert('Não há dados para exportar.', 'danger');
+                return;
+            }
+
+            // Define um nome padrão com data e hora
+            const now = new Date();
+            const dateStr = now.toISOString().slice(0, 10).replace(/-/g, '');
+            const timeStr = now.toTimeString().slice(0, 8).replace(/:/g, '');
+            fileName.value = `dados_${dateStr}_${timeStr}.csv`;
+
+            saveFileModal.style.display = 'flex';
+        }
+
+        // Fecha modal de salvar arquivo
+        function closeSaveModalFunc() {
+            saveFileModal.style.display = 'none';
+        }
+
+        // Download do CSV
+        function downloadCSV() {
+            const filename = fileName.value.trim();
+            if (!filename) {
+                showAlert('Por favor, digite um nome para o arquivo.', 'danger');
+                return;
+            }
+
+            // Garante que o arquivo tenha extensão .csv
+            const finalFilename = filename.endsWith('.csv') ? filename : filename + '.csv';
+
+            const csvContent = generateCSV();
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+
+            link.setAttribute('href', url);
+            link.setAttribute('download', finalFilename);
+            link.style.visibility = 'hidden';
+
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            // Limpa a URL do objeto
+            setTimeout(() => {
+                URL.revokeObjectURL(url);
+            }, 100);
+
+            closeSaveModalFunc();
+            showAlert(`Arquivo "${finalFilename}" baixado com sucesso!`, 'success');
+        }
+
+        // Gera conteúdo CSV com cabeçalho na primeira linha
+        function generateCSV() {
+            // Cabeçalhos - primeira linha do arquivo
+            const headers = customColumns.join(';');
+
+            // Dados
+            const rows = data.map(record => {
+                return customColumns.map(column => {
+                    const value = record[column] || '';
+                    // Escapa valores que podem conter ponto e vírgula ou quebras de linha
+                    if (typeof value === 'string' && (value.includes(';') || value.includes('\n') || value.includes('"'))) {
+                        return `"${value.replace(/"/g, '""')}"`;
+                    }
+                    return value;
+                }).join(';');
+            });
+
+            // Retorna cabeçalho + dados
+            return [headers, ...rows].join('\n');
+        }
+
+        // Salva no localStorage
+        function saveToLocalStorage() {
+            localStorage.setItem('csvData', JSON.stringify(data));
+            localStorage.setItem('csvColumns', JSON.stringify(customColumns));
+            showAlert('Dados salvos no navegador com sucesso!', 'success');
+        }
+
+        // Abre modal para adicionar registro
+        function openAddModal() {
+            currentEditIndex = -1;
+            modalTitle.textContent = 'Adicionar Registro';
+            renderFormFields();
+            recordModal.style.display = 'flex';
+        }
+
+        // Abre modal para editar registro
+        function openEditModal(index) {
+            currentEditIndex = index;
+            const record = data[index];
+
+            modalTitle.textContent = 'Editar Registro';
+            renderFormFields(record);
+            recordModal.style.display = 'flex';
+        }
+
+        // Renderiza campos do formulário
+        function renderFormFields(record = null) {
+            formFields.innerHTML = '';
+
+            customColumns.forEach(column => {
+                const formGroup = document.createElement('div');
+                formGroup.className = 'form-group';
+
+                const label = document.createElement('label');
+                label.textContent = formatColumnName(column);
+                label.setAttribute('for', column);
+
+                let input;
+                if (column === 'informacao') {
+                    input = document.createElement('textarea');
+                    input.rows = 3;
+                } else {
+                    input = document.createElement('input');
+                    input.type = 'text';
+                }
+
+                input.id = column;
+                input.className = 'form-control';
+                input.value = record ? (record[column] || '') : '';
+
+                formGroup.appendChild(label);
+                formGroup.appendChild(input);
+                formFields.appendChild(formGroup);
+            });
+        }
+
+        // Fecha o modal de registro
+        function closeRecordModal() {
+            recordModal.style.display = 'none';
+        }
+
+        // Salva registro (adiciona ou edita)
+        function saveRecord(e) {
+            e.preventDefault();
+
+            const record = {};
+            customColumns.forEach(column => {
+                const input = document.getElementById(column);
+                record[column] = input.value;
+            });
+
+            if (currentEditIndex === -1) {
+                data.push(record);
+                showAlert('Registro adicionado com sucesso!', 'success');
+            } else {
+                data[currentEditIndex] = record;
+                showAlert('Registro atualizado com sucesso!', 'success');
+            }
+
+            saveToLocalStorage();
+            renderTable();
+            closeRecordModal();
+        }
+
+        // Exclui registro
+        function deleteRecord(index) {
+            if (confirm('Tem certeza que deseja excluir este registro?')) {
+                data.splice(index, 1);
+                saveToLocalStorage();
+                renderTable();
+                showAlert('Registro excluído com sucesso!', 'success');
+            }
+        }
+
+        // Abre modal de gerenciamento de colunas
+        function openColumnsModal() {
+            columnsModal.style.display = 'flex';
+        }
+
+        // Fecha modal de colunas
+        function closeColumnsModalFunc() {
+            columnsModal.style.display = 'none';
+        }
+
+        // Adiciona nova coluna
+        function addNewColumn() {
+            const columnName = newColumnName.value.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
+            if (!columnName) {
+                showAlert('Por favor, digite um nome para a coluna.', 'danger');
+                return;
+            }
+
+            if (customColumns.includes(columnName)) {
+                showAlert('Esta coluna já existe.', 'danger');
+                return;
+            }
+
+            customColumns.push(columnName);
+
+            // Adiciona a nova coluna a todos os registros existentes
+            data.forEach(record => {
+                record[columnName] = '';
+            });
+
+            newColumnName.value = '';
+            saveToLocalStorage();
+            renderTableHeader();
+            renderTable();
+            updateColumnList();
+
+            showAlert(`Coluna "${columnName}" adicionada com sucesso!`, 'success');
+        }
+
+        // Remove coluna
+        function removeColumn(column) {
+            if (isDefaultColumn(column)) {
+                showAlert('Não é possível remover colunas padrão.', 'danger');
+                return;
+            }
+
+            if (confirm(`Tem certeza que deseja remover a coluna "${column}"? Todos os dados desta coluna serão perdidos.`)) {
+                const index = customColumns.indexOf(column);
+                if (index > -1) {
+                    customColumns.splice(index, 1);
+
+                    // Remove a coluna de todos os registros
+                    data.forEach(record => {
+                        delete record[column];
+                    });
+
+                    saveToLocalStorage();
+                    renderTableHeader();
+                    renderTable();
+                    updateColumnList();
+
+                    showAlert(`Coluna "${column}" removida com sucesso!`, 'success');
+                }
+            }
+        }
+
+        // Atualiza lista de colunas
+        function updateColumnList() {
+            columnList.innerHTML = '';
+
+            customColumns.forEach(column => {
+                const tag = document.createElement('div');
+                tag.className = 'column-tag';
+                tag.innerHTML = `
+                    ${formatColumnName(column)}
+                    ${!isDefaultColumn(column) ? `<button class="column-tag-remove" data-column="${column}">×</button>` : ''}
+                `;
+                columnList.appendChild(tag);
+            });
+
+            // Adiciona event listeners para remover colunas
+            document.querySelectorAll('.column-tag-remove').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const column = e.target.getAttribute('data-column');
+                    removeColumn(column);
+                });
+            });
+        }
+
+        // Exibe alerta
+        function showAlert(message, type) {
+            const alert = document.createElement('div');
+            alert.className = `alert alert-${type}`;
+            alert.textContent = message;
+
+            alertContainer.appendChild(alert);
+
+            setTimeout(() => {
+                alert.remove();
+            }, 5000);
+        }
+    </script>
+</body>
+
+</html>

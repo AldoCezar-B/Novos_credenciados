@@ -2420,8 +2420,9 @@
             const formatCategory = (category, term) => {
                 if (!category) return '<span class="no-category">Nenhuma especialidade informada</span>';
 
-                // Divide as especialidades usando o separador "/"
-                const categories = category.split('/').map(cat => cat.trim()).filter(cat => cat !== '');
+                // Divide as especialidades usando o separador   "/"
+                // \/ mudei aqui em baixo \/
+                const categories = category.split(',').map(cat => cat.trim()).filter(cat => cat !== '');
 
                 if (categories.length === 0) {
                     return '<span class="no-category">Nenhuma especialidade informada</span>';

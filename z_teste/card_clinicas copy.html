@@ -6,6 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clínicas CASSI - Unidades</title>
     <style>
+        :root {
+
+            --Cassi-Dark-Blue: #002D4B;
+
+            --Cassi-Normal-Blue: #2E54CF;
+
+            --Cassi-Light-Blue: #6D96FB;
+
+            --Cassi-Purple: #8C5AFF;
+
+            --Cassi-Yellow: #FFDE00;
+
+            --Cassi-Neon_Green: #00D78C;
+
+            --Cassi-Neon-Pink: #FF6D91;
+
+            --Cassi-Silver: #E3DED6;
+
+            --Cassi-Silver-1: #D9D9D9;
+
+
+
+
+        }
+
         body {
             background-color: #D9D9D9;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -21,16 +46,16 @@
         .filtro-container label {
             font-weight: bold;
             margin-right: 10px;
-            color: #002D4B;
+            color: var(--Cassi-Dark-Blue);
         }
 
         .filtro-container select {
             padding: 8px 12px;
             border-radius: 4px;
-            border: 1px solid #002D4B;
+            border: 1px solid var(--Cassi-Dark-Blue);
             background-color: white;
             font-size: 16px;
-            color: #002D4B;
+            color: var(--Cassi-Dark-Blue);
         }
 
         .card-unidades {
@@ -43,7 +68,7 @@
             border-radius: 4px;
             box-shadow: 2px 5px 8px rgba(126, 126, 126, 0.74);
             background-color: rgb(255, 255, 255);
-            color: #002D4B;
+            color: var(--Cassi-Dark-Blue);
         }
 
         .card-infos,
@@ -54,28 +79,37 @@
 
         .card-titulo,
         h3 {
-            font-size: larger;
-            font-weight: 600;
+
+            font-size: medium;
+
             text-align: right;
-            background-color: silver;
+            background-color: var(--Cassi-Dark-Blue);
+            color: #fff;
             margin: auto 30px;
             padding: 10px;
+            height: 100px;
+            border-radius: 10px;
+            text-align: right;
+        }
+
+        .card-titulo {
+            display: flexbox;
         }
 
         .exp-container {
-            background-color: rgb(172, 172, 148);
+            background-color: var(--Cassi-Silver-1);
             margin: 30px;
             padding: 5px;
             border-radius: 10px;
             border-style: none none solid none;
-            border-color: #002D4B;
+            border-color: var(--Cassi-Dark-Blue);
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
         .exp-title {
-            background-color: aqua;
-            color: #081250;
+            background-color: #fff;
+            color: var(--Cassi-Dark-Blue);
             margin: 0 auto;
             padding: 5px 20px;
             border-radius: 8px;
@@ -109,7 +143,10 @@
         }
 
         .lista-servicos {
+            padding: 10px 5px;
             padding-left: 20px;
+            background-color: #00D78C;
+            border-radius: 10px;
         }
 
         .lista-servicos li {
@@ -134,7 +171,7 @@
 
         .loading {
             background-color: #e3f2fd;
-            color: #1976d2;
+            color: var(--Cassi-Normal-Blue);
         }
 
         .error {
@@ -390,12 +427,12 @@
                     linhas.forEach(linha => {
                         if (/^\d+\./.test(linha)) {
                             // item numerado
-                            const titulo = linha.replace(/^\d+\.\s*/, '').replace(/\.+$/,'').trim();
+                            const titulo = linha.replace(/^\d+\.\s*/, '').replace(/\.+$/, '').trim();
                             atual = { title: titulo, subs: [] };
                             itens.push(atual);
                         } else if (/^[a-zA-Z]\./.test(linha)) {
                             // subitem letra
-                            const sub = linha.replace(/^[a-zA-Z]\.(\s*)/, '').replace(/\.+$/,'').trim();
+                            const sub = linha.replace(/^[a-zA-Z]\.(\s*)/, '').replace(/\.+$/, '').trim();
                             if (atual) {
                                 atual.subs.push(sub);
                             } else {
@@ -408,7 +445,7 @@
                             if (atual && atual.subs.length === 0 && atual.title) {
                                 atual.title = (atual.title + ' ' + linha).trim();
                             } else {
-                                atual = { title: linha.replace(/\.+$/,'').trim(), subs: [] };
+                                atual = { title: linha.replace(/\.+$/, '').trim(), subs: [] };
                                 itens.push(atual);
                             }
                         }

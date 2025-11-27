@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa de Credenciados - Brasil</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1a4f8c 0%, #2a6bb9 100%);
+            color: white;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo i {
+            font-size: 2.2rem;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        .search-bar {
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-bar input {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 50px;
+            width: 300px;
+            font-size: 1rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-bar button {
+            background-color: #ff7e30;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .search-bar button:hover {
+            background-color: #ff6a0d;
+        }
+
+        .main-content {
+            display: flex;
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 2rem;
+            gap: 2rem;
+        }
+
+        .credenciados-list {
+            flex: 1;
+            max-width: 400px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            padding: 1.5rem;
+            overflow-y: auto;
+            max-height: 75vh;
+        }
+
+        .credenciados-list h2 {
+            color: #1a4f8c;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #eaeaea;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .credenciados-list h2 i {
+            color: #ff7e30;
+        }
+
+        .card {
+            background-color: #f9fafc;
+            border-radius: 10px;
+            padding: 1.2rem;
+            margin-bottom: 1.2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid #2a6bb9;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .card:hover,
+        .card.active {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-left-color: #ff7e30;
+        }
+
+        .card h3 {
+            color: #1a4f8c;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .card p {
+            color: #666;
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+        }
+
+        .card .estado {
+            display: inline-block;
+            background-color: #e6f0ff;
+            color: #1a4f8c;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        .map-container {
+            flex: 2;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .map-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #eaeaea;
+        }
+
+        .map-header h2 {
+            color: #1a4f8c;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0;
+        }
+
+        .map-header h2 i {
+            color: #ff7e30;
+        }
+
+        .map-controls {
+            display: flex;
+            gap: 10px;
+        }
+
+        .map-controls button {
+            background-color: #2a6bb9;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .map-controls button:hover {
+            background-color: #1a4f8c;
+        }
+
+        .map-controls button.reset-map {
+            background-color: #6c757d;
+        }
+
+        .map-controls button.reset-map:hover {
+            background-color: #5a6268;
+        }
+
+        .map-frame {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #eaeaea;
+        }
+
+        #map {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .loading i {
+            margin-right: 10px;
+            color: #2a6bb9;
+        }
+
+        footer {
+            background-color: #1a4f8c;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            padding: 0.8rem;
+            background-color: #e6f0ff;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-weight: bold;
+            color: #1a4f8c;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 900px) {
+            .main-content {
+                flex-direction: column;
+            }
+
+            .credenciados-list {
+                max-width: 100%;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .search-bar input {
+                width: 200px;
+            }
+
+            .map-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .map-controls {
+                width: 100%;
+                justify-content: flex-end;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h1>Credenciados no Brasil</h1>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Buscar credenciado..." id="search-input">
+                    <button id="search-btn"><i class="fas fa-search"></i> Buscar</button>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="credenciados-list">
+                <h2><i class="fas fa-users"></i> Nossos Credenciados</h2>
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-value" id="total-credenciados">0</div>
+                        <div>Total</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="estados-cobertura">0</div>
+                        <div>Estados</div>
+                    </div>
+                </div>
+                <div id="cards-container">
+                    <!-- Cards serão inseridos aqui via JavaScript -->
+                </div>
+            </div>
+
+            <div class="map-container">
+                <div class="map-header">
+                    <h2><i class="fas fa-map"></i> Mapa de Localização</h2>
+                    <div class="map-controls">
+                        <button class="reset-map" id="reset-map-btn">
+                            <i class="fas fa-globe-americas"></i> Visão Geral
+                        </button>
+                        <button id="locate-me-btn">
+                            <i class="fas fa-location-arrow"></i> Minha Localização
+                        </button>
+                    </div>
+                </div>
+                <div class="map-frame">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2023 Credenciados no Brasil - Todos os direitos reservados</p>
+        </footer>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Dados de exemplo - credenciados com coordenadas aproximadas
+        const credenciados = [
+            {
+                id: 1,
+                nome: "Clínica Saúde Total",
+                endereco: "Av. Paulista, 1000",
+                cidade: "São Paulo",
+                estado: "SP",
+                cep: "01310-100",
+                lat: -23.5631,
+                lng: -46.6530
+            },
+            {
+                id: 2,
+                nome: "Hospital Vida Plena",
+                endereco: "Rua Augusta, 500",
+                cidade: "São Paulo",
+                estado: "SP",
+                cep: "01305-000",
+                lat: -23.5549,
+                lng: -46.6568
+            },
+            {
+                id: 3,
+                nome: "Laboratório Diagnóstico RJ",
+                endereco: "Av. Atlântica, 2000",
+                cidade: "Rio de Janeiro",
+                estado: "RJ",
+                cep: "22021-000",
+                lat: -22.9714,
+                lng: -43.1826
+            },
+            {
+                id: 4,
+                nome: "Centro Médico Minas",
+                endereco: "Av. Afonso Pena, 4000",
+                cidade: "Belo Horizonte",
+                estado: "MG",
+                cep: "30130-009",
+                lat: -19.9245,
+                lng: -43.9352
+            },
+            {
+                id: 5,
+                nome: "Clínica Bem Estar RS",
+                endereco: "Av. Protásio Alves, 2000",
+                cidade: "Porto Alegre",
+                estado: "RS",
+                cep: "90410-003",
+                lat: -30.0346,
+                lng: -51.2177
+            },
+            {
+                id: 6,
+                nome: "Hospital Santa Catarina",
+                endereco: "Rua Felipe Schmidt, 100",
+                cidade: "Florianópolis",
+                estado: "SC",
+                cep: "88010-001",
+                lat: -27.5954,
+                lng: -48.5480
+            },
+            {
+                id: 7,
+                nome: "Laboratório Paraná",
+                endereco: "Rua XV de Novembro, 500",
+                cidade: "Curitiba",
+                estado: "PR",
+                cep: "80020-310",
+                lat: -25.4284,
+                lng: -49.2733
+            },
+            {
+                id: 8,
+                nome: "Centro de Saúde Bahia",
+                endereco: "Av. Sete de Setembro, 100",
+                cidade: "Salvador",
+                estado: "BA",
+                cep: "40060-001",
+                lat: -12.9714,
+                lng: -38.5014
+            },
+            {
+                id: 9,
+                nome: "Hospital do Nordeste",
+                endereco: "Av. Agamenon Magalhães, 500",
+                cidade: "Recife",
+                estado: "PE",
+                cep: "50010-906",
+                lat: -8.0476,
+                lng: -34.8770
+            },
+            {
+                id: 10,
+                nome: "Clínica Ceará",
+                endereco: "Av. Beira Mar, 1000",
+                cidade: "Fortaleza",
+                estado: "CE",
+                cep: "60165-121",
+                lat: -3.7319,
+                lng: -38.5267
+            },
+            {
+                id: 11,
+                nome: "Laboratório Goiás",
+                endereco: "Av. Goiás, 2000",
+                cidade: "Goiânia",
+                estado: "GO",
+                cep: "74063-010",
+                lat: -16.6869,
+                lng: -49.2648
+            },
+            {
+                id: 12,
+                nome: "Hospital Brasília",
+                endereco: "SQS 105, Bloco A",
+                cidade: "Brasília",
+                estado: "DF",
+                cep: "70344-050",
+                lat: -15.7797,
+                lng: -47.9297
+            }
+        ];
+
+        // Variáveis globais
+        let map;
+        let markers = [];
+        let activeCardId = null;
+        const defaultView = {
+            center: [-15.7797, -47.9297], // Centro do Brasil
+            zoom: 4
+        };
+
+        // Inicialização do mapa
+        function initMap() {
+            // Cria o mapa centralizado no Brasil
+            map = L.map('map').setView(defaultView.center, defaultView.zoom);
+
+            // Adiciona o tile layer (OpenStreetMap)
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            // Adiciona os marcadores
+            addMarkersToMap();
+        }
+
+        // Adiciona marcadores ao mapa
+        function addMarkersToMap() {
+            credenciados.forEach(credenciado => {
+                // Cria um ícone personalizado
+                const customIcon = L.divIcon({
+                    html: `<div style="background-color: #2a6bb9; width: 20px; height: 20px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.3);"></div>`,
+                    className: 'custom-marker',
+                    iconSize: [20, 20],
+                    iconAnchor: [10, 10]
+                });
+
+                // Cria o marcador
+                const marker = L.marker([credenciado.lat, credenciado.lng], { icon: customIcon })
+                    .addTo(map)
+                    .bindPopup(`
+                        <div style="min-width: 200px;">
+                            <h3 style="margin: 0 0 5px 0; color: #1a4f8c;">${credenciado.nome}</h3>
+                            <p style="margin: 0 0 3px 0;"><i class="fas fa-map-marker-alt"></i> ${credenciado.endereco}</p>
+                            <p style="margin: 0 0 3px 0;"><i class="fas fa-city"></i> ${credenciado.cidade} - ${credenciado.estado}</p>
+                            <p style="margin: 0;"><i class="fas fa-mail-bulk"></i> ${credenciado.cep}</p>
+                        </div>
+                    `);
+
+                // Adiciona evento de clique no marcador
+                marker.on('click', () => {
+                    highlightCard(credenciado.id);
+                });
+
+                markers.push({
+                    id: credenciado.id,
+                    marker: marker
+                });
+            });
+        }
+
+        // Função para resetar o mapa para a visualização padrão
+        function resetMapView() {
+            map.setView(defaultView.center, defaultView.zoom);
+
+            // Fecha todos os popups abertos
+            markers.forEach(markerObj => {
+                markerObj.marker.closePopup();
+            });
+
+            // Remove destaque dos cards
+            document.querySelectorAll('.card').forEach(card => {
+                card.classList.remove('active');
+            });
+        }
+
+        // Função para destacar o card correspondente
+        function highlightCard(id) {
+            // Remove a classe 'active' de todos os cards
+            document.querySelectorAll('.card').forEach(card => {
+                card.classList.remove('active');
+            });
+
+            // Adiciona a classe 'active' ao card correspondente
+            const card = document.querySelector(`.card[data-id="${id}"]`);
+            if (card) {
+                card.classList.add('active');
+                card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+
+        // Função para centralizar o mapa em um credenciado
+        function centerMapOnCredenciado(id) {
+            const credenciado = credenciados.find(c => c.id === id);
+            if (credenciado) {
+                map.setView([credenciado.lat, credenciado.lng], 13);
+                highlightCard(id);
+
+                // Abre o popup do marcador
+                const markerObj = markers.find(m => m.id === id);
+                if (markerObj) {
+                    markerObj.marker.openPopup();
+                }
+            }
+        }
+
+        // Função para localizar o usuário
+        function locateUser() {
+            if (!navigator.geolocation) {
+                alert("Geolocalização não é suportada por este navegador.");
+                return;
+            }
+
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const userLat = position.coords.latitude;
+                    const userLng = position.coords.longitude;
+
+                    // Centraliza no usuário
+                    map.setView([userLat, userLng], 13);
+
+                    // Adiciona marcador da localização do usuário
+                    L.marker([userLat, userLng])
+                        .addTo(map)
+                        .bindPopup("<b>Sua localização</b>")
+                        .openPopup();
+                },
+                (error) => {
+                    alert("Não foi possível obter sua localização: " + error.message);
+                }
+            );
+        }
+
+        // Função para gerar os cards
+        function gerarCards() {
+            const container = document.getElementById('cards-container');
+            container.innerHTML = '';
+
+            credenciados.forEach(credenciado => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.setAttribute('data-id', credenciado.id);
+                card.innerHTML = `
+                    <h3>${credenciado.nome}</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> ${credenciado.endereco}</p>
+                    <p><i class="fas fa-city"></i> ${credenciado.cidade}</p>
+                    <p><i class="fas fa-mail-bulk"></i> ${credenciado.cep}</p>
+                    <span class="estado">${credenciado.estado}</span>
+                `;
+
+                // Adiciona evento de clique para centralizar no mapa
+                card.addEventListener('click', () => {
+                    centerMapOnCredenciado(credenciado.id);
+                });
+
+                container.appendChild(card);
+            });
+
+            // Atualiza estatísticas
+            updateStats();
+        }
+
+        // Atualiza as estatísticas
+        function updateStats() {
+            document.getElementById('total-credenciados').textContent = credenciados.length;
+
+            const estadosUnicos = [...new Set(credenciados.map(c => c.estado))];
+            document.getElementById('estados-cobertura').textContent = estadosUnicos.length;
+        }
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', () => {
+            initMap();
+            gerarCards();
+
+            // Configura o botão de reset do mapa
+            document.getElementById('reset-map-btn').addEventListener('click', resetMapView);
+
+            // Configura o botão de localização
+            document.getElementById('locate-me-btn').addEventListener('click', locateUser);
+
+            // Configura a busca
+            document.getElementById('search-btn').addEventListener('click', performSearch);
+            document.getElementById('search-input').addEventListener('keyup', (e) => {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+        });
+
+        // Função de busca
+        function performSearch() {
+            const termo = document.getElementById('search-input').value.toLowerCase();
+            const cards = document.querySelectorAll('.card');
+            let foundAny = false;
+
+            cards.forEach(card => {
+                const texto = card.textContent.toLowerCase();
+                if (texto.includes(termo)) {
+                    card.style.display = 'block';
+                    foundAny = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Se encontrou algum resultado, centraliza no primeiro
+            if (foundAny && termo) {
+                const firstVisibleCard = document.querySelector('.card[style="display: block"]');
+                if (firstVisibleCard) {
+                    const id = parseInt(firstVisibleCard.getAttribute('data-id'));
+                    centerMapOnCredenciado(id);
+                }
+            } else if (!termo) {
+                // Se a busca está vazia, reseta a visualização
+                resetMapView();
+            }
+        }
+    </script>
+</body>
+
+</html>

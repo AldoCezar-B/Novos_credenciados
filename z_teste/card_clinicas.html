@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cards - unidades</title>
+</head>
+
+<body>
+    <style>
+        body {
+            background-color: #D9D9D9;
+        }
+
+        .card-unidades {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin: 30px;
+            padding: 20px 5px;
+            height: auto;
+            width: 500px;
+            border: 1px solid black;
+
+            border-radius: 4px;
+            box-shadow: 2px 5px 8px rgba(126, 126, 126, 0.74);
+            background-color: rgb(255, 255, 255);
+            color: #002D4B;
+
+
+        }
+
+        .card-infos,
+        li {
+            list-style: none;
+        }
+
+        /*stile da lista dados do card*/
+
+
+        .card-titulo,
+        h3 {
+            font-size: larger;
+            font-weight: 600;
+            text-align: right;
+            background-color: silver;
+            margin: auto 30px;
+            padding: 10px;
+        }
+
+        .exp-container {
+            background-color: rgb(172, 172, 148);
+            margin: 30px;
+            padding: 5px;
+            border-radius: 10px;
+            border-style: none none solid none;
+            border-color: #002D4B;
+        }
+
+
+        .exp-title {
+            background-color: aqua;
+            color: #081250;
+            margin: 0 auto;
+            padding: 5px 20px;
+            border-radius: 8px;
+
+        }
+    </style>
+    <div class="card-unidades">
+
+        <h3 class="card-titulo">titulo: ${dados.titulo}</h3>
+        <nav class="card-infos">
+            <ul>
+                <li><b>Endereço:</b> ${dados.endereco}</li>
+                <br>
+                <li><b>Telefone:</b> ${dados.telefone}</li>
+                <li><b>Contato:</b> ${dados.contato}</li>
+                <li><b>Cnpj:</b> ${dados.cnpj}</li>
+                <li><b> horario de atendimento:</b> ${dados.horario_atend}</li>
+
+
+            </ul>
+        </nav>
+
+        <nav class="exp-container" id="drop-1">
+            <h4 class="exp-title"><b>Serviços Oferecidos:</b></h4>
+            <ul>
+                <li>${dados.servicos_of}</li>
+            </ul>
+        </nav>
+
+        <nav class="exp-container" id="drop-2">
+            <h4 class="exp-title"><b>Procedimentos:</b></h4>
+            <ul>
+                <li>${dados.servicos_of}</li>
+            </ul>
+        </nav>
+
+        <nav>
+            <ul>
+                <li><b> Gerenteda Unidade:</b> ${dados.gerente_uni} </li>
+                <li><b> Gerente Clinica:</b> ${dados.gerente_clin}</li>
+            </ul>
+        </nav>
+
+    </div>
+
+</body>
+
+</html>

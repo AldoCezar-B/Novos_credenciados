@@ -2258,7 +2258,7 @@
 
                 // Wordpress: caminho wordpress https://www.cassi.com.br/wp-content/uploads/2025/10/credenciados_2025.csv
                 // VSCODE: caminho para teste ../data/credenciados_2025.csv
-                const response = await fetch('../data/credenciados_2025.csv');
+                const response = await fetch('./z_teste/data/credenciados_2025_28_11-2.csv');
 
                 if (!response.ok) {
                     throw new Error(`Erro ${response.status}: ${response.statusText}`);

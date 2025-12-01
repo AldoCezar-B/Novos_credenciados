@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa de Credenciados - Brasil</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --intra-yellow: #FCFC1B;
+            --intra-white: #FFFFFF;
+            --intra-dark-blue: #002D4B;
+            --intra-ocean-blue: #014886;
+            --intra-sky-blue: #477AA7;
+            --intra-another-blue: #014886;
+            --ux-silver: #ebe8e8;
+            --ux-blue: #005D9B;
+            --silver: #C6C9CC;
+            --white: #ffffff;
+            --border: 1px solid #727272;
+            --radius: 4px;
+            --shadow-border: 1px 1px 8px #727272;
+            --shadow-btn: 0px 5px 3px rgba(0, 0, 0, 0.5);
+            --margin-1: 20px;
+            --padding-1: 20px;
+        }
+
+        body {
+            background-color: var(--ux-silver);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1a4f8c 0%, #2a6bb9 100%);
+            color: white;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo i {
+            font-size: 2.2rem;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        .search-bar {
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-bar input {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 50px;
+            width: 300px;
+            font-size: 1rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-bar button {
+            background-color: #ff7e30;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .search-bar button:hover {
+            background-color: #ff6a0d;
+        }
+
+        .main-content {
+            display: flex;
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 2rem;
+            gap: 2rem;
+        }
+
+        /* Menu de Estados */
+        .state-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-color: rgb(82, 79, 79);
+            border-radius: var(--radius);
+            box-shadow: 2px 5px 3px rgba(0, 0, 0, 0.5);
+            height: fit-content;
+            margin: 10px 40px !important;
+            background-color: var(--ux-white);
+            border-radius: var(--radius);
+            padding: 15px;
+            overflow: hidden;
+        }
+
+        .nav-btn {
+            background-color: var(--ux-silver);
+            border: none;
+            border-radius: 8px;
+            width: 20px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        #prev-btn {
+            border-radius: 4px 0 0 4px;
+            margin: 5px;
+            border-style: none none solid none;
+            box-shadow: var(--shadow-btn);
+        }
+
+        #next-btn {
+            border-radius: 0 4px 4px 0;
+            margin: 5px;
+            border-style: none none solid none;
+            box-shadow: var(--shadow-btn);
+        }
+
+        .state {
+            overflow: hidden;
+            white-space: nowrap;
+            width: 100%;
+        }
+
+        .state ul {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            transition: transform 0.3s ease;
+            width: fit-content;
+            will-change: transform;
+        }
+
+        .state li {
+            position: relative;
+            display: block;
+            padding: 10px 7px;
+            width: 67px;
+            margin: 3px 6px;
+            border: 1px solid #666666;
+            font-weight: bold;
+            color: var(--intra-another-blue);
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            box-sizing: border-box;
+        }
+
+        .state li:hover {
+            background-color: var(--intra-white);
+            box-shadow: 0 5px 8px rgba(1, 72, 134, 0.7);
+            margin: 0 5px;
+        }
+
+        .state li.active {
+            background-color: var(--intra-dark-blue);
+            color: var(--intra-yellow);
+            border-color: var(--intra-yellow);
+        }
+
+        .count-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: var(--intra-yellow);
+            color: var(--intra-dark-blue);
+            border-radius: 5px;
+            width: fit-content;
+            padding: 2px;
+            min-width: 22px;
+            height: 22px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.75rem;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .cred-section-container {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            gap: 2rem;
+        }
+
+        .credenciados-section {
+            background-color: var(--white);
+            border: 2px;
+            box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.7);
+            border-style: none inset inset none;
+            border-color: #b1b1b1;
+            border-radius: var(--radius);
+            padding: 1.5rem;
+        }
+
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            color: var(--intra-dark-blue);
+            font-size: 1.8rem;
+            border-bottom: 2px solid #eaeaea;
+            padding-bottom: 0.5rem;
+        }
+
+        .search-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 1.5rem;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px 20px 15px 50px;
+            border: 2px solid #ddd;
+            border-radius: 50px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background-color: white;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--ux-blue);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            pointer-events: none;
+            color: #666;
+        }
+
+        /* Cards Container */
+        .cards-container {
+            display: block;
+            gap: 1.5rem;
+            height: 400px;
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 0.7rem;
+            background-color: var(--ux-silver);
+            border: var(--border);
+            border-radius: var(--radius);
+        }
+
+        .card {
+            background: white;
+            box-shadow: 0 4px 3px rgba(0, 0, 0, 0.5);
+            border-style: none none solid none;
+            border-color: #b1b1b1;
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 10px auto;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: auto;
+        }
+
+        .card-header {
+            background-color: var(--white);
+            color: var(--intra-dark-blue);
+            padding: 10px 1rem;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+        }
+
+        .card-header .fantasia {
+            flex: 1;
+            margin: 0;
+            padding: 0 10px;
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .card-header .state-badge {
+            display: inline-flex;
+            background-color: var(--intra-dark-blue);
+            color: var(--intra-yellow);
+            padding: 5px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 650;
+            width: 40px;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .card-header .toggle-icon {
+            width: 30px;
+            height: 30px;
+            float: right;
+            border-radius: 50%;
+            padding: 4px;
+            align-items: center;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            transform: rotate(270deg);
+            flex-shrink: 0;
+        }
+
+        .toggle-icon.rotate {
+            transform: rotate(90deg);
+        }
+
+        .card-body {
+            padding: 0;
+            background-color: var(--silver);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .card-body.expanded {
+            max-height: 500px;
+            padding: 1.5rem;
+            overflow-y: auto;
+            box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.3);
+            border-style: solid none none solid;
+            border-color: #e4e4e4;
+        }
+
+        .card-info {
+            display: block;
+            background-color: var(--white);
+            border-radius: 10px;
+            margin: 5px;
+            padding: 0;
+            margin-bottom: 0.8rem;
+        }
+
+        .info-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.2s;
+        }
+
+        .info-header:hover {
+            background-color: rgba(47, 84, 207, 0.1);
+        }
+
+        .info-content {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ico {
+            width: 24px;
+            height: 24px;
+        }
+
+        .information {
+            font-weight: 500;
+            color: var(--intra-dark-blue);
+        }
+
+        .info-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding-left: 34px;
+            font-size: 0.9rem;
+            color: var(--intra-dark-blue);
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 5px;
+        }
+
+        .info-details.expanded {
+            max-height: fit-content;
+            padding: 8px 15px;
+        }
+
+        .dados {
+            background-color: var(--intra-sky-blue);
+            color: var(--white);
+            border-radius: 10px;
+            padding: 5px 10px;
+            margin: 5px;
+            height: fit-content;
+            min-height: 0;
+            min-width: 0;
+            border: 1px solid #666666;
+            list-style: none;
+        }
+
+        .dados-adress {
+            background-color: var(--intra-sky-blue);
+            color: var(--white);
+            border-radius: 10px 10px 10px 0;
+            padding: 5px 10px;
+            list-style: none;
+            height: fit-content;
+            min-height: 0;
+            min-width: 0;
+            border: 1px solid #666666;
+            margin-bottom: 10px;
+        }
+
+        .specialty-item {
+            padding: 4px 0;
+            background-color: var(--intra-sky-blue);
+            color: var(--white);
+            font-size: 0.9rem;
+            position: relative;
+            padding-left: 15px;
+            border: 1px inset #666666;
+            border-radius: 10px;
+            margin: 5px;
+        }
+
+        .divisao {
+            margin: 20px auto;
+            border-bottom: 4px solid var(--intra-dark-blue);
+            border-radius: 10px;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 2rem;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        /* Mapa Section */
+        .map-container {
+            flex: 2;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            min-height: 600px;
+        }
+
+        .map-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #eaeaea;
+        }
+
+        .map-header h2 {
+            color: #1a4f8c;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0;
+        }
+
+        .map-header h2 i {
+            color: #ff7e30;
+        }
+
+        .map-controls {
+            display: flex;
+            gap: 10px;
+        }
+
+        .map-controls button {
+            background-color: #2a6bb9;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .map-controls button:hover {
+            background-color: #1a4f8c;
+        }
+
+        .map-controls button.reset-map {
+            background-color: #6c757d;
+        }
+
+        .map-controls button.reset-map:hover {
+            background-color: #5a6268;
+        }
+
+        .map-frame {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #eaeaea;
+        }
+
+        #map {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .loading i {
+            margin-right: 10px;
+            color: #2a6bb9;
+        }
+
+        /* Stats */
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin: 1rem 0;
+            padding: 0.8rem;
+            background-color: #e6f0ff;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-weight: bold;
+            color: #1a4f8c;
+            font-size: 1.2rem;
+        }
+
+        footer {
+            background-color: #1a4f8c;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .highlight {
+            background-color: var(--intra-yellow);
+            color: var(--intra-dark-blue);
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        /* Responsividade */
+        @media (max-width: 900px) {
+            .main-content {
+                flex-direction: column;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .search-bar input {
+                width: 200px;
+            }
+
+            .map-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .map-controls {
+                width: 100%;
+                justify-content: flex-end;
+            }
+
+            .state-container {
+                margin: 10px 20px !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .state li {
+                width: 60px;
+                padding: 8px 5px;
+                font-size: 0.9rem;
+            }
+
+            .cards-container {
+                max-height: 350px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo h1 {
+                font-size: 1.5rem;
+            }
+
+            .search-bar {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .search-bar input {
+                width: 100%;
+            }
+
+            .state li {
+                width: 50px;
+                padding: 6px 3px;
+                font-size: 0.8rem;
+            }
+
+            .count-badge {
+                width: 18px;
+                height: 18px;
+                font-size: 0.6rem;
+            }
+        }
+
+        .progress-container {
+            width: 100%;
+            background-color: #f3f3f3;
+            border-radius: 5px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            width: 0%;
+            height: 30px;
+            background-color: #4CAF50;
+            text-align: center;
+            line-height: 30px;
+            color: white;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h1>Credenciados no Brasil</h1>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Buscar credenciado..." id="search-input">
+                    <button id="search-btn"><i class="fas fa-search"></i> Buscar</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Menu de Estados -->
+        <div class="state-container">
+            <button class="nav-btn" id="prev-btn">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+
+            <nav class="state">
+                <ul id="state-list">
+                    <li data-state="Todos" class="first-visible">Todos <span class="count-badge">0</span></li>
+                    <li data-state="AC">AC <span class="count-badge">0</span></li>
+                    <li data-state="AL">AL <span class="count-badge">0</span></li>
+                    <li data-state="AP">AP <span class="count-badge">0</span></li>
+                    <li data-state="AM">AM <span class="count-badge">0</span></li>
+                    <li data-state="BA">BA <span class="count-badge">0</span></li>
+                    <li data-state="CE">CE <span class="count-badge">0</span></li>
+                    <li data-state="DF">DF <span class="count-badge">0</span></li>
+                    <li data-state="ES">ES <span class="count-badge">0</span></li>
+                    <li data-state="GO">GO <span class="count-badge">0</span></li>
+                    <li data-state="MA">MA <span class="count-badge">0</span></li>
+                    <li data-state="MT">MT <span class="count-badge">0</span></li>
+                    <li data-state="MS">MS <span class="count-badge">0</span></li>
+                    <li data-state="MG">MG <span class="count-badge">0</span></li>
+                    <li data-state="PA">PA <span class="count-badge">0</span></li>
+                    <li data-state="PB">PB <span class="count-badge">0</span></li>
+                    <li data-state="PR">PR <span class="count-badge">0</span></li>
+                    <li data-state="PE">PE <span class="count-badge">0</span></li>
+                    <li data-state="PI">PI <span class="count-badge">0</span></li>
+                    <li data-state="RJ">RJ <span class="count-badge">0</span></li>
+                    <li data-state="RN">RN <span class="count-badge">0</span></li>
+                    <li data-state="RS">RS <span class="count-badge">0</span></li>
+                    <li data-state="RO">RO <span class="count-badge">0</span></li>
+                    <li data-state="RR">RR <span class="count-badge">0</span></li>
+                    <li data-state="SC">SC <span class="count-badge">0</span></li>
+                    <li data-state="SP">SP <span class="count-badge">0</span></li>
+                    <li data-state="SE">SE <span class="count-badge">0</span></li>
+                    <li data-state="TO" class="last-visible">TO <span class="count-badge">0</span></li>
+                </ul>
+            </nav>
+
+            <button class="nav-btn" id="next-btn">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+
+        <div class="main-content">
+            <!-- Seção de Credenciados -->
+            <div class="cred-section-container">
+                <section class="credenciados-section">
+                    <h2 class="section-title">Nossos Credenciados</h2>
+
+                    <div class="stats">
+                        <div class="stat-item">
+                            <div class="stat-value" id="total-credenciados">0</div>
+                            <div>Total</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="estados-cobertura">0</div>
+                            <div>Estados</div>
+                        </div>
+                    </div>
+
+                    <div class="progress-container" id="progress-container" style="display: none;">
+                        <div class="progress-bar" id="progress-bar">0%</div>
+                    </div>
+
+                    <div class="search-container">
+                        <input type="text" id="search-input-local"
+                            placeholder="Buscar por nome, especialidade, cidade..." class="search-input">
+                        <i class="fas fa-search search-icon"></i>
+                    </div>
+
+                    <div class="cards-container" id="cards-container">
+                        <div class="no-results">Carregando credenciados...</div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Seção do Mapa -->
+            <div class="map-container">
+                <div class="map-header">
+                    <h2><i class="fas fa-map"></i> Mapa de Localização</h2>
+                    <div class="map-controls">
+                        <button class="reset-map" id="reset-map-btn">
+                            <i class="fas fa-globe-americas"></i> Visão Geral
+                        </button>
+                        <button id="locate-me-btn">
+                            <i class="fas fa-location-arrow"></i> Minha Localização
+                        </button>
+                    </div>
+                </div>
+                <div class="map-frame">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2023 Credenciados no Brasil - Todos os direitos reservados</p>
+        </footer>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Dados globais
+        let credenciados = [];
+        let map;
+        let markers = [];
+        let selectedState = null;
+        const defaultView = {
+            center: [-15.7797, -47.9297], // Centro do Brasil
+            zoom: 4
+        };
+
+        const estados = {
+            "AC": "Acre", "AL": "Alagoas", "AM": "Amazonas", "AP": "Amapá", "BA": "Bahia",
+            "CE": "Ceará", "DF": "Distrito Federal", "ES": "Espírito Santo", "GO": "Goiás",
+            "MA": "Maranhão", "MG": "Minas Gerais", "MS": "Mato Grosso do Sul", "MT": "Mato Grosso",
+            "PA": "Pará", "PB": "Paraíba", "PE": "Pernambuco", "PI": "Piauí", "PR": "Paraná",
+            "RJ": "Rio de Janeiro", "RN": "Rio Grande do Norte", "RO": "Rondônia", "RR": "Roraima",
+            "RS": "Rio Grande do Sul", "SC": "Santa Catarina", "SE": "Sergipe", "SP": "São Paulo",
+            "TO": "Tocantins"
+        };
+
+        // Cache para CEPs já consultados (para evitar consultas repetidas)
+        const cepCache = new Map();
+
+        // Inicialização do mapa
+        function initMap() {
+            map = L.map('map').setView(defaultView.center, defaultView.zoom);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+        }
+
+        // Função para buscar informações do CEP via ViaCEP
+        async function getCEPInfo(cep) {
+            // Limpar CEP
+            cep = cep.replace(/\D/g, '');
+
+            if (cep.length !== 8) {
+                return null;
+            }
+
+            // Verificar cache primeiro
+            if (cepCache.has(cep)) {
+                return cepCache.get(cep);
+            }
+
+            try {
+                const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+                if (!response.ok) throw new Error('Erro na requisição');
+
+                const data = await response.json();
+
+                if (data.erro) {
+                    return null;
+                }
+
+                const cepInfo = {
+                    logradouro: data.logradouro || '',
+                    bairro: data.bairro || '',
+                    cidade: data.localidade || '',
+                    estado: data.uf || '',
+                    cep: data.cep || cep
+                };
+
+                // Salvar no cache
+                cepCache.set(cep, cepInfo);
+                return cepInfo;
+            } catch (error) {
+                console.error('Erro ao buscar CEP:', cep, error);
+                return null;
+            }
+        }
+
+        // Função para obter coordenadas da cidade baseado no estado
+        async function getCoordinatesFromCity(cidade, estado) {
+            try {
+                // Usar Nominatim para geocodificação
+                const response = await fetch(
+                    `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(cidade + ', ' + estado + ', Brasil')}&limit=1&countrycodes=br`
+                );
+
+                const data = await response.json();
+
+                if (data && data.length > 0) {
+                    return {
+                        lat: parseFloat(data[0].lat),
+                        lng: parseFloat(data[0].lon)
+                    };
+                }
+
+                // Se não encontrar a cidade específica, usar coordenadas da capital do estado
+                return getStateCapitalCoordinates(estado);
+            } catch (error) {
+                console.error('Erro ao buscar coordenadas:', error);
+                return getStateCapitalCoordinates(estado);
+            }
+        }
+
+        // Função para obter coordenadas das capitais dos estados
+        function getStateCapitalCoordinates(estado) {
+            const capitais = {
+                "AC": { lat: -9.9747, lng: -67.8100, cidade: "Rio Branco" },
+                "AL": { lat: -9.6650, lng: -35.7353, cidade: "Maceió" },
+                "AP": { lat: 0.0349, lng: -51.0694, cidade: "Macapá" },
+                "AM": { lat: -3.1019, lng: -60.0250, cidade: "Manaus" },
+                "BA": { lat: -12.9714, lng: -38.5014, cidade: "Salvador" },
+                "CE": { lat: -3.7319, lng: -38.5267, cidade: "Fortaleza" },
+                "DF": { lat: -15.7797, lng: -47.9297, cidade: "Brasília" },
+                "ES": { lat: -20.3155, lng: -40.3128, cidade: "Vitória" },
+                "GO": { lat: -16.6869, lng: -49.2648, cidade: "Goiânia" },
+                "MA": { lat: -2.5307, lng: -44.3068, cidade: "São Luís" },
+                "MT": { lat: -15.5989, lng: -56.0949, cidade: "Cuiabá" },
+                "MS": { lat: -20.4697, lng: -54.6201, cidade: "Campo Grande" },
+                "MG": { lat: -19.9167, lng: -43.9345, cidade: "Belo Horizonte" },
+                "PA": { lat: -1.4558, lng: -48.4902, cidade: "Belém" },
+                "PB": { lat: -7.1195, lng: -34.8450, cidade: "João Pessoa" },
+                "PR": { lat: -25.4284, lng: -49.2733, cidade: "Curitiba" },
+                "PE": { lat: -8.0476, lng: -34.8770, cidade: "Recife" },
+                "PI": { lat: -5.0892, lng: -42.8016, cidade: "Teresina" },
+                "RJ": { lat: -22.9068, lng: -43.1729, cidade: "Rio de Janeiro" },
+                "RN": { lat: -5.7945, lng: -35.2110, cidade: "Natal" },
+                "RS": { lat: -30.0346, lng: -51.2177, cidade: "Porto Alegre" },
+                "RO": { lat: -8.7612, lng: -63.9039, cidade: "Porto Velho" },
+                "RR": { lat: 2.8235, lng: -60.6758, cidade: "Boa Vista" },
+                "SC": { lat: -27.5954, lng: -48.5480, cidade: "Florianópolis" },
+                "SP": { lat: -23.5505, lng: -46.6333, cidade: "São Paulo" },
+                "SE": { lat: -10.9472, lng: -37.0731, cidade: "Aracaju" },
+                "TO": { lat: -10.1838, lng: -48.3336, cidade: "Palmas" }
+            };
+
+            return capitais[estado] || defaultView;
+        }
+
+        // Adicionar marcadores ao mapa
+        function addMarkersToMap(credenciadosToShow) {
+            // Limpar marcadores existentes
+            markers.forEach(marker => map.removeLayer(marker));
+            markers = [];
+
+            if (credenciadosToShow.length === 0) {
+                return;
+            }
+
+            credenciadosToShow.forEach(credenciado => {
+                if (credenciado.coordinates && credenciado.coordinates.lat && credenciado.coordinates.lng) {
+                    const customIcon = L.divIcon({
+                        html: `<div style="background-color: ${credenciado.estado === selectedState ? '#ff7e30' : '#2a6bb9'}; width: 20px; height: 20px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.3);"></div>`,
+                        className: 'custom-marker',
+                        iconSize: [20, 20],
+                        iconAnchor: [10, 10]
+                    });
+
+                    const marker = L.marker([credenciado.coordinates.lat, credenciado.coordinates.lng], { icon: customIcon })
+                        .addTo(map)
+                        .bindPopup(`
+                            <div style="min-width: 200px;">
+                                <h3 style="margin: 0 0 5px 0; color: #1a4f8c;">${credenciado.displayName || credenciado.nome_1}</h3>
+                                <p style="margin: 0 0 3px 0;"><i class="fas fa-map-marker-alt"></i> ${credenciado.logradouro || ''}</p>
+                                <p style="margin: 0 0 3px 0;"><i class="fas fa-city"></i> ${credenciado.cidade || ''} - ${credenciado.estado}</p>
+                                <p style="margin: 0;"><i class="fas fa-mail-bulk"></i> ${credenciado.cep}</p>
+                            </div>
+                        `);
+
+                    marker.on('click', () => {
+                        highlightCard(credenciado.id);
+                    });
+
+                    markers.push(marker);
+                }
+            });
+
+            // Ajustar o zoom para mostrar todos os marcadores
+            if (markers.length > 0) {
+                const group = new L.featureGroup(markers);
+                map.fitBounds(group.getBounds().pad(0.1));
+            }
+        }
+
+        // Função para carregar o CSV
+        async function loadCSV() {
+            try {
+                showProgress(0, 'Carregando CSV...');
+                // Ajuste o caminho para o seu arquivo CSV
+                const response = await fetch('data/cred_tst.csv');
+
+                if (!response.ok) {
+                    throw new Error(`Erro ${response.status}: ${response.statusText}`);
+                }
+
+                const csvData = await response.text();
+                showProgress(20, 'Processando dados...');
+                await processCSV(csvData);
+            } catch (error) {
+                console.error('Erro ao carregar CSV:', error);
+                showError('Erro ao carregar dados. Verifique o caminho do arquivo CSV.');
+            }
+        }
+
+        // Processar dados do CSV
+        async function processCSV(csvData) {
+            const lines = csvData.split('\n');
+            credenciados = [];
+
+            // Pular cabeçalho
+            const startLine = lines[0].includes('NO_PRESTADOR') || lines[0].includes('cep') ? 1 : 0;
+
+            const totalLines = lines.length - startLine;
+            let processedCount = 0;
+
+            for (let i = startLine; i < lines.length; i++) {
+                if (lines[i].trim() === '') continue;
+
+                const columns = lines[i].split(';');
+                if (columns.length >= 4) { // Pelo menos 4 colunas
+                    const credenciado = {
+                        id: i,
+                        nome_1: columns[0]?.trim() || "",
+                        nome_2: columns[1]?.trim() || "",
+                        preferencia: columns[2]?.trim() || "",
+                        cep: columns[3]?.trim() || "",
+                        // Adicione mais colunas conforme necessário do seu CSV
+                    };
+
+                    // Adicionar informações do CEP
+                    if (credenciado.cep) {
+                        showProgress(30 + Math.floor((processedCount / totalLines) * 50),
+                            `Processando ${processedCount + 1} de ${totalLines}...`);
+
+                        const cepInfo = await getCEPInfo(credenciado.cep);
+
+                        if (cepInfo) {
+                            credenciado.logradouro = cepInfo.logradouro;
+                            credenciado.bairro = cepInfo.bairro;
+                            credenciado.cidade = cepInfo.cidade;
+                            credenciado.estado = cepInfo.estado;
+                            credenciado.coordinates = await getCoordinatesFromCity(cepInfo.cidade, cepInfo.estado);
+                        } else {
+                            // Se não conseguir obter do CEP, usar informações padrão
+                            credenciado.estado = "SP"; // Default
+                            credenciado.cidade = "São Paulo";
+                            credenciado.coordinates = getStateCapitalCoordinates("SP");
+                        }
+                    } else {
+                        // Se não tiver CEP, usar informações padrão
+                        credenciado.estado = "SP";
+                        credenciado.cidade = "São Paulo";
+                        credenciado.coordinates = getStateCapitalCoordinates("SP");
+                    }
+
+                    // Adicionar nome para display
+                    credenciado.displayName = getDisplayName(credenciado);
+
+                    credenciados.push(credenciado);
+                    processedCount++;
+
+                    // Pequeno delay para não sobrecarregar a API
+                    if (processedCount % 10 === 0) {
+                        await new Promise(resolve => setTimeout(resolve, 100));
+                    }
+                }
+            }
+
+            showProgress(90, 'Finalizando...');
+
+            console.log('Credenciados carregados:', credenciados.length);
+            updateStateCounters();
+            displayCredenciados(credenciados);
+            addMarkersToMap(credenciados);
+            updateStats();
+
+            showProgress(100, 'Concluído!');
+            setTimeout(() => {
+                document.getElementById('progress-container').style.display = 'none';
+            }, 1000);
+        }
+
+        // Atualizar contadores dos estados
+        function updateStateCounters() {
+            const stateCounts = {};
+            Object.keys(estados).forEach(state => {
+                stateCounts[state] = 0;
+            });
+
+            credenciados.forEach(credenciado => {
+                if (credenciado.estado && estados[credenciado.estado]) {
+                    stateCounts[credenciado.estado]++;
+                }
+            });
+
+            const stateMenuItems = document.querySelectorAll('.state li');
+            stateMenuItems.forEach(item => {
+                const stateCode = item.getAttribute('data-state');
+
+                if (stateCode === 'Todos') {
+                    const badge = item.querySelector('.count-badge');
+                    if (badge) {
+                        badge.textContent = credenciados.length;
+                        badge.style.display = 'flex';
+                    }
+                    return;
+                }
+
+                const count = stateCounts[stateCode] || 0;
+                const badge = item.querySelector('.count-badge');
+
+                if (badge) {
+                    badge.textContent = count;
+                    badge.style.display = count > 0 ? 'flex' : 'none';
+                }
+            });
+        }
+
+        // Atualizar estatísticas
+        function updateStats() {
+            document.getElementById('total-credenciados').textContent = credenciados.length;
+
+            const estadosUnicos = [...new Set(credenciados.map(c => c.estado))].filter(Boolean);
+            document.getElementById('estados-cobertura').textContent = estadosUnicos.length;
+        }
+
+        // Exibir credenciados nos cards
+        function displayCredenciados(credenciadosToDisplay) {
+            const container = document.getElementById('cards-container');
+            const searchTerm = document.getElementById('search-input-local').value.toLowerCase();
+
+            container.innerHTML = '';
+
+            if (credenciadosToDisplay.length === 0) {
+                container.innerHTML = '<div class="no-results">Nenhum credenciado encontrado</div>';
+                return;
+            }
+
+            credenciadosToDisplay.forEach(credenciado => {
+                const displayName = getDisplayName(credenciado);
+
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.setAttribute('data-id', credenciado.id);
+
+                card.innerHTML = `
+                    <div class="card-header">
+                        <div class="state-badge">${credenciado.estado}</div>
+                        <h3 class="fantasia">${highlightText(displayName, searchTerm)}</h3>
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-info">
+                            <div class="info-header">
+                                <div class="info-content">
+                                    <i class="fas fa-info-circle ico"></i>
+                                    <p class="information">Informações</p>
+                                </div>
+                                <i class="fas fa-chevron-down toggle-icon small"></i>
+                            </div>
+                            <div class="info-details">
+                                <p><strong>Nome:</strong> ${credenciado.nome_1}</p>
+                                <p><strong>Fantasia:</strong> ${credenciado.nome_2 || 'Não informado'}</p>
+                                <p><strong>Preferência:</strong> ${credenciado.preferencia || 'Não informado'}</p>
+                            </div>
+                        </div>
+                        
+                        <div class="divisao"></div>
+                        
+                        <div class="card-info">
+                            <div class="info-header">
+                                <div class="info-content">
+                                    <i class="fas fa-map-marker-alt ico"></i>
+                                    <p class="information">Localização</p>
+                                </div>
+                                <i class="fas fa-chevron-down toggle-icon small"></i>
+                            </div>
+                            <div class="info-details">
+                                <div class="dados-adress">
+                                    ${credenciado.logradouro || 'Endereço não disponível'}<br>
+                                    ${credenciado.bairro || ''} ${credenciado.bairro ? '<br>' : ''}
+                                    ${credenciado.cidade}, ${credenciado.estado}<br>
+                                    CEP: ${credenciado.cep || 'Não informado'}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+
+            addCardEvents();
+        }
+
+        // Funções auxiliares
+        function getDisplayName(credenciado) {
+            if (credenciado.preferencia && credenciado.preferencia.toLowerCase() === 'fantasia') {
+                return credenciado.nome_2 || credenciado.nome_1 || "";
+            }
+            return credenciado.nome_1 || credenciado.nome_2 || "";
+        }
+
+        function highlightText(text, term) {
+            if (!term || !text) return text;
+            try {
+                const regex = new RegExp(`(${term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+                return text.replace(regex, '<span class="highlight">$1</span>');
+            } catch (e) {
+                return text;
+            }
+        }
+
+        // Adicionar eventos aos cards
+        function addCardEvents() {
+            const cardHeaders = document.querySelectorAll('.card-header');
+            cardHeaders.forEach(header => {
+                header.addEventListener('click', function () {
+                    const cardBody = this.nextElementSibling;
+                    const toggleIcon = this.querySelector('.toggle-icon');
+
+                    cardBody.classList.toggle('expanded');
+                    toggleIcon.classList.toggle('rotate');
+                });
+            });
+
+            const infoHeaders = document.querySelectorAll('.info-header');
+            infoHeaders.forEach(header => {
+                header.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    const infoDetails = this.nextElementSibling;
+                    const toggleIcon = this.querySelector('.toggle-icon.small');
+
+                    infoDetails.classList.toggle('expanded');
+                    toggleIcon.classList.toggle('rotate');
+                });
+            });
+        }
+
+        // Funções do mapa
+        function resetMapView() {
+            map.setView(defaultView.center, defaultView.zoom);
+        }
+
+        function locateUser() {
+            if (!navigator.geolocation) {
+                alert("Geolocalização não é suportada por este navegador.");
+                return;
+            }
+
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const userLat = position.coords.latitude;
+                    const userLng = position.coords.longitude;
+
+                    map.setView([userLat, userLng], 13);
+
+                    L.marker([userLat, userLng])
+                        .addTo(map)
+                        .bindPopup("<b>Sua localização</b>")
+                        .openPopup();
+                },
+                (error) => {
+                    alert("Não foi possível obter sua localização: " + error.message);
+                }
+            );
+        }
+
+        // Navegação do menu de estados
+        function setupStateNavigation() {
+            const stateList = document.getElementById('state-list');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const stateItems = document.querySelectorAll('.state li');
+            const stateContainer = document.querySelector('.state');
+
+            let currentPosition = 0;
+            const itemWidth = 80;
+
+            function calculateVisibleItems() {
+                const containerWidth = stateContainer.offsetWidth;
+                const totalItemsWidth = stateItems.length * itemWidth;
+
+                if (totalItemsWidth <= containerWidth) {
+                    return stateItems.length;
+                }
+                return Math.floor(containerWidth / itemWidth);
+            }
+
+            function calculateMaxPosition() {
+                const visibleItems = calculateVisibleItems();
+                return Math.max(0, stateItems.length - visibleItems);
+            }
+
+            function updatePosition() {
+                const maxPosition = calculateMaxPosition();
+                currentPosition = Math.max(0, Math.min(currentPosition, maxPosition));
+
+                stateList.style.transform = `translateX(-${currentPosition * itemWidth}px)`;
+
+                const isAtStart = currentPosition === 0;
+                const isAtEnd = currentPosition >= maxPosition;
+
+                prevBtn.style.opacity = isAtStart ? '0.5' : '1';
+                prevBtn.style.cursor = isAtStart ? 'not-allowed' : 'pointer';
+                nextBtn.style.opacity = isAtEnd ? '0.5' : '1';
+                nextBtn.style.cursor = isAtEnd ? 'not-allowed' : 'pointer';
+            }
+
+            prevBtn.addEventListener('click', function () {
+                if (currentPosition > 0) {
+                    currentPosition--;
+                    updatePosition();
+                }
+            });
+
+            nextBtn.addEventListener('click', function () {
+                const maxPosition = calculateMaxPosition();
+                if (currentPosition < maxPosition) {
+                    currentPosition++;
+                    updatePosition();
+                }
+            });
+
+            // Eventos para seleção de estado
+            stateItems.forEach(item => {
+                item.addEventListener('click', function () {
+                    const stateCode = this.getAttribute('data-state');
+
+                    // Remover seleção anterior
+                    stateItems.forEach(i => i.classList.remove('active'));
+                    this.classList.add('active');
+
+                    if (stateCode === 'Todos') {
+                        selectedState = null;
+                        displayCredenciados(credenciados);
+                        addMarkersToMap(credenciados);
+                        resetMapView();
+                    } else {
+                        selectedState = stateCode;
+                        const filtered = credenciados.filter(c => c.estado === stateCode);
+                        displayCredenciados(filtered);
+                        addMarkersToMap(filtered);
+
+                        // Centralizar mapa no estado selecionado
+                        if (filtered.length > 0) {
+                            const coords = getStateCapitalCoordinates(stateCode);
+                            map.setView([coords.lat, coords.lng], 7);
+                        }
+                    }
+                });
+            });
+
+            updatePosition();
+            window.addEventListener('resize', updatePosition);
+        }
+
+        // Função de busca
+        function setupSearch() {
+            const searchInput = document.getElementById('search-input');
+            const searchBtn = document.getElementById('search-btn');
+            const searchInputLocal = document.getElementById('search-input-local');
+
+            function performSearch() {
+                const term = searchInput.value.toLowerCase() || searchInputLocal.value.toLowerCase();
+
+                let filtered = credenciados;
+
+                if (selectedState) {
+                    filtered = filtered.filter(c => c.estado === selectedState);
+                }
+
+                if (term) {
+                    filtered = filtered.filter(credenciado => {
+                        const displayName = getDisplayName(credenciado);
+                        return (
+                            displayName.toLowerCase().includes(term) ||
+                            (credenciado.nome_1 && credenciado.nome_1.toLowerCase().includes(term)) ||
+                            (credenciado.nome_2 && credenciado.nome_2.toLowerCase().includes(term)) ||
+                            (credenciado.cidade && credenciado.cidade.toLowerCase().includes(term)) ||
+                            (credenciado.estado && credenciado.estado.toLowerCase().includes(term)) ||
+                            (credenciado.cep && credenciado.cep.includes(term))
+                        );
+                    });
+                }
+
+                displayCredenciados(filtered);
+                addMarkersToMap(filtered);
+            }
+
+            searchBtn.addEventListener('click', performSearch);
+            searchInput.addEventListener('keyup', (e) => {
+                if (e.key === 'Enter') performSearch();
+            });
+            searchInputLocal.addEventListener('keyup', performSearch);
+        }
+
+        // Função para mostrar progresso
+        function showProgress(percent, message) {
+            const progressContainer = document.getElementById('progress-container');
+            const progressBar = document.getElementById('progress-bar');
+
+            progressContainer.style.display = 'block';
+            progressBar.style.width = percent + '%';
+            progressBar.textContent = message;
+        }
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', async () => {
+            initMap();
+            setupStateNavigation();
+            setupSearch();
+
+            // Configurar botões do mapa
+            document.getElementById('reset-map-btn').addEventListener('click', resetMapView);
+            document.getElementById('locate-me-btn').addEventListener('click', locateUser);
+
+            // Carregar dados do CSV
+            await loadCSV();
+        });
+
+        function showError(message) {
+            const container = document.getElementById('cards-container');
+            container.innerHTML = `<div class="no-results" style="color: red;">${message}</div>`;
+        }
+
+        function highlightCard(id) {
+            // Implemente conforme necessário
+        }
+    </script>
+</body>
+
+</html>

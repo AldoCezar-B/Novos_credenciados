@@ -25,6 +25,10 @@
             --Cassi-Silver: #E3DED6;
 
             --Cassi-Silver-1: #D9D9D9;
+
+
+
+
         }
 
         body {
@@ -99,50 +103,42 @@
             border-radius: 10px;
             border-style: none none solid none;
             border-color: var(--Cassi-Dark-Blue);
-            /* cursor: pointer;  removido para que só o título seja clicável */
+            cursor: pointer;
             transition: all 0.3s ease;
         }
 
         .exp-title {
             background-color: #fff;
             color: var(--Cassi-Dark-Blue);
-            margin: 0;
-            padding: 8px 12px;
+            margin: 0 auto;
+            padding: 5px 20px;
             border-radius: 8px;
-            display: flex;
+            display: flexbox;
             justify-content: space-between;
             align-items: center;
             width: 100%;
-            box-sizing: border-box;
-            gap: 8px;
-            cursor: pointer; /* título clicável */
         }
 
         .exp-title b {
-            flex: 1 1 auto;
-            margin: 0;
+            flex: 1;
         }
 
         .ico-arrow {
-            flex: 0 0 auto;
-            width: 15px;
-            height: 15px;
+            margin-left: auto;
+            width: 20px;
+            height: 20px;
             transform: rotate(180deg);
-            margin-left: 8px;
-            display: block;
-            transition: transform 0.3s ease;
 
-        }
-
-        /* Quando o expansor estiver aberto, gira o ícone 0deg */
-        .exp-container.expanded .ico-arrow {
-            transform: rotate(0);
         }
 
         .exp-title::after {
             content: url('');
             font-weight: bold;
             font-size: 18px;
+        }
+
+        .exp-container.expanded .exp-title::after {
+            content: '-';
         }
 
         .exp-content {
@@ -528,7 +524,7 @@
                 </nav>
 
                 <nav class="exp-container" id="drop-2">
-                    <h4 class="exp-title"><b>Procedimentos:</b> <img src="https://img.icons8.com/?size=100&id=aSc66UH02Pj9&format=png&color=000000" class="ico-arrow" alt=""></h4>
+                    <h4 class="exp-title"><b>Procedimentos:</b></h4>
                     <div class="exp-content">
                         <ul class="lista-servicos">
                             ${listaProcedimentos}
@@ -547,24 +543,8 @@
             // Adicionar funcionalidade de acordeão
             const expansores = card.querySelectorAll('.exp-container');
             expansores.forEach(expansor => {
-                const titulo = expansor.querySelector('.exp-title');
-                if (!titulo) return;
-
-                // permitir foco no título para acessibilidade
-                titulo.setAttribute('tabindex', '0');
-
-                // clique no título apenas
-                titulo.addEventListener('click', function (e) {
-                    e.stopPropagation();
-                    expansor.classList.toggle('expanded');
-                });
-
-                // suporte via teclado (Enter / Space)
-                titulo.addEventListener('keydown', function (e) {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        expansor.classList.toggle('expanded');
-                    }
+                expansor.addEventListener('click', function () {
+                    this.classList.toggle('expanded');
                 });
             });
 

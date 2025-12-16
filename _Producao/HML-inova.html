@@ -169,7 +169,7 @@
             padding: 1.5rem;
             height: 600px;
             max-height: 600px !important;
-            min-height: 600px !important;
+
 
 
         }
@@ -302,7 +302,7 @@
         }
 
         .search-box input {
-            width: 100%;
+            width: 50%;
             /* Mude de 50% para 100% */
             padding: 12px 3rem 12px 3rem;
             /* Certifique-se do padding */
@@ -352,6 +352,40 @@
 
         }
 
+        .btn-menu {
+            background: white;
+            box-shadow: 0 4px 3px rgba(0, 0, 0, 0.5);
+            border-style: none none solid none;
+            border-color: #b1b1b1;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 4px;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 5px;
+
+        }
+
+
+
+
+        .btn-menu:active {
+            transform: translateY(1px);
+            border: none;
+            box-shadow: 0 2px 1px rgba(0, 0, 0, 0.7);
+        }
+    
+
+
+        .more-cred {
+            transform: rotate(180deg);
+            margin: auto 50px;
+        }
+
         /*container geral dos cards*/
         .cards-container {
             display: block;
@@ -372,11 +406,9 @@
             box-shadow: 0 4px 3px rgba(0, 0, 0, 0.5);
             border-style: none none solid none;
             border-color: #b1b1b1;
-
             border-radius: 12px;
             overflow: hidden;
             margin: 10px auto;
-
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             height: auto;
 
@@ -456,10 +488,13 @@
 
         .no-results {
             text-align: center;
-            padding: 2rem;
-            color: #7f8c8d;
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            color: var(--button-yellow);
+            background-color: #002d4bc4;
             font-style: italic;
             grid-column: 1 / -1;
+
         }
 
         .fantasia {
@@ -634,6 +669,7 @@
             border-radius: 4px 0 0 4px;
             margin: 5px;
             border-style: none none solid none;
+            border-color: var(--silver);
             box-shadow: var(--shadow-btn);
 
 
@@ -641,26 +677,28 @@
 
         #prev-btn.nav-btn:active {
 
-            border-radius: 4px 4px 0 0;
-            margin: 5px;
-            border-style: none;
+            transform: translateY(1px);
+            border: none;
+            box-shadow: 0 2px 1px rgba(99, 98, 98, 0.7);
 
 
         }
+
 
         #next-btn {
 
             border-radius: 0 4px 4px 0;
             margin: 5px;
             border-style: none none solid none;
+            border-color: var(--silver);
             box-shadow: var(--shadow-btn);
         }
 
         #next-btn.nav-btn:active {
 
-            border-radius: 4px 4px 0 0;
-            margin: 5px;
-            border-style: none;
+            transform: translateY(1px);
+            border: none;
+            box-shadow: 0 2px 1px rgba(99, 98, 98, 0.7);
 
 
         }
@@ -1338,25 +1376,31 @@
         /* estilização do carregar mais cartoes*/
 
         .load-more-container {
-            text-align: center;
-            padding: 1.5rem;
-            margin-top: 10px;
+            margin-top: 5px;
+
         }
 
         .load-more-btn {
-            background-color: var(--button-dark-blue);
-            color: var(--button-yellow);
-            border: var(--border);
-            border-radius: var(--radius);
+            background: white;
+            box-shadow: 0 4px 3px rgba(0, 0, 0, 0.5);
+            border-style: none none solid none;
+            border-color: #b1b1b1;
+            border-radius: 12px;
+            justify-content: center;
+            justify-items: center;
+
+            margin: 10px auto;
+            width: 100%;
             padding: 12px 24px;
             font-size: 16px;
             font-weight: 600;
+
             cursor: pointer;
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            box-shadow: var(--shadow-btn);
+
         }
 
         .load-more-btn:hover {
@@ -1384,9 +1428,14 @@
         }
 
         .results-count {
+
             text-align: center;
-            margin-top: 10px;
-            color: var(--intra-dark-blue);
+            background-color: var(--intra-sky-blue);
+            border: 1px solid var(--dark-red-error);
+            border-radius: 4px;
+            margin: 5px auto;
+            padding: 1px;
+            color: var(--button-white);
             font-size: 14px;
             font-weight: 500;
         }
@@ -1491,12 +1540,30 @@
                         <img src="https://img.icons8.com/?size=100&id=132&format=png&color=000000" alt="Ícone de busca"
                             class="search-icon-img">
 
+
+                    </div>
+                    <div class="btn-menu">
+                        <div class="btn-menu-2">
+                            <img src="https://img.icons8.com/?size=100&id=23538&format=png&color=000000"
+                                alt="close-all-cards" width="30" height="30" style="transform: rotate(180deg);">
+                        </div>
+                    </div>
+                    <div class="btn-menu">
+                        <div
+                            style="border: 2px  var(--dark-red-error); border-style: solid none none  none;  width: 20px; height: 20px;">
+                            <img src="https://img.icons8.com/?size=100&id=2775&format=png&color=1C070E"
+                                alt="back-to-top" width="20px" height="20px" style="padding-top: -5px;">
+                        </div>
                     </div>
                 </div>
                 <div class="cards-container" id="cards-container">
                     <div class="no-results">Carregando credenciados...</div>
                 </div>
+                <div class="results-count">
+
+                </div>
             </section>
+
 
             <section class="map-section">
                 <h2 class="state-title_map">Selecione um estado</h2>
@@ -2078,7 +2145,6 @@
 
 
     <!-- script principal -->
-    <!-- script principal -->
     <script>
         // Dados iniciais vazios
         let credenciados = [];
@@ -2325,6 +2391,9 @@
 
         // Função para processar o CSV
         function processCSV(csvData) {
+            console.log('CSV carregando, tamanho:', csvData.length);
+            console.log('Primeiras linhas:', csvData.substring(0, 500));
+
             const lines = csvData.split('\n');
             credenciados = [];
 
@@ -2363,6 +2432,8 @@
                     });
                 }
             }
+
+            console.log('Total de credenciados processados:', credenciados.length);
 
             // Atualizar contadores dos estados
             updateStateCounters();
@@ -2467,18 +2538,21 @@
 
         // Função para exibir os credenciados com paginação
         function displayCredenciados(credenciadosToDisplay) {
+            // Limpa o container antes de adicionar novos cards
+            cardsContainer.innerHTML = '';
+
             // Resetar paginação quando for uma nova filtragem
             if (credenciadosToDisplay !== currentFilteredCredenciados) {
                 currentPage = 1;
                 currentDisplayCount = 0;
                 currentFilteredCredenciados = credenciadosToDisplay;
-                cardsContainer.innerHTML = '';
             }
 
             const searchTerm = searchInput.value.toLowerCase();
 
             if (currentFilteredCredenciados.length === 0) {
                 cardsContainer.innerHTML = '<div class="no-results">Nenhum credenciado encontrado</div>';
+                updateResultsCounter();
                 return;
             }
 
@@ -2643,7 +2717,7 @@
             // Atualizar contador de cards exibidos
             currentDisplayCount = cardsToShow;
 
-            // Adicionar contador de resultados DENTRO do container
+            // Atualizar contador de resultados (que está FORA do container)
             updateResultsCounter();
 
             // Adicionar ou atualizar botão "Ver mais" DENTRO do container
@@ -2653,26 +2727,24 @@
             addCardEvents();
         }
 
-        // Função para atualizar o contador de resultados DENTRO do container
+        // Função para atualizar o contador de resultados
         function updateResultsCounter() {
-            // Remover contador anterior se existir DENTRO do container
-            const existingCounter = cardsContainer.querySelector('.results-count');
-            if (existingCounter) {
-                existingCounter.remove();
+            // Encontrar a div de resultados que está FORA do cards-container
+            const resultsCounter = document.querySelector('.credenciados-section .results-count');
+
+            if (!resultsCounter) {
+                console.error('Elemento .results-count não encontrado');
+                return;
             }
 
-            // Criar novo contador
-            const resultsCounter = document.createElement('div');
-            resultsCounter.className = 'results-count';
-
-            if (currentFilteredCredenciados.length === currentDisplayCount) {
-                resultsCounter.innerHTML = `Mostrando todos os ${currentDisplayCount} resultados`;
+            // Atualizar o conteúdo
+            if (currentFilteredCredenciados.length === 0) {
+                resultsCounter.innerHTML = 'Nenhum resultado encontrado';
+            } else if (currentDisplayCount >= currentFilteredCredenciados.length) {
+                resultsCounter.innerHTML = `Mostrando todos os ${currentFilteredCredenciados.length} resultados`;
             } else {
                 resultsCounter.innerHTML = `Mostrando ${currentDisplayCount} de ${currentFilteredCredenciados.length} resultados`;
             }
-
-            // Adicionar ao FINAL do cards-container
-            cardsContainer.appendChild(resultsCounter);
         }
 
         // Função para atualizar o botão "Ver mais" DENTRO do container
@@ -2693,9 +2765,11 @@
                 const loadMoreBtn = document.createElement('button');
                 loadMoreBtn.className = 'load-more-btn';
                 loadMoreBtn.innerHTML = `
+                <img src="https://img.icons8.com/?size=100&id=2775&format=png&color=1C070E" 
+                     alt="Seta" class="more-cred" width="20" height="20">
                 Ver mais credenciados
-                <img src="https://img.icons8.com/?size=100&id=8473&format=png&color=FCFC1B" 
-                     alt="Seta" class="arrow-icon" width="20" height="20">
+                <img src="https://img.icons8.com/?size=100&id=2775&format=png&color=1C070E" 
+                     alt="Seta" class="more-cred" width="20" height="20">
             `;
 
                 // Adicionar evento de clique
@@ -2712,7 +2786,7 @@
 
                 loadMoreContainer.appendChild(loadMoreBtn);
 
-                // Adicionar ao FINAL do cards-container (após o contador)
+                // Adicionar ao FINAL do cards-container
                 cardsContainer.appendChild(loadMoreContainer);
             }
         }

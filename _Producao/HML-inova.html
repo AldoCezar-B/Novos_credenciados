@@ -378,7 +378,7 @@
             border: none;
             box-shadow: 0 2px 1px rgba(0, 0, 0, 0.7);
         }
-    
+
 
 
         .more-cred {
@@ -1439,6 +1439,10 @@
             font-size: 14px;
             font-weight: 500;
         }
+
+
+
+        /*style dos tooltips*/
     </style>
     <div class="header-container" id="headerContainer">
 
@@ -1542,17 +1546,26 @@
 
 
                     </div>
+
+
+                    <!-- Botão Fechar Cards - ATUALIZADO -->
                     <div class="btn-menu">
                         <div class="btn-menu-2">
-                            <img src="https://img.icons8.com/?size=100&id=23538&format=png&color=000000"
-                                alt="close-all-cards" width="30" height="30" style="transform: rotate(180deg);">
+                            <img id="close-all-cards"
+                                src="https://img.icons8.com/?size=100&id=23538&format=png&color=000000"
+                                alt="Fechar todos os cards" width="30" height="30" style="transform: rotate(180deg); "
+                                title="Fechar todos os Cards">
+
                         </div>
                     </div>
+
+                    <!-- Botão Voltar ao Topo - ATUALIZADO -->
                     <div class="btn-menu">
                         <div
-                            style="border: 2px  var(--dark-red-error); border-style: solid none none  none;  width: 20px; height: 20px;">
-                            <img src="https://img.icons8.com/?size=100&id=2775&format=png&color=1C070E"
-                                alt="back-to-top" width="20px" height="20px" style="padding-top: -5px;">
+                            style="border: 2px var(--dark-red-error); border-style: solid none none none; width: 20px; height: 20px; position: relative;">
+                            <img id="back-to-top" src="https://img.icons8.com/?size=100&id=2775&format=png&color=1C070E"
+                                alt="Voltar ao topo" width="20px" height="20px" title="Retornar ao topo">
+
                         </div>
                     </div>
                 </div>
@@ -2054,6 +2067,67 @@
         }
     </script>
 
+    <!-- função dos botões back-to-top e close-all-cards -->
+    <script>
+        // Função para fechar todos os cards expandidos
+        function closeAllCards() {
+            const expandedCardBodies = document.querySelectorAll('.card-body.expanded');
+            const rotatedToggleIcons = document.querySelectorAll('.toggle-icon.rotate');
+            const expandedInfoDetails = document.querySelectorAll('.info-details.expanded');
+            const rotatedSmallIcons = document.querySelectorAll('.toggle-icon.small.rotate');
+
+            // Fechar cards principais
+            expandedCardBodies.forEach(cardBody => {
+                cardBody.classList.remove('expanded');
+            });
+
+            // Resetar ícones dos cards principais
+            rotatedToggleIcons.forEach(icon => {
+                icon.classList.remove('rotate');
+            });
+
+            // Fechar detalhes expandidos dentro dos cards
+            expandedInfoDetails.forEach(detail => {
+                detail.classList.remove('expanded');
+            });
+
+            // Resetar ícones pequenos
+            rotatedSmallIcons.forEach(icon => {
+                icon.classList.remove('rotate');
+            });
+
+            console.log('Todos os cards foram fechados');
+        }
+
+        // Função para voltar ao topo da lista dos cards
+        function scrollToTopOfCards() {
+            const cardsContainer = document.getElementById('cards-container');
+            if (cardsContainer) {
+                // rolar suavemente até o topo do container de cards
+                cardsContainer.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+                console.log('Rolando para o topo da lista de cards');
+            }
+        }
+
+        // Função para inicializar os botões de controle
+        function initializeControlButtons() {
+            // Botão para fechar todos os cards
+            const closeAllCardsBtn = document.getElementById('close-all-cards');
+            if (closeAllCardsBtn) {
+                closeAllCardsBtn.closest('.btn-menu').addEventListener('click', closeAllCards);
+            }
+
+            // Botão para voltar ao topo
+            const backToTopBtn = document.getElementById('back-to-top');
+            if (backToTopBtn) {
+                backToTopBtn.closest('.btn-menu').addEventListener('click', scrollToTopOfCards);
+            }
+        }
+    </script>
+
     <!-- navegação por botoes-->
     <script>
         // Navegação por botões
@@ -2189,6 +2263,9 @@
 
             // Configurar event listeners
             setupEventListeners();
+
+            // inicializar botoes de controle 
+            initializeControlButtons();
 
             // Iniciar carregamento dos dados
             loadRemoteCSV();

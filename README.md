@@ -1,5 +1,6 @@
 # ultima atualização 16-12-25
-# Melhorias:
+# Melhorias: HTML -inova.html
+# 
 # -  limitador de 30 credenciados por fila no card;
 # -  elaboração de um botão dentro do container de cards para mostrar mais credenciados.
 # -  elaboração de botões de **retornar ao topo da lista** e **fechar cards** 

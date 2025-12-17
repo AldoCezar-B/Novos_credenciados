@@ -70,6 +70,9 @@
             /*border*/
             --border: 1px solid #727272;
             --radius: 4px;
+            --radius-top: 0 0 4px 4px;
+            --radius-bottom: 4px 4px 0 0;
+
             --shadow-border: 1px 1px 8px #727272;
             --shadow-btn: 0px 5px 3px rgba(0, 0, 0, 0.5);
             --margin-1: 20px;
@@ -188,6 +191,7 @@
             margin-bottom: 1.5rem;
             color: var(--intra-another-blue);
             font-size: 1.8rem;
+
         }
 
         .brazil-map {
@@ -643,9 +647,9 @@
             border-radius: var(--radius);
             box-shadow: 2px 5px 3px rgba(0, 0, 0, 0.5);
             height: fit-content;
-            margin: 10px 40px !important;
+            margin: 0 40px 10px 40px !important;
             background-color: var(--ux-white);
-            border-radius: var(--radius);
+            border-radius: var(--radius-top);
             padding: 15px;
             overflow: hidden;
         }
@@ -1440,6 +1444,96 @@
             font-weight: 500;
         }
 
+        /* style para ajuda*/
+
+        .ajuda-icon {
+            flex-shrink: 0;
+            background-color: #FCFC1B;
+            border-radius: 50px;
+            margin: 5px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .ajuda-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .ajuda-container {
+            background-color: #95999c;
+            color: #fff;
+            margin: 0 40px;
+
+            padding: 5px 15px;
+            border-radius: var(--radius-bottom);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            /* Distribui o espaço entre os elementos */
+            position: relative;
+            min-height: 30px;
+            /* Altura mínima para consistência */
+        }
+
+        .ajuda-titulo {
+            text-align: center;
+            margin: 0;
+            order: 2;
+            flex-grow: 1;
+            /* Ocupa todo o espaço disponível */
+            position: static;
+            /* Remove o posicionamento absoluto */
+            left: auto;
+            right: auto;
+            padding: 0 20px;
+            /* Espaçamento para não colar nas bordas */
+        }
+
+        .ajuda-wrapper {
+            position: relative;
+            display: inline-block;
+            z-index: 10;
+            flex-shrink: 0;
+            order: 3;
+            /* Impede que o wrapper encolha */
+        }
+
+        .tooltip-text {
+            visibility: hidden;
+            width: 200px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px;
+            position: absolute;
+            z-index: 100;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 14px;
+        }
+
+        .tooltip-text::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #333 transparent transparent transparent;
+        }
+
+        .ajuda-wrapper:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+
 
 
         /*style dos tooltips*/
@@ -1459,8 +1553,8 @@
             </div>
 
         </header>
-        <div style="height: 80px; color: #000000;">
-            <h1 class="header_2">Conheça novos credenciados CASSI</h1>
+        <div>
+            <h1 class=" header_2">Conheça novos credenciados CASSI</h1>
 
 
         </div>
@@ -1468,11 +1562,24 @@
 
 
     <!-- criar um header com mais informaçoes do que cada coisa serve-->
-    <p class="header_2">Números de credenciamentos acumulado 2025</p>
+
     <div class="container-cred">
         <!-- container-credgeral-->
+        <div class="ajuda-container">
+            <div class="ajuda-wrapper">
+                <img title="Ajuda" src="https://img.icons8.com/?size=100&id=42218&format=png&color=000000" alt=""
+                    class="ajuda-icon">
+                <span class="tooltip-text">Selecione um estado para verificar a lista de credenciados </span>
+            </div>
 
-        <div class="state-container">
+            <p class="ajuda-titulo">
+                Número de credenciados acumulado de 2025
+            </p>
+        </div>
+
+        <div class=" state-container">
+
+
             <button class="nav-btn" id="prev-btn">
                 <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=002D4B" alt="esquerda" height="20"
                     width="20">
@@ -1537,7 +1644,8 @@
                 <div class="filtros">
                     <div class="search-box">
                         <h2 class="state-title" id="state-title">Credenciados em Destaque</h2>
-                        <p style="margin: 4px 0; "> Selecione a UF pra ver lista dos novos credenciados e digite nome ou
+                        <p style="margin: 4px 0; "> Selecione a UF pra ver lista dos novos credenciados e digite
+                            nome ou
                             especialidade se
                             desejar busca específica</p>
                         <input type="text" id="search-input" placeholder="Buscar credenciados...">
@@ -1579,7 +1687,19 @@
 
 
             <section class="map-section">
-                <h2 class="state-title_map">Selecione um estado</h2>
+
+                <div style="background-color: var(--ux-pastel-green);">
+
+                    <h2 class="ajuda-titulo">Selecione um estado </h2>
+
+                    <div class="ajuda-wrapper">
+                        <img title="Ajuda" src="https://img.icons8.com/?size=100&id=42218&format=png&color=000000"
+                            alt="" class="ajuda-icon">
+                        <span class="tooltip-text">Selecione um estado para filtrar a lista de credenciados </span>
+                    </div>
+
+                </div>
+
                 <svg version="1.1" id="svg-map" xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="450px" height="460px"
                     viewBox="0 0 450 460" enable-background="new 0 0 450 460" xml:space="preserve">
@@ -1961,7 +2081,8 @@
         </div>
     </div>
     <div class="roda-pe">
-        <a href="https://servicosonline.cassi.com.br/redeCredenciada" class="btn-footer" target="_blank"><b>CONSULTE A
+        <a href="https://servicosonline.cassi.com.br/redeCredenciada" class="btn-footer" target="_blank"><b>CONSULTE
+                A
                 REDE
                 COMPLETA AQUI</b></a>
 

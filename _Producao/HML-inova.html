@@ -1671,7 +1671,8 @@
                         <div class="ajuda-wrapper">
                             <img title="Ajuda" src="https://img.icons8.com/?size=100&id=42218&format=png&color=000000"
                                 alt="" class="ajuda-icon">
-                            <span class="tooltip-text">Organiza e exibe os cards dos credenciados em lista com as seguintes informações:
+                            <span class="tooltip-text">Organiza e exibe os cards dos credenciados em lista com as
+                                seguintes informações:
                                 <br>
                                 • CNPJ
                                 <br>
@@ -2913,20 +2914,20 @@
 
                 card.innerHTML = `
 <div class="card-header">
-    <div class="state-badge">${credenciado.estado}</div>
-    <h3 class="fantasia">${highlightText(displayName, searchTerm)}</h3>
+    <div class="state-badge" title="Estado">${credenciado.estado}</div>
+    <h3 class="fantasia" title="Nome do credenciado">${highlightText(displayName, searchTerm)}</h3>
     <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=002D4B"
         alt="Expandir" class="toggle-icon">
 </div>
 
 <div class="card-body">
     <div>
-    <div class="cpfcnpj">
+    <div class="cpfcnpj" title="CPF/CNPJ">
         <img src="https://img.icons8.com/?size=100&id=76973&format=png&color=002D4B" alt="cpf-cnpj" class="ico">
                     <p class="information"> </p>  ${credenciado.cpfcnpj}</div>
                     </div>
     <div class="card-info category-card">
-        <div class="info-header">
+        <div class="info-header" title="Especialidades">
             <div class="info-content">
                 <img src="https://img.icons8.com/?size=100&id=47783&format=png&color=002D4B" alt="Especialidades" class="ico">
                     <p class="information">Especialidades</p>
@@ -2934,13 +2935,14 @@
             <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=002D4B"
                 alt="Expandir" class="toggle-icon small category-toggle">
         </div>
-        <div class="info-details">
+        <div class="info-details" >
+            
             ${formatCategory(credenciado.categoria, searchTerm)}
         </div>
     </div>
     <div class="divisao"></div>
     <div class="card-info">
-        <div class="info-header">
+        <div class="info-header" title="Contato">
             <div class="info-content">
                 <img src="https://img.icons8.com/?size=100&id=9659&format=png&color=002D4B" alt="Telefone" class="ico">
                     <p class="information">Contato</p>
@@ -2958,14 +2960,14 @@
 
     <div class="card-info">
         <div class="info-header">
-            <div class="info-content">
+            <div class="info-content" title="Endereço">
                 <img src="https://img.icons8.com/?size=100&id=WbyzmoN1bnxR&format=png&color=002D4B" alt="Localização" class="ico">
                     <p class="information">Endereço</p>
             </div>
             <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=2F54CF"
                 alt="Expandir" class="toggle-icon small">
         </div>
-        <div class="info-details" id="adress-${i}">
+        <div class="info-details" id="adress-${i}" >
             <li class="dados-adress">${credenciado.logradouro}, ${credenciado.numero}, ${credenciado.bairo} <br> ${credenciado.municipio}, ${credenciado.estado}, ${credenciado.cep}</li>
             
             <!-- BOTÃO DO GOOGLE MAPS -->

@@ -26,6 +26,12 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        html,
+        body {
+            overflow-x: hidden;
+            max-width: 100%;
+        }
+
         /*root com as cores padrao da cassi necessita de ajustes finais para retirar cores nao utilizadas */
         :root {
 
@@ -83,7 +89,7 @@
             background-color: var(--ux-silver);
             background-repeat: no-repeat;
             background-size: cover;
-
+            width: 100%;
             line-height: 1.6;
 
         }
@@ -91,7 +97,7 @@
 
         header {
             background: var(--button-dark-blue);
-            height: 40px;
+
             color: rgb(233, 218, 12);
             margin: 0px;
             padding-top: 50px;
@@ -100,7 +106,7 @@
             transition: all 0.5s ease;
             overflow: hidden;
             height: auto;
-            max-height: 200px;
+
 
         }
 
@@ -146,6 +152,7 @@
             display: flex;
             gap: 10px;
             margin: auto 40px;
+
         }
 
 
@@ -170,8 +177,7 @@
             border-color: #b1b1b1;
             border-radius: var(--radius);
             padding: 1.5rem;
-            height: 600px;
-            max-height: 600px !important;
+
 
 
 
@@ -179,9 +185,9 @@
 
         .state-title {
             display: flex;
-            text-align: center !important;
 
-            margin-bottom: 1.5rem;
+
+
             color: var(--button-dark-blue);
             font-size: 1.8rem;
         }
@@ -343,7 +349,7 @@
         .search-icon-img {
             position: absolute;
             left: 18px;
-            top: 85%;
+            top: 80%;
             transform: translateY(-50%);
             width: 20px;
             height: 20px;
@@ -396,7 +402,7 @@
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 1.5rem;
             height: 350px;
-            max-height: 400px;
+
             overflow-y: auto;
             padding: 0.7rem;
             background-color: var(--ux-silver);
@@ -456,6 +462,18 @@
         .card-body {
             padding: 1.5rem;
             background-color: var(--silver);
+
+        }
+
+        .cpfcnpj {
+            background-color: var(--button-white);
+            margin: 5px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            padding: 5px 5px;
+            color: var(--button-dark-blue);
+            font-weight: 500;
 
         }
 
@@ -569,6 +587,7 @@
             width: 24px;
             height: 24px;
             margin: 10px;
+
         }
 
 
@@ -951,6 +970,7 @@
             color: var(--New_Dark);
             font-size: 0.9rem;
             line-height: 1.4;
+
         }
 
         .expanded-specialties {
@@ -1088,8 +1108,7 @@
                 margin: 0;
                 border-radius: 10px;
                 height: auto;
-                min-height: 450px;
-                max-height: 500px;
+
             }
 
             /* Melhorias para o conteúdo interno dos cards */
@@ -1157,14 +1176,13 @@
             .cards-container {
                 padding: 0.4rem;
                 gap: 0.6rem;
-                max-height: 350px;
+
                 border: 2px solid var(--Cassi-Silver);
             }
 
             .credenciados-section {
                 padding: 0.8rem;
-                min-height: 400px;
-                max-height: 450px;
+
             }
 
             /* Texto das especialidades mais compacto */
@@ -1434,9 +1452,8 @@
         .results-count {
 
             text-align: center;
-            background-color: var(--intra-sky-blue);
-            border: 1px solid var(--dark-red-error);
-            border-radius: 4px;
+
+
             margin: 5px auto;
             padding: 1px;
             color: var(--button-white);
@@ -1462,15 +1479,14 @@
         }
 
         .ajuda-container {
-            background-color: #95999c;
-            color: #fff;
-            margin: 0 40px;
 
-            padding: 5px 15px;
+            /* padding: 5px 15px; */
+
             border-radius: var(--radius-bottom);
             display: flex;
             align-items: center;
             justify-content: space-between;
+
             /* Distribui o espaço entre os elementos */
             position: relative;
             min-height: 30px;
@@ -1493,6 +1509,7 @@
 
         .ajuda-wrapper {
             position: relative;
+
             display: inline-block;
             z-index: 10;
             flex-shrink: 0;
@@ -1503,9 +1520,10 @@
         .tooltip-text {
             visibility: hidden;
             width: 200px;
-            background-color: #333;
+            font-size: large;
+            background-color: var(--ux-pastel-green);
             color: #fff;
-            text-align: center;
+            text-align: left;
             border-radius: 6px;
             padding: 8px;
             position: absolute;
@@ -1516,6 +1534,9 @@
             opacity: 0;
             transition: opacity 0.3s;
             font-size: 14px;
+
+
+
         }
 
         .tooltip-text::after {
@@ -1538,28 +1559,27 @@
 
         /*style dos tooltips*/
     </style>
-    <div class="header-container" id="headerContainer">
 
-        <header class="header-container" id="mainHeader">
-            <div>
-                <!--
+
+    <header id="mainHeader">
+
+        <!--
                 <a href="https://www.cassi.com.br/" target="_blank"><img src="https://www.cassi.com.br/wp-content/uploads/2025/10/InovaRede_Ampliou.png" alt="logo"
                         class="logo_l" height="60" width="80"></a>
                 -->
-                <a href="#" target="_blank"><img
-                        src="https://www.cassi.com.br/wp-content/uploads/2025/10/InovaRede_Ampliou.png" alt="logo"
-                        class="logo" height="60" width="80"></a>
+        <a href="#" target="_blank"><img src="https://www.cassi.com.br/wp-content/uploads/2025/10/InovaRede_Ampliou.png"
+                alt="logo" class="logo" height="60" width="80"></a>
 
-            </div>
 
-        </header>
-        <div>
-            <h1 class=" header_2">Acompanhe a expansão da rede CASSI: </h1>
-            <p style="text-align: center; font-size: large; font-weight: 300; color: #002D4B;">novos credenciados e
-                novas especialidades de
-                profissionais</p>
 
-        </div>
+    </header>
+
+    <h1 class=" header_2">Acompanhe a expansão da rede CASSI: </h1>
+    <p style="text-align: center; font-size: large; font-weight: 300; color: #002D4B;">novos credenciados e
+        novas especialidades de
+        profissionais</p>
+
+    </div>
     </div>
 
 
@@ -1567,12 +1587,14 @@
 
     <div class="container-cred">
         <!-- container-credgeral-->
-        <div class="ajuda-container">
+        <div class="ajuda-container" style="background-color: #95999c;
+            color: #fff;
+            margin: 0 40px; padding: 5px 15px;">
             <div class="ajuda-wrapper">
                 <img title="Ajuda" src="https://img.icons8.com/?size=100&id=42218&format=png&color=000000" alt=""
                     class="ajuda-icon">
-                <span class="tooltip-text">Selecione a UF para ver a lista dos novos credenciados. Digite nome ou
-                    especialidade para busca específica.</span>
+                <span class="tooltip-text">Use esta barra para navegar: clique em "Todos" para lista completa
+                    ou selecione um estado para filtrar. .</span>
             </div>
 
             <p class="ajuda-titulo">
@@ -1583,7 +1605,7 @@
         <div class=" state-container">
 
 
-            <button class="nav-btn" id="prev-btn">
+            <button class="nav-btn" id="prev-btn" title="Navegar para a esquerda">
                 <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=002D4B" alt="esquerda" height="20"
                     width="20">
             </button>
@@ -1622,7 +1644,7 @@
                 </ul>
             </nav>
 
-            <button class="nav-btn" id="next-btn">
+            <button class="nav-btn" id="next-btn" title="Navegar para a direita">
                 <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=002D4B" width="20" height="20"
                     style="transform: rotate(180deg);" alt="direita">
             </button>
@@ -1643,17 +1665,37 @@
                         src="https://img.icons8.com/?size=100&id=11253&format=png&color=727272" alt="horario"
                         width="20px" style="align-items: center;">
                 </button>-->
+                <div>
+                    <div class="ajuda-container" style=" padding: 5px 15px;">
 
+                        <div class="ajuda-wrapper">
+                            <img title="Ajuda" src="https://img.icons8.com/?size=100&id=42218&format=png&color=000000"
+                                alt="" class="ajuda-icon">
+                            <span class="tooltip-text">Organiza e exibe os cards dos credenciados em lista com as seguintes informações:
+                                <br>
+                                • CNPJ
+                                <br>
+                                • Especialidades
+                                <br>
+                                • Endereço
+                                <br>
+                                • Contatos
+                            </span>
+                        </div>
+                        <h2 class="state-title" id="state-title"> </h2>
+                    </div>
+
+                </div>
                 <div class="filtros">
+
                     <div class="search-box">
-                        <h2 class="state-title" id="state-title">Credenciados em Destaque</h2>
+
+
                         <p style="margin: 4px 0; "> Selecione a UF para ver a lista dos novos credenciados. Digite nome
                             ou especialidade para busca específica.</p>
                         <input type="text" id="search-input" placeholder="Digite nome ou especialidade...">
                         <img src="https://img.icons8.com/?size=100&id=132&format=png&color=000000" alt="Ícone de busca"
                             class="search-icon-img">
-
-
                     </div>
 
 
@@ -1681,24 +1723,41 @@
                 <div class="cards-container" id="cards-container">
                     <div class="no-results">Carregando credenciados...</div>
                 </div>
+
+
+                <div class="ajuda-container" style=" background-color: var(--intra-sky-blue);
+            color: #fff;border: 1px solid var(--dark-red-error);
+            border-radius: 4px; margin: 5px 0;">
+                    <div class="ajuda-wrapper">
+                        <img title="Ajuda" src="https://img.icons8.com/?size=100&id=42218&format=png&color=000000"
+                            alt="" class="ajuda-icon">
+                        <span class="tooltip-text">Informa a quantidade geral de credenciados por UF </span>
+                    </div>
+
+                    <p class="results-count">
+                        Número de credenciados acumulado de 2025
+                    </p>
+                </div>
+
                 <div class="results-count">
 
                 </div>
+
             </section>
 
 
             <section class="map-section">
 
-                <div style="background-color: var(--ux-pastel-green);">
-
-                    <h2 class="ajuda-titulo">Mapa do Brasil interativo</h2>
-
+                <div class="ajuda-container">
                     <div class="ajuda-wrapper">
                         <img title="Ajuda" src="https://img.icons8.com/?size=100&id=42218&format=png&color=000000"
                             alt="" class="ajuda-icon">
-                        <span class="tooltip-text">Selecione um estado para filtrar a lista de credenciados </span>
+                        <span class="tooltip-text">Clique em um estado no mapa para filtrar os credenciados
+                            e especialidades disponíveis naquela região.</span>
                     </div>
-
+                    <h2 class="ajuda-titulo">
+                        Mapa interativo do Brasil
+                    </h2>
                 </div>
 
                 <svg version="1.1" id="svg-map" xmlns="http://www.w3.org/2000/svg"
@@ -2088,6 +2147,9 @@
                 COMPLETA AQUI</b></a>
 
     </div>
+
+
+
 
     <!--script pesquisa no maps -->
     <script>
@@ -2627,7 +2689,8 @@
 
                         ddd_cel: columns[15]?.trim() || "", // DDD_CELULAR
                         celular: columns[16]?.trim() || "", // CELULAR
-                        data_cred: columns[17]?.trim() || "" // DT_CREDENCIAMENTO
+                        data_cred: columns[17]?.trim() || "", // DT_CREDENCIAMENTO
+                        cpfcnpj: columns[18]?.trim() || "", // CPF_CNPJ
                     });
                 }
             }
@@ -2855,11 +2918,17 @@
     <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=002D4B"
         alt="Expandir" class="toggle-icon">
 </div>
+
 <div class="card-body">
+    <div>
+    <div class="cpfcnpj">
+        <img src="https://img.icons8.com/?size=100&id=76973&format=png&color=002D4B" alt="cpf-cnpj" class="ico">
+                    <p class="information"> </p>  ${credenciado.cpfcnpj}</div>
+                    </div>
     <div class="card-info category-card">
         <div class="info-header">
             <div class="info-content">
-                <img src="https://img.icons8.com/?size=100&id=8169&format=png&color=002D4B" alt="Especialidades" class="ico">
+                <img src="https://img.icons8.com/?size=100&id=47783&format=png&color=002D4B" alt="Especialidades" class="ico">
                     <p class="information">Especialidades</p>
             </div>
             <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=002D4B"
@@ -2890,7 +2959,7 @@
     <div class="card-info">
         <div class="info-header">
             <div class="info-content">
-                <img src="https://img.icons8.com/?size=100&id=YyEbAVyRYrMX&format=png&color=002D4B" alt="Localização" class="ico">
+                <img src="https://img.icons8.com/?size=100&id=WbyzmoN1bnxR&format=png&color=002D4B" alt="Localização" class="ico">
                     <p class="information">Endereço</p>
             </div>
             <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=2F54CF"
@@ -3000,7 +3069,7 @@
             // Filtrar por estado se selecionado
             if (selectedState) {
                 filtered = filtered.filter(credenciado => credenciado.estado === selectedState);
-                stateTitle.textContent = `Novos credenciados no ${estados[selectedState]}`;
+                stateTitle.textContent = `Novos credenciados: ${estados[selectedState]}`;
             } else {
                 stateTitle.textContent = "Novos credenciados";
             }
@@ -3033,6 +3102,8 @@
             displayCredenciados(filtered);
         }
     </script>
+
+
 </body>
 <!-- /wp:html -->
 

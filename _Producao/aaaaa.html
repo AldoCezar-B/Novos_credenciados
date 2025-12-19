@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="card-header">
+        <div class="state-badge">${credenciado.estado}</div>
+        <h3 class="fantasia">${highlightText(displayName, searchTerm)}</h3>
+        <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=002D4B" alt="Expandir" class="toggle-icon">
+    </div>
+
+    <div class="card-body">
+        <div>
+            <div class="cpfcnpj">
+                <img src="https://img.icons8.com/?size=100&id=76973&format=png&color=002D4B" alt="cpf-cnpj" class="ico">
+                <p class="information"> </p> ${credenciado.cpfcnpj}
+            </div>
+        </div>
+        <div class="card-info category-card">
+            <div class="info-header">
+                <div class="info-content">
+                    <img src="https://img.icons8.com/?size=100&id=47783&format=png&color=002D4B" alt="Especialidades"
+                        class="ico">
+                    <p class="information">Especialidades</p>
+                </div>
+                <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=002D4B" alt="Expandir"
+                    class="toggle-icon small category-toggle">
+            </div>
+            <div class="info-details">
+                ${formatCategory(credenciado.categoria, searchTerm)}
+            </div>
+        </div>
+        <div class="divisao"></div>
+        <div class="card-info">
+            <div class="info-header">
+                <div class="info-content">
+                    <img src="https://img.icons8.com/?size=100&id=9659&format=png&color=002D4B" alt="Telefone"
+                        class="ico">
+                    <p class="information">Contato</p>
+                </div>
+                <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=2F54CF" alt="Expandir"
+                    class="toggle-icon small">
+            </div>
+
+            <div class="info-details">
+                <ul>
+                    ${generateContactHTML(credenciado)}
+                </ul>
+            </div>
+        </div>
+
+        <div class="card-info">
+            <div class="info-header">
+                <div class="info-content">
+                    <img src="https://img.icons8.com/?size=100&id=YyEbAVyRYrMX&format=png&color=002D4B"
+                        alt="Localização" class="ico">
+                    <p class="information">Endereço</p>
+                </div>
+                <img src="https://img.icons8.com/?size=100&id=1806&format=png&color=2F54CF" alt="Expandir"
+                    class="toggle-icon small">
+            </div>
+            <div class="info-details" id="adress-${i}">
+                <li class="dados-adress">${credenciado.logradouro}, ${credenciado.numero}, ${credenciado.bairo} <br>
+                    ${credenciado.municipio}, ${credenciado.estado}, ${credenciado.cep}</li>
+
+                <!-- BOTÃO DO GOOGLE MAPS -->
+                <button class="maps-button" onclick="pesquisarNoGoogleMaps('${enderecoCompleto.replace(/'/g, "
+                    \\'")}')">
+                    <img src="https://img.icons8.com/?size=100&id=xt0xIC1nYCRm&format=png&color=000000"
+                        alt="Google Maps" class="maps-icon">
+                    Ver no Google Maps
+                </button>
+
+            </div>
+        </div>
+    </div>
+    `;
+</body>
+
+</html>

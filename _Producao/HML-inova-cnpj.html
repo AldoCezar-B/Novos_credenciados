@@ -70,7 +70,7 @@
             --red-error: #F1505A;
             --dark-red-error: #1C070E;
             --ux-deg-green: linear-gradient(180deg, #5aaaa16e 25%, #5AAAA0 100%);
-
+            --font_lcd: font-family: 'LCD', sans-serif;
 
 
             /*border*/
@@ -990,7 +990,7 @@
 
             padding: 4px 0;
             background-color: var(--intra-sky-blue);
-            color: var(--white);
+            color: var, --white;
             font-size: 0.9rem;
             position: relative;
             padding-left: 15px;
@@ -1003,7 +1003,7 @@
         .specialty-single {
             padding: 4px 0;
             background-color: var(--intra-sky-blue);
-            color: var(--white);
+            color: var, --white;
             font-size: 0.9rem;
             position: relative;
             padding-left: 15px;
@@ -1032,7 +1032,7 @@
 
         .dados {
             background-color: var(--intra-sky-blue);
-            color: var(--white);
+            color: var, --white;
             border-radius: 10px;
             padding: 5px 10px;
             margin: 5px;
@@ -1046,7 +1046,7 @@
 
         .dados-adress {
             background-color: var(--intra-sky-blue);
-            color: var(--white);
+            color: var, --white;
             border-radius: 10px 10px 10px 0;
             padding: 5px 10px;
             list-style: none;
@@ -1555,7 +1555,37 @@
             opacity: 1;
         }
 
+        /* style para lcd counter*/
+        .box-num {
+            display: flex;
+            gap: 8px;
+            font-size: 0;
+            /* Remove espaços entre os spans */
+        }
 
+        .box-num span {
+            width: 20px;
+            height: 30px;
+            text-align: center;
+            font-family: var(--font_lcd);
+            font-size: 18px;
+            /* Restaura o tamanho da fonte */
+            line-height: 30px;
+            /* Centraliza verticalmente */
+            border: 1px solid #ffffff;
+            border-radius: 6px;
+            font-weight: bold;
+            background-color: var(--lcd-Blue);
+            color: var(--lcd-light-Blue);
+            display: inline-block;
+        }
+
+        .display-Lcd {
+
+            width: fit-content;
+            padding: 5px;
+            border-radius: 9px;
+        }
 
         /*style dos tooltips*/
     </style>
@@ -1579,8 +1609,7 @@
         novas especialidades de
         profissionais</p>
 
-    </div>
-    </div>
+
 
 
     <!-- criar um header com mais informaçoes do que cada coisa serve-->
@@ -1597,7 +1626,18 @@
                     ou selecione um estado para filtrar. .</span>
             </div>
 
-            <p class="ajuda-titulo">
+            <div class="ajuda-container"></div>
+            <div style="display: flex; padding: 5px; border-radius: 4px; align-items: center; order: 1;">
+                <b> Total Geral por CNPJ/CPF:</b>
+                <p style="margin: 0 5px; ">
+                <div class="display-Lcd">
+                    <!-- Versão 1: Com JavaScript para processar automaticamente -->
+                    <div id="codigoBox" class="box-num">0</div>
+                </div>
+                </p>
+            </div>
+            <!-- sumiu-->
+            <p class="ajuda-titulo" style="display: none;">
                 Número de credenciados acumulado de 2025
             </p>
         </div>
@@ -2151,7 +2191,47 @@
 
 
 
+    <!-- Codigo para separa a exibição do total de credenciados por CNPJ -->
+    <script>
+        // Função para separar dígitos automaticamente
+        function separarDigitos(elemento) {
+            const texto = elemento.textContent.trim();
+            elemento.innerHTML = ''; // Limpa o conteúdo
 
+            // Remove pontos de separação de milhar para processar apenas dígitos
+            const textoLimpo = texto.replace(/\./g, '');
+
+            // Cria um span para cada dígito
+            for (let i = 0; i < textoLimpo.length; i++) {
+                const span = document.createElement('span');
+                span.textContent = textoLimpo[i];
+                elemento.appendChild(span);
+            }
+        }
+
+        // Processa elementos com a classe 'auto-separar'
+        document.addEventListener('DOMContentLoaded', function () {
+            // Versão 1: Processa elemento específico
+            const codigoBox = document.getElementById('codigoBox');
+            if (codigoBox) separarDigitos(codigoBox);
+
+            // Versão 2: Processa por data-atributo
+            const elementosData = document.querySelectorAll('[data-codigo]');
+            elementosData.forEach(el => {
+                const codigo = el.getAttribute('data-codigo');
+                el.innerHTML = '';
+                for (let i = 0; i < codigo.length; i++) {
+                    const span = document.createElement('span');
+                    span.textContent = codigo[i];
+                    el.appendChild(span);
+                }
+            });
+
+            // Versão 3: Processa múltiplos elementos
+            const autoSeparar = document.querySelectorAll('.auto-separar');
+            autoSeparar.forEach(separarDigitos);
+        });
+    </script>
     <!--script pesquisa no maps -->
     <script>
         // Função para pesquisar no Google Maps 
@@ -2220,6 +2300,7 @@
         }
 
     </script>
+
 
     <!--Função dos cards -->
     <script>
@@ -2659,6 +2740,9 @@
             const lines = csvData.split('\n');
             credenciados = [];
 
+            // Array para armazenar CPF/CNPJ únicos
+            const cpfCnpjSet = new Set();
+
             // Pular cabeçalho se existir
             const startLine = lines[0].includes('NO_PRESTADOR') || lines[0].includes('estado') ? 1 : 0;
 
@@ -2666,7 +2750,17 @@
                 if (lines[i].trim() === '') continue;
 
                 const columns = lines[i].split(';');
-                if (columns.length >= 6) {
+                if (columns.length >= 19) { // Verifica se tem pelo menos 19 colunas (índice 18)
+                    const cpfCnpj = columns[18]?.trim() || "";
+
+                    // Normalizar CPF/CNPJ removendo caracteres não numéricos para deduplicação correta
+                    const normalizedCpfCnpj = cpfCnpj.replace(/\D/g, '');
+
+                    // Adiciona ao Set (automaticamente remove duplicados) apenas se existir número
+                    if (normalizedCpfCnpj !== "") {
+                        cpfCnpjSet.add(normalizedCpfCnpj);
+                    }
+
                     credenciados.push({
                         nome_1: columns[0]?.trim() || "", // NO_PRESTADOR
                         nome_2: columns[1]?.trim() || "", // FANTASIA
@@ -2691,12 +2785,36 @@
                         ddd_cel: columns[15]?.trim() || "", // DDD_CELULAR
                         celular: columns[16]?.trim() || "", // CELULAR
                         data_cred: columns[17]?.trim() || "", // DT_CREDENCIAMENTO
-                        cpfcnpj: columns[18]?.trim() || "", // CPF_CNPJ
+                        cpfcnpj: cpfCnpj, // CPF_CNPJ (mantém formato original para exibição)
                     });
                 }
             }
 
             console.log('Total de credenciados processados:', credenciados.length);
+            console.log('Total de CPF/CNPJ únicos:', cpfCnpjSet.size);
+
+            // Atualiza o contador exibido (Total Geral por CNPJ) com o número de CPFs/CNPJs únicos
+            updateUniqueCpfCnpjCount(cpfCnpjSet.size);
+
+            // Função para atualizar o contador de CPF/CNPJ únicos
+            function updateUniqueCpfCnpjCount(count) {
+                const codigoBox = document.getElementById('codigoBox');
+                if (!codigoBox) {
+                    console.error('Elemento #codigoBox não encontrado');
+                    return;
+                }
+
+                // Formatar o número com separador de milhar (opcional)
+                const formattedCount = count.toLocaleString('pt-BR');
+
+                // Atualizar o conteúdo
+                codigoBox.textContent = formattedCount;
+
+                // Chamar a função separarDigitos para manter o estilo LCD
+                separarDigitos(codigoBox);
+
+                console.log(`CPF/CNPJ únicos: ${count}`);
+            }
 
             // Atualizar contadores dos estados
             updateStateCounters();
@@ -2924,9 +3042,10 @@
     <div>
     <div class="cpfcnpj" title="CPF/CNPJ">
         
-        <img src="https://img.icons8.com/?size=100&id=76973&format=png&color=002D4B" alt="cpf-cnpj" class="ico">
-                    <p class="information"> </p>  ${credenciado.cpfcnpj}</div>
+        <img src="https://img.icons8.com/?size=100&id=76973&format=png&color=FFFFFF" alt="cpf-cnpj" class="ico">
+                    <p class="information" style="color: #FFFFFF;"> <b>  ${credenciado.cpfcnpj} <b></p> </div>
                     </div>
+
     <div class="card-info category-card">
         <div class="info-header" title="Especialidades">
             <div class="info-content">

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Código de Confirmação</title>
+    <style>
+        :root {
+            --lcd-Blue: #0039E3;
+            --lcd-light-Blue: #73CEE1;
+
+        }
+
+        .box-num {
+            display: flex;
+            gap: 8px;
+            font-size: 0;
+            /* Remove espaços entre os spans */
+        }
+
+        .box-num span {
+            width: 20px;
+            height: 30px;
+            text-align: center;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 18px;
+            /* Restaura o tamanho da fonte */
+            line-height: 30px;
+            /* Centraliza verticalmente */
+            border: 1px solid #ffffff;
+            border-radius: 6px;
+            font-weight: bold;
+            background-color: var(--lcd-Blue);
+            color: var(--lcd-light-Blue);
+            display: inline-block;
+        }
+
+        .display-Lcd {
+            
+            width: fit-content;
+            padding: 5px;
+            border-radius: 9px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="display-Lcd">
+        <!-- Versão 1: Com JavaScript para processar automaticamente -->
+        <div id="codigoBox" class="box-num">123456</div>
+    </div>
+
+    <!-- Codigo para separa a exibição do total de credenciados por CNPJ -->
+    <script>
+        // Função para separar dígitos automaticamente
+        function separarDigitos(elemento) {
+            const texto = elemento.textContent.trim();
+            elemento.innerHTML = ''; // Limpa o conteúdo
+
+            // Cria um span para cada dígito
+            for (let i = 0; i < texto.length; i++) {
+                const span = document.createElement('span');
+                span.textContent = texto[i];
+                elemento.appendChild(span);
+            }
+        }
+
+        // Processa elementos com a classe 'auto-separar'
+        document.addEventListener('DOMContentLoaded', function () {
+            // Versão 1: Processa elemento específico
+            const codigoBox = document.getElementById('codigoBox');
+            if (codigoBox) separarDigitos(codigoBox);
+
+            // Versão 2: Processa por data-atributo
+            const elementosData = document.querySelectorAll('[data-codigo]');
+            elementosData.forEach(el => {
+                const codigo = el.getAttribute('data-codigo');
+                el.innerHTML = '';
+                for (let i = 0; i < codigo.length; i++) {
+                    const span = document.createElement('span');
+                    span.textContent = codigo[i];
+                    el.appendChild(span);
+                }
+            });
+
+            // Versão 3: Processa múltiplos elementos
+            const autoSeparar = document.querySelectorAll('.auto-separar');
+            autoSeparar.forEach(separarDigitos);
+        });
+    </script>
+</body>
+
+</html>

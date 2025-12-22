@@ -14,3 +14,7 @@
 
 # VSCode
 # ao testar no VScode usar o caminho ../data/credenciados_2025.csv
+
+
+# atualizações 22-12 
+# atualização do codigo para exibir o total de credenciaedos porem suprimindo da contagem os que sao repitidos

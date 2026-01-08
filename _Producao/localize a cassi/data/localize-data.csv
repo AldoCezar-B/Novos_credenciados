@@ -1,0 +1,771 @@
+﻿Title;endereco;uf;telefone;contato;cnpj;horario_atendimento;Outros horarios;servicos_oferecidos;procedimentos;Atendimento;Avisos;gerente_unidade;gerente_clinica;Enfermeiro_a_Supervisor_a_;Demais_Gerencias;Unidade_Responsavel;Tipo de Item;Caminho
+CliniCASSI Brasilia;SIG, Quadra 4, Lote 417, Brasília (DF) – CEP: 70.610-910;DF;(61) 3424-4600;Fale com a CASSI | Central 0800 729 0080;33.719.485/0060-87;e 2ª a 6ª feira, das 7h às 19h para atendimento em saúde e das 8h às 18h para atendimento administrativo. Sábado das 8 às 14h.;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico, enfermeiro, técnico de enfermagem e equipe multiprofissional (assistente social, nutricionista, psicólogo e farmacêutica);
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC). |
+
+2. Especialidades que apoiam a equipe de APS: Cardiologista, Pediatra, Endocrinologista, Ginecologista e Psiquiatria. |
+
+3. Exame laboratorial. |
+
+4. Saúde do Trabalhador (a). |
+
+5. Perícia Médica. |
+
+6. Administração de imunobiológicos elegíveis para serem aplicados na CliniCASSI (consultar junto a sua equipe da CliniCASSI quais imunobiológicos elegíveis). |";"1. Administração de Medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica. |
+2. Administração de oxigênio por catéter nasal / Máscara de Venturi. |
+3. Aplicação de compressa quente. |
+4. Avaliação do pé diabético. |
+5. Cateterismo de alívio. |
+6. Cateterismo Vesical de Demora (Passagem/troca, incluindo em cistotomia) / Troca de sonda de Folley. |
+7. Cauterização química de pequenas lesões de pele e mucosa. |
+8. Cirurgia da unha (cantoplastia e/ou cantotomia). |
+9. Coleta de urina para realização de EAS / Urocultura em participantes que demandem ou façam uso de algum tipo de cateterismo vesical. |
+10. Coleta para exame citopatológico cérvico-vaginal. |
+11. Controle/Aferição sinais vitais e antropometria. |
+12. Curativo em Ferida simples. |
+13. Drenagem de hematoma subungueal. |
+14. Eletrocardiograma |
+15. Estesiometria |
+16. Excisão de lesão e/ou sutura de ferimentos da pele, anexos e mucosas. |
+17. Exérese de calosidades, cistos e lipomas. |
+18. Exérese de nevos. 
+19. Imobilização Provisória. |
+20. Incisão e drenagem de abcessos. |
+21. Inserção e remoção de DIU. 
+22. Lavagem auditiva e remoção de cerume. |
+23. Nebulização/inalação. 
+24. Realização de Glicemia Capilar. |
+25. Realização de teste de glicemia capilar. |
+26. Remoção de molusco contagioso. |
+27. Retirada de Dermatobiose Penetrar (Berne ou Miiase). |
+28. Retirada de pontos. |
+29. Retirada de Tunga Penetrans (Bicho de pé). |
+30. Retirada/remoção de corpo estranho em diferentes tecidos, mucosas e peças anatômicas. |
+31. Suporte Básico de Vida – SBV. |
+32. Tamponamento de Epistaxe. |
+33. Tratamento/cuidado de queimaduras (exceto grandes queimados). |
+34. Troca de bolsa de colostomia / ileostomia.|";;;Lucineide Barbosa de Melo;Mariana Borges do Nascimento;Auriceia Adorno Mo​reira Bahia;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Edifício Banco do Brasil;SAUN – Quadra 5 – Bloco B – Torre Norte, Ala Oeste – 9º andar – Edifício Banco do Brasil CEP-70040-912;DF;Fale com a CASSI | Central 0800 729 0080;;33.719.485/0028-47;8h às 19h45 (segunda a sexta);;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico, enfermeiro, técnico de enfermagem e equipe multiprofissional (nutricionista e psicólogo);
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC) Trabalhador).
+2. Saúde do Trabalhador (a).";"1. Administração de Medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica.  
+2. Administração de oxigênio por catéter nasal / Máscara de Venturi.  
+3. Aplicação de compressa quente.  
+4. Cateterismo Vesical de Demora (Passagem/troca, incluindo em cistotomia) / Troca de sonda de Folley.  
+5. Curativo em Ferida simples.  
+6. Drenagem de hematoma subungueal.  
+7. Excisão de lesão e/ou sutura de ferimentos da pele, anexos e mucosas.  
+8. Exérese de calosidades, cistos e lipomas.  
+9. Exérese de nevos.  
+10. Lavagem auditiva e remoção de cerume.  
+11. Nebulização/inalação.  
+12. Remoção de molusco contagioso.  
+13. Retirada de Dermatobiose Penetrar (Berne ou Miiase).  
+14. Retirada de pontos.  
+15. Retirada de Tunga Penetrans (Bicho de pé).  
+16. Tamponamento de Epistaxe.  
+17. Tratamento/cuidado de queimaduras (exceto grandes queimados).  
+18. Troca de bolsa de colostomia / ileostomia.  
+19. Avaliação do pé diabético.  
+20. Coleta de urina para realização de EAS / Urocultura em participantes que demandem ou façam uso de algum tipo de cateterismo vesical.  
+21. Coleta para exame citopatológico cérvico-vaginal.  
+22. Controle/Aferição sinais vitais e antropometria.  
+23. Eletrocardiografia.  
+24. Realização de teste de glicemia capilar. 
+25. Cirurgia da unha (cantoplastia e/ou cantotomia).  
+26. Retirada/remoção de corpo estranho em diferentes tecidos, mucosas e peças anatômicas.  
+27. Imobilização Provisória.  
+28. Cateterismo de alívio.  
+29. Realização de Glicemia Capilar.";;;Lucineide Barbosa de Melo;Leticia Freire Santana ;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Sorocaba;Rua Eulália Silva, casa, nº 243, Jardim Faculdade, Sorocaba (SP) – CEP: 18030-230;SP;(15) 3010-1520;Fale com a CASSI | Central 0800 729 0080;33.719.485/0052-77;de 2ª a 6ª feira, das 8 às 18h;;"1. Atenção Primaria à saude (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico, enfermeiro;
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Saúde do Trabalhador (a).";"1. Curativo em Ferida simples. 
+2. Incisão e drenagem de abcessos. 
+3 Lavagem auditiva e remoção de cerume. 
+4. Retirada de pontos. 
+5. Tratamento/cuidado de queimaduras (exceto grandes queimados). 
+6. Avaliação do pé diabético. 
+7. Coleta para exame citopatológico cérvico-vaginal. 
+8. Controle/Aferição sinais vitais e antropometria. 
+9. Realização de teste de glicemia capilar.";;;Marcelo Callai Costa Beber;Cláudia Souza de Paula;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Macapá;"Rodovia Duca Serra Km 01 , S/N – Complexo da AABB – Alvorada – Macapá – AP – 68906-698
+Telefone: (96) 3213-6160";AP;(96) 3213-6160;Fale com a CASSI | Central 0800 729 0080;33.719.485/0042-03;de 2ª a 6ª feira, das 8 às 18h;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico, enfermeiro, e equipe multiprofissional (assistente social e psicólogo);
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Saúde do Trabalhador (a).
+3. Perícia Médica.";"1. Administração de Medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica. 
+2. Hidratação Venosa. 
+3. Curativo em Ferida simples. 
+4. Lavagem auditiva e remoção de cerume. 
+5. Nebulização/inalação. 
+6. Avaliação do pé diabético. 
+7. Coleta para exame citopatológico cérvico-vaginal. 
+8. Controle/Aferição sinais vitais. 
+9. Realização de teste de glicemia capilar. 
+10. Retirada de pontos. 11. Cateterismo Vesical de Alívio. 
+12. Cateterismo Vesical de Demora (Passagem/troca) / Troca de sonda de Folley. 
+13. Aplicação de Compressa quente.";;;Almira Lucia Leal de Oliveira;Isailde Brito do Rosario;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Palmas;Quadra 103 Norte, Av. L-2, 74 – Lote – Plano Diretor Norte – Palmas – TO – 77001-022;TO;(63) 3233-1500;Fale com a CASSI | Central 0800 729 0080;33.719.485/0055-10;de 2ª a 6ª feira, das 8 às 14h;;"1. Administração de Medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica.
+2. Curativo em Ferida simples.
+3. Drenagem de hematoma subungueal. 
+4. Lavagem auditiva e remoção de cerume. 
+5. Nebulização/inalação.  
+6. Retirada de pontos.  
+7. Avaliação do pé diabético.  
+8. Coleta para exame citopatológico cérvico-vaginal.  
+9. Controle/Aferição sinais vitais e antropometria.  
+10. Realização de teste de glicemia capilar. 
+11. Remoção de molusco contagioso.  
+12. Tratamento/cuidado de queimaduras (exceto grandes queimados).  
+13. Colocação de imobilização provisória (colar cervical e tipoia).  
+14. Incisão e drenagem de abcessos. 
+15. Retirada de Tunga Penetrans (Bicho de pé).  
+16. Retirada de Dermatobiose Penetrar (Berne ou Miiase).  
+17. Tamponamento de Epistaxe.  
+18. Troca de bolsa de colostomia / ileostomia.  
+19. Cateterismo Vesical de Alívio.";"1. Administração de Medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica.
+2. Curativo em Ferida simples.
+3. Drenagem de hematoma subungueal. 
+4. Lavagem auditiva e remoção de cerume. 
+5. Nebulização/inalação.  
+6. Retirada de pontos.  
+7. Avaliação do pé diabético.  
+8. Coleta para exame citopatológico cérvico-vaginal.  
+9. Controle/Aferição sinais vitais e antropometria.  
+10. Realização de teste de glicemia capilar. 
+11. Remoção de molusco contagioso.  
+12. Tratamento/cuidado de queimaduras (exceto grandes queimados).  
+13. Colocação de imobilização provisória (colar cervical e tipoia).  
+14. Incisão e drenagem de abcessos. 
+15. Retirada de Tunga Penetrans (Bicho de pé).  
+16. Retirada de Dermatobiose Penetrar (Berne ou Miiase).  
+17. Tamponamento de Epistaxe.  
+18. Troca de bolsa de colostomia / ileostomia.  
+19. Cateterismo Vesical de Alívio.";;;Cristiane Reis Santos;;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+Unidade Responsável – CASSI Goiás;Rua T-50, 566, Setor Bueno – Goiânia (GO) – CEP 74.215-200;TO;;Fale com a CASSI;33.719.485/0013-60;de 2ª a 6ª feira, das 8h às 18h;;"Serviços Oferecidos na CliniCASSI:
+1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico, enfermeiro, técnico de enfermagem e equipe multiprofissional (assistente social e psicólogo);
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Especialidades que apoiam a equipe de APS: Pediatra, Ginecologista e Psiquiatra;
+3. Saúde do Trabalhador (a);
+4. Perícia Médica.
+";"1. Administração de Medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica. 
+2. Administração de oxigênio por catéter nasal / Máscara de Venturi. 
+3. Aplicação de compressa quente. 
+4. Cateterismo Vesical de Alívio. 
+5. Cateterismo Vesical de Demora (Passagem/troca, incluindo em cistotomia) / Troca de sonda de Folley. 
+6. Curativo em Ferida simples. 
+7. Lavagem auditiva e remoção de cerume. 
+8. Nebulização/inalação. 
+9. Retirada de pontos. 
+10. Tamponamento de Epistaxe. 
+11. Tratamento/cuidado de queimaduras (exceto grandes queimados). 
+12. Troca de bolsa de colostomia / ileostomia. 
+13. Avaliação do pé diabético. 
+14. Coleta de urina para realização de EAS / Urocultura em participantes que demandem ou façam uso de algum tipo de cateterismo vesical. 
+15. Coleta para exame citopatológico cérvico-vaginal. 
+16. Controle/Aferição sinais vitais e antropometria. 
+17. Eletrocardiografia. 
+18. Realização de teste de glicemia capilar. 
+19. Colocação de imobilização provisória (colar cervical e tipoia). 
+20. Remoção de molusco contagioso. 
+21. Retirada de Tunga Penetrans (Bicho de pé). 
+22. Incisão e drenagem de abcessos. 
+23. Remoção de molusco contagioso. 
+24. Retirada de Dermatobiose Penetrar (Berne ou Miiase). 
+25. Inserção de DIU.";;;Gerente da Unidade – Myla Karina da S Cunha Farias;;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Maceió; Av. Dr. Antônio Gomes de Barros, 625 – Ed. The Square – SL 101 – Jatiuca – Maceió – AL – 57036-000;AL;(82) 3202-5797;Fale com a CASSI | Central 0800 729 0080;33.719.485/0017-94;de 2ª a 6ª feira, das 8 às 18h;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico, enfermeiro, técnico de enfermagem e equipe multiprofissional (assistente social e psicólogo);
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Especialidades que apoiam a equipe de APS: Pediatra, Ginecologista e Psiquiatra;
+3. Saúde do Trabalhador (a);
+4. Perícia Médica.
+";"1. Administração de Medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica. 
+2. Administração de oxigênio por catéter nasal / Máscara de Venturi. 
+3. Aplicação de compressa quente. 
+4. Cateterismo Vesical de Alívio. 
+5. Cateterismo Vesical de Demora (Passagem/troca, incluindo em cistotomia) / Troca de sonda de Folley. 
+6. Curativo em Ferida simples. 
+7. Lavagem auditiva e remoção de cerume. 
+8. Nebulização/inalação. 
+9. Retirada de pontos. 
+10. Tamponamento de Epistaxe. 
+11. Tratamento/cuidado de queimaduras (exceto grandes queimados). 
+12. Troca de bolsa de colostomia / ileostomia. 
+13. Avaliação do pé diabético. 
+14. Coleta de urina para realização de EAS / Urocultura em participantes que demandem ou façam uso de algum tipo de cateterismo vesical. 
+15. Coleta para exame citopatológico cérvico-vaginal. 
+16. Controle/Aferição sinais vitais e antropometria. 
+17. Eletrocardiografia. 
+18. Realização de teste de glicemia capilar. 
+19. Colocação de imobilização provisória (colar cervical e tipoia). 
+20. Remoção de molusco contagioso. 
+21. Retirada de Tunga Penetrans (Bicho de pé). 
+22. Incisão e drenagem de abcessos. 
+23. Remoção de molusco contagioso. 
+24. Retirada de Dermatobiose Penetrar (Berne ou Miiase). 
+25. Inserção de DIU.";;;;;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+Unidade CASSI Alagoas; Av. Dr. Antônio Gomes de Barros, 625 – Ed. The Square – SL 101 – Jatiuca – Maceió – AL – 57036-001;AL;(82) 3202-5798;Fale com a CASSI | Central 0800 729 0080;33.719.485/0017-95;de 2ª a 6ª feira, das 8 às 18h;;;;;;;;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Feira de Santana;Rua Barão do Rio Branco, nº 1309, sala 901, centro, Edifício Metropolitan Center, Feira de Santana (BA) – CEP: 44001-205;BA;(75) 3512-0420;Fale com a CASSI | Central 0800 729 0080; 33.719.485/0065-91;de 2ª a 6ª feira, das 8 às 18h;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico e enfermeiro;
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Saúde do Trabalhador (a).";"1. Curativo em Ferida simples. 2. Nebulização/inalação. 3. Retirada de pontos. 4. Controle/Aferição sinais vitais e antropometria. 5. Realização de teste de glicemia capilar. 6. Avaliação do pé diabético.1. Curativo em Ferida simples. 
+2. Nebulização/inalação. 
+3. Retirada de pontos. 
+4. Controle/Aferição sinais vitais e antropometria. 
+5. Realização de teste de glicemia capilar. 
+6. Avaliação do pé diabético.";;;Fausto da Costa Pereira Neto;Auriceia Adorno Mo​reira Bahia;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Itabuna;Rua Pernambuco, nº 324, Jardim Vitória, Itabuna (BA) – CEP: 45605-510;BA;(73) 3198-9760;Fale com a CASSI | Central 0800 729 0080; 33.719.485/0036-57;de 2ª a 6ª feira, das 8 às 18h;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico e enfermeiro;
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Saúde do Trabalhador (a).";"1. Curativo em Ferida simples. 
+2. Nebulização/inalação. 
+3. Retirada de pontos. 
+4. Controle/Aferição sinais vitais e antropometria. 
+5. Realização de teste de glicemia capilar. 
+6. Avaliação do pé diabético.";;;Fausto da Costa Pereira Neto;Leolidia Azevedo da Silva Monteiro de Almeida;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+Unidade CASSI Ceará; Av. Barão de Studart, 2917, bairro Dionísio Torres, Fortaleza, CEP: 60120-375;CE;;Fale com a CASSI;33.719.485/0014-41;;;;;;;Gerente de Unidade – Francisca Izabel da Silveira Marinho;;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Fortaleza; Av. Barão de Studart, 2917, bairro Dionísio Torres, Fortaleza, CEP: 60120-376;CE;(85) 3366-0500;Fale com a CASSI | Central 0800 729 0080;33.719.485/0014-42;de de 2ª a 6ª feira, das 7h às 18h e sábado das 8h às 12h.;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico, enfermeiro, técnico de enfermagem e equipe multiprofissional (assistente social, nutricionista, psicólogo e farmacêutica);
+b. Educação em saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Especialidades que apoiam a equipe de APS: Cardiologia, Pediatria, Ginecologia e Psiquiatria.
+3. Exame laboratorial.
+4. Saúde do trabalhador(a).
+5. Perícia médica.
+6. Administração de imunobiológicos elegíveis para serem aplicados na CliniCASSI (consultar junto a sua equipe da CliniCASSI quais imunobiológicos elegíveis).";"1. Administração de medicamentos por via oral, intradérmica, nasal, ocular, otológica, oral, parenteral, retal, subcutânea e tópica. 
+2. Administração de oxigênio por cateter nasal / Máscara de Venturi. 
+3. Aplicação de compressa quente. 
+4. Cateterismo vesical de alívio. 
+5. Cateterismo vesical de demora (passagem/troca, incluindo em cistostomia) / Troca de sonda de Folley. 
+6. Colocação de imobilização provisória (colar cervical e tipoia). 
+7. Curativo em feridas simples. 
+8. Drenagem de hematoma subungueal. 
+9. Excisão de lesão e/ou sutura de ferimentos da pele, anexos e mucosas. 
+10. Exérese de calosidades, cistos, lipomas e nevos. 
+11. Incisão e drenagem de abscessos. 
+12. Lavagem auditiva e remoção de cerume. 
+13. Nebulização / Inalação. 14. Remoção de molusco contagioso. 
+15. Retirada de dermatobiose penetrans (berne ou miíase). 
+16. Retirada de pontos. 
+17. Retirada de tunga penetrans (bicho de pé). 
+18. Tamponamento de epistaxe. 
+19. Tratamento/cuidado de queimaduras (exceto grande queimado). 
+20. Troca de bolsa de colostomia / ileostomia. 
+21. Avaliação do pé diabético. 
+22. Coleta de urina para realização de EAS / Urocultura em participantes que demandem ou façam uso de algum tipo de cateterismo vesical. 
+23. Coleta para exame citopatológico cérvico-vaginal. 
+24. Controle/aferição sinais vitais e antropometria. 
+25. Eletrocardiografia. 
+26. Estesiometria. 
+27. Realização de teste de glicemia capilar.";;;Francisca Izabel da Silveira Marinho;Patricia Rangel Viana;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+Unidade CASSI Santa Catarina;Rua Professor Hermínio Jacques, n° 229 – Centro – Florianópolis – SC – CEP 88015-180;SC;;Fale com a CASSI;33.719.485/0026-85;de 2ª a 6ª feira, das 8 às 18h;;;;;;Eduardo Lourenço Barbosa;;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Balneário Camboriú;Avenida Palestina, n° 1510 – Bairro das Nações – Balneário Camboriú – SC – CEP: 88338-010;SC;(47) 3508-0065;Fale com a CASSI | Central 0800 729 0080;33.719.485/0072-10; de 2ª a 6ª feira, 08 às 18 horas;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico e enfermeiro;
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Saúde do Trabalhador (a).
+3. Perícia Médica.";1. Administração de Medicamentos por via oral, intradérmica, intramuscular, nasal, ocular, otológica, subcutânea e tópica. 2. Retirada de pontos. 3. Avaliação do pé diabético. 4. Realização de teste de glicemia capilar. 5. Controle/Aferição sinais vitais e antropometria.;;;Eduardo Lourenço Barbosa;Karla Avelar Cavalcante;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+ CliniCASSI Blumenau;Rua João Pessoa, nº 185 – Velha – Blumenau – SC – 89012-472 2º andar – Acesso pela Rua Goiânia;SC;(47) 3513-0595;Fale com a CASSI | Central 0800 729 0080;33.719.485/0039-08;de 2ª a 6ª feira, das 8 às 18h;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico e enfermeiro;
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Saúde do Trabalhador (a).
+3. Perícia Médica.";1. Administração de Medicamentos por via oral, intradérmica, intramuscular, nasal, ocular, otológica, subcutânea e tópica. 2. Retirada de pontos. 3. Avaliação do pé diabético. 4. Realização de teste de glicemia capilar. 5. Controle/Aferição sinais vitais e antropometria.;;;Eduardo Lourenço Barbosa;Anelice Della Justina;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Florianópolis;Rua Professor Hermínio Jacques, nº 229 – Centro – Florianópolis – SC – 88015-180;SC;(48) 3952-2900;Fale com a CASSI | Central 0800 729 0080;33.719.485/0026-85;de 2ª a 6ª feira, das 8h às 19h;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico, enfermeiro, técnico de enfermagem e equipe multiprofissional (assistente social e psicólogo);
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Especialidades que apoiam a equipe de APS: Endocrinologista, Ginecologista e Psiquiatria.
+3. Saúde do Trabalhador (a).
+4. Perícia Médica.";1. Administração de Medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica.  2. Administração de oxigênio por cateter nasal / Máscara de Venturi.  3. Curativo em Ferida simples.  4. Lavagem auditiva e remoção de cerume.  5. Nebulização/inalação.  6. Retirada de pontos.  7. Retirada de Tunga penetrans (Bicho de pé).  8. Tratamento/cuidado de queimaduras (exceto grandes queimados).  9. Avaliação do pé diabético.  10. Coleta para exame citopatológico cérvico-vaginal.  11. Controle/Aferição sinais vitais e antropometria.  12. Realização de teste de glicemia capilar.  13. Aplicação de compressa quente.  14. Cateterismo Vesical de Alívio.  15. Cateterismo Vesical de Demora (Passagem/troca, incluindo em cistotomia) / Troca de sonda de Folley.  16. Colocação de imobilização provisória (colar cervical e tipoia).  17. Drenagem de hematoma subungueal.  18. Excisão de lesão e/ou sutura de ferimentos da pele, anexos e mucosas.  19. Exérese de calosidades, cistos e lipomas.  20. Exérese de nevos.  21. Incisão e drenagem de abcessos.  22. Remoção de molusco contagioso.  23. Retirada de Dermatobiose (Berne ou Miíase).  24. Tamponamento de Epistaxe.  25. Troca de bolsa de colostomia / ileostomia. 26. Inserção e remoção de DIU Hormonal.;;;Eduardo Lourenço Barbosa;Thiago Coronas;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Rio Branco​;Rua Quintino Bocaiúva, 1790 – Bosque – Rio Branco (AC) – CEP 69.900-670;AC;(68) 3303-8150;Fale com a CASSI  | Central 0800 729 0080;33.719.485/0044-67;de 2ª a 6ª feira, das 7h30 às 17h30;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico, enfermeiro e equipe multiprofissional (assistente social, psicólogo);
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Saúde do(a) Trabalhador(a).";1. Nebulização/inalação. 2. Retirada de pontos. 3. Coleta para exame citopatológico cérvico-vaginal. 4. Controle/Aferição sinais vitais e antropometria. 5. Realização de teste de glicemia capilar. 6. Curativo em Ferida simples. 7. Administração de Medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica.;;;Andressa Renaje de O Melo Carneiro;Barbara Denise Faustino Dantas​;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Manaus​;Av. Senador Álvaro Maia, 1286 – Frente ao Hospital Prontoncord – Praça 14 de janeiro – Manaus – AM – 69020-210;AM;(92) 3199-7120;Fale com a CASSI | Central 0800 729 0080;33.719.485/0016-03;de 2ª a 6ª feira, das 8 às 18h;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico, enfermeiro, e equipe multiprofissional (assistente social,e psicólogo);
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC ).
+2. Saúde do Trabalhador.
+3. Perícia Médica.";1. Administração de Medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica. 2. Hidratação venosa. 3. Aplicação de Compressa quente e fria. 4. Cateterismo Vesical de Alívio. 5. Curativo em Ferida simples. 6. Lavagem auditiva e remoção de cerume. 7. Nebulização/inalação. 8. Retirada de pontos. 9. Avaliação do pé diabético. 10. Controle/Aferição sinais vitais e antropometria. 11. Realização de teste de glicemia capilar.;;;Rosimeire Neves Barbosa;;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+Unidade CASSI Amazonas​;Av. Senador Álvaro Maia, 1286 – Praça 14 – Manaus (AM) – CEP 69020-210;AM;33.719.485/0016-03;Fale com a CASSI | Central 0800 729 0080;33.719.485/0016-03;de 2ª a 6ª feira, das 8 às 18h;;;;;;Rosimeire Neves Barbosa;;;;A Unidade CASSI Amazonas é responsável ainda pela CliniCASSI Boa Vista – RR​​​​;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Belém;"Travessa 9 de Janeiro, esquina com a Av. Gov.
+Magalhães Barata, Bairro São Brás – Belém (PA) – CEP 66.060-281";PA;(91) 4008-2100;Fale com a CASSI | Central 0800 729 0080;33.719.485/0024-13;de 2ª a 6ª feira, das 8h às 18h e sábado das 8h às 14h;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico, enfermeiro, técnico de enfermagem e equipe multiprofissional (assistente social, nutricionista e psicóloga);
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Especialidades que apoiam a equipe de APS: Cardiologista, Pediatra, Endocrinologista, Ginecologista e Psiquiatria.
+3. Exame laboratorial.
+4. Saúde do Trabalhador (a).
+5. Perícia Médica.";1. Administração de Medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica. 2. Administração de oxigênio por catéter nasal / Máscara de Venturi. 3. Cateterismo Vesical de Alívio e de Demora (Passagem/troca, incluindo em cistotomia) / Troca de sonda de Folley. 4. Imobilização provisória (colar cervical e tipoia). 5. Curativo em Ferida simples. 6. Exérese de calosidades, cistos e lipomas. 7. Excisão de lesão e/ou sutura de ferimentos da pele, anexos e mucosas. 8. Incisão e drenagem de abcessos. 9. Lavagem auricular e remoção de cerume. 10. Nebulização/inalação. 11. Retirada de pontos. 12. Tamponamento de Epistaxe. 13. Tratamento/cuidado de queimaduras (exceto grandes queimados). 14. Troca de bolsa de colostomia / ileostomia. 15. Avaliação do pé diabético. 16. Coleta para exame citopatológico cérvico-vaginal e colposcopia . 17. Eletrocardiograma sem laudo. 18. Cirurgia da unha (cantoplastia e/ou cantotomia).;;;Almira Lucia Leal de Oliveira;Magnun Michael Bahia Silva;;"Gerente de Negociação e Relacionamento com Clientes – Almira
+Lucia Leal de Oliveira
+
+Gerente de Regulação – Victor Catarino Costa 
+
+Gerente de Atenção Integral a Saúde – Rodrigo Aragão Silva";A Unidade CASSI Pará é responsável ainda pela CliniCASSI Macapá – AP;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+Unidade CASSI Pará;"Travessa 9 de Janeiro, esquina com a Av. Gov.
+Magalhães Barata, Bairro São Brás – Belém (PA) – CEP 66.060-281
+
+";PA;;Fale com a CASSI;33.719.485/0024-13;;;;;;;Almira Lucia Leal de Oliveira;;;;A Unidade CASSI Pará é responsável ainda pela CliniCASSI Macapá – AP;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Porto Velho;Rua Tenreiro Aranha, 2862 – Olaria – Porto Velho (RO) – CEP 76.801-254;RO;(69) 3533-5964;Fale com a CASSI | Central 0800 729 0080;33.719.485/0006-31.;de 2ª a 6ª feira, das 8 às 18h;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico de família, médico, enfermeiro, técnico de enfermagem e equipe multiprofissional (assistente social e psicólogo);
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Perícias Médicas.
+3. Saúde do Trabalhador (a).";1. Administração de Medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica. 2. Curativo em Ferida simples. 3. Nebulização/inalação. 4. Retirada de pontos. 5. Avaliação do pé diabético. 6. Coleta para exame citopatológico cérvico-vaginal. 7. Realização de teste de glicemia capilar. 8. Administração de oxigênio por catéter nasal / Máscara de Venturi. 9. Aplicação de compressa quente. 10. Cateterismo Vesical de Alívio. 11. Cateterismo Vesical de Demora (Passagem/troca, incluindo em cistotomia) / Troca de sonda de Folley. 12. Lavagem auditiva e remoção de cerume. 13. Retirada de Tunga Penetrans (Bicho de pé). 14. Tratamento/cuidado de queimaduras (exceto grandes queimados). 15. Controle/Aferição sinais vitais e antropometria. 16. Troca de bolsa de colostomia / ileostomia.;;;Andressa Rejane de Oliveira Melo Carneiro;Taina Pinheiro Aragão Gomes;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Boa Vista;Rua Professor Diomedes Souto Maior, 81 – Centro – Boa Vista (RR), CEP 69301-260;RR;(95) 3194-4450;Fale com a CASSI | Central 0800 729 0080;33.719.485/0054-39;de 2ª a 6ª feira, das 8 às 18h;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico,médico de familia, Enfermeiro supervisora, enfermeiro e equipe multiprofissional (assistente social e psicólogo);
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Saúde do Trabalhador (a).
+3. Perícia Médica.";1. Administração de Medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica. 2. Hidratação Venosa 3. Curativo em Ferida simples. 4. Lavagem auditiva e remoção de cerume. 5. Nebulização/inalação. 6. Avaliação do pé diabético. 7. Coleta para exame citopatológico cérvico-vaginal. 8. Controle/Aferição sinais vitais 9. Realização de teste de glicemia capilar. 10. Retirada de pontos. 11. Cateterismo Vesical de Alívio. 12. Cateterismo Vesical de Demora (Passagem/troca) / Troca de sonda de Folley. 13. Aplicação de Compressa quente.;;;Rosimeire Neves Barbosa;;;Enfermeiro(a) Supervisor(a) – Clarice Nascimento da Silva;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Palmas;Quadra 103 Norte, Av. L-2, 74 – Lote – Plano Diretor Norte – Palmas – TO  – CEP 77001-022;TO;(63) 3233-1500;Fale com a CASSI | Central 0800 729 0080;33.719.485/0055-10;de 2ª, 4ªe 6ª feira, das 8 às 14h, e 3ª e 5ª, das 12 às 18h (Medicina da Família e Comunidade);;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico, enfermeiro  e equipe multiprofissional (assistente social e psicólogo);
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Especialidades que apoiam a equipe de APS: Pediatra, Endocrinologista e Ginecologista.2. Saúde do Trabalhador (a).
+3. Perícia Médica.";1. Administração de Medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica.  2. Curativo em Ferida simples.  3. Drenagem de hematoma subungueal.  4. Lavagem auditiva e remoção de cerume.  5. Nebulização/inalação.  6. Retirada de pontos.  7. Avaliação do pé diabético.  8. Coleta para exame citopatológico cérvico-vaginal.  9. Controle/Aferição sinais vitais e antropometria.  10. Realização de teste de glicemia capilar. 11. Remoção de molusco contagioso.  12. Tratamento/cuidado de queimaduras (exceto grandes queimados).  13. Colocação de imobilização provisória (colar cervical e tipoia).  14. Incisão e drenagem de abcessos.  15. Retirada de Tunga Penetrans (Bicho de pé).  16. Retirada de Dermatobiose Penetrar (Berne ou Miiase).  17. Tamponamento de Epistaxe.  18. Troca de bolsa de colostomia / ileostomia.  19. Cateterismo Vesical de Alívio.;;;Cristiane Reis Santos;;;Enfermeira Supervisora – Patricia Rogalski Lima;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+Unidade CASSI Bahia;Av. Antônio Carlos Magalhães, nº 3244, 23º andar, Edifício Empresarial Thomé de Souza, Pituba, Salvador (BA) – CEP 41800-700;BA;;Fale com a CASSI | Central 0800 729 0080;33.719.485/0015-22 ;de 2ª a 6ª feira, das 7 às 18h;;;;;;Fausto da Costa Pereira Neto;;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Feira de Santana;Rua Barão do Rio Branco, nº 1309, sala 901, centro, Edifício Metropolitan Center, Feira de Santana (BA) – CEP: 44001-205;BA;(75) 3512-0420​;Fale com a CASSI | Central 0800 729 0080;33.719.485/0065-91;de 2ª a 6ª feira, das 8 às 18h;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico e enfermeiro;
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Saúde do Trabalhador (a).";"1. Curativo em Ferida simples. 2. Nebulização/inalação. 3. Retirada de pontos. 4. Controle/Aferição sinais vitais e antropometria. 5. Realização de teste de glicemia capilar. 6. Avaliação do pé diabético.
+
+";;;Fausto da Costa Pereira Neto;;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Vitória da Conquista;Rua Siqueira Campos, nº 450 – Térreo/sala 02 – Centro Empresarial DMA – Bairro Recreio – Vitória da Conquista (BA) – CEP 45020-800;BA;(77) 3424-8350;Fale com a CASSI | Central 0800 729 0080;33.719.485 / 0071-30;de 2ª a 6ª feira, das 8 às 17h;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico e enfermeiro;
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Saúde do Trabalhador (a).";1. Curativo em Ferida simples. 2. Nebulização/inalação. 3. Retirada de pontos. 4. Controle/Aferição sinais vitais e antropometria. 5. Realização de teste de glicemia capilar. 6. Avaliação do pé diabético.;;;Fausto da Costa Pereira Neto;;Diane da Silva Rocha;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Salvador;Av. Antônio Carlos Magalhães, nº 3244, 23º andar, Edifício Empresarial Thomé de Souza, Pituba, Salvador (BA) – CEP 41800-700;BA;(71) 3453-8000​;Fale com a CASSI | Central 0800 729 0080;33.719.485/0015-22;2ª a 6ª feira, das 7 às 18h para atendimento na CliniCASSI e das 8 às 18h para atendimento administrativo;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico, enfermeiro, técnico de enfermagem e equipe multiprofissional (assistente social, nutricionista, psicólogo e farmacêutica);
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Especialidades que apoiam a equipe de APS: Cardiologista, Pediatra, Endocrinologista, Ginecologista e Psiquiatria.
+3. Exame laboratorial.
+4. Saúde do Trabalhador (a).
+5. Perícia Médica.";1. Nebulização/inalação. 2. Retirada de pontos, de sinais e de corpo estranho. 3. Coleta de exame citopatológico cérvico-vaginal. 4. Realização de teste de glicemia capilar. 5. Administração de oxigênio. 6. Cateterismo vesical. 7. Curativos simples. 8. Exame do pé diabético. 9. Excisão de lesão e suturas de ferimentos de pele e mucosas. 10. Inserção e remoção de DIU. 11. Lavagem auditiva e remoção de cerume. 12. Retirada de Berne, miíase ou bicho do pé. 13. Controle/Aferição de sinais vitais e antropometria.;;;Fausto da Costa Pereira Neto;Manoela Cerqueira Reis​​;;"Coordenadora ​de Equipe Administrativa – Emanuela Conceicao Azevedo da Silva
+Gerente de Divisão em Saúde – Joana Darc Matias de Oliveira​
+
+Gerente de Negociação com Prestadores – Polliana Torres Dourado Cerqueira
+
+​​​​Gerente de Atenção Integral a Saúde e.e – Sandra Pereira dos Santos
+
+Gerente de Relacionamento com Participantes  – Vera Rodrigues dos Santos
+
+Gerente de Regulação – Luciana Maria Bastos Macedo
+
+Gerente de Saúde Ocupacional – Cicero Dantas Amaral
+
+Gerente de Divisão de Relacionamento Negocial e com Participantes – Luciana Bomfim Nascimento";;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+Unidade CASSI Ceará;Av. Barão de Studart, 2917, bairro Dionísio Torres, Fortaleza, CEP: 60120-375;CE;;Fale com a CASSI | Central 0800 729 0080;33.719.485/0014-41;de 2ª a 6ª feira, das 8h às 18h;;;;;;Francisca Izabel da Silveira Marinho;;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI São Luis;Avenida dos Holandeses, nº 01, Ponta D’Areia, São Luís – MA, CEP: 65077-357;MA;(98) 2109-2100;Fale com a CASSI | Central 0800 729 0080;33.719.485/0027-66;"Atendimento Assistencial de: 2ª a 6ª feira, das 7h às 19h e aos sábados das 08h às 14h
+Atendimento administrativo: 2ª a 6ª feira, das 8h às 18h";;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico, enfermeiro, técnico de enfermagem e equipe multiprofissional (assistente social, nutricionista, psicólogo e farmacêutica);
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Especialidades que apoiam a equipe de APS: Cardiologista, Pediatra, Endocrinologista, Ginecologista e Psiquiatria.
+3. Exame laboratorial.
+4. Saúde do Trabalhador (a).
+5. Perícia Médica.
+6. Administração de imunobiológicos elegíveis para serem aplicados na CliniCASSI (consultar junto a sua equipe da CliniCASSI quais imunobiológicos elegíveis).";1. Exame ginecológico (Papanicolau).  2. Inserção e retirada de DIU.  3. Pequenas cirurgias ambulatoriais (retirada de sinais, nevus, verrugas, calosidades, cistos e lipomas). 4. Retirada de corpo estranho em diferentes tecidos, mucosas e peças anatômicas.  5. Incisão e drenagem de abcessos. 6. Suturas e retirada de pontos.  7. Troca de sonda urinaria e de bolsa de colostomia/ileostomia.  8. Cateterismo Vesical de alivio e de demora. 9. Aferição de glicemia capilar, sinais vitais e antropometria.  10. Avaliação do pé diabético.  11. Tratamento de feridas.  12. Tratamento/cuidado de queimaduras (exceto grandes queimados) 13. Administração de medicamentos.  14. Administração de oxigênio por cateter nasal e/ou mascara de Venturi. 15. Nebulização.  16. Eletrocardiograma.  17. Coleta de exames laboratoriais, em parceria com prestador da rede credenciada.  18. Lavagem auditiva e remoção de cerume.  19. Realização de cantoplastia ou cantotomia (retirada de unha encravada). 20. Cauterização química de pequenas lesões de pele e mucosa. 21. Retirada de Tunga Penetrans (Bicho de pé), Dermatobiose Penetrar (Berne ou Miiase) e Molusco contagioso.;;;Maria do Socorro Rios Soares Fonseca;Raissa Fonseca Cunha Botentuit​;;"Gerente de Divisão de Atenção à Saúde – Érika Mara Dias Carneiro
+
+Gerente de Negociação e Relacionamento com Clientes – Alecya Salgado Barradas Cutrim
+
+Gerente de Regulação – Cliverland Lima da Costa ​​​​​​​​​
+
+Gerente de Atenção Integral a Saúde – Luciana Carvalho Demes​​​​​​​​​​​​";;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+Unidade CASSI Maranhão;Avenida dos Holandeses, nº 01, Ponta D’Areia, São Luís – MA, CEP: 65077-357;MA;;Fale com a CASSI | Central 0800 729 0080;33.719.485/0027-66;de 2ª a 6ª feira, das 7h às 19h;;;;;Para atendimento relacionado aos serviços administrativos, utilize exclusivamente os canais oficiais da CASSI: Central 0800 729 0080, Fale com a CASSI, site ou app CASSI.;Maria do Socorro Rios Soares Fonseca;;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI João Pessoa;Av. Júlia Freire, nº 1.200, 7º andar, Expedicionário, João Pessoa (PB) – 58041-000;PB;(83) 3015-2500;Fale com a CASSI | Central 0800 729 0080;33.719.485/0023-32;de 2ª a 6ª feira, das 8h às 19h;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico, enfermeiro, técnico de enfermagem e equipe multiprofissional (assistente social e psicólogo);
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF, Gerenciamento de Condições Crônicas – GCC e Saúde do Trabalhador).
+2. Especialidades que apoiam a equipe de APS: Cardiologista, Pediatra, Endocrinologista, Ginecologista e Psiquiatria.
+3. Saúde do Trabalhador (a).
+4. Perícia Médica."; 1. Administração de Medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica.  2. Administração de oxigênio por catéter nasal / Máscara de Venturi.  3. Aplicação de compressa quente.  4. Cateterismo Vesical de Alívio.  5. Colocação de imobilização provisória (colar cervical e tipoia).  6. Curativo em Ferida simples.  7. Nebulização/inalação.  8. Retirada de pontos. 9. Tratamento/cuidado de queimaduras (exceto grandes queimados).  10. Avaliação do pé diabético.  11. Coleta de urina para realização de EAS / Urocultura em participantes que demandem ou façam uso de algum tipo de cateterismo vesical.  12. Coleta para exame citopatológico cérvico-vaginal.  13. Controle/Aferição sinais vitais e antropometria.  14. Eletrocardiografia.  15. Realização de teste de glicemia capilar.  16. Cateterismo Vesical de Demora (Passagem/troca, incluindo em cistotomia) / Troca de sonda de Folley.  17. Tamponamento de Epistaxe.  18. Troca de bolsa de colostomia / ileostomia.  19. Excisão de lesão e/ou sutura de ferimentos da pele, anexos e mucosas.  20.Lavagem auditiva e remoção de cerume.  21. Incisão e drenagem de abcessos.  22. Retirada de Dermatobiose Penetrans (Berne ou Miiase).  23.Retirada de Tunga Penetrans (Bicho de pé).  24. Drenagem de hematoma subungueal.;;;Flavio Almeida Vinhaes;Candice Carolline Malheiros Costa Martins;;"Gerente de Área de Regulação – Andrea Aparecida Barnabé
+
+Gerente de Área de Negociação e Relacionamento com P​​articipantes – Jucicley Guimarães Carvalho
+
+Gerente de Área de Atenção Integral a Saúde –Ana Rita Alves de Oliveira";;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Campina Grande;Rua Duque de Caxias, 523 – Edifício San Raphael – Prata – Campina Grande – PB – 58400-506;PB;(83) 2017-0680;Fale com a CASSI | Central 0800 729 0080;33.719.485/0043-86;de 2ª a 6ª feira, das 8 às 18h;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais médico e enfermeiro;
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF, Gerenciamento de Condições Crônicas – GCC e Saúde do Trabalhador).
+2. Saúde do Trabalhador (a).
+3. Perícia Médica.";1. Administração de oxigênio por catéter nasal / Máscara de Venturi.  2. Aplicação de compressa quente. 3. Retirada de pontos. 4. Avaliação do pé diabético. 5. Coleta para exame citopatológico cérvico-vaginal. 6. Controle/Aferição de sinais vitais e antropometria. 7. Eletrocardiografia. 8. Realização de teste de glicemia capilar. 9. Administração de medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica.;;;Flavio Almeida Vinhaes;;Semíramis Ribeiro Lima Tenório;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+Unidade CASSI Paraíba;Av. Júlia Freire, nº 1200, edifício Metropolitan, 7º andar – Expedicionários, João Pessoa (PB) – CEP 58041-000 ;PB;;Fale com a CASSI | Central 0800 729 0080;33.719.485/0023-32;de 2ª a 6ª feira, das 8h às 18h;;;;;Para atendimento relacionado aos serviços administrativos, utilize exclusivamente os canais oficiais da CASSI: Central 0800 729 0080, Fale com a CASSI, site ou app CASSI.;Flavio Almeida Vinhaes;;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Boa Viagem;Rua Ribeiro de Brito, nº 618, Boa Viagem – Recife (PE) – CEP 51.020-310;PE;(81) 3198-5100;Fale com a CASSI | Central 0800 729 0080;33.719.485/0061-68;de 2ª a 6ª feira, das 8h às 17h30;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico, enfermeiro, técnico de enfermagem e equipe multiprofissional (assistente social, nutricionista e psicólogo);
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Especialidades que apoiam a equipe de APS: Ginecologista.";1. Administração de medicamentos por via oral, intramuscular, endovenosa, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica. 2. Administração de oxigênio por catéter nasal / máscara de Venturi. 3. Aplicação de compressa quente/fria. 4. Avaliação do pé diabético. 5. Biópsias de colo, vagina e vulva. 6. Cateterismo vesical de alívio. 7. Cateterismo vesical de demora (passagem/troca, incluindo em cistotomia) / troca de sonda de Foley. 8. Cauterizações de lesões de colo, vagina, vulva e ânus. 9. Cirurgia da unha (cantoplastia e/ou cantotomia). 10. Coleta de urina para realização de EAS / urocultura em participantes que demandem ou façam uso de algum tipo de cateterismo vesical 11. Coleta para exame citopatológico cérvico-vaginal. 12. Colocação de imobilização provisória (colar cervical e tipoia). 13. Colposcopia. 14. Controle/aferição de sinais vitais e antropometria. 15. Curativo em ferida simples. 16. Drenagem de abscessos genitais. 17. Drenagem de hematoma subungueal. 18. Eletrocardiografia. 19. Excisão de lesão e/ou sutura de ferimentos da pele, anexos e mucosas. 20. Exérese de calosidades, cistos e lipomas. 21. Exérese de nevos. 22. Exérese de unhas. 23. Incisão e drenagem de abscessos. 24. Inserção e remoção de DIU. 25. Lavagem auditiva e remoção de cerume. 26. Nebulização/inalação. 27. Realização de teste de glicemia capilar. 28. Remoção de molusco contagioso. 29. Retirada de corpos estranhos vaginais. 30. Retirada de dermatobiose penetrante (berne ou miíase). 31. Retirada de pontos. 32. Retirada de pontos de sutura. 33. Retirada de Tunga penetrans (bicho-de-pé). 34. Retirada/remoção de corpo estranho em diferentes tecidos, mucosas e peças anatômicas. 35. Suporte básico de vida – SBV. 36. Tamponamento de epistaxe. 37. Tratamento/cuidado de queimaduras (exceto grandes queimados). 38. Troca de bolsa de colostomia/ileostomia. 39. Vulvoscopia.;;;Natalie Schindler Evangelista;Maria Solange Galdino;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Recife-Aflitos;Av. Conselheiro Rosa e Silva, nº 1460, 5º e 6º andares, Graças, Recife (PE) – CEP 52.050-020;PE;(81) 3201-8300;Fale com a CASSI | Central 0800 729 0080;33.719.485/0008-01;de 2ª a 6ª feira, das 8h às 18h para atendimento administrativo e das 7h30 às 19h30 para atendimento médico.;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico, enfermeiro, técnico de enfermagem e equipe multiprofissional (assistente social, nutricionista, psicólogo e farmacêutica);
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Especialidades que apoiam a equipe de APS: Cardiologista, Pediatra, Endocrinologista, Ginecologista e Psiquiatria.
+3. Exame laboratorial.
+4. Saúde do Trabalhador (a).
+5. Perícia Médica.";"1. Administração de medicamentos por via oral, intramuscular, endovenosa, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica. 2. Administração de oxigênio por catéter nasal / máscara de Venturi. 3. Aplicação de compressa quente/fria. 4. Avaliação do pé diabético. 5. Biópsias de colo, vagina e vulva. 6. Cateterismo vesical de alívio. 7. Cateterismo vesical de demora (passagem/troca, incluindo em cistotomia) / troca de sonda de Foley. 8. Cauterizações de lesões de colo, vagina, vulva e ânus. 9. Cirurgia da unha (cantoplastia e/ou cantotomia). 10. Colocação de imobilização provisória (colar cervical e tipoia). 11. Colposcopia. 12. Controle/aferição de sinais vitais e antropometria. 13. Coleta de urina para realização de EAS (Elementos Anormais e Sedimentoscopia) / urocultura em participantes que demandem ou façam uso de algum tipo de cateterismo vesical. 14. Coleta para exame citopatológico cérvico-vaginal; 15. Curativo em ferida simples. 16. Drenagem de abscessos genitais. 17. Drenagem de hematoma subungueal. 18. Eletrocardiografia. 19. Excisão de lesão e/ou sutura de ferimentos da pele, anexos e mucosas. 20. Exérese de calosidades, cistos e lipomas. 21. Exérese de nevos. 22. Exérese de unhas. 23. Incisão e drenagem de abscessos. 24. Inserção e remoção de DIU. 25. Lavagem auditiva e remoção de cerume. 26. Nebulização/inalação. 27. Realização de teste de glicemia capilar. 28. Remoção de molusco contagioso. 29. Retirada de corpos estranhos vaginais. 30. Retirada de dermatobiose penetrante (berne ou miíase). 31. Retirada de pontos. 32. Retirada de pontos de sutura. 33. Retirada de Tunga penetrans (bicho-de-pé). 34. Retirada/remoção de corpo estranho em diferentes tecidos, mucosas e peças anatômicas. 35. Suporte básico de vida – SBV. 36. Tamponamento de epistaxe. 37. Tratamento/cuidado de queimaduras (exceto grandes queimados). 38. Troca de bolsa de colostomia/ileostomia. 39. Vulvoscopia.";;;Natalie Schindler Evangelista;Graziella de Araujo Freitas;;"Gerente de Divisão – Veronica Maria de Franca​
+
+Gerente de Nucleo ADM – George Antonio Siqueira Dias F Barboza
+
+Gerente de Negociação e Relacionamento com Clientes – Ticiana de Moura Barbosa
+
+Gerente de Regulação – Maria do Socorro Carvalho Ferreira Jaques
+
+Gerente de Atenção Integral a Saúde – Felipe Alves Safh Domingues da Silva";;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+Unidade CASSI Pernambuco;Av. Conselheiro Rosa e Silva, 1.460, Executive Trade Center – 6º andar, Aflitos – Recife (PE) – CEP 52.050-020;PE;;Fale com a CASSI | Central 0800 729 0080;33.719.485/0008-01;de 2ª a 6ª feira, das 8h às 18h;;;;;Para atendimento relacionado aos serviços administrativos, utilize exclusivamente os canais oficiais da CASSI: Central 0800 729 0080, Fale com a CASSI, site ou app CASSI.;Natalie Schindler Evangelista;;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+Unidade CASSI Piauí;Av. Miguel Rosa, 3260/Centro-Sul – Teresina (PI) – CEP 64001-490;PI;(86) 2106-9600;Fale com a CASSI | Central 0800 729 0080;33.719.485/0007-12;de 2ª a 6ª feira, das 7h:30 às 18h;;;;;Para atendimento relacionado aos serviços administrativos, utilize exclusivamente os canais oficiais da CASSI: Central 0800 729 0080, Fale com a CASSI, site ou app CASSI.;Luis Alexandre Vieira;;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Teresina;Av. Miguel Rosa, 3260/Centro-Sul – Teresina (PI) – CEP 64001-490;PI;(86) 2106-9600;Fale com a CASSI | Central 0800 729 0080;33.719.485/0007-12;de 2ª a 6ª feira, das 7h:30 às 18h;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico, enfermeiro, técnico de enfermagem e equipe multiprofissional (assistente social, e psicólogo);
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Especialidades que apoiam a equipe de APS: Pediatra e Psiquiatria.
+3. Exame laboratorial.
+4. Saúde do Trabalhador (a),
+5. Perícia Médica.";1. Administração de Medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica.  2. Administração de oxigênio por catéter nasal / Máscara de Venturi.  3. Aplicação de compressa quente e fria.  4. Cateterismo Vesical de Alívio.  5. Cateterismo Vesical de Demora (Passagem/troca, incluindo em cistotomia) / Troca de sonda de Folley.  6. Colocação de imobilização provisória (colar cervical e tipoia).  7. Curativo em Ferida simples.  8. Drenagem de Hematoma e abscessos.  9. Excisão de lesão e/ou sutura de ferimentos da pele, anexos e mucosas.  10. Lavagem auditiva e remoção de cerume.  11. Nebulização/inalação.  12. Retirada de Dermatobiose Penetrar (Berne ou Miiase).  13. Retirada de pontos. 14. Retirada de Tunga Penetrans (Bicho de pé).  15. Tamponamento de Epistaxe. .  16. Lavagem intestinal.  17. Tratamento/cuidado de queimaduras (exceto grandes queimados).  18. Troca de bolsa de colostomia / ileostomia.  19. Avaliação do pé diabético.  20. Coleta de urina para realização de EAS / Urocultura em participantes que demandem ou façam uso de algum tipo de cateterismo vesical.  21. Coleta para exame citopatológico cérvico-vaginal (Papanicolau).  22. Controle/Aferição sinais vitais e antropometria.  23. Eletrocardiografia.  24. Realização de teste de glicemia capilar.  25. Inserção e remoção de DIU.  26. Retirada/remoção de corpo estranho em diferentes tecidos, mucosas e peças anatômicas.  27. Cantoplastia (retirada de canto de unha).;;;Luis Alexandre Vieira;;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+Unidade CASSI Rio Grande do Norte;Edifício Corporate Tower Center (CTC), Av. Amintas Barros, nº 3700, Torre Business, 14º e 15º andares, Lagoa Nova, Natal (RN) – CEP: 59.075-810;RN; (84) 3087-2200;Fale com a CASSI | Central 0800 729 0080;33.719.485/0009-84;;;;;;Para atendimento relacionado aos serviços administrativos, utilize exclusivamente os canais oficiais da CASSI: Central 0800 729 0080, Fale com a CASSI, site ou app CASSI.;Emanuel Almeida Mesquita;;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Natal;Avenida Amintas Barros, 3700 – Edifício CTC Torre B 14º e 15º Andares – Lagoa Nova – Natal – RN – 59075-810;RN;(84) 3087-2220;Fale com a CASSI | Central 0800 729 0080;33.719.485/0009-84;de 2ª a 6ª feira, das 8h ás 18h;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico, enfermeiro, técnico de enfermagem e equipe multiprofissional (assistente social, nutricionista, psicólogo e farmacêutica);
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC ).
+2. Especialidades que apoiam a equipe de APS: Cardiologista, Pediatra, Ginecologista e Psiquiatria.
+3. Exame laboratorial.
+4. Saúde do Trabalhador (a).
+5. Perícia Médica."; 1. Administração de Medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica. 2. Administração de oxigênio por catéter nasal / Máscara de Venturi. 3. Cateterismo Vesical de Alívio. 4. Inserção de DIU. 5. Curativo em ferida simples. 6. Excisão de lesão e/ou sutura de ferimentos da pele, anexos e mucosas. 7. Incisão e drenagem de abcessos. 8. Nebulização/inalação. 9. Retirada de Dermatobiose Penetrar (Berne ou Miiase). 10. Retirada de pontos. 11. Retirada de Tunga Penetrans (Bicho de pé). 12. Colposcopia. 13. Avaliação do pé diabético. 14. Coleta de urina para realização de EAS / Urocultura em participantes que demandem ou façam uso de algum tipo de cateterismo vesical. 15. Coleta para exame citopatológico cérvico-vaginal. 16. Controle/Aferição sinais vitais e antropometria. 17. Eletrocardiografia. 18. Realização de teste de glicemia capilar. 19. Colocação de imobilização provisória (colar cervical). 20. Risco cirúrgico.;;;Emanuel Almeida Mesquita;;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Aracaju;Av. Tancredo Neves, 242 – Grageru – Aracaju (SE) – CEP 49040-490​;SE;(79) 2105-4600;Fale com a CASSI | Central 0800 729 0080;33.719.485/0005-50;de 2ª a 6ª feira, das 8h às 18h para atendimento administrativo e das 7h às 18h para atendimento médico.​;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico, enfermeiro, técnico de enfermagem e equipe multiprofissional (assistente social e psicólogo);
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Especialidades que apoiam a equipe de APS: Pediatra, Endocrinologista e Ginecologista.3. Exame laboratorial.
+4. Saúde do Trabalhador (a).
+5. Perícia Médica.";"1. Administração de Medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica; 2. Administração de oxigênio por catéter nasal / Máscara de Venturi; 3. Aplicação de compressa quente; 4. Avaliação e Curativo em ferida; 5. Nebulização/inalação; 6. Retirada de pontos; 7. Tratamento/cuidado de queimaduras (exceto grandes queimados); 8. Avaliação do pé diabético; 9. Controle/Aferição sinais vitais e antropometria; 10. Realização de teste de glicemia capilar; 11. Incisão e drenagem de abcessos; 12. Sutura de Ferimentos da pele; 13. Lavagem auditiva e remoção de cerume; 14. Tamponamento de epistaxe; 15. Cateterismo vesical de alívio; 16. Cateterismo vesical de demora; 17. Coleta para exame citopatológico cérvico-vaginal; 18. Inserção de DIU; 19. Troca de bolsa de colostomia.";;;André Stroff;;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+Unidade CASSI Sergipe;"Av. Tancredo Neves,  242 – Grageru – Aracaju (SE) – CEP 49025-620
+
+";SE;;Fale com a CASSI | Central 0800 729 0080;33.719.485/0005-50;de 2ª a 6ª feira, das 8 às 18h;;;;;Para atendimento relacionado aos serviços administrativos, utilize exclusivamente os canais oficiais da CASSI: Central 0800 729 0080, Fale com a CASSI, site ou app CASSI.;André Stroff;;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+Unidade CASSI Distrito Federal;SIG, Quadra 4, Lote 417, Brasília (DF) – CEP: 70.610-910;DF;(61) 3424-4600;Fale com a CASSI | Central 0800 729 0080;33.719.485/0060-87;de 2ª a 6ª feira, das 8 às 18h;;;;;;Lucineide Barbosa de Melo;;;"Gerente de Divisão de Atenção à Saúde –  Lilian Maria Rodrigues de Andrade
+Gerente de Saúde Ocupacional – Karina Garonce Dias Ferreira​
+​Gerente de Divisão de Relacionamento com o Mercado – Larissa Rodrigues​​
+Gerente de Relacionamento com Participante – Graciana de Sousa Cabral
+Gerente de Negociação com Prestadores DF – Arlei da Silva Pereira
+​​Gerente de Regulação – Henrique Moreira da Silva Junior
+Gerente de Atenção Integral a Saúde – Paula Francisca Cordeiro e Souza
+";;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Edifício Banco do Brasil;SAUN – Quadra 5, Bloco B, torre norte, ala oeste, 9º andar, edifício Banco do Brasil, Brasília (DF) – CEP-70040-912;DF;(61) 2109-2050​;Fale com a CASSI | Central 0800 729 0080;33.719.485/0028-47;"de 2ª a 6ª feira, das 8h às 19h45
+(*Atendimento exclusivo para funcionários do Ed. Banco do Brasil)";;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico, enfermeiro, técnico de enfermagem e equipe multiprofissional (nutricionista e psicólogo);
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC) Trabalhador).
+2. Saúde do Trabalhador (a).";1. Administração de Medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica.  2. Administração de oxigênio por catéter nasal / Máscara de Venturi.  3. Aplicação de compressa quente.  4. Cateterismo Vesical de Demora (Passagem/troca, incluindo em cistotomia) / Troca de sonda de Folley.  5. Curativo em Ferida simples.  6. Drenagem de hematoma subungueal.  7. Excisão de lesão e/ou sutura de ferimentos da pele, anexos e mucosas.  8. Exérese de calosidades, cistos e lipomas.  9. Exérese de nevos.  10. Lavagem auditiva e remoção de cerume.  11. Nebulização/inalação.  12. Remoção de molusco contagioso.  13. Retirada de Dermatobiose Penetrar (Berne ou Miiase).  14. Retirada de pontos.  15. Retirada de Tunga Penetrans (Bicho de pé).  16. Tamponamento de Epistaxe.  17. Tratamento/cuidado de queimaduras (exceto grandes queimados).  18. Troca de bolsa de colostomia / ileostomia.  19. Avaliação do pé diabético.  20. Coleta de urina para realização de EAS / Urocultura em participantes que demandem ou façam uso de algum tipo de cateterismo vesical.  21. Coleta para exame citopatológico cérvico-vaginal.  22. Controle/Aferição sinais vitais e antropometria.  23. Eletrocardiografia.  24. Realização de teste de glicemia capilar. 25. Cirurgia da unha (cantoplastia e/ou cantotomia).  26. Retirada/remoção de corpo estranho em diferentes tecidos, mucosas e peças anatômicas.  27. Imobilização Provisória.  28. Cateterismo de alívio.  29. Realização de Glicemia Capilar.;;;Lucineide Barbosa de Melo;Leticia Freire Santana ;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CASSI Sede;SIG/SUL, Quadra 4, Lote 575, Brasília (DF) – CEP: 70.610-910;DF;(61) 3212 – 5000;Fale com a CASSI | Central 0800 729 0080;33.719.485/0001 – 27;das 8 às 18h, de segunda a sexta-feira;;;;;;;;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CEPAG – Central de Análise e Pagamento de Contas Médicas;SIG/SUL, Quadra 4, Lote 575, Brasília (DF) – CEP: 70.610-910;DF;(61) 3212 – 5000;Fale com a CASSI | Central 0800 729 0080;33.719.485/0001 – 27;das 8 às 18h, de segunda a sexta-feira;;;;;;;;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Goiânia;"Rua T-50, 566, Setor Bueno – Goiânia (GO) – CEP 74215-200
+
+";GO;(62) 3250-6000;Fale com a CASSI | Central 0800 729 0080;33.719.485/0013-60;de 2ª a 6ª feira, das 8 às 18h para atendimento administrativo e das 7 às 18h para atendimento em saúde;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico, enfermeiro, técnico de enfermagem e equipe multiprofissional (assistente social, nutricionista, psicólogo);
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Especialidades que apoiam a equipe de APS: Ginecologista e Psiquiatria.
+3. Saúde do Trabalhador (a).
+4. Perícia Médica.";1. Administração de Medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica.  2. Administração de oxigênio por catéter nasal / Máscara de Venturi.  3. Curativo em Ferida simples.  4. Nebulização/inalação.  5. Retirada de Dermatobiose Penetrar (Berne ou Miiase).  6. Retirada de pontos.  7. Retirada de Tunga Penetrans (Bicho de pé).  8. Tratamento/cuidado de queimaduras (exceto grandes queimados).  9. Avaliação do pé diabético.  10. Coleta para exame citopatológico cérvico-vaginal.  11. Controle/Aferição sinais vitais e antropometria.  12. Realização de teste de glicemia capilar.  13. Estesiometria.  14. Lavagem Otológica.  15. Suporte Básico de Vida.  16. DIU.  17. Exame de Bioimpedância.  18. Eletrocardiografia. 19. Colocação de imobilização provisória (colar cervical e tipoia).;;;Cristiane Reis Santos – 0600-9;Rosângela M. de A. Valentim;;"Cordenador Núcleo Administrativo – Adriana Franca Gouveia
+
+Gerente da Atenção Integral à Saúde – Raquel Ferreira Bastos
+
+Gerente de Negociação e Relacionamento com o Cliente – Gediel Da Silva Santos
+
+Gerente Regulação – Silvio Rosa de Freitas Junior";A Unidade CASSI Goiás é responsável ainda pela CliniCASSI Palmas – TO;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+Unidade CASSI Goiás;Rua T-50, 566, Setor Bueno – Goiânia (GO) – CEP 74215-200;GO;;Fale com a CASSI | Central 0800 729 0080;33.719.485/0013-60;;;;;;Para atendimento relacionado aos serviços administrativos, utilize exclusivamente os canais oficiais da CASSI: Central 0800 729 0080, Fale com a CASSI, site ou app CASSI.;Cristiane Reis Santos;;;Gerente de Negociação e Relacionamento com o Cliente – Gediel Da Silva Santos;A Unidade CASSI Goiás é responsável ainda pela CliniCASSI Palmas – TO;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Cuiabá;"Rua Rui Barbosa, n° ​444, Bairro Goiabeiras, Cuiabá (MT) – CEP: 78.032-040​
+
+";MT;(65) 3617-9100​;Fale com a CASSI | Central 0800 729 0080;33.719.485/0012-8​0;de 2ª a 6ª feira, das 8h às 18h;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico, enfermeiro, técnico de enfermagem e equipe multiprofissional (assistente social, psicólogo );
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Saúde do Trabalhador (a).
+3. Perícia Médica.";1. Administração de Medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica.  2. Curativo em Ferida simples.  3. Drenagem de hematoma subungueal.  4. Incisão e drenagem de abcessos.  5. Lavagem auditiva e remoção de cerume.  6. Retirada de pontos.  7. Avaliação do pé diabético.  8. Coleta para exame citopatológico cérvico-vaginal.  9. Controle/Aferição sinais vitais e antropometria.  10. Eletrocardiografia.  11. Realização de teste de glicemia capilar.  12. Administração de oxigênio por catéter nasal.  13. Aplicação de compressa quente.  14. Colocação de imobilização provisória (colar cervical e tipoia).  15. Excisão de lesão e/ou sutura de ferimentos da pele, anexos e mucosas.  16. Exérese de calosidades, cistos e lipomas.  17. Exérese de nevos.  18. Nebulização/inalação.  19. Remoção de molusco contagioso.  20. Retirada de Tunga Penetrans (Bicho de pé).  21. Tamponamento de Epistaxe.  22. Tratamento/cuidado de queimaduras (exceto grandes queimados).  23. Cirurgia da unha (cantoplastia e/ou cantotomia).;;;Andressa Rejane de Oliveira Melo Carneiro;;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+Unidade CASSI Mato Grosso​;Rua Rui Barbosa, n° ​444, Bairro Goiabeiras, Cuiabá (MT) – CEP: 78.032-040​;MT;(65) 3617-9100​;Fale com a CASSI | Central 0800 729 0080;33.719.485/0012-8​0;de 2ª a 6ª feira, das 8h às 18h;;;;;Para atendimento relacionado aos serviços administrativos, utilize exclusivamente os canais oficiais da CASSI: Central 0800 729 0080, Fale com a CASSI, site ou app CASSI.;Andressa Rejane de Oliveira Melo Carneiro;;;;A Unidade CASSI Mato Grosso é responsável ainda pelas CliniCASSI Rio Branco – AC e CliniCASSI Porto Velho – RO;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Campo Grande;Rua Pedro Celestino, 2670 – São Francisco – Campo Grande (MS) – CEP 79002-372;MS;(67) 3322-2100 – (67) 3322-2101;Fale com a CASSI | Central 0800 729 0080;33.719.485/0011-07;de 2​ª a 6ª feira, das 7 às 18h​;;"1. Atenção Primária à Saúde (APS)
+a.Cuidado de saúde realizado pelos profissionais: médico, enfermeiro, técnico de enfermagem e equipe multiprofissional (assistente social, nutricionista e psicólogo);
+b.Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c.Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC ).
+2. Exame laboratorial.
+3. Perícia Médica.
+4. Saúde do Trabalhador (a).";1. Administração de Medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica. 2. Administração de oxigênio por catéter nasal / Máscara de Venturi. 3. Aplicação de compressa quente. 4. Avaliação do pé diabético. 5. Cateterismo de alívio. 6. Cateterismo Vesical de Demora (Passagem/troca, incluindo em cistotomia). 7. Coleta de urina para realização de EAS / Urocultura em participantes que demandem ou façam uso de algum tipo de cateterismo vesical. 8. Coleta para exame citopatológico cérvico-vaginal. 9. Controle/Aferição sinais vitais e antropometria. 10. Curativo em Ferida simples. 11. Eletrocardiografia. 12. Estesiometria. 13. Excisão de lesão e/ou sutura de ferimentos da pele, anexos e mucosas. 14. Incisão e drenagem de abcessos. 15. Lavagem auditiva e remoção de cerume. 16. Realização de teste de glicemia capilar. 17. Retirada de pontos. 18. Retirada de Tunga Penetrans (Bicho de pé). 19. Tratamento/cuidado de queimaduras (exceto grandes queimados). 20. Troca de bolsa de colostomia / ileostomia. 21. Retirada de Dermatobiose APenetrans (Berne ou Miíase).;;;Maria das Graças Malafaia Dias de Andrade;;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+Unidade CASSI Mato Grosso do Sul; Rua Pedro Celestino, 2670 – São Francisco – Campo Grande (MS) – CEP 79.002-372;MS;;Fale com a CASSI | Central 0800 729 0080;33.719.485/0011-07;de 2ª a 6ª feira, das 7h às 18h;;;;;Para atendimento relacionado aos serviços administrativos, utilize exclusivamente os canais oficiais da CASSI: Central 0800 729 0080, Fale com a CASSI, site ou app CASSI.;Maria das Graças Malafaia Dias de Andrade;;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+Unidade CASSI Espírito Santo;Av. Nossa Senhora dos Navegantes, nº 955, 9º andar, sala nº 908, Edifício Global Tower, Enseada do Suá, Vitória (ES) – CEP: 29.050-335 ;ES;;Fale com a CASSI | Central 0800 729 0080;33.719.485-0025-02;de 2ª a 6ª feira das 7h às 18h e sábados das 8h às 12h;;;;;Para atendimento relacionado aos serviços administrativos, utilize exclusivamente os canais oficiais da CASSI: Central 0800 729 0080, Fale com a CASSI, site ou app CASSI.;Claudia de Oliveira Rocha;;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Vitória;Av. Nossa Senhora dos Navegantes, nº 955, 9º andar, sala nº 908, Edifício Global Tower, Enseada do Suá, Vitória (ES) – CEP: 29.050-335;ES;(27) 3335-3777;Fale com a CASSI | Central 0800 729 0080;33.719.485-0025-02;de 2ª a 6ª feira das 7h às 18h e sábados das 8h às 12h.;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico de família, enfermeiro, técnico em enfermagem e equipe multiprofissional (assistente social, nutricionista e psicólogo);
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Especialidades que apoiam a equipe de APS: Cardiologista, Pediatra, Endocrinologista, Ginecologista e Psiquiatria.
+3. Exame laboratorial.
+4. Saúde do Trabalhador(a).
+5. Perícia Médica.";1. Administração de Medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica. 2. Administração de oxigênio por catéter nasal / Máscara de Venturi. 3. Aplicação de compressa quente/fria. 4. Cateterismo Vesical de Alívio. 5. Cateterismo Vesical de Demora (Passagem/troca, incluindo em cistotomia). 6. Colocação de Imobilização Provisória (colar cervical e tipoia) 7. Curativo em Ferida simples. 8. Excisão de lesão e/ou sutura de ferimentos da pele, anexos e mucosas. 9. Incisão e drenagem de abcessos. 10. Lavagem auditiva e remoção de cerume. 11. Nebulização/inalação. 12. Retirada de Dermatobiose Penetrans (Berne ou Miiase) e Tunga Penetrans (Bicho de pé). 13. Retirada de pontos. 14. Tamponamento de Epistaxe. 15. Tratamento/cuidado de queimaduras (exceto grandes queimados). 16. Troca de bolsa de colostomia / ileostomia. 17. Avaliação do pé diabético. 18. Coleta de urina para realização de EAS / Urocultura em participantes que demandem ou façam uso de algum tipo de cateterismo vesical. 19. Coleta para exame citopatológico cérvico-vaginal. 20. Controle/Aferição sinais vitais, antropometria e realização de teste de glicemia capilar. 21. Eletrocardiografia. 22. Inserção e remoção de DIU. 23. Cirurgia da unha (cantoplastia e/ou cantotomia). 24. Retirada/remoção de corpo estranho em diferentes tecidos, mucosas e peças anatômicas.;;;;Patricia Dambrós;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+Unidade Minas Gerais​;Av. Raja Gabáglia, nº 1093, 2º andar, Luxemburgo, Belo Horizonte (MG) – CEP: 30380-403;MG;(31) 3290-6800;Fale com a CASSI | Central 0800 729 0080;33.719.485/0010-18;de 2ª a 6ª, das 8 às 18h​;;;;;Para atendimento relacionado aos serviços administrativos, utilize exclusivamente os canais oficiais da CASSI: Central 0800 729 0080, Fale com a CASSI, site ou app CASSI.;Júlio César de Souza;;;"Coordenação Equipe Administrativa – Bárbara Andrade Brito ​
+
+Gerente de Divisão de Atenção à Saúde – Viviane Gonçalves Barroso
+
+Gerente de Saúde Ocupacional – Patrícia Oliveira Casagrande
+
+​​​Gerente de Área de Atenção Integral à Saúde – Kátia Fernandes Dornelas ​​
+
+ erente de Divisão de Relacionamento Negocial e com Participantes – Vinicius Tadeu Rocha Fernandes
+Gerente de Negociação com Prestadores – Juliana de Moura Rodrigues Brum
+
+​​​Gerente de Área de Relacionamento com Participantes – Aline Rios Rocha
+
+Gerente de Regulação – Leandro Cesar Noronha";;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Belo Horizonte;Av. Raja Gabáglia, nº 1093, 2º andar, Luxemburgo, Belo Horizonte (MG) – CEP: 30380-403;MG;(31) 3290-6800;Fale com a CASSI | Central 0800 729 0080;33.719.485/0010-18;de 2ª a 6ª feira, das 7h às 18h​;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico, enfermeiro, técnico de enfermagem e equipe multiprofissional (assistente social e nutricionista);
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração e Assistência Farmacêutica – PAF).
+2. Especialidades que apoiam a equipe de APS: Cardiologista, Endocrinologista e Ginecologista.
+3. Saúde do Trabalhador (a).
+4. Perícia Médica.";1. Administração de Medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica. 2. Administração de oxigênio por catéter nasal / Máscara de Venturi. 3. Aplicação de compressa quente. 4. Avaliação do pé diabético. 5. Cateterismo Vesical de Alívio. 6. Cateterismo Vesical de Demora (Passagem/troca, incluindo em cistotomia) / Troca de sonda de Folley. 7. Cirurgia de unha (Cantoplastia). 8. Coleta de urina para realização de EAS / Urocultura em participantes que demandem ou façam uso de algum tipo de cateterismo vesical. 9. Coleta para exame citopatológico cérvico-vaginal. 10. Colocação de imobilização provisória (colar cervical e tipoia). 11. Controle/Aferição sinais vitais e antropometria. 12. Curativo em Ferida simples. 13. Drenagem de hematoma subungueal. 14. Eletrocardiografia. 15. Excisão e/ou sutura simples de pequenas lesões/ferimentos da pele anexos e mucosa. 16. Exérese de cistos. 17. Exérese de nevos. 18. Exérese lipomas. 19. Incisão e drenagem de abcessos. 20. Inserção e retirada do Dispositivo Intrauterino (DIU). 21. Lavagem otológica e remoção de cerume. 22. Nebulização/inalação. 23. Realização de teste de glicemia capilar. 24. Remoção de molusco contagioso. 25. Retirada de Dermatobiose Penetrans (Berne ou Miíase). 26. Retirada de pontos. 27. Retirada de Tunga Penetrans (Bicho de Pé). 28. Tratamento/cuidado de queimaduras (exceto grandes queimados).;;;;Paulo Henrique Reis Pereira;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Juiz de Fora;Av. Francisco Bernardino, nº 165, salas 508 a 512, centro, Juiz de Fora (MG) – CEP 36013-100;MG;(32) 3313-3300​;Fale com a CASSI | Central 0800 729 0080;33.719.485/0032- 23;de 2ª a 6ª feira, das 8h às 18h.;;"1. Atenção Primária à Saúde – APS
+a. Cuidado de saúde realizado pelos profissionais: médico, enfermeiro e técnico de enfermagem;
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração e Assistência Farmacêutica – PAF).
+2. Perícia Médica;
+3. Saúde do trabalhador (a).";1. Administração de Medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica. 2. Administração de oxigênio por catéter nasal / Máscara de Venturi. 3. Aplicação de compressa quente. 4. Avaliação do pé diabético. 5. Cateterismo Vesical de Alívio. 6. Coleta de urina para realização de EAS/Urocultura em participantes que demandem ou façam uso de algum tipo de cateterismo vesical. 7. Coleta para exame citopatológico cérvico-vaginal. 8. Controle/Aferição sinais vitais e antropometria. 9. Curativo em Ferida simples. 10. Eletrocardiografia. 11. Excisão e/ou sutura simples de pequenas lesões/ferimentos da pele anexos e mucosa. 12. Incisão e drenagem de abcessos. 13. Lavagem otológica e remoção de cerume. 14. Nebulização/inalação. 15. Realização de teste de glicemia capilar. 16. Retirada de Dermatobiose Penetrans (Berne ou Miíase). 17. Retirada de pontos. 18. Tamponamento de epistaxe. 19. Tratamento/cuidado de queimaduras (exceto grandes queimados). 20. Colocação de imobilização provisória (colar cervical e tipoia).;;;;Fátima Maria Silva Pires;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Montes Claros;Rua São Sebastião, nº 150, Todos os Santos, Montes Claros (MG) – CEP: 39400-120;MG;(38) 3441-0935;Fale com a CASSI | Central 0800 729 0080;33.719.485/0033-04;de 2ª a 6ª feira, das 8h às 18h;;"1. Atenção Primária à Saúde – APS
+a.Cuidado de saúde realizado pelos profissionais: médico e enfermeiro;
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração e Assistência Farmacêutica – PAF).
+2. Perícia Médica;
+3. Saúde do trabalhador (a).";1. Administração de Medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica. 2. Administração de oxigênio por catéter nasal / Máscara de Venturi. 3. Aplicação de compressa quente. 4. Avaliação do pé diabético. 5. Cateterismo vesical de demora (passagem/troca, incluindo em cistostomia) / Troca de sonda de Folley. 6. Cateterismo Vesical de Alívio. 7. Coleta de urina para realização de EAS/Urocultura em participantes que demandem ou façam uso de algum tipo de cateterismo vesical. 8. Controle/Aferição sinais vitais e antropometria. 9. Curativo em Ferida simples. 10. Eletrocardiografia. 11. Nebulização/inalação. 12. Realização de teste de glicemia capilar. 13. Remoção de molusco contagioso. 14. Retirada de Dermatobiose Penetrans (Berne ou Miíase). 15. Retirada de pontos. 16. Retirada de Tunga Penetrans (Bicho de Pé). 17. Tratamento/cuidado de queimaduras (exceto grandes queimados).;;;;;Gladiston Hercules Viana de Souza;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Uberaba;Rua Cunha Campos, nº 83, Nossa Senhora da Abadia, Uberaba (MG) – CEP: 38025-020;MG;(34) 3311-1430;Fale com a CASSI | Central 0800 729 0080;33.719.485/0062-49;de 2ª a 6ª feira, das 7h às 17h;;"1. Atenção Primária à Saúde – APS
+a.Cuidado de saúde realizado pelos profissionais: médico e enfermeiro;
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração e Assistência Farmacêutica – PAF).
+2. Perícia Médica;
+3. Saúde do trabalhador (a).";1. Administração de Medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica. 2. Administração de oxigênio por catéter nasal / Máscara de Venturi. 3. Aplicação de compressa quente. 4. Avaliação do pé diabético. 5. Coleta de urina para realização de EAS/Urocultura em participantes que demandem ou façam uso de algum tipo de cateterismo vesical. 6. Controle/Aferição sinais vitais e antropometria. 7. Curativo em Ferida simples. 8. Eletrocardiografia. 9. Nebulização/inalação. 10. Realização de teste de glicemia capilar. 11. Retirada de pontos. 12. Tratamento/cuidado de queimaduras (exceto grandes queimados).;;;;;Cirlene Alves da Silva;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Uberlândia;Rua Arthur Bernardes, nº 240, Martins, Uberlândia (MG) –  CEP: 38400-368;MG;(34) 2512-3693;Fale com a CASSI | Central 0800 729 0080;33.719.485/0034-95;de 2ª a 6ª feira, das 7 às 18h;;"1. Atenção Primária à Saúde – APS
+a.Cuidado de saúde realizado pelos profissionais: médico e enfermeiro;
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração e Assistência Farmacêutica – PAF).
+2. Perícia Médica;
+3. Saúde do trabalhador (a).";1. Administração de Medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica. 2. Administração de oxigênio por catéter nasal / Máscara de Venturi. 3. Aplicação de compressa quente. 4. Avaliação do pé diabético. 5. Coleta de urina para realização de EAS/Urocultura em participantes que demandem ou façam uso de algum tipo de cateterismo vesical. 6. Controle/Aferição sinais vitais e antropometria. 7. Curativo em Ferida simples. 8. Eletrocardiografia. 9. Excisão e/ou sutura simples de pequenas lesões/ferimentos da pele anexos e mucosa. 10. Nebulização/inalação. 11. Realização de teste de glicemia capilar. 12. Remoção de molusco contagioso. 13. Retirada de Dermatobiose Penetrans (Berne ou Miíase). 14. Retirada de pontos. 15. Retirada de Tunga Penetrans (Bicho de Pé). 16. Tratamento/cuidado de queimaduras (exceto grandes queimados).;;;;;Patrícia da Conceição Neves;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Campos dos Goytacazes;Avenida Treze de Maio, nº 286, sala nº 401, edifício Medical Center, centro, Campos dos Goytacazes (RJ) – CEP: 28010-260;RJ;(22) 3513-1484;Fale com a CASSI | Central 0800 729 0080;33.719.485/0066-72;de 2ª a 6ª feira, das 8h às 18h;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico e enfermeiro;
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Saúde Mental, Assistência Farmacêutica – PAF, Gerenciamento de Condições Crônicas – GCC, e Atenção Domiciliar).
+2. Saúde do Trabalhador (a).
+3. Demandas administrativas.";1. Administração de Medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica.  2. Aplicação de compressa quente.  3. Avaliação do pé diabético.  4. Controle/Aferição sinais vitais e antropometria.  5. Curativo em Ferida simples.  6. Eletrocardiografia.  7. Imobilização Provisória (colar cervical e tipoia).  8. Realização de teste de glicemia capilar.  9. Retirada de pontos.  10. Tamponamento de Epistaxe.;;;;;Mileidy Ferreira Fernandes;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Copacabana;Av. Atlântica – Copacabana, Rio de Janeiro (RJ)​ – CEP: 22021-000;RJ;(21) 2545-1150;Fale com a CASSI | Central 0800 729 0080;33.719.485/0004-70;de 2ª a 6ª feira, das 8h às 19h;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico, enfermeiro, técnico de enfermagem e equipe multiprofissional (nutricionista, psicólogo e farmacêutica);
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Saúde Mental, Assistência Farmacêutica – PAF, Gerenciamento de Condições Crônicas – GCC e Atenção Domiciliar).
+c. Programas de Saúde (Bem Viver, Plena Idade, Saúde Mental, Assistência Farmacêutica – PAF, Gerenciamento de Condições Crônicas – GCC, Atenção Domiciliar e Saúde Mental).
+2. Especialidades que apoiam a equipe APS: psiquiatra, cardiologista, endocrinologista, pediatra, geriatra e ginecologista.3. Perícias médicas.
+4. Saúde do Trabalhador (a).
+5. Demandas administrativas.";1. Administração de Imunobiológico subcutâneo.  2. Administração de Medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica.  3. Administração de oxigênio por catéter nasal / Máscara de Venturi.  4. Aplicação de compressa quente.  5. Avaliação do pé diabético.  6. Cateterismo de alívio e Vesical de Demora (Passagem/troca, incluindo em cistotomia).  7. Cauterização química de pequenas lesões de pele e mucosa.  8. Coleta de urina para realização de EAS / Urocultura em participantes que demandem ou façam uso de algum tipo de cateterismo vesical.  9. Coleta para exame citopatológico cérvico-vaginal.  10. Controle/Aferição sinais vitais e antropometria.  11. Curativo em Ferida simples.  12. Eletrocardiografia.  13. Estesiometria.  14. Excisão de lesão e/ou sutura de ferimentos da pele, anexos e mucosas.  15. Imobilização Provisória (colar cervical e tipoia).  16. Incisão e drenagem de abcessos.  17. Lavagem auditiva e remoção de cerume.  18. Nebulização/inalação.  19. Realização de teste de glicemia capilar.  20. Retirada de pontos.  21. Retirada de Tunga Penetrans (Bicho de pé).  22. Tratamento/cuidado de queimaduras (exceto grandes queimados).  23. Troca de bolsa de colostomia / ileostomia.  24. Retirada de Dermatobiose Penetrans (Berne ou Miíase).  25. Avaliação do Risco Cirúrgico.;;;;Lara de Lima Gloria;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Niterói;Rua Xv De Novembro, 90, Lojas 101 E 102, Ed. Global Offices, Niterói (RJ) – CEP: 24020-125;RJ;(21) 2173-3280​;Fale com a CASSI | Central 0800 729 0080;33.719.485/0059-43;de 2ª a 6ª feira, das 8h às 18h;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico, enfermeiro, técnico de enfermagem e nutricionista;
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Saúde Mental, Assistência Farmacêutica – PAF, Gerenciamento de Condições Crônicas – GCC e Atenção Domiciliar).
+2. Especialidades que apoiam a equipe APS: Psiquiatra (1 x semana).
+3. Saúde do Trabalhador (a).
+4.Perícias médicas.
+5. Demandas administrativas.";"1. Administração de Medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica;  2. Aplicação de compressa quente; 3. Avaliação do pé diabético; 4. Cateterismo de alívio; 5. Cateterismo Vesical de Demora (Passagem/troca, incluindo em cistotomia); 6. Cauterização química de pequenas lesões de pele e mucosa;  7. Coleta de urina para realização de EAS / Urocultura em participantes que demandem ou façam uso de algum tipo de cateterismo vesical;  8. Coleta para exame citopatológico cérvico-vaginal (papanicolau);  9. Controle/Aferição sinais vitais e antropometria;  10. Curativo em Ferida simples/;  11. Eletrocardiografia; 12. Estesiometria;  13. Excisão de lesão e/ou sutura de ferimentos da pele, anexos e mucosas;  14. Imobilização Provisória (colar cervical e tipoia);  15. Lavagem auditiva e remoção de cerume;  16. Nebulização/inalação; 17. Realização de teste de glicemia capilar;  18. Retirada de pontos;  19. Tamponamento de Epistaxe;  20. Troca de bolsa de colostomia / ileostomia;  21. Administração de Oxigênio;  22. Tratamento/cuidado de queimaduras (exceto grande queimado); 23. Avaliação do risco Cirúrgico.";;;;Fabricia Oliveira Marques das Chagas;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Tijuca;Rua General Rocca, nº 836, 2º andar, Tijuca, Rio de Janeiro (RJ) – CEP: 20521-070;RJ;(21) 3238-9150;Fale com a CASSI | Central 0800 729 0080;33.719.485/0056-09​;de 2ª a 6ª feira, das 8h às 18h;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico, enfermeiro, técnico de enfermagem e equipe multiprofissional ( nutricionista, psicólogo e farmacêutica);
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Saúde Mental, Assistência Farmacêutica – PAF, Gerenciamento de Condições Crônicas – GCC e Atenção Domiciliar).
+2. Especialidades que apoiam a equipe APS: Gineologista e psiquiatra (endocrinologista e cardiologista 1 x semana).
+3. Perícias médicas.
+4. Saúde do Trabalhador (a).
+5. Demandas administrativas.";1. Avaliação de Risco Cirúrgico.  2. Administração de imunobiológico subcutâneo.  3. Administração de Medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica.  4. Administração de oxigênio por catéter nasal / Máscara de Venturi.  5. Aplicação de compressa quente.  6. Avaliação do pé diabético.  7. Cateterismo de alívio.  8. Cateterismo Vesical de Demora (Passagem/troca, incluindo em cistotomia).  9. Cauterização química de pequenas lesões de pele e mucosa.  10. Coleta de urina para realização de EAS / Urocultura em participantes que demandem ou façam uso de algum tipo de cateterismo vesical.  11. Coleta para exame citopatológico cérvico-vaginal.  12. Controle/Aferição sinais vitais e antropometria.  13. Curativo em Ferida simples.  14. Eletrocardiografia.  15. Estesiometria.  16. Excisão de lesão e/ou sutura de ferimentos da pele, anexos e mucosas.  17. Imobilização Provisória (colar cervical e tipoia).  18. Inserção e remoção de DIU.  19. Lavagem auditiva e remoção de cerume.  20. Nebulização/inalação.  21. Realização de teste de glicemia capilar.  22. Remoção de molusco contagioso.  23. Retirada de Dermatobiose Penetrar (Berne ou Miiase).  24. Retirada de pontos.  25. Retirada de Tunga Penetrans (Bicho de pé).  26. Tamponamento de Epistaxe.  27. Tratamento/cuidado de queimaduras (exceto grandes queimados).  28. Troca de bolsa de colostomia / ileostomia.  29. Cauterização química de pequenas lesões de pele e mucosa.;;;;Gabriela Teixeira Mota​​​;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Petrópolis;Rua do Imperador, nº 288, sala nº 903, centro, Petrópolis (RJ) – CEP: 25620-000;RJ;(24) 2233-7800;Fale com a CASSI | Central 0800 729 0080;33.719.485/0073-00;de 2ª a 6ª feira, das 8h às 18​h;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico e enfermeiro;
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Saúde Mental, Assistência Farmacêutica – PAF, Gerenciamento de Condições Crônicas – GCC e Atenção Domiciliar).
+2. Saúde do Trabalhador (a).
+3. Demandas administrativas.";"1. Administração de Medicamentos por via oral, intramuscular, endovenosa, subcutânea e tópica;  2. Aplicação de compressa quente;  3. Avaliação do pé diabético;  4. Coleta de exame citopatológico cérvico-vaginal;  5. Controle/Aferição sinais vitais e antropometria;  6. Curativo em Ferida Simples; 7. Eletrocardiografia (sem laudo); 8. Estesiometria;  9. Imobilização Provisória (colar cervical e tipoia);  10. Realização de teste de glicemia capilar;  11. Retirada de pontos;  12. Tamponamento de Epistaxe.";;;;;Karine Viana Almeida;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+Unidade Rio de Janeiro​;Av. República do chile, 500, 25º andar – Ed. Rio Metropolitan Center – Centro – CEP: 20031-170;RJ;(21) 3861-1700;Fale com a CASSI | Central 0800 729 0080;33.719.485/0019-56;de 2ª a 6ª feira, das 8h às 18h​​;;;;;Para atendimento relacionado aos serviços administrativos, utilize exclusivamente os canais oficiais da CASSI: Central 0800 729 0080, Fale com a CASSI, site ou app CASSI.;Andréa Cristiane Borb​;;;"Coordenadora do Núcleo Administrativo – Natan Oliveira Guimarães
+Gerente de Divisão de Atenção à Saude – Lindenberg Jean da Silva
+​Gerente de Divisão de Relacionamento com Mercado – Raquel Santos Haddad Pinto Moreira
+Gerente de Relacionamento com o Participante – Cintia Silva da Costa
+Gerente de Negociação com Prestadores – Fernando dos Santos Torres 
+Gerente de Regulação – Debora Pereira Barboza";;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+Unidade Cassi São Paulo;Avenida do Café, nº 277, 5º andar, Vila Guarani, São Paulo (SP) CEP: 04311-900;SP;;Fale com a CASSI | Central 0800 729 0080;33.719.485/0018-75;de 2ª a 6ª feira, das 8 às 18h.;;;;;Para atendimento relacionado aos serviços administrativos, utilize exclusivamente os canais oficiais da CASSI: Central 0800 729 0080, Fale com a CASSI, site ou app CASSI.;Marcelo Callai Costa Beber;;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Sã​​o Paulo ABC;Rua das Palmeiras, nº530, Bairro Jardim, Santo André (SP) – CEP 09080-160;SP;(11) 4501-3810​;Fale com a CASSI | Central 0800 729 0080;33.719.485.0047-00;de 2ª a 6ª feira, das 8h às 18h;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico, enfermeiro, técnico de enfermagem e equipe multiprofissional (nutricionista);
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Especialidades que apoiam a equipe de APS: Cardiologista.
+3. Saúde do Trabalhador (a).";"1. Administração de Medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica. 2. Administração de oxigênio por catéter nasal / Máscara de Venturi. 3. Aplicação de compressa quente. 4. Colocação de imobilização provisória (colar cervical e tipoia). 5. Curativo em Ferida simples. 6. Lavagem auditiva e remoção de cerume. 7. Nebulização/inalação;Retirada de Dermatobiose Penetrar (Berne ou Miiase). 8. Remoção de molusco contagioso. 9. Retirada de pontos. 10. Retirada de Tunga Penetrans (Bicho de pé). 11. Suporte Básico de Vida – SBV. 12. Tamponamento de Epistaxe. 13. Tratamento/cuidado de queimaduras (exceto grandes queimados). 14. Avaliação do pé diabético. 15. Troca de bolsa de colostomia / ileostomia. 16. Coleta para exame citopatológico cérvico-vaginal. 17. Controle/Aferição sinais vitais e antropometria. 18. Eletrocardiografia. 19. Realização de teste de glicemia capilar. 20. Coleta de urina para realização de EAS / Urocultura em participantes que demandem ou façam uso de algum tipo de cateterismo vesical. 21. Retirada/remoção de corpo estranho em diferentes tecidos, mucosas e peças anatômicas. 22. Inserção e retirada de DIU (Dipsositivo Intra Uterino). 23. Retirada de Implanon (Contraceptivo de longa duração).";;;;Elaine Cristina de Oliveira;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Jabaquara;Avenida do Café, n° 277, térreo, Vila Guarani, São Paulo (SP) CEP: 04311-900​​;SP;(11) 2126-1500;Fale com a CASSI | Central 0800 729 0080;33.719.485/0018-75;de 2ª a 6ª feira, das 7 às 19h e sábado, das 7 às 12h;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: Médico, Nutricionista, Assistente Social, Psicólogo, Enfermeiro, Técnico de Enfermagem e Equipe Multiprofissional (Farmacêutica, Nutricionista, Psicólogo e Assistente Social);
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Especialidades que apoiam a equipe de APS: Cardiologista, Endocrinologista, Pediatra, Ginecologista, Psiquiatra e Geriatria.
+3. Exame laboratorial.
+4. Saúde do Trabalhador (a).
+5. Perícia Médica.
+6. Administração de imunobiológicos elegíveis para serem aplicados na CliniCASSI (consultar junto a sua equipe da CliniCASSI quais imunobiológicos elegíveis).";"1. Curativo em Ferida simples. 2. Administração de Medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica. 3. Administração de oxigênio por catéter nasal / Máscara de Venturi. 4. Aplicação de compressa quente. 5. Colocação de imobilização provisória (colar cervical e tipoia). 6. Drenagem de hematoma subungueal. 7. Excisão de lesão e/ou sutura de ferimentos da pele, anexos e mucosas.8. Incisão e drenagem de abcessos. 9. Lavagem auditiva e remoção de cerume.10. Nebulização/inalação. 11. Retirada de Dermatobiose Penetrar (Berne ou Miiase). 12. Retirada de pontos; 13. Retirada de Tunga Penetrans (Bicho de pé).  14. Tamponamento de Epistaxe.  15. Tratamento/cuidado de queimaduras (exceto grandes queimados).  16. Avaliação do pé diabético.  17. Troca de bolsa de colostomia /Ileostomia.  18. Coleta de urina para realização de EAS / Urocultura em participantes que demandem ou façam uso de algum tipo de cateterismo vesical.  19. Cateterismo Vesical de Alívio.  20. Cateterismo Vesical de demora (Passagem/Troca, incluindo em cistostomia)/troca de sonda de Folley.  21. Coleta para exame citopatológico cérvico-vaginal.  22. Controle/Aferição sinais vitais e antropometria.  23. Eletrocardiografia.  24. Realização de teste de glicemia capilar.  25. Retirada/remoção de corpo estranho em diferentes tecidos, mucosas e peças anatômicas.  26. Remoção de Molusco contagioso. 27. Inserção e retirada de DIU (Dipositivo Intra Uterino).";;;Marcelo Callai Costa Beber;Fernanda Ribeiro Ferreira​​;;"Coordenador de Equipe Administrativa – Robson Luis de Souza Inacio
+Gerente da Divisão de Relacionamento com o Mercado – Pedro Vicente da Cruz Jung
+Gerente da Regulação – Patricia Barbosa Lucchesi
+Gerente da Negociação e Relacionamento com Prestador – Aline Rosa da Silva
+Gerente da Negociação e Relacionamento com Participante – Allan dos Santos Rocha
+Gerente da Divisão de Atenção à Saúde – Maria Luiza Feitoza Souza
+Gerente da Divisão de Atenção à Saúde – Isabel Pizani de Souza
+Gerente da Saúde Ocupacional – Amanda de Padua Fleury
+";;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI São Paulo Leste;Rua Serra de Botucatu, nº1455, Tatuapé, São Paulo (SP) – CEP: 03317-001;SP;(11) 4501-1240;Fale com a CASSI | Central 0800 729 0080;33.719.485.0046-29;de 2ª a 6ª feira, das 8h às 18h;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico, enfermeiro, técnico de enfermagem e equipe multiprofissional (nutricionista);
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Especialidades que apoiam a equipe de APS: Pediatra e Ginecologista.
+3. Saúde do Trabalhador (a).";1. Administração de Medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica.  2. Administração de oxigênio por catéter nasal / Máscara de Venturi.  3. Aplicação de compressa quente.  4. Curativo em Ferida simples.  5. Tamponamento de Epistaxe.  7. Cateterismo Vesical de Alívio.  8. Cateterismo Vesical de Demora (Passagem/troca, incluindo em cistotomia) / Troca de sonda de Folley.  9. Colocação de imobilização provisória (colar cervical e tipoia).  10. Excisão de lesão e/ou sutura de ferimentos da pele, anexos e mucosas.  11. Incisão e drenagem de abcessos.  12. Lavagem auditiva e remoção de cerume.  13. Nebulização/inalação.  14. Remoção de molusco contagioso.  15. Retirada de Dermatobiose Penetrans (Berne ou Miiase).  16. Retirada de pontos.  17. Retirada de Tunga Penetrans (Bicho de pé).  18. Tratamento/cuidado de queimaduras (exceto grandes queimados).  19. Avaliação do pé diabético.  20.Troca de bolsa de colostomia /Ileostomia. 21. Coleta para exame citopatológico cérvico-vaginal.  22. Controle/Aferição sinais vitais e antropometria.  23. Eletrocardiografia.  24. Realização de teste de glicemia capilar. 25. Inserção e retirada de DIU (Dipsositivo Intra Uterino). 26. Retirada de Implanon (Contraceptivo de longa duração). 27. Prova do laço. 28. Orientação e apoio para a ordenha do leite materno.;;;;Carla Aparecida Padron;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI São Paulo Norte;Rua Dr. Olavo Egídio, nº 287, 2º andar, Santana, São Paulo (SP) – CEP: 02.037-000;SP;(11) 4501-1270;Fale com a CASSI | Central 0800 729 0080;33.719.485/0048-90;de 2ª a 6ª feira, das 8h às 18h;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico, enfermeiro, técnico de enfermagem e equipe multiprofissional (assistente social);
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c.Programas de Saúde (Bem Viver, Plena Idade, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Especialidade que apoia a equipe de APS: Endocrinologista.
+3. Saúde do Trabalhador (a).";"1. Nebulização/inalação; 2. Retirada de pontos; 3. Coleta de exame citopatológico cérvico-vaginal; 4. Realização de teste de glicemia capilar; 5. Administração de Medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica; 6. Curativo em Ferida simples; 7. Drenagem de hematoma subungueal; 8. Excisão de lesão e/ou sutura de ferimentos da pele, anexos e mucosas; 9. Incisão e drenagem de abcessos; 10. Lavagem auditiva e remoção de cerume; 11. Tamponamento de Epistaxe; 12. Avaliação do pé diabético; 13. Controle/Aferição sinais vitais e antropometria; 14. Eletrocardiografia; 15. Retirada/remoção de corpo estranho em diferentes tecidos, mucosas e peças anatômicas; 16. Inserção e remoção de DIU (Dispositivo Intra Uterino).";;;;Danielly Kaline de Medeiros Lima Sales;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Av. Paulista;"Avenida Paulista, 500 – Bela Vista, 7º andar, 
+São Paulo – SP, 01310-000";SP;(11) 4501-2280;Fale com a CASSI | Central 0800 729 0080;33.719.485/0058-62;de 2ª a 6ª feira, das 8h às 18h;;"1. Atenção Primaria à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico, enfermeiro, técnico de enfermagem;
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Especialidades que apoiam a equipe de APS: Pediatra, Cardiologista e Psiquiatra.
+3. Saúde do Trabalhador (a).";1. Administração de Medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica. 2. Curativo em Ferida simples. 3. Excisão de lesão e/ou sutura de ferimentos da pele, anexos e mucosas. 4. Incisão e drenagem de abcessos. 5. Lavagem auditiva e remoção de cerume. 6. Retirada de pontos. 7. Tamponamento de Epistaxe. 8. Tratamento/cuidado de queimaduras (exceto grandes queimados). 9. Avaliação do pé diabético. 10. Coleta para exame citopatológico cérvico-vaginal. 11. Eletrocardiografia. 12. Controle/Aferição sinais vitais e antropometria. 13. Realização de teste de glicemia capilar. 14. Inserção e remoção de DIU (Dispositivo Intra Uterino). 15. Nebulização/inalação. 16. Avaliação do Risco Cirúrgico.;;;;Ana Paula Alves Senise;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Araçatuba;Rua Marconi,  nº125, Bairro Higienópolis, Araçatuba (SP) – CEP: 16010-645;SP;(18) 3175-3300;Fale com a CASSI | Central 0800 729 0080;33.719.485/0051-96;de 2ª a 6ª feira, das 8h às 18h;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico, enfermeiro;
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Saúde do Trabalhador (a).";1. Administração de Medicamentos por via oral. 2. Administração de oxigênio por catéter nasal / Máscara de Venturi.  3. Curativo em Ferida simples.  4. Lavagem auditiva e remoção de cerume.  5. Retirada de pontos.  6. Retirada de Tunga Penetrans (Bicho de pé).  7. Tratamento/cuidado de queimaduras (exceto grandes queimados).  8. Troca de bolsa de colostomia / ileostomia.  9. Avaliação do pé diabético.  10. Coleta para exame citopatológico cérvico-vaginal.  11. Controle/Aferição sinais vitais e antropometria.  12. Realização de teste de glicemia capilar.;;;;;Ana Paula Teixeira da Silva;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Bauru;Rua: Aviador Gomes Ribeiro, nº 16-48, Bairro Santa Tereza Bauru (SP) – CEP 17012-010;SP;(14) 3161-0735;Fale com a CASSI | Central 0800 729 0080;33.719.485 0049-71;de 2ª a 6ª feira, das 8h às 18h;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: Médico e enfermeira Supervisora;
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Saúde do Trabalhador (a).";1. Administração de Medicamentos por via oral. 2. Curativo em Ferida simples. 3. Incisão e drenagem de abcessos. 4. Lavagem auditiva e remoção de cerume. 5. Retirada de pontos. 6. Tratamento/cuidado de queimaduras (exceto grandes queimados). 7. Avaliação do pé diabético. 8. Coleta para exame (citopatológico cérvico-vaginal). 9. Controle/Aferição sinais vitais e antropometria. 10. Eletrocardiograma sem laudo. 11. Realização de teste de glicemia capilar. 12. Orientação de enfermagem na amamentação e nos cuidados com recém-nascido.;;;;;Josiane Cristina Balani Villa;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Campinas;Avenida José de Souza Campos, nº 2021, 1º ao 3º andar, Nova Campinas, Campinas (SP) – CEP:​ 13025-320;SP;(19) 2127-6900;Fale com a CASSI | Central 0800 729 0080;33.719.485/0002-08;de 2ª a 6ª feira, das 8h às 18h​;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico, enfermeiro, técnico de enfermagem e equipe multiprofissional (Nutricionista e Assistente Social);
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Saúde do Trabalhador (a).";1. Administração de Medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, subcutânea e tópica.  2. Administração de oxigênio por catéter nasal / Máscara de Venturi.  3. Curativo em Ferida simples.  4. Excisão de lesão e/ou sutura de ferimentos da pele, anexos e mucosas.  5. Incisão e drenagem de abcessos.  6. Nebulização/inalação.  7. Retirada de pontos.  8. Eletrocardiograma sem laudo  9. Tamponamento de Epistaxe.  10. Tratamento/cuidado de queimaduras (exceto grandes queimados).  11. Troca de bolsa de colostomia / ileostomia.  12. Avaliação do pé diabético.  13. Controle/Aferição sinais vitais e antropometria.  14. Realização de teste de glicemia capilar.  15 Colocação, retirada e troca de DIU. 16. Aplicação de compressa quente. 17. Orientação e apoio para a ordenha do leite materno 18. Oximetria 19 . Pequenas suturas com anestesia local 20. Prova do laço 21. Retirada de Dermatobiose Penetrans (Berne ou Miíase). 22. Coleta de Papanicolau 23. Exame de Bioimpedância.;;;;Nara Leticia Pedroso Ramos Rodrigues;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Piracicaba;Rua do Rosário, nº153, Centro, Piracicaba (SP) – CEP: 13400-180;SP;(19) 3052-0181;Fale com a CASSI | Central 0800 729 0080;33.719.485/0075-63;de 2ª a 6ª feira, das 8h às 18h;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico, enfermeiro;
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Saúde do Trabalhador (a).";1. Administração de Medicamentos por via oral. 2. Administração de oxigênio por catéter nasal / Máscara de Venturi. 3. Curativo em Ferida simples. 4. Lavagem auditiva e remoção de cerume. 5. Nebulização/inalação. 6. Retirada de pontos. 7. Retirada de Tunga Penetrans (Bicho de pé). 8. Tratamento/cuidado de queimaduras (exceto grandes queimados). 10. Troca de bolsa de colostomia / ileostomia. 11. Avaliação do pé diabético. 12. Coleta para exame citopatológico cérvico-vaginal. 13. Controle/Aferição sinais vitais e antropometria. 14. Eletrocardiografia sem laudo. 15. Realização de teste de glicemia capilar. 16. Oximetria 17. Incisão e drenagem de abcesso 18. Prova de laço 19. Retirada de Dermatobiose Penetrans (Berne ou Miíase). 20. Controle do Diabetes 21. Controle da Hipertensão Arterial 22. Controle das doenças da Tireoide.;;;;;Gyullyanna Lebrank Martins de Souza Lima;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Ribeirão Preto;Av: Cel. Fernando Ferreira Leite, nº1520, 4º Andar,  Jardim Nova Aliança, Ribeirão Preto (SP) – CEP: 14026-020;SP;(16) 2138-5980;Fale com a CASSI | Central 0800 729 0080;33.719.485/0035-76;de 2ª a 6ª feira, das 8h às 18h;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico, enfermeiro, técnico de enfermagem e equipe multiprofissional (psicólogo);
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Exame laboratorial.
+3. Saúde do Trabalhador (a).";1. Administração de oxigênio por catéter nasal / Máscara de Venturi. 2. Aferição de frequência respiratória e cardíaca 3. Aferição de peso, altura, circunferência abdominal e cálculo do IMC 4. Aferição de pressão arterial 5. Aferição de pulso 6. Aferição de temperatura corporal 7. Aplicação de compressa quente. 8. Ausculta dos batimentos cardiofetais com o Detector Fetal na consulta obstétrica 9. Avaliação do Pé Diabético com Monofilamentos 10. Avaliação do Risco Cirúrgico. 11. Cateterismo de alívio. 12. Cateterismo Vesical de Demora (Passagem/troca, incluindo em cistotomia). 13. Cauterização química de pequenas lesões de pele e mucosa. 14. Coleta de Papanicolau (citopatológico cérvico-vaginal) 15. Coleta de urina para realização de EAS / Urocultura em participantes que demandem ou façam uso de algum tipo de cateterismo vesical. 17. Curativos 18. Eletrocardiograma 19. Exame clínico das mamas 20. Exame de Fundo de Olho (fundoscopia) 21. Glicemia capilar em participantes DM insulinodependentes ou aqueles que necessitem, de acordo com a condição momentânea de saúde 22. Implante e retirada de DIU 23. Incisão e drenagem de abcessos. 24. Lavagem Otológica e Remoção de Cerume 25. Manobra de Reposicionamento no Tratamento da Vertigem (Manobra de Epley) 26. Medicações prescritas pelo médico de família, médico de demanda espontânea ou externos por vias: intramuscular, subcutânea, endovenosa, oral, sublingual, nasal, otológica 27. Medida da força e preensão da mão usando o Adipômetro 28. Nebulização / Inalação 29. Orientação e apoio para a ordenha do leite materno 30. Oximetria 31. Pequenas suturas com anestesia local 32. Prova do laço 33. Retirada de Dermatobiose Penetrans (Berne ou Miíase). 34. Retirada de pontos 35. Retirada de Tunga Penetrans (Bicho de pé). 36. Teste de Acuidade Visual (Tabela de Snellen) 38. Tratamento/cuidado de queimaduras (exceto grandes queimados). 39. Troca de bolsa de colostomia / ileostomia.;;;;Sandra Teclo Marques;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Santos;Rua Marcilio Dias, nº 27, 6º andar, Praia do Gonzaga,  Santos (SP) – CEP : 11060-210;SP;(13) 2101–3811;Fale com a CASSI | Central 0800 729 0080;33.719.485/0045-48;de 2ª a 6ª feira, das 8h às 18h;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico, enfermeiro, técnico de enfermagem e equipe multiprofissional (psicólogo);
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Saúde do Trabalhador (a).";1. Administração de oxigênio por catéter nasal 2. Aferição de frequência respiratória e cardíaca 3. Aferição de peso, altura, circunferência abdominal e cálculo do IMC 4. Aferição de pressão arterial 5. Aferição de Frequência Cardíaca (pulso) e Frequência Respiratória 6. Aferição de temperatura corporal 7. Aplicação de compressa quente e fria 8. Ausculta dos batimentos cardíacos fetais com o Detector Fetal. 9. Avaliação do Pé Diabético com Monofilamentos 10. Cateterismo de alívio. 11. Cateterismo Vesical de Demora (Passagem/troca). 12. Cauterização química de pequenas lesões de pele e mucosa. 13. Coleta de Preventivo (citopatológico cérvico-vaginal) 14. Curativos em feridas simples. 15. Eletrocardiograma sem laudo. 16. Exame clínico das mamas. 17. Implante e retirada de DIU 18. Incisão e drenagem de abcessos. 19. Lavagem Otológica e Remoção de Cerume 20. Manobra de Reposicionamento no Tratamento da Vertigem (Manobra de Epley) 21. Medicações prescritas pelo médico de família, médico de demanda espontânea ou externos por vias: intramuscular, subcutânea, endovenosa, oral, sublingual, nasal, otológica 22. Medida da força e preensão da mão usando o Adipômetro 23. Nebulização / Inalação 24. Orientação e apoio para a ordenha do leite materno 25. Oximetria 26. Pequenas suturas com anestesia local 27. Prova do laço 28. Retirada de Dermatobiose Penetrans (Berne ou Miíase). 29. Retirada de pontos 30. Retirada de Tunga Penetrans (Bicho de pé). 31. Glicemia capilar em participantes DM insulinodependentes ou aqueles que necessitem, de acordo com a condição momentânea de saúde. 32. Teste de Acuidade Visual (Tabela de Snellen) 33. Tratamento/cuidado de queimaduras (exceto grandes queimados). 34. Troca de bolsa de colostomia / ileostomia. 35. Realização de Acupuntura para queixas agudas. 36. Realização de Agulhamento à seco miofascial para queixas agudas.;;;;Marcela Matvijc De Araujo​;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI São José dos Campos;Rua Esperança, nº 282, 3º andar, sala 36, esquina com a Avenida Adhemar de Barros, Vila Adyanna, São José dos Campos (SP) – CEP: 12243-700;SP;(12) 3512-0025;Fale com a CASSI | Central 0800 729 0080;33.719.485/0053-58;de 2ª a 6ª feira, das 8h às 18h;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico, enfermeiro;
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Saúde do Trabalhador (a).";1. Controle/Aferição sinais vitais e antropometria.  2. Realização de teste de glicemia capilar.  3. Avaliação do pé diabético. ;;;;;Renata Barros Ramos;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI São José do Rio Preto;Rua Piracicaba, nº 1850, Santos Dumont, São José do Rio Preto (SP) – CEP: 15020-120;SP;(17) 3512-4060;Fale com a CASSI | Central 0800 729 0080;33.719.485/0040-33;de 2ª a 6ª feira, das 8h às 17h;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico, enfermeiro;
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Saúde do Trabalhador (a).";1. Lavagem auditiva e remoção de cerume.  2. Retirada de pontos. 3. Avaliação do pé diabético.  4. Controle/Aferição sinais vitais e antropometria.  5. Eletrocardiografia sob demanda dos médicos da CliniCASSI.  6. Realização de teste de glicemia capilar.  7. Administração de Medicamentos por via oral.  8. Curativo em Ferida simples.  9. Aplicação de compressa quente.  10. Tratamento/cuidado de queimaduras (exceto grandes queimados).;;;;;Gisela Bomfim Bolzon;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Sorocaba;Rua Eulália Silva, nº 243, Jardim Faculdade, Sorocaba (SP) – CEP: 18030-230;SP;(15) 3010-1520    ;Fale com a CASSI | Central 0800 729 0080;33.719.485/0052-77;de 2ª a 6ª feira, das 8h às 18h​;;"1. Atenção Primaria à saude (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico, enfermeiro;
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Saúde do Trabalhador (a).";1. Curativo em Ferida simples. 2. Incisão e drenagem de abcessos. 3 Lavagem auditiva e remoção de cerume. 4. Retirada de pontos. 5. Tratamento/cuidado de queimaduras (exceto grandes queimados). 6. Avaliação do pé diabético. 7. Coleta para exame citopatológico cérvico-vaginal. 8. Controle/Aferição sinais vitais e antropometria. 9. Realização de teste de glicemia capilar.;;;;;Cláudia Souza de Paula;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Curitiba;"Rua Mateus Leme, nº 937, Bairro: São Francisco,
+Curitiba (PR) – CEP 80510-192";PR;(41) 3219-9500;Fale com a CASSI | Central 0800 729 0080;33.719-485/0021-70;2ª a 6ª feira, das 7h30h às 19h.;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico, enfermeiro, técnico de enfermagem e equipe multiprofissional (assistente social, nutricionista, psicólogo e farmacêutica);
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Especialidades que apoiam a equipe de APS: Cardiologista, Pediatra, Endocrinologista, Ginecologista e Psiquiatria.
+3. Exame laboratorial.
+4. Saúde do Trabalhador (a).
+5. Perícia Médica.
+6. Administração de imunobiológicos elegíveis para serem aplicados na CliniCASSI (consultar junto a sua equipe da CliniCASSI quais imunobiológicos elegíveis).";1. Administração de Medicamentos Imunobiológicos Subcutâneos 2. Administração de Medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica. 3. Administração de oxigênio por catéter nasal / Máscara de Venturi. 4. Aplicação de compressa quente. 5. Avaliação do pé diabético. 6. Cateterismo Vesical de Alívio. 7. Cateterismo Vesical de Demora (Passagem/troca, incluindo em cistotomia) / Troca de sonda de Folley. 8. Cauterização química de pequenas lesões de pele e mucosa. 9. Cirurgia da unha (cantoplastia e/ou cantotomia). 10. Coleta de urina para realização de EAS / Urocultura em participantes que demandem ou façam uso de algum tipo de cateterismo vesical. 11. Coleta para exame citopatológico cérvico-vaginal. 12. Colocação de imobilização provisória (colar cervical e tipoia). 13. Controle/Aferição sinais vitais e antropometria. 14. Curativo em Ferida simples. 15. Drenagem de hematoma subungueal. 16. Eletrocardiografia. 17. Excisão de lesão e/ou sutura de ferimentos da pele, anexos e mucosas. 18. Exérese de calosidades, cistos e lipomas. 19. Exérese de nevos. 20. Incisão e drenagem de abcessos. 21. Inserção e remoção de DIU. 22. Lavagem auditiva e remoção de cerume. 23. Nebulização/inalação. 24. Realização de teste de glicemia capilar. 25. Remoção de molusco contagioso. 26. Retirada de Dermatobiose Penetrar (Berne ou Miiase). 27. Retirada de pontos. 28. Retirada de Tunga Penetrans (Bicho de pé). 29. Retirada/remoção de corpo estranho em diferentes tecidos, mucosas e peças anatômicas. 30. Tamponamento de Epistaxe. 31. Tratamento/cuidado de queimaduras (exceto grandes queimados). 32. Troca de bolsa de colostomia / ileostomia;;;Emília Figueiredo Bezerra Braga;Diana Lau de Carvalho;;"Coordenação de Equipe Administrativa – Luciana Maria Lagos Lucas de Oliveira
+
+Gerente de Divisão  – Priscila Pissaia Pedroso
+
+Gerente de Área de Saúde Ocupacional – Mirtes Clavisso Fontes
+
+Gerente de Negociação e Relacionamento com Clientes – Helena Matos de Lima
+
+​​​Gerente de Regulação – Brunhilde Wall Dyck
+
+​​​Gerente de Atenção Integral a Saúde – Cristiane De Lourdes Marinho Gabriel";;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Londrina​;Rua Borba Gato, nº 976, Jardim Ipiranga, Londrina (PR) – CEP: 86010-630;PR;(43) 2101-3300;Fale com a CASSI | Central 0800 729 0080;33.719.485/0031-42;2ª a 6ª feira, das 8h às 18h.;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico e enfermeiro);
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Saúde do Trabalhador (a).";"1. Administração de Medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica.  2. Aplicação de compressa quente.  3. Cateterismo Vesical de Alívio.  4. Curativo em Ferida simples.  5. Drenagem de hematoma subungueal.  6. Excisão de lesão e/ou sutura de ferimentos da pele, anexos e mucosas.  7. Exérese de calosidades, cistos e lipomas.  8. Incisão e drenagem de abcessos.  9. Lavagem auditiva e remoção de cerume.  10. Nebulização/inalação. 11. Remoção de molusco contagioso.  12. Retirada de Dermatobiose Penetrar (Berne ou Miiase).  13. Retirada de pontos.  14. Retirada de Tunga Penetrans (Bicho de pé).  15. Tratamento/cuidado de queimaduras (exceto grandes queimados).  16. Avaliação do pé diabético.  17. Coleta para exame citopatológico cérvico-vaginal.  18. Controle/Aferição sinais vitais e antropometria.  19. Eletrocardiografia;Realização de teste de glicemia capilar.  20. Cirurgia da unha (cantoplastia e/ou cantotomia).  21. Cauterização química de pequenas lesões de pele e mucosa.  22. Retirada/remoção de corpo estranho em diferentes tecidos, mucosas e peças anatômicas.";;;;Simone de Andrade;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+Unidade CASSI Paraná;Rua Mateus Leme, nº 937, Bairro São Francisco, Curitiba (PR) – CEP: 80.510-192;PR;;Fale com a CASSI | Central 0800 729 0080;33.719-485/0021-70;;;;;;Para atendimento relacionado aos serviços administrativos, utilize exclusivamente os canais oficiais da CASSI: Central 0800 729 0080, Fale com a CASSI, site ou app CASSI.;Emília Figueiredo Bezerra Braga;;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Maringá;Rua Visconde de Nácar, nº 863, Zona 4, Maringá (PR) – CEP: 87014-300​​;PR;(44) 3112-1520;Fale com a CASSI | Central 0800 729 0080;33.719.485/0069-15;"2ª a 6ª feira, das 8h às 18h​​,
+ ";;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico e enfermeiro);
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Saúde do Trabalhador (a).";1. Curativo em Ferida simples.  2. Lavagem auditiva e remoção de cerume.  3. Troca de bolsa de colostomia / ileostomia.  4. Avaliação do pé diabético.  5. Controle/Aferição sinais vitais e antropometria.  6. Eletrocardiografia.  7. Realização de teste de glicemia capilar.  8. Administração de Medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica.  9. Aplicação de compressa quente.  10. Colocação de imobilização provisória (colar cervical e tipoia).;;;;;Viviane Aparecida Paccini de Andrade;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Porto Alegre Centro Norte;Avenida Cristóvão Colombo, nº 2240, 5º andar, bairro Floresta, Porto Alegre (RS) – CEP: 90560-001;RS;(51) 2139-8000;Fale com a CASSI | Central 0800 729 0080;33.719.485/0022-51;de 2ª a 6ª feira, das 8 às 18h;;Consulta médica adulto e infantil, sem horário agendado, Consulta agendada com médico de família, enfermeiro, nutricionista, assistente social e psicólogo (para participantes cadastrados na Estratégia de Saúde da Família), Procedimentos (retirada de pontos, lavagem auditiva, curativos, entre outros), Perícia médica para autorização de procedimentos, Atendimentos de Saúde Ocupacional (EPS, homologação de licença saúde, demissionais, entre outros) para funcionários do Banco do Brasil, Autorização de medicamentos de uso contínuo para participantes do plano Associados, Gerenciamento de doenças crônica, Gerenciamento de cuidados em saúde mental, Gerenciamento de cuidados destinados a pessoas com deficiência, Gerenciamento de atendimento em domicílio, Seguimento no cuidado pós alta hospitalar, Apoio e tratamento para a cessação do tabagismo, Avaliação do pé diabético, Medição da glicose capilar, Coleta de exame citopatológico (papanicolau) e planejamento familiar, Inserção de Dispositivo Intrauterino (DIU)​.;;;;Glenda dos Santos Corrêa Sena;Cassiane Prestes da Silveira Chazan ;;"Coordenação Equipe Administrativa – Ariane Collet​ ​ 
+
+Gerente de Divisão de Atenção à S​aúde – Cristine Alves Camara 
+
+​Gerente de Negociação e Relacionamento com Clientes e.e. – Greice Silva de Souza
+
+​Gerente de Regulação – Carina Monteiro Grimaldi 
+ 
+​Gerente de Atenção Integral a Saúde – Rochele Lemos Paiva";;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Porto Alegre Sul;Avenida Padre Cacique, 320 – 2º Andar – Menino Deus – Porto Alegre – RS – 90810-240​;RS;(51) 2104 -0133;Fale com a CASSI | Central 0800 729 0080;33.719.485/0074-82;de 2º a 6 feira, das 8 ás 18h;;"Consulta médica sem necessidade de agendamento ou atendidas em até 48 horas. Avaliação nutricional; Orientações e cuidados para o uso de sondas e ostomias; Curativos e retiradas de pontos; Avaliação do pé diabético; Administração de medicamentos injetáveis; Apoio e tratamento para a cessação do tabagismo; Coleta para exame citopatológico de colo uterino; Procedimento cirúrgicos de pequeno porte; Nebulização; Lavagem otológica; Planejamento familiar e implantação de DIU (Dispositivo Intrauterino); Seguimento no cuidado pós alta hospitalar; Acompanhamento diferenciado às pessoas com deficiência; Atendimento domiciliar para pessoas com dificuldade de locomoção.";;;;;Diego Pinheiro dos Santos;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Caxias do Sul;Rua Garibaldi, 791 salas 103 e 104 – Centro – Caxias do Sul (RS) – CEP 95080-190;RS;(54) 3770-0110;Fale com a CASSI | Central 0800 729 0080;33.719.485/0068-34;de 2º a 6 feira, das 8 ás 18h;; Consulta sem horário agendado das 8h às 12h, Consulta agendada com médico de família e enfermeiro, Aferição dos sinais vitais (pressão arterial, temperatura, frequência cardíaca e pulso arterial), Perícia médica para autorização de procedimentos, Exames Periódicos de Saúde, homologação de licença saúde, demissionais para funcionários do Banco do Brasil, Autorização de medicamentos de uso contínuo para participantes do plano Associados, Gerenciamento de atendimento em domicílio, Gerenciamento de doenças crônicas, Gerenciamento de cuidados em saúde mental, Gerenciamento de cuidados destinados a pessoas com deficiência, Apoio e tratamento para a cessação do tabagismo, Avaliação do pé diabético, Suporte na abstinência do tabagismo, Medição da glicose capilar, Seguimento no cuidado pós alta hospitalar.;;;;;;Lucimar da Silva Moura Thomasini;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Passo Fundo;Rua XV de Novembro, 885 salas 85 e 86 – Centro – Passo Fundo (RS) – CEP 99010-090;PR;(54) 3514-1246​​;Fale com a CASSI | Central 0800 729 0080;33.719.485/0063-20;de 2º a 6 feira, das 8 ás 18h;;Consultas, perícias, exames admissionais, exame de retorno ao trabalho, exames periódicos de saúde, acompanhamento dos participantes da política de assistência farmacêutica , acompanhamento das licenças-saúde e ações de educação e promoção da saúde.;;;;;;Liége Deni Wickert;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Pelotas;Rua Sete de Setembro, nº 160, sala 201, centro, Pelotas (RS) – CEP: 96015-300;PR;(53) 2310-0048;Fale com a CASSI | Central 0800 729 0080;33.719.485/0067-53;de 2ª a 6ª feira, das 8 às 18h.;;Consulta sem horário agendado das 8h às 12h, consulta agendada com​ médica e enfermeira de família das 12h às 18h, Perícia médica para autorização de procedimentos, aferição dos sinais vitais (pressão arterial, temperatura axilar, frequência cardíaca, frequência respiratória e saturação de oxigênio), exames periódicos de saúde, homologação de licença saúde e exames demissionais para funcionários do Banco do Brasil, autorização de medicamentos de uso contínuo para participantes do Plano Associados, gerenciamento de cuidados destinados a pessoas em assistência e internação domiciliar, gerenciamento de cuidados destinados a pessoas com doenças crônicas, gerenciamento de cuidados em saúde mental, gerenciamento de cuidados destinados a pessoas com deficiência, gerenciamento de cuidados destinados a pessoas na abstinência do tabagismo, ações de promoção da saúde e prevenção de doenças e agravos.;;;;;;Cargo vago;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Santa Maria;Rua Duque de Caxias, 1668 conjunto 701- Centro – Santa Maria (RS) – CEP 97015-190;PR;(55) 3922-1180;Fale com a CASSI | Central 0800 729 0080;33.719.485/0064-00;de 2º a 6 feira, das 8 ás 18h;;Consulta sem horário agendado das 08 às 12h, Consulta agendada com médico de família e enfermeiro, Aferição dos sinais vitais (pressão arterial, temperatura, frequência cardíaca e pulso arterial), Perícia médica para autorização de procedimentos, Exames Periódicos de Saúde, homologação de licença saúde, demissionais para funcionários do Banco do Brasil, Autorização de medicamentos de uso contínuo para participantes do plano Associados, Gerenciamento de atendimento em domicílio, Gerenciamento de doenças crônicas, Gerenciamento de cuidados em saúde mental, Gerenciamento de cuidados destinados a pessoas com deficiência, Apoio e tratamento para a cessação do tabagismo, Avaliação do pé diabético, Suporte na abstinência do tabagismo, Medição da glicose capilar, Coleta de citologia e planejamento familiar, Seguimento no cuidado pós alta hospitalar.;;;;;;Dyan Jamilles Brum Maia ;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+Unidade CASSI Santa Catarina;Rua Professor Hermínio Jacques – N°229 – Centro – Florianópolis (SC) – CEP 88015-180.;SC;(48) 3952-2900;Fale com a CASSI | Central 0800 729 0080;33.719.485/0025.85;de 2ª a 6ª feira, das 8h às 18h​.;;;;;Para atendimento relacionado aos serviços administrativos, utilize exclusivamente os canais oficiais da CASSI: Central 0800 729 0080, Fale com a CASSI, site ou app CASSI.;Eduardo Lourenço Barbosa;;;"​​​​Gerente de Negociação e Relacionamento com Clientes – Camila Kuentzer
+
+Gerente de Divisão de Saúde – Caroline Vogt​
+
+​Gerente de Regulação – Andreia Cristina Kuntze
+
+​Gerente de Atenção Integral a Saúde – Antonia Amaro Dagani";;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Florianópolis; Rua Professor Hermínio Jacques – N°229 – Centro – Florianópolis (SC) – CEP 88015-180;SC;(48) 3952-2900;Fale com a CASSI | Central 0800 729 0080;33.719.485/0026-85;de 2ª a 6ª feira, das 8h às 18h​.;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico, enfermeiro, técnico de enfermagem e equipe multiprofissional (assistente social e psicólogo);
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Especialidades que apoiam a equipe de APS: Endocrinologista, Ginecologista e Psiquiatria.
+3. Saúde do Trabalhador (a).
+4. Perícia Médica.";" 1. Administração de Medicamentos por via oral, intradérmica, nasal, ocular, otológica, parenteral, retal, subcutânea e tópica.  2. Administração de oxigênio por cateter nasal / Máscara de Venturi.  3. Curativo em Ferida simples.  4. Lavagem auditiva e remoção de cerume.  5. Nebulização/inalação.  6. Retirada de pontos.  7. Retirada de Tunga penetrans (Bicho de pé).  8. Tratamento/cuidado de queimaduras (exceto grandes queimados).  9. Avaliação do pé diabético.  10. Coleta para exame citopatológico cérvico-vaginal.  11. Controle/Aferição sinais vitais e antropometria.  12. Realização de teste de glicemia capilar.  13. Aplicação de compressa quente.  14. Cateterismo Vesical de Alívio.  15. Cateterismo Vesical de Demora (Passagem/troca, incluindo em cistotomia) / Troca de sonda de Folley.  16. Colocação de imobilização provisória (colar cervical e tipoia).  17. Drenagem de hematoma subungueal.  18. Excisão de lesão e/ou sutura de ferimentos da pele, anexos e mucosas.  19. Exérese de calosidades, cistos e lipomas.  20. Exérese de nevos.  21. Incisão e drenagem de abcessos.  22. Remoção de molusco contagioso.  23. Retirada de Dermatobiose (Berne ou Miíase).  24. Tamponamento de Epistaxe.  25. Troca de bolsa de colostomia / ileostomia. 26. Inserção e remoção de DIU Hormonal.
+";;;;Thiago Coronas;;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Joinville;Rua Dr. Marinho Lobo, 101 – 1º Andar – Centro – Joinville – CEP 89.201-020;SC;(47) 3509-1704;Fale com a CASSI | Central 0800 729 0080;33.719.485/0038-19;8h às 18h (segunda a sexta).;;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico e enfermeiro;
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Saúde do Trabalhador (a).
+3. Perícia Médica.";1. Administração de Medicamentos por via oral, intradérmica, intramuscular, nasal, ocular, otológica, subcutânea e tópica. 2. Retirada de pontos. 3. Avaliação do pé diabético. 4. Realização de teste de glicemia capilar. 5. Controle/Aferição sinais vitais e antropometria.;;;;;Juan De La Cruz Trincado Hevia Junior;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Blumenau;Rua João Pessoa (acesso pela rua Goiânia), 185 – Bairro da Velha – Blumenau (SC) – CEP 89.012-472;SC;(47) 3513-0595;Fale com a CASSI | Central 0800 729 0080;33.719.485/0039-08;8h às 18h (segunda a sexta);;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico e enfermeiro;
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Saúde do Trabalhador (a).
+3. Perícia Médica.";1. Administração de Medicamentos por via oral, intradérmica, intramuscular, nasal, ocular, otológica, subcutânea e tópica. 2. Retirada de pontos. 3. Avaliação do pé diabético. 4. Realização de teste de glicemia capilar. 5. Controle/Aferição sinais vitais e antropometria.;;;;;Anelice Della Justina;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI
+CliniCASSI Balneário Camboriú;Avenida Palestina, 1510 Bairro Das Nações – Balneário Camboriú – SC, CEP: 88338-010;SC;(47) 3508-0065;Fale com a CASSI | Central 0800 729 0080;33.719.485/0072-10;8h às 18​​​h (segunda a sexta);;"1. Atenção Primária à Saúde (APS):
+a. Cuidado de saúde realizado pelos profissionais: médico e enfermeiro;
+b. Educação em Saúde para grupos de participantes com enfoque na prevenção de doenças e promoção à saúde;
+c. Programas de Saúde (Bem Viver, Plena Idade, Atenção Domiciliar – PAD, Saúde Mental, Viva Coração, Assistência Farmacêutica – PAF e Gerenciamento de Condições Crônicas – GCC).
+2. Saúde do Trabalhador (a).
+3. Perícia Médica.";1. Administração de Medicamentos por via oral, intradérmica, intramuscular, nasal, ocular, otológica, subcutânea e tópica. 2. Retirada de pontos. 3. Avaliação do pé diabético. 4. Realização de teste de glicemia capilar. 5. Controle/Aferição sinais vitais e antropometria.;;;;;Karla Avelar Cavalcante​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​;;;Item;sites/GEO-DivisaodeMarketingeComunicacao/Lists/Dados_localize_CASSI

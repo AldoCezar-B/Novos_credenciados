@@ -1,12 +1,21 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph -->
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clínicas CASSI - Unidades</title>
+<!-- wp:code -->
+<pre class="wp-block-code"><code></code></pre>
+<!-- /wp:code -->
 
-</head>
+<!-- wp:html -->
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code></code></pre>
+<!-- /wp:code -->
+
+<!-- wp:html -->
 
 <body>
     <style>
@@ -357,6 +366,10 @@
                 errorElement.textContent = '';
 
                 // Carrega o arquivo CSV local
+
+                // arquivo csv wordpress https://www.cassi.com.br/wp-content/uploads/2026/01/localize-data.csv
+                // arquivo csv local para testes: ./data/localize-data.csv
+
                 const response = await fetch('./data/localize-data.csv');
 
                 if (!response.ok) {
@@ -594,6 +607,7 @@
 
             // Criar lista de procedimentos
             const listaProcedimentos = processarLista(dados.procedimentos);
+            
             // Criar lista de procedimentos
             const listaDemaisGerencias = processarLista(dados.Demais_Gerencias);
 
@@ -666,4 +680,13 @@
     </script>
 </body>
 
-</html>
+<!-- /wp:html -->
+
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph -->
+<!-- /wp:html -->
+
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph -->

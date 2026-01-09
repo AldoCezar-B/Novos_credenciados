@@ -1,12 +1,21 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph -->
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clínicas CASSI - Unidades</title>
+<!-- wp:code -->
+<pre class="wp-block-code"><code></code></pre>
+<!-- /wp:code -->
 
-</head>
+<!-- wp:html -->
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code></code></pre>
+<!-- /wp:code -->
+
+<!-- wp:html -->
 
 <body>
     <style>
@@ -58,11 +67,9 @@
         }
 
         body {
-            background-color: var(--cinza-bg);
+
             margin: 0;
             padding: 20px;
-            /* CliniCASSI Porto Alegre Centro Norte */
-            /* position: absolute;  Removed to avoid layout shifting when flex items wrap */
             font-family: 'Roboto';
             font-style: normal;
             color: var(--azul-2);
@@ -74,8 +81,7 @@
             width: fit-content;
             padding: 5px;
             border-radius: 8px;
-            margin-bottom: 20px;
-            margin-left: 100px;
+
             text-align: left;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
@@ -137,27 +143,45 @@
             list-style: none;
         }
 
-        .card-titulo,
-        h3 {
-            font-weight: 600;
-            font-size: 24px;
-            background-color: var(--amarelo);
-            color: var(--azul-1);
+        .card-titulo {
+            display: flex;
+        }
+
+        .card-titulo {
+
+            background-color: none;
+            background-color: none;
+
             margin: auto 30px;
-            padding: 5px 10px;
+
             min-height: 65px;
             border-radius: 10px;
             text-align: left;
         }
 
-        .card-titulo {
-            display: flexbox;
+        .h3-titulo {
+            padding: 5px 15px;
+            font-weight: 500;
+            font-size: 24px;
+            color: var(--Cassi-Dark-Blue);
+        }
+
+        .card-header,
+        img {
+
+            width: 100px;
+            height: 100px;
         }
 
         .card-label-adress {
             height: 70px;
 
             margin: 4px 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #0A58CA;
         }
 
         .exp-container {
@@ -357,6 +381,10 @@
                 errorElement.textContent = '';
 
                 // Carrega o arquivo CSV local
+
+                // arquivo csv wordpress https://www.cassi.com.br/wp-content/uploads/2026/01/localize-data.csv
+                // arquivo csv local para testes: ./data/localize-data.csv
+
                 const response = await fetch('./data/localize-data.csv');
 
                 if (!response.ok) {
@@ -594,11 +622,15 @@
 
             // Criar lista de procedimentos
             const listaProcedimentos = processarLista(dados.procedimentos);
+
             // Criar lista de procedimentos
             const listaDemaisGerencias = processarLista(dados.Demais_Gerencias);
 
             card.innerHTML = `
-                <h3 class="card-titulo">${escapeHtml(dados.Title)}</h3>
+            <div class="card-titulo">
+            <img src="./data/img/localize a cassi icone.png">   
+            <h3 class="h3-titulo">${escapeHtml(dados.Title)}</h3>
+            </div>
             <div class="card-dados">
                 <div class="card-label-adress">
                 <span class="card-label"><b> Endereço:</b> ${escapeHtml(dados.endereco)} </span>
@@ -607,7 +639,7 @@
                 </div>
                 <span class="card-label"><b> Telefone:</b> ${escapeHtml(dados.telefone)} </span>
                 <br>
-                <span class="card-label"><b> Contato:</b> ${escapeHtml(dados.contato)} </span>
+                <span class="card-label"><b> Contato:</b> <a href="https://servicosonline.cassi.com.br/FaleCassi/Protocolo"> Fale com a CASSI |</a>  Central 0800 729 0080</span>
                 <br>
                 <span class="card-label"><b>CNPJ:</b> ${escapeHtml(dados.cnpj)} </span>
                 <br>
@@ -666,4 +698,13 @@
     </script>
 </body>
 
-</html>
+<!-- /wp:html -->
+
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph -->
+<!-- /wp:html -->
+
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph -->

@@ -278,10 +278,10 @@
             margin: 8px;
             list-style-type: none;
             line-height: 1.4;
-            background-color: var(--Cassi-Silver-1);
+            background-color: var(--Cassi-Dark-green);
             border-radius: 10px;
             padding: 15px;
-            color: var(--dar);
+            color: var(--branco);
         }
 
 
@@ -423,7 +423,7 @@
     <div class="filtro-container">
         <label for="filtro-uf">Filtrar por UF:</label>
         <select id="filtro-uf">
-            <option value="">-- Escolha uma UF --</option>
+            <option value="df">DF</option>
             <!-- Outras UFs serão adicionadas dinamicamente -->
         </select>
     </div>
@@ -459,9 +459,6 @@
 
             // Iniciar carregamento dos dados
             loadRemoteCSV();
-
-            // Inicializar com mensagem de escolha
-            cardsContainer.innerHTML = '<div class="mensagem-vazia">Escolha uma UF para visualizar as clínicas.</div>';
         });
 
         // Função para carregar o CSV
@@ -472,7 +469,7 @@
                 errorElement.textContent = '';
 
                 // Carrega o arquivo CSV local
-                // link sharepoint https://cassi.sharepoint.com/:x:/r/sites/GEO-DivisaodeMarketingeComunicacao/Documentos%20Compartilhados/Inova%20cassi%20ampliou/localize-data.csv?d=w688874858eaa4e6baccf9d2c2e382ed5&csf=1&web=1&e=lyJ0Sj
+
                 // arquivo csv wordpress https://www.cassi.com.br/wp-content/uploads/2026/01/localize-data.csv
                 // arquivo csv local para testes: ./data/localize-data.csv
 
@@ -512,7 +509,7 @@
                 popularSeletorUF(dadosClinicas);
 
                 // Filtra e exibe as unidades (DF por padrão)
-                filtrarUnidades('', dadosClinicas);
+                filtrarUnidades('df', dadosClinicas);
 
                 loadingElement.style.display = 'none';
 
@@ -577,12 +574,8 @@
         function popularSeletorUF(dados) {
             const ufs = [...new Set(dados.map(unidade => unidade.uf))].filter(uf => uf);
 
-            // Ordenar UFs alfabeticamente
-            ufs.sort();
-
             const seletor = document.getElementById('filtro-uf');
-            // Mantém apenas a primeira opção (-- Escolha uma UF --)
-            seletor.innerHTML = '<option value=""> Escolha uma UF </option>';
+            seletor.innerHTML = ''; // Limpa opções existentes
 
             ufs.forEach(uf => {
                 const option = document.createElement('option');
@@ -594,13 +587,6 @@
 
         // Função para filtrar unidades por UF
         function filtrarUnidades(uf) {
-            // Se não houver UF selecionada (string vazia), mostrar mensagem sem unidades
-            if (!uf) {
-                cardsContainer.innerHTML = '<div class="mensagem-vazia">Escolha uma UF para visualizar as clínicas.</div>';
-                dadosFiltrados = [];
-                return;
-            }
-
             const unidadesFiltradas = dadosClinicas.filter(unidade =>
                 unidade.uf && unidade.uf.toLowerCase() === uf.toLowerCase()
             );
@@ -614,7 +600,7 @@
             cardsContainer.innerHTML = '';
 
             if (unidades.length === 0) {
-                cardsContainer.innerHTML = '<div class="mensagem-vazia">Nenhuma clínica encontrada para esta UF.</div>';
+                cardsContainer.innerHTML = '<div class="mensagem-vazia">Nenhuma unidade encontrada para esta UF.</div>';
                 return;
             }
 
@@ -646,7 +632,7 @@
                 });
             }
 
-            // Função auxiliar para processar listas - VERSÃO CORRIGIDA
+            // Função auxiliar para processar listas com split por "|" ou outros separadores
             function processarLista(texto) {
                 if (!texto) return '<li>Nenhuma informação disponível</li>';
 
@@ -660,119 +646,59 @@
                 s = s.replace(/<br\s*\/?>/gi, '\n');
                 s = s.replace(/(&#13;|&#10;|\\r\\n|\\n|\\r)/gi, '\n');
 
-                // DEBUG: Verificar o conteúdo
-                console.log('Texto original:', s);
+                // Divide por pipe em partes de topo e limpa
+                const partesTopo = s.split(/\|/).map(p => p.trim()).filter(p => p !== '');
 
-                // CASO 1: Se o texto contém números seguidos de ponto (1., 2., etc.)
-                if (/\b\d+\.\s+/.test(s)) {
-                    console.log('Detectado formato com números numerados (1., 2., etc.)');
+                const itens = [];
 
-                    // Divide por números seguidos de ponto
-                    const itens = [];
+                partesTopo.forEach(parte => {
+                    // Quebra em linhas e também separa por ponto-e-vírgula
+                    const linhas = parte.split(/\r?\n/).flatMap(l => l.split(';')).map(l => l.trim()).filter(l => l !== '');
 
-                    // Expressão regular para capturar "número. texto" até o próximo "número."
-                    const regex = /(\d+)\.\s+([^]*?)(?=\s*\d+\.\s|$)/g;
-
-                    let match;
-                    while ((match = regex.exec(s + ' 999. ')) !== null) { // Adiciona um marcador final
-                        if (match[1] !== '999') { // Ignora o marcador final
-                            const titulo = match[2].trim().replace(/\.\s*$/, '');
-                            if (titulo) {
-                                // Verifica se há subitens com letras (a., b., etc.)
-                                const subitens = [];
-                                const subRegex = /([a-z])\.\s+([^]*?)(?=\s*[a-z]\.\s|$)/gi;
-                                let subMatch;
-                                let subTexto = titulo;
-
-                                while ((subMatch = subRegex.exec(titulo)) !== null) {
-                                    // Se encontrar subitens, remove do título principal
-                                    subitens.push(subMatch[2].trim());
-                                    subTexto = subTexto.replace(subMatch[0], '');
-                                }
-
-                                if (subitens.length > 0) {
-                                    itens.push({
-                                        title: subTexto.trim().replace(/\s*;\s*$/, ''),
-                                        subs: subitens
-                                    });
-                                } else {
-                                    itens.push({
-                                        title: titulo,
-                                        subs: []
-                                    });
-                                }
-                            }
-                        }
-                    }
-
-                    if (itens.length > 0) {
-                        console.log('Itens encontrados com regex:', itens);
-                        return criarHTMLLista(itens);
-                    }
-                }
-
-                // CASO 2: Divide por ponto e vírgula se houver
-                if (s.includes(';')) {
-                    console.log('Detectado formato com ponto e vírgula');
-                    const partes = s.split(';').map(p => p.trim()).filter(p => p !== '');
-
-                    const itens = [];
-                    partes.forEach(parte => {
-                        // Verifica se começa com número
-                        const numMatch = parte.match(/^(\d+)\.\s*(.+)$/);
-                        if (numMatch) {
-                            itens.push({ title: numMatch[2].trim(), subs: [] });
-                        } else {
-                            itens.push({ title: parte, subs: [] });
-                        }
-                    });
-
-                    if (itens.length > 0) {
-                        return criarHTMLLista(itens);
-                    }
-                }
-
-                // CASO 3: Divide por newlines
-                const linhas = s.split(/\r?\n/).map(l => l.trim()).filter(l => l !== '');
-
-                if (linhas.length > 0) {
-                    console.log('Dividindo por linhas:', linhas);
-                    const itens = [];
+                    let atual = null;
 
                     linhas.forEach(linha => {
-                        // Remove números no início da linha
-                        const textoLimpo = linha.replace(/^\d+\.\s*/, '').trim();
-                        if (textoLimpo) {
-                            itens.push({ title: textoLimpo, subs: [] });
+                        if (/^\d+\./.test(linha)) {
+                            // item numerado
+                            const titulo = linha.replace(/^\d+\.\s*/, '').replace(/\.+$/, '').trim();
+                            atual = { title: titulo, subs: [] };
+                            itens.push(atual);
+                        } else if (/^[a-zA-Z]\./.test(linha)) {
+                            // subitem letra
+                            const sub = linha.replace(/^[a-zA-Z]\.(\s*)/, '').replace(/\.+$/, '').trim();
+                            if (atual) {
+                                atual.subs.push(sub);
+                            } else {
+                                // caso não haja um item numerado antes, cria um item simples e adiciona como subs
+                                atual = { title: '', subs: [sub] };
+                                itens.push(atual);
+                            }
+                        } else {
+                            // linha livre: se existir um item atual sem subs, concatena ao título; caso contrário cria novo item
+                            if (atual && atual.subs.length === 0 && atual.title) {
+                                atual.title = (atual.title + ' ' + linha).trim();
+                            } else {
+                                atual = { title: linha.replace(/\.+$/, '').trim(), subs: [] };
+                                itens.push(atual);
+                            }
                         }
                     });
+                });
 
-                    if (itens.length > 0) {
-                        return criarHTMLLista(itens);
-                    }
-                }
-
-                // CASO 4: Fallback - retorna como item único
-                return '<li>' + escapeHtml(s) + '</li>';
-            }
-
-            // Função auxiliar para criar HTML da lista
-            function criarHTMLLista(itens) {
                 if (itens.length === 0) return '<li>Nenhuma informação disponível</li>';
 
+                // Monta HTML com <ol> numerado e, quando houver subs, <ol type="a"> para letras
                 let html = '<ol>';
                 itens.forEach(it => {
-                    if (it.title) {
-                        html += `<li>${escapeHtml(it.title)}`;
-                        if (it.subs && it.subs.length > 0) {
-                            html += '<ol type="a">';
-                            it.subs.forEach(sub => {
-                                html += `<li>${escapeHtml(sub)}</li>`;
-                            });
-                            html += '</ol>';
-                        }
-                        html += '</li>';
+                    html += `<li>${escapeHtml(it.title)}`;
+                    if (it.subs && it.subs.length) {
+                        html += '<ol type="a">';
+                        it.subs.forEach(sub => {
+                            html += `<li>${escapeHtml(sub)}</li>`;
+                        });
+                        html += '</ol>';
                     }
+                    html += '</li>';
                 });
                 html += '</ol>';
 
@@ -789,65 +715,65 @@
             const listaDemaisGerencias = processarLista(dados.Demais_Gerencias);
 
             card.innerHTML = `
-    <div class="card-titulo">
-    <button class="maps-button" onclick="pesquisarNoGoogleMaps('${dados.endereco.replace(/'/g, "\\'")}')">
-    <img class="card-icon" src="https://www.cassi.com.br//wp-content/uploads/2026/01/localize-a-cassi-icone.png" alt="Google Maps">   
-    </button>
-    <h3 class="h3-titulo">${escapeHtml(dados.Title)}</h3>
-    </div>
-    <div class="card-dados">
-        <div class="card-label-adress">
-        <span class="card-label"><b class="negrito" > Endereço:</b> ${escapeHtml(dados.endereco)} </span>
-
-        </div>
-        
-        <span class="card-label"><b class="negrito" > Telefone:</b> ${escapeHtml(dados.telefone)} </span>
-        <br>
-        <span class="card-label"><b class="negrito" > Contato:</b> <a href="https://servicosonline.cassi.com.br/FaleCassi/Protocolo"> Fale com a CASSI |</a>  Central 0800 729 0080</span>
-        <br>
-        <span class="card-label"><b class="negrito" >CNPJ:</b> ${escapeHtml(dados.cnpj)} </span>
-        <br>
-        <span class="card-label"><b class="negrito" >Horário de atendimento:</b> ${escapeHtml(dados.horario_atendimento)} </span>
-    </div>
-
-       
-
-        <nav class="exp-container" id="drop-1">
-            <h4 class="exp-title"> <b class="negrito" >Serviços Oferecidos:  </b></h4>
-            <div class="exp-content">
-                <div class="lista-servicos">
-                    ${listaServicos}
-                </div>
+            <div class="card-titulo">
+            <button class="maps-button" onclick="pesquisarNoGoogleMaps('${dados.endereco.replace(/'/g, "\\'")}')">
+            <img class="card-icon" src="https://www.cassi.com.br//wp-content/uploads/2026/01/localize-a-cassi-icone.png" alt="Google Maps">   
+            </button>
+            <h3 class="h3-titulo">${escapeHtml(dados.Title)}</h3>
             </div>
-        </nav>
+            <div class="card-dados">
+                <div class="card-label-adress">
+                <span class="card-label"><b class="negrito" > Endereço:</b> ${escapeHtml(dados.endereco)} </span>
 
-        <nav class="exp-container" id="drop-2">
-            <h4 class="exp-title"><b class="negrito" >Procedimentos:</b></h4>
-            <div class="exp-content">
-                <div class="lista-servicos">
-                    ${listaProcedimentos}
                 </div>
-            </div> 
-        </nav>
-        
-        <div class="gerencias">
-            <p class="ger"><b class="negrito" >Ger. da Unidade:</b> ${escapeHtml(dados.gerente_unidade)}</p>
-
-            <p class="ger"><b class="negrito" >Ger. Clinica:</b> ${escapeHtml(dados.gerente_clinica)}</p>
-
-            <p class="ger"><b class="negrito" >Enfermeiro(a) supervizor(a):</b> ${escapeHtml(dados.Enfermeiro_a_Supervisor_a_)}</p>
-
-        </div> 
-
-        <nav class="exp-container" id="drop-3">
-            <h4 class="exp-title"><b class="negrito" >Demais Gerências:</b></h4>
-            <div class="exp-content">
-                <div class="lista-servicos">
-                    ${listaDemaisGerencias}
-                </div>
+                
+                <span class="card-label"><b class="negrito" > Telefone:</b> ${escapeHtml(dados.telefone)} </span>
+                <br>
+                <span class="card-label"><b class="negrito" > Contato:</b> <a href="https://servicosonline.cassi.com.br/FaleCassi/Protocolo"> Fale com a CASSI |</a>  Central 0800 729 0080</span>
+                <br>
+                <span class="card-label"><b class="negrito" >CNPJ:</b> ${escapeHtml(dados.cnpj)} </span>
+                <br>
+                <span class="card-label"><b class="negrito" >Horário de atendimento:</b> ${escapeHtml(dados.horario_atendimento)} </span>
             </div>
-        </nav>
-    `;
+
+               
+
+                <nav class="exp-container" id="drop-1">
+                    <h4 class="exp-title"> <b class="negrito" >Serviços Oferecidos:  </b></h4>
+                    <div class="exp-content">
+                        <ul class="lista-servicos">
+                            ${listaServicos}
+                        </ul>
+                    </div>
+                </nav>
+
+                <nav class="exp-container" id="drop-2">
+                    <h4 class="exp-title"><b class="negrito" >Procedimentos:</b></h4>
+                    <div class="exp-content">
+                        <ul class="lista-servicos">
+                            ${listaProcedimentos}
+                        </ul>
+                    </div> 
+                </nav>
+                
+                <div class="gerencias">
+                    <p class="ger"><b class="negrito" >Ger. da Unidade:</b> ${escapeHtml(dados.gerente_unidade)}</p>
+
+                    <p class="ger"><b class="negrito" >Ger. Clinica:</b> ${escapeHtml(dados.gerente_clinica)}</p>
+
+                    <p class="ger"><b class="negrito" >Enfermeiro(a) supervizor(a):</b> ${escapeHtml(dados.Enfermeiro_a_Supervisor_a_)}</p>
+
+                </div> 
+
+                <nav class="exp-container" id="drop-3">
+                    <h4 class="exp-title"><b class="negrito" >Demais Gerências:</b></h4>
+                    <div class="exp-content">
+                        <ul class="lista-servicos">
+                            ${listaDemaisGerencias}
+                        </ul>
+                    </div>
+                </nav>
+            `;
 
             // Adicionar funcionalidade de acordeão
             const expansores = card.querySelectorAll('.exp-container');
@@ -887,30 +813,6 @@
             console.log('Pesquisando no Google Maps:', enderecoLimpo);
             console.log('URL gerada:', urlMaps);
         };
-    </script>
-
-    <script>
-        // No início do loadRemoteCSV(), adicione:
-        console.log('Iniciando carregamento do CSV...');
-
-        // Após o fetch, adicione:
-        if (!response.ok) {
-            throw new Error(`Erro HTTP ${response.status}`);
-        }
-
-        const csvData = await response.text();
-
-        // DEBUG: Mostrar informações
-        console.log('Status da resposta:', response.status);
-        console.log('Tipo do conteúdo:', response.headers.get('content-type'));
-        console.log('Dados recebidos (primeiros 200 chars):', csvData.substring(0, 200));
-
-        // Verifique se o CSV tem conteúdo válido
-        if (!csvData || csvData.trim().length === 0) {
-            throw new Error('Arquivo CSV vazio ou inválido');
-        }
-
-        debugCSV(csvData); // Chama função de debug
     </script>
 </body>
 

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD CSV - SharePoint</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+
+        h1 {
+            color: #0078d4;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e1e1e1;
+            padding-bottom: 10px;
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        button {
+            background-color: #0078d4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #005a9e;
+        }
+
+        button.delete {
+            background-color: #d13438;
+        }
+
+        button.delete:hover {
+            background-color: #a4262c;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f8f8f8;
+            font-weight: 600;
+            color: #333;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            display: none;
+        }
+
+        .status.success {
+            background-color: #dff6dd;
+            color: #107c10;
+            display: block;
+        }
+
+        .status.error {
+            background-color: #fed9cc;
+            color: #d83b01;
+            display: block;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            color: #0078d4;
+        }
+
+        .export-btn {
+            background-color: #107c10;
+        }
+
+        .export-btn:hover {
+            background-color: #0e700e;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>📊 Gerenciador de Dados - CSV SharePoint</h1>
+
+        <div id="status" class="status"></div>
+
+        <div class="controls">
+            <button onclick="showAddModal()">➕ Adicionar Novo</button>
+            <button onclick="loadCSV()" id="refreshBtn">🔄 Atualizar Dados</button>
+            <button onclick="exportToCSV()" class="export-btn">📥 Exportar CSV</button>
+            <div style="margin-left: auto;">
+                <input type="text" id="searchInput" placeholder="🔍 Buscar..." onkeyup="searchTable()"
+                    style="padding: 8px;">
+            </div>
+        </div>
+
+        <div id="loading" class="loading">
+            Carregando dados...
+        </div>
+
+        <div id="tableContainer">
+            <!-- Tabela será gerada aqui dinamicamente -->
+        </div>
+    </div>
+
+    <!-- Modal para adicionar/editar -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <h2 id="modalTitle">Adicionar Novo Registro</h2>
+            <form id="dataForm" onsubmit="saveData(event)">
+                <div id="formFields">
+                    <!-- Campos serão gerados dinamicamente -->
+                </div>
+                <div class="modal-buttons">
+                    <button type="button" onclick="closeModal()">Cancelar</button>
+                    <button type="submit">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de confirmação -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <h2>Confirmar Exclusão</h2>
+            <p>Tem certeza que deseja excluir este registro?</p>
+            <div class="modal-buttons">
+                <button type="button" onclick="closeConfirmModal()">Cancelar</button>
+                <button type="button" onclick="confirmDelete()" class="delete">Excluir</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="app.js"></script>
+    <script>
+        async function loadCSVDirect() {
+            showLoading(true);
+            showStatus('Tentando acessar o arquivo...', '');
+
+            // URL do seu arquivo (use a que você forneceu)
+            const fileUrl = 'https://cassi.sharepoint.com/:x:/r/sites/GEO-DivisaodeMarketingeComunicacao/Documentos%20Compartilhados/Inova%20cassi%20ampliou/localize-data.csv?d=w688874858eaa4e6baccf9d2c2e382ed5&csf=1&web=1&e=MfoFdy';
+
+            try {
+                // Tenta com diferentes métodos
+                let response = null;
+
+                // Método 1: Fetch normal
+                response = await fetch(fileUrl, {
+                    mode: 'cors',
+                    credentials: 'include'
+                });
+
+                // Se falhar, tenta método alternativo
+                if (!response.ok) {
+                    // Método 2: Usando XMLHttpRequest (que lida melhor com autenticação do navegador)
+                    response = await fetchWithAuth(fileUrl);
+                }
+
+                if (response && response.ok) {
+                    const csvText = await response.text();
+
+                    // Verifica se é um CSV válido ou página de login
+                    if (csvText.includes('Sign in') || csvText.includes('login.microsoftonline.com')) {
+                        throw new Error('Requer autenticação. Faça login no SharePoint primeiro.');
+                    }
+
+                    parseCSV(csvText);
+                    renderTable();
+                    showStatus('Dados carregados com sucesso!', 'success');
+
+                    // Salva localmente para backup
+                    localStorage.setItem('csv_backup', csvText);
+
+                } else {
+                    throw new Error('Falha ao carregar arquivo');
+                }
+
+            } catch (error) {
+                console.error('Erro detalhado:', error);
+
+                // Tenta método via iframe (para herdar sessão)
+                try {
+                    await loadCSVviaIframe();
+                } catch (iframeError) {
+                    showStatus(`Erro: ${error.message}. Usando dados locais.`, 'error');
+                    loadLocalData();
+                }
+
+            } finally {
+                showLoading(false);
+            }
+        }
+
+        // Método alternativo usando XMLHttpRequest
+        function fetchWithAuth(url) {
+            return new Promise((resolve, reject) => {
+                const xhr = new XMLHttpRequest();
+                xhr.open('GET', url);
+                xhr.withCredentials = true; // Importante: envia cookies
+
+                xhr.onload = function () {
+                    if (xhr.status >= 200 && xhr.status < 300) {
+                        resolve({
+                            ok: true,
+                            text: () => Promise.resolve(xhr.responseText),
+                            status: xhr.status
+                        });
+                    } else {
+                        reject(new Error(`HTTP ${xhr.status}`));
+                    }
+                };
+
+                xhr.onerror = reject;
+                xhr.send();
+            });
+        }
+
+        // Método usando iframe para herdar sessão
+        function loadCSVviaIframe() {
+            return new Promise((resolve, reject) => {
+                const iframe = document.createElement('iframe');
+                iframe.style.display = 'none';
+                iframe.src = 'https://cassi.sharepoint.com/sites/GEO-DivisaodeMarketingeComunicacao/_layouts/15/download.aspx?UniqueId=w688874858eaa4e6baccf9d2c2e382ed5'; // Extraia o UniqueId do seu link
+
+                iframe.onload = function () {
+                    try {
+                        // Tenta acessar o conteúdo do iframe
+                        const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                        const csvText = iframeDoc.body.innerText;
+
+                        if (csvText && csvText.length > 0 && csvText.includes(',')) {
+                            parseCSV(csvText);
+                            renderTable();
+                            resolve();
+                        } else {
+                            reject(new Error('Conteúdo inválido'));
+                        }
+                    } catch (e) {
+                        reject(e);
+                    } finally {
+                        document.body.removeChild(iframe);
+                    }
+                };
+
+                iframe.onerror = reject;
+                document.body.appendChild(iframe);
+
+                // Timeout
+                setTimeout(() => reject(new Error('Timeout')), 10000);
+            });
+        }
+    </script>>
+</body>
+
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD CSV - SharePoint Login</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0078d4 0%, #005a9e 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 450px;
+            padding: 40px;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo h1 {
+            color: #0078d4;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .logo p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .input-group label {
+            font-weight: 500;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .input-group input {
+            padding: 14px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #0078d4;
+        }
+
+        .btn-login {
+            background: #0078d4;
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn-login:hover {
+            background: #005a9e;
+        }
+
+        .btn-login:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .microsoft-login {
+            background: #2f2f2f;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+
+        .microsoft-login:hover {
+            background: #1f1f1f;
+        }
+
+        .microsoft-login img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 20px 0;
+            position: relative;
+            color: #666;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 45%;
+            height: 1px;
+            background: #ddd;
+        }
+
+        .divider::before {
+            left: 0;
+        }
+
+        .divider::after {
+            right: 0;
+        }
+
+        .status-message {
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            display: none;
+            font-size: 14px;
+        }
+
+        .status-message.success {
+            background: #dff6dd;
+            color: #107c10;
+            display: block;
+        }
+
+        .status-message.error {
+            background: #fed9cc;
+            color: #d83b01;
+            display: block;
+        }
+
+        .status-message.info {
+            background: #c7e0f4;
+            color: #005a9e;
+            display: block;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .loading-spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #0078d4;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .api-config {
+            background: #f8f8f8;
+            border-radius: 6px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        .api-config summary {
+            cursor: pointer;
+            font-weight: 500;
+            color: #0078d4;
+            margin-bottom: 10px;
+        }
+
+        .api-config label {
+            font-size: 12px;
+            color: #666;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .api-config input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .btn-save-config {
+            background: #107c10;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .btn-save-config:hover {
+            background: #0e700e;
+        }
+    </style>
+    <!-- MSAL Library -->
+    <script type="text/javascript" src="https://alcdn.msauth.net/browser/2.28.3/js/msal-browser.min.js"></script>
+</head>
+
+<body>
+    <div class="login-container">
+        <div class="logo">
+            <h1>🔐 SharePoint CSV Editor</h1>
+            <p>Autentique-se para acessar e editar o arquivo CSV</p>
+        </div>
+
+        <div id="statusMessage" class="status-message"></div>
+
+        <div id="loading" class="loading">
+            <div class="loading-spinner"></div>
+            <p>Autenticando...</p>
+        </div>
+
+        <div class="login-form">
+            <button class="microsoft-login" onclick="loginWithMicrosoft()">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEiIGhlaWdodD0iMjEiIHZpZXdCb3g9IjAgMCAyMSAyMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMSAzLjI1QTEuMjUgMS4yNSAwIDAgMCAwIDQuNXYxMkExLjI1IDEuMjUgMCAwIDAgMS4yNSAxOGg2Ljc1di0yLjI1SDIuMjVWNC41aDguMjVWMmgtOS41eiIgZmlsbD0iI2ZmZiIvPjxwYXRoIGQ9Ik03LjUgMTguNzV2LTYuNzVoNi43NXYyLjI1SDkuNzV2NC41eiIgZmlsbD0iI2ZmZiIvPjxwYXRoIGQ9Ik0xNC4yNSAxNWg0LjVWMi4yNWgtNC41VjE1em0yLjI1LTkuNzVoMS41djEuNWgtMS41em0wIDNoMS41djEuNWgtMS41em0wIDNoMS41djEuNWgtMS41eiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg=="
+                    alt="Microsoft">
+                Entrar com Microsoft 365
+            </button>
+
+            <div class="divider">ou</div>
+
+            <form id="manualLoginForm" onsubmit="loginWithCredentials(event)">
+                <div class="input-group">
+                    <label for="username">Email ou usuário</label>
+                    <input type="text" id="username" name="username" placeholder="seu.email@cassi.com.br" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" name="password" placeholder="Sua senha" required>
+                </div>
+
+                <button type="submit" class="btn-login" id="btnLogin">
+                    Entrar
+                </button>
+            </form>
+        </div>
+
+        <details class="api-config">
+            <summary>Configurações Avançadas (Opcional)</summary>
+            <div>
+                <label for="clientId">Client ID do Azure AD:</label>
+                <input type="text" id="clientId" placeholder="00000000-0000-0000-0000-000000000000">
+
+                <label for="tenantId">Tenant ID:</label>
+                <input type="text" id="tenantId" placeholder="seusistema.onmicrosoft.com">
+
+                <label for="sharepointUrl">URL do SharePoint:</label>
+                <input type="text" id="sharepointUrl"
+                    value="https://cassi.sharepoint.com/sites/GEO-DivisaodeMarketingeComunicacao">
+
+                <button type="button" class="btn-save-config" onclick="saveConfig()">
+                    Salvar Configurações
+                </button>
+            </div>
+        </details>
+
+        <div class="footer">
+            <p>© 2024 Sistema de Gerenciamento CSV</p>
+            <p>Requer acesso ao SharePoint da Cassi</p>
+        </div>
+    </div>
+
+    <!-- Dashboard (inicialmente escondido) -->
+    <div id="dashboard" style="display: none;">
+        <!-- Conteúdo do CRUD será carregado aqui -->
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+
+</html>
